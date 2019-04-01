@@ -9,7 +9,7 @@ void quick_sort_r(vector<int> &array, int start, int end) {
         return;
     while(true) {
         while(j > start && array[--j] > array[pivot]);
-        while(i <= end && array[++i] < array[pivot]);
+        while(i < end && array[++i] < array[pivot]);
         if (i >= j) break;
         swap(array[i], array[j]);
     }
