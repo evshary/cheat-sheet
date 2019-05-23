@@ -3,3 +3,6 @@ This repo contains the cheat-sheet for programming, including programming langua
 
 # sort
 Implement several sorting algorithm in C and C++.
+
+# C
+Contain the syntax, usage, header for C.
