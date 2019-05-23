@@ -1,0 +1,7 @@
+# static
+
+# volatile
+
+# register
+
+# auto

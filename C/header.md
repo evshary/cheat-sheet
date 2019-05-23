@@ -92,3 +92,18 @@ Define the limit value of different types.
 * SCHAR_MIN, SHRT_MIN, INT_MIN, LONG_MIN, LLONG_MIN
 * SCHAR_MAX, SHRT_MAX, INT_MAX, LONG_MAX, LLONG_MAX
 * UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX
+
+# stdboo.h
+Define bool type and true/false.
+
+# stdio.h
+* type: size_t, FILE
+* define: NULL, EOF, SEEK_CUR, SEEK_END, SEEK_SET
+* file operation
+```c
+```
+* formatted I/O
+```c
+```
+
+# string.h
