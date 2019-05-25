@@ -1,3 +1,10 @@
+# header
+There are total 29 headers in C11. However there are 82 headers in POSIX 2008, including the headers in C99.
+
+Some headers, like `arpa/inet.h` or `sys/socket.h`, are only defined in POSIX 2008, not C11.
+
+You can refer to [the answer](https://stackoverflow.com/questions/2027991/list-of-standard-header-files-in-c-and-c) in stack overflow.
+
 # stdlib.h
 * [abs](https://en.cppreference.com/w/c/numeric/math/abs)
 ```c
@@ -93,7 +100,7 @@ Define the limit value of different types.
 * SCHAR_MAX, SHRT_MAX, INT_MAX, LONG_MAX, LLONG_MAX
 * UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX
 
-# stdboo.h
+# stdbool.h
 Define bool type and true/false.
 
 # stdio.h
@@ -107,3 +114,43 @@ Define bool type and true/false.
 ```
 
 # string.h
+
+# stdarg.h
+
+# time.h
+* type: [struct tm](https://en.cppreference.com/w/c/chrono/tm), [time_t](https://en.cppreference.com/w/c/chrono/time_t), [clock_t](https://en.cppreference.com/w/c/chrono/clock_t)
+  - time_t: seconds from 1970/1/1 00:00 UTC.
+  - clock_t: the unit is defined by every processor, ablt to be used with CLOCKS_PER_SEC.
+```c
+struct tm {
+  int tm_sec;   // 0-59, 60 for leap second
+  int tm_min;   // 0-59
+  int tm_hour;  // 0-23
+  int tm_mday;  // days of the month, 1-31
+  int tm_mon;   // months since Jan, 0-11
+  int tm_year;  // years from 1900
+  int tm_wday;  // days from Sunday, 0-6
+  int tm_yday;  // days from Jan 1, 0-365
+  int tm_isdst; // Daylight Saving Time flag
+};
+```
+* time manipulation: [difftime](https://en.cppreference.com/w/c/chrono/difftime), [time](https://en.cppreference.com/w/c/chrono/time), [clock](https://en.cppreference.com/w/c/chrono/clock)
+```c
+// time_end - time_beg
+double difftime(time_t time_end, time_t time_beg);
+time_t time(time_t *arg);
+clock_t clock(void);
+```
+* format conversion
+```c
+// from time_t to struct tm
+struct tm *gmtime(const time_t *time);  // not thread-safe
+struct tm *localtime(const time_t *time);  // not thread-safe
+// from struct tm to time_t
+time_t mktime(struct tm *time);
+// from time_t to char*
+char* ctime(const time_t* time); // not thread-safe
+// from struct tm to char*
+size_t strftime(char *restrict str, size_t count, 
+                const char *restrict format, const struct tm *restrict time);
+```
