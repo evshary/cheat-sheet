@@ -167,5 +167,11 @@ size_t strftime(char *restrict str, size_t count,
 ```
 
 # stdarg.h
+* [variadic functions](https://en.cppreference.com/w/c/variadic)
+```c
+void va_start(va_list ap, parm_n);
+T va_arg(va_list ap, T);
+void va_end(va_list ap);
+```
 
 # string.h

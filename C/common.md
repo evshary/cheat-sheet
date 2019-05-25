@@ -4,7 +4,34 @@
 
 # MACRO
 
-# variable-argument
+# variadic functions
+* Declare variadic functions
+```c
+void func(int arg1, ...)
+{
+  va_list args;
+  // First arguemnt is arg1
+  va_start(args, arg1);
+  // The second argument is int
+  va_arg(ap, int);
+  // The third argument is int
+  va_arg(ap, char);
+  va_end(args);
+}
+```
+* Use format for variadic functions
+```c
+void parse_format(const char *format, ...)
+{
+  va_list args;
+  char buf[100];
+  va_start(args, format);
+  // parse format and put into the buffer
+  vsnprintf(buf, sizeof(buf), format, args); // include in stdio.h
+  va_end(args);
+  // Do something with the buf
+}
+```
 
 # file operation
 * read file
