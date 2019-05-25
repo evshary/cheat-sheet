@@ -106,16 +106,27 @@ Define bool type and true/false.
 # stdio.h
 * type: size_t, FILE
 * define: NULL, EOF, SEEK_CUR, SEEK_END, SEEK_SET
-* file operation
+* [file operation](https://en.cppreference.com/w/c/io)
 ```c
+FILE *fopen(const char *restrict filename, const char *restrict mode);  // not thread-safe
+int fclose(FILE *stream);
+int fflush(FILE *stream);  // synchronize with actual file
+int fscanf( FILE *restrict stream, const char *restrict format, ... );
+int fprintf( FILE *restrict stream, const char *restrict format, ... );
+long ftell( FILE *stream );
+int fseek(FILE *stream, long offset, int origin);
 ```
 * formatted I/O
 ```c
+// parse the string
+int scanf( const char *restrict format, ... );​
+int sscanf( const char *restrict buffer, const char *restrict format, ... );
+// output the format string
+​int printf( const char *restrict format, ... );​
+int sprintf( char *restrict buffer, const char *restrict format, ... );
+int snprintf( char *restrict buffer, size_t bufsz, 
+              const char *restrict format, ... );
 ```
-
-# string.h
-
-# stdarg.h
 
 # time.h
 * type: [struct tm](https://en.cppreference.com/w/c/chrono/tm), [time_t](https://en.cppreference.com/w/c/chrono/time_t), [clock_t](https://en.cppreference.com/w/c/chrono/clock_t)
@@ -154,3 +165,7 @@ char* ctime(const time_t* time); // not thread-safe
 size_t strftime(char *restrict str, size_t count, 
                 const char *restrict format, const struct tm *restrict time);
 ```
+
+# stdarg.h
+
+# string.h

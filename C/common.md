@@ -2,11 +2,51 @@
 
 # structure
 
-# file operation
+# MACRO
 
 # variable-argument
 
-# random
+# file operation
+* read file
+```c
+char buf[255];
+char ch;
+FILE* fp = fopen("abc.txt", "r");
+if(!fp) return -1;
+// read bytes
+ch = fgetc(fp);
+// read n bytes or until EOF
+fgets(buf, 255, (FILE*)fp);
+// format read or until space
+fscanf(fp, "%s", buf);
+if (feof(fp))
+  printf("Successfully read.");
+fclose(fp);
+```
+* write file
+```c
+FILE* fp = fopen("abc.txt", "w");
+// format print
+fprintf(fp, "TEST TEST\n");
+// print
+fputs("This is testing for fputs...\n", fp);
+// Sync with actual file (not necessary)
+fflush(fp);
+fclose(fp);
+```
+* get / move position
+```c
+FILE* fp = fopen("abc.txt", "w");
+// Get the current position
+int pos = ftell(fp);
+// Move the pointer to 10th bytes from the beginning of the file.
+fseek(fp, 10, SEEK_SET);
+// Move the pointer backward 5 bytes from the current position
+fseek(fp, -5, SEEK_CUR);
+// Move the pointer backward 5 bytes from the end of the file.
+fseek(fp, -5, SEEK_END);
+fclose(fp);
+```
 
 # time
 * calculate the execution time
@@ -58,4 +98,10 @@ time_t time_repr = mktime(&now_tm);
 printf("Date representation from time_t is %s\n", ctime(time_repr));
 ```
 
-# MACRO
+# random
+* Generate random (from 0 to 999)
+```c
+int ran;
+srand(time(NULL));
+ran = rand()%1000; // from 0 to 999
+```
