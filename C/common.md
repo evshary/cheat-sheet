@@ -133,7 +133,138 @@ typedef enum _NUMBER {
 NUMBER number;
 ```
 
-# MACRO
+# [MACRO](https://en.cppreference.com/w/c/preprocessor)
+* condition
+  - `#if`, `#ifdef`, `#ifndef`, `#elif`, `#else`, `#end`
+* source file
+  - `#include`
+* error
+  - `#error`: show error message to developers
+```c
+#ifndef XXXX
+#  error "You should define XXX"
+#endif
+```
+* replace
+  - `#define`, `#undef`
+  - reserved MACRO: `__FILE__`, `__LINE__`, `__DATE__`, `__TIME__`
+* command
+  - `#pragma`: tell compiler to do something
+```c
+// Ensure the file should be only included once
+#pragma once
+```
+## Other usage
+* Use `do{}while(0)`
+  - prevent dangling else
+  - Able to jump out of the loop.
+```c
+#define TEST_FUNC(VAR) \
+do { \
+  VAR *= 2; \
+  VAR++; \
+} while(0);
+
+if (var == 1)
+  // do something
+else
+  TEST_FUNC(var); // dangling else
+```
+* Use () in define to prevent error
+```c
+// error when ADD(1,2) * ADD(2,3) => 1+2 * 2+3
+#define ADD(a,b) a+b
+// correct
+#define ADD(a,b) (a+b)
+```
+* Transform str to "str"
+```c
+#define STR(exp) #exp
+// print "abc123"
+printf("%s\n", STR(abc123));
+```
+* concatenate
+  - example is from [here](https://github.com/embedded2016/raytracing/blob/master/objects.h).
+```c
+#define DECLARE_OBJECT(name) \
+	struct __##name##_node; \
+	typedef struct __##name##_node *name##_node; \
+	struct __##name##_node { \
+	name element; \
+	name##_node next; \
+	}; \
+	void append_##name(const name *X, name##_node *list); \
+	void delete_##name##_list(name##_node *list);
+
+DECLARE_OBJECT(light)
+DECLARE_OBJECT(rectangular)
+DECLARE_OBJECT(sphere)
+```
+* double MACRO
+```c
+// wrong way
+#define STR(s) #s
+
+void func1 {
+  printf("%s", STR(INT_MAX));  // print "INT_MAX"
+}
+// other way
+#define _STR(s) #s
+#define STR(s) _STR(s)
+
+void func2 {
+  printf("%s", STR(INT_MAX)); // print "0x7fffffff"
+}
+```
+* variable length argument
+```c
+#define DEBUG(...) printf(__VA_ARGS__)
+// WRONG: The below will become printf("abc",) while DEBUG("abc") (There is no other arguemnt)
+#define DEBUG(format, ...) printf(format, __VA_ARGS__)
+// RIGHT: We should use this
+#define DEBUG(format, ...) printf(format, ##__VA_ARGS__)
+```
+* generic type
+  - `_Generic`
+```c
+void int_func(int i) {
+  // do something
+}
+void char_func(char c) {
+  // do something
+}
+void default_func(double d){
+  // do something
+}
+#define func(T) \
+    _Generic((T), \
+        int: int_func, \
+        char: char_func, \
+        default: default_func \
+    )(T)
+
+...
+func(100);
+func('s');
+func(1.5);
+...
+```
+* Check OS
+```c
+#if defined(_WIN32)
+  // This is win32 or win64
+#elif defined(_WIN64)
+  // This is win64
+#elif defined(__linux__)
+  // This is Linux
+#elif defined(__unix__)
+  // This is Unix
+#elif defined(__APPLE__)
+  // This is MACOS
+#else
+  // This is other OS
+#endif
+```
 
 # variadic functions
 * Declare variadic functions
