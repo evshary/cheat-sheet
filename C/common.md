@@ -1,6 +1,137 @@
-# union
+# [union](https://en.cppreference.com/w/c/language/union)
+* The size is decided by the largest member
+```c
+union VAR {
+    char ch;
+    short sh;
+    int num;
+};
+union VAR var;
+```
+* typedef
+  - separation
+```c
+union _VAR {
+    char ch;
+    short sh;
+    int num;
+} VAR;
+typedef union _VAR VAR;
+VAR var;
+```
+  - combination
+```c
+typedef union _VAR {
+    char ch;
+    short sh;
+    int num;
+} VAR;
+VAR var;
+```
 
-# structure
+# [structure](https://en.cppreference.com/w/c/language/struct)
+* normal declare
+```c
+struct OBJ {
+    int member1;
+    int member2;
+    char member3;
+};
+struct OBJ obj;
+```
+* use typedef
+  - separation
+```c
+struct _OBJ {
+    int member1;
+    int member2;
+    char member3;
+};
+typedef struct _OBJ OBJ;
+OBJ obj;
+```
+  - combination
+```c
+typedef struct _OBJ {
+    int member1;
+    int member2;
+    char member3;
+} OBJ;
+OBJ obj;
+```
+* Init
+  - Normal
+```
+OBJ obj = {1,2,'3'};
+```
+  - Without order
+```c
+OBJ obj = {
+  .member2 = 2;
+  .member1 = 1;
+  .member3 = '3';
+};
+```
+  - Array
+```c
+OBJ objs[3] = {
+  [0] = {
+    .member2 = 20;
+    .member1 = 10;
+    .member3 = '0';
+  },
+  [2] = {
+    .member2 = 22;
+    .member1 = 12;
+    .member3 = '2';
+  },
+};
+```
+  - Nested
+```c
+struct OBJ {
+    int member1;
+    struct TEST {
+      int test;
+      int abc;
+    };
+};
+struct OBJ obj = {
+    0,
+    {1,2}
+}
+```
+
+# [enum](https://en.cppreference.com/w/c/language/enum)
+* normal declare
+```c
+enum NUMBER {
+    ONE = 1,  // 1
+    TWO,      // 2
+    THREE     // 3
+};
+enum NUMBER number;
+```
+* use typedef
+  - separation
+```c
+enum _NUMBER {
+    ONE = 1,  // 1
+    TWO,      // 2
+    THREE     // 3
+};
+typedef enum _NUMBER NUMBER;
+NUMBER number;
+```
+  - combination
+```c
+typedef enum _NUMBER {
+    ONE = 1,  // 1
+    TWO,      // 2
+    THREE     // 3
+} NUMBER;
+NUMBER number;
+```
 
 # MACRO
 
