@@ -22,6 +22,49 @@ int rand();
 srand(time(0)); // used as seed
 rand();
 ```
+* [memory](https://en.cppreference.com/w/c/memory)
+```c
+void* malloc(size_t size);
+void* calloc(size_t num, size_t size);
+void *realloc(void *ptr, size_t new_size);
+void free(void* ptr);
+void *aligned_alloc(size_t alignment, size_t size);
+// example
+int *ptr = malloc(5 * sizeof(int));
+obj *ptr = calloc(5, sizeof(obj));  // alloc 5 object and init the storage to 0
+int *ptr = realloc(ptr, 10 * sizeof(int));  // reallocate ptr as 10 * sizeof(int)
+int *ptr aligned_alloc(1024, 1024 * sizeof(int)); // malloc memory with 1024 bytes alignment
+```
+* [qsort](https://en.cppreference.com/w/c/algorithm/qsort)
+```c
+void qsort(void *ptr, size_t count, size_t size,
+           int (*comp)(const void *, const void *));
+```
+* [bsearch](https://en.cppreference.com/w/c/algorithm/bsearch)
+```c
+void* bsearch(const void *key, const void *ptr, size_t count, size_t size,
+              int (*comp)(const void*, const void*));
+```
+* type conversion
+```c
+double atof(const char* str);
+int atoi( const char *str);
+long atol(const char *str);
+long long atoll(const char *str);
+long strtol(const char *restrict str, char **restrict str_end, int base);
+unsigned long strtoul(const char *restrict str, char **restrict str_end, int base);
+float strtof(const char *restrict str, char **restrict str_end);
+double strtod(const char *restrict str, char **restrict str_end);
+// example
+atoi(" 123abc"); // 123
+atoi("abc");     // 0
+atoi("0");       // 0
+char *end;
+char *ptr = "123 456";
+strtol(ptr, &end, 10);  // 123
+ptr = end;
+strtol(ptr, &end, 10);  // 456
+```
 
 # ctypes.h
 * alpha: [isalpha](https://en.cppreference.com/w/c/string/byte/isalpha), [isupper](https://en.cppreference.com/w/c/string/byte/isupper), [islower](https://en.cppreference.com/w/c/string/byte/islower)

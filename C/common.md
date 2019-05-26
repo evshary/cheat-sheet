@@ -132,3 +132,57 @@ int ran;
 srand(time(NULL));
 ran = rand()%1000; // from 0 to 999
 ```
+
+# transform string to integer
+* Transform long
+```c
+// Without checking the result
+char *ptr1 = "0x1234";
+long value1 = strtol(ptr1, NULL, 16);
+// Checking the result
+char *ptr2 = "1234";
+char *end;
+long value2 = strtol(ptr2, end, 10);
+if (errno == ERANGE) printf("out or range\n");
+if (end == ptr2) printf("Unable to convert\n"); 
+```
+* Transform a list of long
+```c
+char *ptr = "40 -20 900000000000000000000000000000 abc";
+char *end;
+for (long i = strtol(p, &end, 10); p != end; i = strtol(p, &end, 10))
+{
+    printf("Parse string: %.*s", (int)(end-p), p);
+    if (errno == ERANGE) {
+        // out of range
+        errno = 0;
+    }
+    p = end;
+    printf("%ld\n", i);
+}
+```
+# sort
+```c
+int compare_func(const void* arg1, const void* arg2) {
+  // return <0 : arg1<arg2 
+  //        =0 : arg1=arg2
+  //        >0 : arg1>arg2
+  return (*(int *)arg1 - *(int *)arg2);
+}
+int nums = {10, 5, 7, 3, 8};
+qsort(nums, sizeof(nums)/sizeof(int), sizeof(int), compare_func);
+// 3,5,7,8,10
+```
+# binary search
+```c
+int compare_func(const void* arg1, const void* arg2) {
+  return (*(int *)arg1 - *(int *)arg2);
+}
+int nums = {3, 5, 7, 8, 10};
+int target = 5;
+int *found = bsearch(&target, nums, sizeof(nums)/sizeof(int), sizeof(int), compare_func);
+if (found == NULL)
+   printf("Not found\n");
+else
+    printf("Found %d\n", *found);
+```
