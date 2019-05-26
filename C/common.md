@@ -186,3 +186,14 @@ if (found == NULL)
 else
     printf("Found %d\n", *found);
 ```
+
+# string operation
+* split string with delimiter
+```c
+char buf[] = "abc efg hij klm,kkk,eee,ddd";
+char *token = strtok(buf, " ,");
+while(token) {
+  // Do something.
+  strtok(NULL, " ");
+}
+```

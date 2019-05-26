@@ -218,3 +218,32 @@ void va_end(va_list ap);
 ```
 
 # string.h
+* string manipulation
+```c
+char *strcpy(char *restrict dest, const char *restrict src);
+char *strncpy(char *restrict dest, const char *restrict src, size_t count);
+// copy src to the end of dst
+char *strcat(char *restrict dest, const char *restrict src);
+// copy src to the end of dst with maximum count bytes.
+char *strncat(char *restrict dest, const char *restrict src, size_t count);
+```
+* string examination
+```c
+size_t strlen(const char *str);
+int strcmp(const char *lhs, const char *rhs);
+int strncmp(const char *lhs, const char *rhs, size_t count);
+// return the pointer to the first ch occurs
+char *strchr(const char *str, int ch);
+// return the pointer to the first substr occurs
+char *strstr(const char* str, const char* substr);
+// split the string with delim
+char *strtok(char *restrict str, const char *restrict delim);  // not thread safe
+```
+* char array manipulation
+```c
+int memcmp(const void* lhs, const void* rhs, size_t count);
+void *memset(void *dest, int ch, size_t count);
+void* memcpy(void *restrict dest, const void *restrict src, size_t count);
+// Similar with memcpy but able to handle the overlapping case
+void* memmove(void* dest, const void* src, size_t count);
+```
