@@ -64,3 +64,29 @@ func(nums, nums+5, 10); // undefined behavior
 ```
 
 # [The right-left rule](http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html)
+1. Find the identifier
+2. Look at the symbols on the right of the identifier, until running out of symbols or hitting ')'.
+3. Look at the symbols to the left of the identifier, until running out of
+symbols or hitting '('.  
+4. If there is [](), ()[], or ()(), it's illegal.
+
+## example
+### fucntion
+```c
+int *(*func())();
+```
+1. `func()`: func is a function returning
+2. `(*func())`: func is a function returning pointer to
+3. `(*func())()`: func is a function returning pointer to function returning
+4. `int *(*func())()`: func is a function returning pointer to function returning pointer to int
+
+### const
+* `const double *ptr;`: ptr is a pointer to double, which is const
+  - equals to `const (double) *ptr;`
+* `double *const ptr;`: ptr is a const pointer to double
+  - equals to `(double *) const ptr;`
+  - `const (double *) ptr;` has the same meaning. (= ptr is a double pointer, which is const)
+* `double const *ptr;`: ptr is a pointer to const double
+  - equals to `(double) const *ptr;`
+  - Same as the first one.(`const double *ptr;`)
+* `const double *const ptr;`: ptr is a const pointer to double, which is const
