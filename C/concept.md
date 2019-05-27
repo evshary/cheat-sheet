@@ -1,7 +1,7 @@
 # Basic
 You can read [cppreference.com](https://en.cppreference.com/w/c/language) for further detail.
 
-The standard can refer to [The C99 standard draft](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) and [The C11 standard draft](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).
+Refer to [The C99 standard draft](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) and [The C11 standard draft](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf) for standard definition.
 
 # [storage-class specifiers](https://en.cppreference.com/w/c/language/storage_duration)
 * auto(default):
@@ -62,3 +62,5 @@ void func(int * restrict a, int * const b, int num) {
 int nums[20] = {0};
 func(nums, nums+5, 10); // undefined behavior
 ```
+
+# [The right-left rule](http://cseweb.ucsd.edu/~ricko/rt_lt.rule.html)
