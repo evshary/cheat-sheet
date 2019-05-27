@@ -39,6 +39,53 @@ volatile int num = 0;
 ...
 while (num == 0); // waiting for other thread to change the value.
 ```
+* Using with const
+```c
+// declare the volatile variable
+volatile unsigned int clock;
+// However for other user, it can't modify clock, but need to update and read clock every time
+extern const volatile unsigned int clock;
+```
+* Using with pointer
+  - undefined while non-volatile pointer points to volatile member.
+```c
+struct abc {
+    int volatile member;
+};
+struct abc *ptr = address;
+while (ptr->member) { // do something }
+```
+  - volatile pointer to non volatile member is the same as volatile.
+```c
+struct abc {
+    int member;
+};
+volatile struct abc *ptr = address;
+while (ptr->member) { // do something }
+```
+* Using with struct, which contains pointer
+  - `ptr->member->test` is not volatile
+```c
+struct foo {
+    int test;
+};
+struct bar {
+    struct foo *member;
+};
+volatile struct bar *ptr = address;
+while (ptr->member->test) {// do somthing }
+```
+  - Correct way
+```c
+struct foo {
+    int test;
+};
+struct bar {
+    volatile struct foo *member;
+};
+volatile struct bar *ptr = address;
+while (ptr->member->test) {// do somthing }
+```
 
 # [restrict](https://en.cppreference.com/w/c/language/restrict)
 * Only **pointers** to object types can be restrict-qualified.
