@@ -53,7 +53,7 @@ struct abc {
     int volatile member;
 };
 struct abc *ptr = address;
-while (ptr->member) { // do something }
+while (ptr->member) { /*do something*/ }
 ```
   - volatile pointer to non volatile member is the same as volatile.
 ```c
@@ -61,7 +61,7 @@ struct abc {
     int member;
 };
 volatile struct abc *ptr = address;
-while (ptr->member) { // do something }
+while (ptr->member) { /*do something*/ }
 ```
 * Using with struct, which contains pointer
   - `ptr->member->test` is not volatile
@@ -73,7 +73,7 @@ struct bar {
     struct foo *member;
 };
 volatile struct bar *ptr = address;
-while (ptr->member->test) {// do somthing }
+while (ptr->member->test) { /*do somthing*/ }
 ```
   - Correct way
 ```c
@@ -84,7 +84,7 @@ struct bar {
     volatile struct foo *member;
 };
 volatile struct bar *ptr = address;
-while (ptr->member->test) {// do somthing }
+while (ptr->member->test) { /*do somthing*/ }
 ```
 
 # [restrict](https://en.cppreference.com/w/c/language/restrict)
