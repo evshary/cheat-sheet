@@ -459,3 +459,103 @@ while(token) {
   strtok(NULL, " ");
 }
 ```
+
+# [hash table](https://linux.die.net/man/3/hsearch)
+* **WARNING**: This is not C standard, defined in POSIX.1-2001
+* Note:
+  - We should include search.h to use the function.
+  - If we want the reentrant version, we should use `hcreate_r()`, `hsearch_r()`, `hdestroy_r()`.
+* There are some disadvantages.
+  - We can't traverse the hash table.
+  - We can increase the size easily
+* Example
+```c
+#include <search.h>
+/* define for ENTRY
+typedef struct entry {
+    char *key;
+    void *data;
+} ENTRY;
+*/
+ENTRY e1, *ep;
+// create hash table with size 10
+hcreate(10);
+e1.key = "KEY1";
+e1.data = (void *)"VALUE1";
+// add the hash table
+ep = hsearch(e1, ENTER);
+if (ep == NULL) { /*Error hanling*/ }
+// try to find the value
+ENTRY e2;
+e2.key = "KEY1";
+// find from the hash table
+ep = hsearch(e2, FIND);
+if (ep != NULL) 
+  printf("%s:%s\n", e2.key, e2.value);
+hdestroy();
+```
+
+# [tree](http://man7.org/linux/man-pages/man3/tsearch.3.html)
+* **WARNING**: This is not C standard, defined in POSIX.1-2001
+* Note:
+  - We should include search.h to use the function.
+* Example
+```c
+#include <search.h>
+
+int compare_func(const void *pa, const void *pb) {
+    if (*(int *) pa < *(int *) pb)
+        return -1;
+    if (*(int *) pa > *(int *) pb)
+        return 1;
+    return 0;
+}
+
+void action_func(const void *nodep, VISIT which, int depth) {
+    int *datap;
+
+    switch (which) {
+    // before visiting children
+    case preorder:
+        break;
+    // after the first and before the second
+    case postorder:
+        datap = *(int **) nodep;
+        printf("%d\n", *datap);
+        break;
+    // after visiting the children
+    case endorder:
+        break;
+    // the node which is leaf
+    case leaf:
+        datap = *(int **) nodep;
+        printf("%d\n", *datap);
+        break;
+    }
+}
+
+void *root = NULL;
+int array[5] = {5,2,4,3,1,3};
+for (int i = 0; i < sizeof(array)/sizeof(int); i++) {
+    int *ptr = malloc(sizeof(int));
+    *ptr = array[i];
+    void *val = tsearch((void *)ptr, &root, compare_func);
+    if (val == NULL) {
+        // error handling
+    } else if ((*(int **) val) != ptr) {
+        // the same value node is found, we should free the current one
+        free(ptr);
+    }
+}
+// walk through the tree
+twalk(root, action_func);
+// free the tree
+tdestroy(root, free);
+// Or we can delete all the node with this
+while (root != NULL) {
+    int *data = *(int **)root;
+    *val = tdelete((void *)ptr, &root, compare_func);
+    // do some error handling, the same as tsearch
+    free(ptr);
+}
+```
