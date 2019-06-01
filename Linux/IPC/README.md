@@ -64,6 +64,13 @@ struct msgbuf {
   - `type < 0`: Find the message which mtype <= |type| and the mtype is the minimum.
 
 # PIPE
+## prototype
+```c
+#include <unistd.h>  // include file
+// fd[0] for read, fd[1] for write
+// Return: success with 0, fail with -1
+int pipe(int pipefd[2]);
+```
 
 # FIFO
 
