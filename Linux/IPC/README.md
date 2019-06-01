@@ -3,8 +3,8 @@
 | --- | --- | --- | --- |
 | Shared Memory | fastest | Y | kernel |
 | Message Queue | message with priority | N | kernel |
-| PIPE | one-direction | N | process |
-| FIFO | one-direction | N | process |
+| PIPE | one-direction and fork() only | N | process |
+| FIFO(Named PIPE) | one-direction | N | process |
 | Unix Socket | simple implementation | N | process |
 
 # Shared Memory
@@ -73,5 +73,11 @@ int pipe(int pipefd[2]);
 ```
 
 # FIFO
+## prototype
+```c
+#include <sys/stat.h> // include file
+// Return: success with 0, fail with -1
+int mkfifo(const char *pathname, mode_t mode);
+```
 
 # Unix Socket

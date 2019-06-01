@@ -1,4 +1,4 @@
-all: shm msgq pipe
+all: shm msgq pipe fifo
 
 shm:
 	gcc shm_proc1.c -o shm_proc1.out
@@ -10,6 +10,10 @@ msgq:
 
 pipe:
 	gcc pipe.c -o pipe.out
+
+fifo:
+	gcc fifo_read.c -o fifo_read.out
+	gcc fifo_write.c -o fifo_write.out
 
 clean:
 	rm *.out
