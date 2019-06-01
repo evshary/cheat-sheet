@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stddef.h>
-#include <string.h>
 #include <sys/errno.h> // errno
 #include <sys/ipc.h> // ftok(...)
 #include <sys/shm.h> // shared memory
@@ -29,24 +28,26 @@ int main() {
 
     // Map shared memory address
     printf("Map shared memory address\n");
-    char *shmaddr = shmat(shmid, NULL, 0);
-    if (shmaddr == NULL) {
+    volatile char *shmaddr = shmat(shmid, NULL, 0);
+    if (shmaddr == (void *)-1) {
         printf("shmat error errno=%d\n", errno);
         goto exit;
     }
-    // Copy data from shared memory
-    printf("Copy data from shared memory\n");
-    char buf[BUF_LEN + 1] = {0};
-    memcpy(buf, shmaddr, BUF_LEN);
-    printf("buf=%s\n", buf);
 
-    // Clean the first byte of shared memory
-    printf("Clean the first byte of shared memory\n");
-    shmaddr[0] = 0;
+    // Copy data into shared memory
+    printf("Copy data into shared memory\n");
+    for (int i = 0; i < BUF_LEN; i++)
+        shmaddr[i] = 'a';
+
+    // Wait for another process to change
+    printf("Wait for another process to change\n");
+    while (shmaddr[0] != 0);
 
     // Unmap shared memory address
     printf("Unmap shared memory address\n");
-    shmdt(shmaddr);
+    shmdt((const void *)shmaddr);
+    
+    ret = 0;
 exit:
     return ret;
 }

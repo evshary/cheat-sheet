@@ -1,8 +1,8 @@
 all: shm
 
 shm:
-	gcc shared_memory_first.c -o shared_memory_first.out
-	gcc shared_memory_second.c -o shared_memory_second.out
+	gcc shm_proc1.c -o shm_proc1.out
+	gcc shm_proc2.c -o shm_proc2.out
 
 clean:
 	rm *.out

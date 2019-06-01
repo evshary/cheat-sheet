@@ -25,7 +25,7 @@ int shmdt(const void *shmaddr);
 int shmctl(int shmid, int cmd, struct shmid_ds *buf);
 ```
 ## example
-Please refer to [shared_memory_first.c](shared_memory_first.c) and [shared_memory_second.c](shared_memory_second.c).
+Please refer to [shm_proc1.c](shm_proc1.c) and [shm_proc2.c](shm_proc2.c).
 
 **You should use root privilege to run the program.**
 
