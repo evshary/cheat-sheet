@@ -5,7 +5,7 @@
 | Message Queue | message with priority | N | kernel |
 | PIPE | one-direction and fork() only | N | process |
 | FIFO(Named PIPE) | one-direction | N | process |
-| Unix Socket | simple implementation | N | process |
+| Unix Domain Socket | Most commonly used | N | process |
 
 # Shared Memory
 ## prototype
@@ -71,6 +71,8 @@ struct msgbuf {
 // Return: success with 0, fail with -1
 int pipe(int pipefd[2]);
 ```
+## example
+Please refer to [pipe.c](pipe.c).
 
 # FIFO
 ## prototype
@@ -79,5 +81,13 @@ int pipe(int pipefd[2]);
 // Return: success with 0, fail with -1
 int mkfifo(const char *pathname, mode_t mode);
 ```
+## example
+Please refer to [fifo_read.c](fifo_read.c) and [fifo_write.c](fifo_write.c).
 
-# Unix Socket
+# Unix Domain Socket
+* The difference from network socket
+  - The address struct is `sockaddr_un`
+  - The address family is `AF_UNIX`, not `AF_INET`
+  - Server will create a local socket file.
+## example
+Please refer to [usd_server.c](usd_server.c) and [usd_client.c](usd_client.c).
