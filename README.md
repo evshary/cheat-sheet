@@ -11,3 +11,9 @@ Contain the syntax, usage, header for C.
 
 # Linux
 Contain commonly used API and concept in Linux, e.g. IPC.
+
+# Python
+Contain useful example code for Python.
+
+# OpenSSL
+Contain useful example code for OpenSSL.
