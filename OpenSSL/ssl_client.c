@@ -12,6 +12,9 @@
 int main(int argc, char *argv[])
 {
     int ret = -1;
+    int fd = -1;
+    SSL_CTX *ctx;
+    SSL *ssl = NULL;
 
     // SSL init
     printf("SSL init\n");
@@ -19,7 +22,6 @@ int main(int argc, char *argv[])
 
     // Create SSL_CTX
     printf("Create SSL_CTX\n");
-    SSL_CTX *ctx;
     if ((ctx = SSL_CTX_new(TLS_client_method())) == NULL) {
         printf("SSL_CTX_new error\n");
         goto exit;
@@ -27,13 +29,12 @@ int main(int argc, char *argv[])
     // Support only TLSv1.2
     // Other options: SSL3_VERSION, TLS1_VERSION, TLS1_1_VERSION, TLS1_2_VERSION
     if (SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION) == 0) {
-        printf("Setting TLS version fail\n");
+        printf("Setting TLS version error\n");
         goto exit;
     }
 
     // Create socket
     printf("Create socket\n");
-    int fd;
     // New socket
     if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0 )
         goto exit;
@@ -48,10 +49,10 @@ int main(int argc, char *argv[])
 
     // Start to build ssl connection
     printf("Start to build ssl connection\n");
-    SSL *ssl = SSL_new(ctx);
+    ssl = SSL_new(ctx);
     SSL_set_fd(ssl, fd);
     if (SSL_connect(ssl) <= 0) 
-        return -1;
+        goto exit;
 
     // SSL write/read
     printf("SSL read/write\n");

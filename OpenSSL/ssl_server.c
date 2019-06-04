@@ -14,6 +14,10 @@
 int main(int argc, char *argv[])
 {
     int ret = -1;
+    SSL_CTX *ctx = NULL;
+    int server_fd = -1;
+    int client_fd = -1;
+    SSL *ssl = NULL;
 
     // SSL init
     printf("SSL init\n");
@@ -21,7 +25,6 @@ int main(int argc, char *argv[])
 
     // Create SSL_CTX
     printf("Create SSL_CTX\n");
-    SSL_CTX *ctx;
     if ((ctx = SSL_CTX_new(TLS_server_method())) == NULL) {
         printf("SSL_CTX_new error\n");
         goto exit;
@@ -29,7 +32,7 @@ int main(int argc, char *argv[])
     // Support only TLSv1.2
     // Other options: SSL3_VERSION, TLS1_VERSION, TLS1_1_VERSION, TLS1_2_VERSION
     if (SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION) == 0) {
-        printf("Setting TLS version fail\n");
+        printf("Setting TLS version error\n");
         goto exit;
     }
 
@@ -38,18 +41,17 @@ int main(int argc, char *argv[])
     SSL_CTX_set_ecdh_auto(ctx, 1); // Able to use ECDH
     // Load certificate file
     if (SSL_CTX_use_certificate_file(ctx, SSL_CERT, SSL_FILETYPE_PEM) <= 0) {
-        printf("Load certificate file fail\n");
+        printf("Load certificate file error\n");
         goto exit;
     }
     // Load private key file
     if (SSL_CTX_use_PrivateKey_file(ctx, SSL_KEY, SSL_FILETYPE_PEM) <= 0 ) {
-        printf("Load private key file fail\n");
+        printf("Load private key file error\n");
         goto exit;
     }
 
     // Create socket
     printf("Create socket\n");
-    int server_fd;
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0 )
         goto exit;
     struct sockaddr_in server_addr;
@@ -64,7 +66,6 @@ int main(int argc, char *argv[])
 
     // Accept connection
     printf("Accept connection\n");
-    int client_fd;
     struct sockaddr_in client_addr;
     unsigned int len = sizeof(client_addr);
     if ((client_fd = accept(server_fd, (struct sockaddr*)&client_addr, &len)) < 0)
@@ -72,7 +73,7 @@ int main(int argc, char *argv[])
 
     // Build SSL connection
     printf("Build SSL connection\n");
-    SSL *ssl = SSL_new(ctx);
+    ssl = SSL_new(ctx);
     SSL_set_fd(ssl, client_fd);
     if (SSL_accept(ssl) <= 0) {
         printf("SSL_accept error\n");

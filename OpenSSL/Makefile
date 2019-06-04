@@ -7,12 +7,15 @@ endif
 
 CFLAGS+=-lcrypto -lssl
 CC=gcc
-BIN=ssl_server ssl_client
 
-all: $(BIN)
+all: ssl
 
-ssl_server: ssl_server.c
-	$(CC) $^ -o $@.out $(CFLAGS)
+ssl: ssl_server.out ssl_client.out
+ssl_server.out: ssl_server.c
+	$(CC) $^ -o $@ $(CFLAGS)
+ssl_client.out: ssl_client.c
+	$(CC) $^ -o $@ $(CFLAGS)
+
 
 ssl_client: ssl_client.c
 	$(CC) $^ -o $@.out $(CFLAGS)
