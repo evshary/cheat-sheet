@@ -8,7 +8,7 @@ endif
 CFLAGS+=-lcrypto -lssl
 CC=gcc
 
-all: ssl
+all: ssl bio chkcert
 
 ssl: ssl_server.out ssl_client.out
 ssl_server.out: ssl_server.c
@@ -16,9 +16,17 @@ ssl_server.out: ssl_server.c
 ssl_client.out: ssl_client.c
 	$(CC) $^ -o $@ $(CFLAGS)
 
+bio: bio_server.out bio_client.out
+bio_server.out: bio_server.c
+	$(CC) $^ -o $@ $(CFLAGS)
+bio_client.out: bio_client.c
+	$(CC) $^ -o $@ $(CFLAGS)
 
-ssl_client: ssl_client.c
-	$(CC) $^ -o $@.out $(CFLAGS)
+chkcert: server_with_chkcert.out client_with_chkcert.out
+server_with_chkcert.out: server_with_chkcert.c
+	$(CC) $^ -o $@ $(CFLAGS)
+client_with_chkcert.out: client_with_chkcert.c
+	$(CC) $^ -o $@ $(CFLAGS)
 
 clean:
 	-rm *.out
