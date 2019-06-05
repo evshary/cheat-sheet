@@ -44,15 +44,19 @@ int main(int argc, char *argv[])
     addr.sin_family = AF_INET;
     addr.sin_port = htons(SSL_PORT);
     addr.sin_addr.s_addr = inet_addr(SSL_IP);
-    if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0)
+    if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+        printf("TCP connect error\n");
         goto exit;
+    }
 
     // Start to build ssl connection
     printf("Start to build ssl connection\n");
     ssl = SSL_new(ctx);
     SSL_set_fd(ssl, fd);
-    if (SSL_connect(ssl) <= 0) 
+    if (SSL_connect(ssl) <= 0) {
+        printf("SSL_connect error\n");
         goto exit;
+    }
 
     // SSL write/read
     printf("SSL read/write\n");

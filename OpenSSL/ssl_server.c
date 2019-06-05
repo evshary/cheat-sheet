@@ -49,6 +49,11 @@ int main(int argc, char *argv[])
         printf("Load private key file error\n");
         goto exit;
     }
+	// Check private key
+	if (SSL_CTX_check_private_key(ctx) <= 0) {
+		printf("Error private key\n");
+		goto exit;
+	}
 
     // Create socket
     printf("Create socket\n");
