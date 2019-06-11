@@ -5,7 +5,8 @@
 #include <arpa/inet.h>
 #include <openssl/ssl.h> // openssl
 
-#define SUPPORT_CLIENT_CERT 1 // Support client certificate
+#define SUPPORT_CLIENT_CERT       1  // Support client certificate
+#define SUPPORT_NO_CHK_VALID_CERT 1  // Don't check the validity of the certificate
 
 #if SUPPORT_CLIENT_CERT
 #define CA_CERT  "ca.crt"
@@ -17,6 +18,16 @@
 
 #define BUF_LEN  256
 #define SSL_PORT 8080
+
+#if SUPPORT_NO_CHK_VALID_CERT
+/* The validity of certificate will be in preverify_ok. However we can do our check in the callback. 
+ * Return value 1 means pass, and 0 means fail.
+ */
+static int verify_callback(int preverify_ok, X509_STORE_CTX *ctx) {
+    printf("The validity of origin certificate? %d\n", preverify_ok);
+    return 1;
+}
+#endif /*SUPPORT_NO_CHK_VALID_CERT*/
 
 int main(int argc, char *argv[])
 {
@@ -51,8 +62,21 @@ int main(int argc, char *argv[])
     }
     
     printf("SSL_CTX_set_verify: Verify client certificate\n");
-    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_FAIL_IF_NO_PEER_CERT, NULL); // We don't use verify_callback now
+#if SUPPORT_NO_CHK_VALID_CERT
+    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_FAIL_IF_NO_PEER_CERT, verify_callback);
+#else
+    SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_FAIL_IF_NO_PEER_CERT, NULL);
+#endif /*SUPPORT_NO_CHK_VALID_CERT*/
     SSL_CTX_set_verify_depth(ctx, MAX_VERIFY_LEN + 1);
+    { /* We need to call SSL_CTX_set_session_id_context since client certificate is reused. */
+      /* According to https://www.openssl.org/docs/man1.1.0/man3/SSL_CTX_set_session_id_context.html
+         If the session id context is not set on an SSL/TLS server and client certificates are used, 
+         stored sessions will not be reused but a fatal error will be flagged and the handshake will
+         fail.
+       */
+        static int server_session_id_context = 1;
+        SSL_CTX_set_session_id_context(ctx, (void *)&server_session_id_context, sizeof(server_session_id_context));
+    }
 #endif /*SUPPORT_CLIENT_CERT*/
 
     // Configure cert and key
