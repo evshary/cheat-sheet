@@ -1,8 +1,10 @@
 # List
-* Semaphore
-* Mutex
-* Spinlock
-* Read-Write Lock
+| Name | Sleep | Usage | Description |
+| --- | --- | --- | --- |
+| Semaphore | Y | Used as signal or notification(producer&consumer), and ensure the order of execution | Ensure the max #thread in the critical section. The resource can be released by other thread. |
+| Mutex | Y | Common usage(longer critical section or resource saving) | Who takes and who should release |
+| Spinlock | N | Small critical section or context switch | Busy waiting for CPU usage |
+| Read-Write Lock | Y | While #reader > #writer | Multiple readers or one writer at the same time |
 
 # Semaphore
 There are two kind of header for semaphore
