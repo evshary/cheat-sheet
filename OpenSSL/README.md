@@ -15,6 +15,7 @@ find /usr/local/Cellar/ -name "ssl.h"
 
 # Certificate
 ## RSA self-signed certificate
+* Prompt mode
 ```
 # Generate RSA key with length 2048 bits
 openssl genrsa -out server.key 2048
@@ -23,6 +24,16 @@ openssl req -new -sha384 -key server.key -out server.csr
 # Generate the self-signed certificate
 openssl x509 -req -sha1 -days 3650 -signkey server.key -in server.csr -out server.crt
 ```
+* Nonprompt mode
+```
+# Generate RSA key with length 2048 bits
+openssl genrsa -out server.key 2048
+# Generate CSR with key and sign CSR with sha384
+openssl req -new -sha384 -subj "/C=TW/ST=Taiwan/L=Tainan/O=Company1Inc/CN=127.0.0.1" -key server.key -out server.csr
+# Generate the self-signed certificate
+openssl x509 -req -sha1 -days 3650 -signkey server.key -in server.csr -out server.crt
+```
+
 ## ECC self-signed certificate
 ```
 # Generate ECC key
@@ -32,26 +43,7 @@ openssl req -new -sha384 -key ecc.key -out ecc.csr
 # Generate the self-signed certificate
 openssl x509 -req -sha1 -days 3650 -signkey ecc.key -in ecc.csr -out ecc.crt
 ```
-## Generate certificate with cnf
-* Create config.cnf file
-```
-[req]
-prompt = no
-distinguished_name = req_1
-[req_1]
-C = TW
-ST = Taiwan
-L = Taipei
-O = Company Inc.
-OU = SW Department
-CN = 127.0.0.1
-```
-* Create certificate
-```
-openssl genrsa -out server.key 2048
-openssl req -new -sha384 -config config.cnf -key server.key -out server.csr
-openssl x509 -req -sha1 -days 3650 -signkey server.key -in server.csr -out server.crt
-```
+
 ## Create CA and sign the certificate
 ```
 # CA
@@ -63,6 +55,65 @@ openssl req -new -subj "/C=TW/ST=Taiwan/L=Tainan/O=CompanyInc/CN=127.0.0.1" -key
 # Sign server.csr and get server.crt
 openssl x509 -req -days 3650 -CA ca.crt -CAkey ca.key -set_serial 02 -in server.csr -out server.crt
 ```
+
+## Generate certificate with valid SAN
+If we want to import self-signed certificate into browser as a valid certificate, SAN is necessary.
+
+After creating certificate, we can view the SAN feild in certificate by the following command.
+```
+openssl x509 -text -noout -in server.crt
+```
+### Self-signed certificate
+* Create config.cnf file
+```
+[req]
+prompt = no
+distinguished_name = req_1
+x509_extensions = v3_req
+[req_1]
+C = TW
+ST = Taiwan
+L = Taipei
+O = Company Inc.
+OU = SW Department
+CN = 127.0.0.1
+[v3_req]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = www.yourdomain.com
+DNS.2 = www.abcd.yourdomain.com
+IP.1 = 127.0.0.1
+```
+* Create certificate with config.cnf (self-signed)
+```
+openssl genrsa -out server.key 2048
+# Create self-signed certificate
+openssl req -new -x509 -days 3650 -sha256 -key server.key -out server.crt -config config.cnf
+```
+### Certificate signed by CA
+* Create CSR first
+```
+openssl genrsa -out server.key 2048
+openssl req -new -sha384 -subj "/C=TW/ST=Taiwan/L=Tainan/O=Company1Inc/CN=127.0.0.1" -key server.key -out server.csr
+```
+* Create v3.ext for later used
+```
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true, pathlen:0
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = www.yourdomain.com
+DNS.2 = www.abcd.yourdomain.com
+IP.1 = 127.0.0.1
+```
+* Sign with CA
+```
+# Generate CA first
+openssl x509 -req -days 3650 -sha256 -extfile v3.ext -CAcreateserial -CA ca.crt -CAkey ca.key -in server.csr -out server.crt
+```
+
 ## Show info
 ```
 # Show the info of private key
