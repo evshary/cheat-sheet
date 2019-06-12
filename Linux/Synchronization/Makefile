@@ -1,4 +1,4 @@
-all: sem_example.out mutex_example.out spinlock_example.out
+all: sem_example.out mutex_example.out spinlock_example.out RWL_example.out
 
 sem_example.out: sem_example.c
 	gcc sem_example.c -lpthread -o sem_example.out
@@ -8,6 +8,9 @@ mutex_example.out: mutex_spinlock_example.c
 
 spinlock_example.out: mutex_spinlock_example.c
 	gcc mutex_spinlock_example.c -lpthread -DUSE_SPINLOCK -o spinlock_example.out
+
+RWL_example.out: RWL_example.c
+	gcc RWL_example.c -lpthread -o RWL_example.out
 
 clean:
 	rm *.out

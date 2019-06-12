@@ -2,6 +2,7 @@
 * Semaphore
 * Mutex
 * Spinlock
+* Read-Write Lock
 
 # Semaphore
 There are two kind of header for semaphore
@@ -60,3 +61,22 @@ int pthread_spin_destroy(pthread_spinlock_t *lock);
 
 ## example
 Please refer to [mutex_spinlock_example.c](mutex_spinlock_example.c) with definition USE_SPINLOCK.
+
+# Read-Write Lock
+We can use Read-Write Lock in AP with pthread.
+
+## prototype
+```c
+#include <pthread.h> // include file
+int pthread_rwlock_rdlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_tryrdlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_wrlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_trywrlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
+// initialize and release
+int pthread_rwlock_init(pthread_rwlock_t *restrict rwlock, const pthread_rwlockattr_t *restrict attr); 
+int pthread_rwlock_destroy(pthread_rwlock_t *rwlock);
+```
+
+## example
+Please refer to [RWL_example.c](RWL_example.c).
