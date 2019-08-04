@@ -3,17 +3,17 @@ This repo contains the cheat-sheet/example for programming, data structure, algo
 
 If you found something wrong, feel free to open the issue or contact me.
 
-# sort
+# [sort](sort)
 Implement several sorting algorithm in C and C++.
 
-# C
+# [C](C)
 Contain the syntax, usage, header for C.
 
-# Linux
+# [Linux](Linux)
 Contain commonly used API and concept in Linux, e.g. IPC.
 
-# Python
+# [Python](Python)
 Contain useful example code for Python.
 
-# OpenSSL
+# [OpenSSL](OpenSSL)
 Contain useful example code for OpenSSL.
