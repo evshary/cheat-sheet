@@ -153,6 +153,7 @@ options.c_lflag |= (ICANON | ECHO | ECHOE);
 options.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
 ```
 * Special char c_cc(VMIN, VTIME) is important to Non-canonical mode
+
 | - | VMIN > 0 | VMIN == 0 |
 | --- | --- | --- |
 | VTIME > 0 | return while reading MIN char or VTIME is timeout | return while reading first char or VTIME is timeout |
