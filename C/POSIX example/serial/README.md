@@ -6,10 +6,12 @@
   - O_NOCTTY: Prevent process stopping by keyboard
   - O_NDELAY: Ignore DCD
   - O_NONBLOCK: Non block mode
+  - In GNU C, O_NDELAY is the same as O_NONBLOCK
  */
-int fd = open(“/dev/ttyS0”, O_RDWR | O_NOCTTY | O_NDELAY);
+// open with block mode
+int fd = open(“/dev/ttyS0”, O_RDWR | O_NOCTTY);
 // open with non block mode
-int fd = open(“/dev/ttyS0”, O_RDWR | O_NOCTTY | O_NDELAY | O_NONBLOCK);
+int fd = open(“/dev/ttyS0”, O_RDWR | O_NOCTTY | O_NONBLOCK);
 //set DTR low and stop modem
 close(fd);
 ```
