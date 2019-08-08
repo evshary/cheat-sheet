@@ -14,7 +14,7 @@ int main(){
     int ret;
     char buffer[MAXBUF] = {0};
 
-    fd_S0 = open(COM1, O_RDWR | O_NOCTTY | O_NDELAY);
+    fd_S0 = open(COM1, O_RDWR | O_NOCTTY);
     if(fd_S0 == -1){
         printf("[ERROR] unable to open!\n");
         return -1;
@@ -45,6 +45,7 @@ int main(){
     strcpy(buffer, "testabc");
     ret = write(fd_S0, buffer, strlen(buffer));
     printf("Write data: %s\n", buffer);
+    memset(buffer, 0, sizeof(buffer));
     ret = read(fd_S0, buffer, sizeof(buffer));
     printf("Read data len %d: %s\n", ret, buffer);
 
