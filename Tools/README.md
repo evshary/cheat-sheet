@@ -42,13 +42,21 @@
 * [ManageEngine MibBrowser](https://www.manageengine.com/products/mibbrowser-free-tool/)
   - Tools for SNMPv3.
 
+## Remote
+* [TeamViewer](https://www.teamviewer.com/tw/download/windows/)
+  - Remote access device.
+
 # System
 * [7-Zip](https://www.developershome.com/7-zip/)
   - File Compressor.
 * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   - Show the health of disk.
+* [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
+  - Show system information, including CPU, memory, etc.
 * [qBittorrent](https://www.qbittorrent.org/)
   - torrent Downloader
+* [KeePass](https://keepass.info)
+  - Maintain the password.
 
 # Virtual Machine
 * [VirtualBox](https://www.virtualbox.org)
