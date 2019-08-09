@@ -3,7 +3,7 @@
 * [Notepad++](https://notepad-plus-plus.org/zh/)
 * [HxD](https://mh-nexus.de/en/hxd/)
   - Show HEX display of files.
-* [WinMerge](https://winmerge.org)
+* [Meld](https://meldmerge.org)
   - Show the difference between files and folders
 * [Git](https://git-scm.com)
   - Windows installation
@@ -47,6 +47,8 @@
   - File Compressor.
 * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   - Show the health of disk.
+* [qBittorrent](https://www.qbittorrent.org/)
+  - torrent Downloader
 
 # Virtual Machine
 * [VirtualBox](https://www.virtualbox.org)
