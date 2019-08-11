@@ -40,7 +40,7 @@
 # Hacker
 * nmap: Host scanner.
 * hydra: Tools for password brute force.
-* openssl: Encryption tool.
+* [openssl](https://github.com/evshary/cheat-sheet/blob/master/OpenSSL/README.md): Encryption tool.
 * sqlmap: SQL injection tools.
 
 # Community
