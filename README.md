@@ -9,6 +9,9 @@ Implement several sorting algorithm in C and C++.
 # [C](C)
 Contain the syntax, usage, header for C.
 
+# [C++](C++)
+Contain the syntax, usage, header for C++.
+
 # [Linux](Linux)
 Contain commonly used API and concept in Linux, e.g. IPC.
 
