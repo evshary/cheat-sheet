@@ -1,4 +1,5 @@
 # vector
+## Usage
 We need to add `#include <vector>` first. Assume v is a vector for examples below.
 
 * Access the element
@@ -72,4 +73,31 @@ array2D.assign(n,row);  // init an vector with n vectors
 ```c++
 vector<int> v(8);
 fill(v.begin(), v.end(), 8); // fill with 8
+```
+
+# queue
+## Usage
+We need to add `#include <queue>` first. Assume q is a queue for examples below.
+
+* `q.push(element)`: Add element to the end of q.
+* `q.pop()`: Remove the first element in q.
+* `q.back()`: Get the value of the last element in q.
+* `q.front()`: Get the value of the first element in q.
+
+## Example
+```c++
+#include <queue>
+using namespace std;
+
+int main(){
+    queue<int> q;
+    q.push(5);  // [5]
+    q.push(10); // [5,10]
+    q.push(15); // [5,10,15]
+    q.pop();    // [10,15]
+
+    cout << q.size() << endl;  // output: 2
+    cout << q.back() << endl;  // output: 15
+    cout << q.front() << endl; // output: 10
+}
 ```
