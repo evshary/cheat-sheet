@@ -101,3 +101,22 @@ int main(){
     cout << q.front() << endl; // output: 10
 }
 ```
+
+# priority_queue
+## Usage
+We need to add `#include <queue>` first. Assume q is a queue for examples below.
+
+priority_queue is a queue that the highest priority element is extracted first.
+
+Default is that the largest value has the highest priority.
+
+* Declaration:
+  - `priority_queue<int> pqueue;`: Default is largest value first.
+  - `priority_queue<int,vector<int>,less<int>>`: Largest value first.
+  - `priority_queue<int,vector<int>,greater<int>>`: Smallest value first.
+* Operations:
+  - `q.push(element)`: Put element into q.
+  - `q.pop()`: Take the highest priority element from queue and delete.
+  - `q.top()`: Read the value of element which has highest priority.
+  - `q.empty()`: Check whether the q is empty or not.
+  - `q.size()`: Return the current number of elements.
