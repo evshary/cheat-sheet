@@ -68,6 +68,10 @@
   - LaTex editor
 * [Poedit](https://poedit.net/download)
   - PO file editor
+* [Kernel Outlook PST Viewer](https://www.nucleustechnologies.com/pst-viewer.html)
+  - Able to view outlook mail but unable to export attachment.
+* [CoolUtils Outlook Viewer](https://www.coolutils.com/OutlookViewer)
+  - Able to export attachment but the text may be garbled.
 
 # Community
 * [Telegram](https://telegram.org)
