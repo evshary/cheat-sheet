@@ -120,3 +120,67 @@ Default is that the largest value has the highest priority.
   - `q.top()`: Read the value of element which has highest priority.
   - `q.empty()`: Check whether the q is empty or not.
   - `q.size()`: Return the current number of elements.
+
+# map & unordered_map
+## Usage
+map & unordered_map is a key-value structure. It can be used as hash table.
+
+We need to include files first.
+
+* map: `#include <map>`
+* unordered_map: `#include <unordered_map>`
+
+The difference between them:
+
+* map:
+  - The internal data structure is a red-black tree, so search and insert is O(logN)
+  - Ordered.
+  - Higher space usage.
+* unordered_map:
+  - The internal data structure is a hash table, so lookup only needs O(1)
+  - Building hash table takes time.
+
+## Example
+* insert
+```c++
+map<string, int> m;
+// Use insert
+m.insert(pair<string,int>("test1", 111));
+// Insert directly
+m["test2"] = 222;
+```
+* Iterate
+```c++
+unordered_map<string, string> maps;
+for (auto it = maps.begin(); it != maps.end(); ++it)  
+    cout << it->first << " " << it->second << endl;  
+```
+* find
+```c++
+map<string,int>::iterator it = m.find("test1");
+if(it != m.end())
+    cout << "Value is " << it->second << endl;
+else
+    cout << "Not found." << endl;
+```
+* delete
+```c++
+// Find first then erase
+map<string,int>::iterator it = m.find("test1");
+m.erase(it);
+// Erase directly
+int ret = erase("test2");  // Return 1 while deleted, or return 0.
+// Erase all map
+m.erase(m.begin(), m.end());
+m.clear();
+```
+* sort: Transform into vector and then sort it
+```c++
+bool comp(pair<int,int> l, pair<int,int> r) {
+    return r.second < l.second;
+}
+unordered_map<int,int> htable; // or map<int,int> is the same
+vector<pair<int,int>> sort_result;
+for (auto i : htable) sort_result.push_back(i);
+sort(sort_result.begin(), sort_result.end(), comp);
+```
