@@ -184,3 +184,117 @@ vector<pair<int,int>> sort_result;
 for (auto i : htable) sort_result.push_back(i);
 sort(sort_result.begin(), sort_result.end(), comp);
 ```
+
+# stack
+```c++
+#include <stack>
+using namespace std;
+
+int main(){
+  stack<int> s;
+  s.push(1); // [1]
+  s.push(2); // [2,1]
+  s.push(3); // [3,2,1]
+  for(int i=0; i < s.size() ; i++) {
+    cout << s.top() << endl; // output 3 2 1
+    s.pop();
+  }
+  return 0;
+}
+```
+
+# set & unordered_set
+## set
+```c++
+#include <set>
+using namespace std;
+
+int main(){
+  set<int> s;
+  s.insert(2); // {2}
+  s.insert(1); // {1,2}
+  s.insert(3); // {1,2,3}
+  if (s.count(2)) {
+    // Since s.count(2) == 1, enter here.
+  }
+
+  s.erase(2); // {1,3}
+  if (s.count(2)) {
+    // Since s.count(2) == 0, ignore here.
+  }
+}
+```
+## unordered_set
+unordered_set uses hash table so it's unordered.
+
+```c++
+#include <unordered_set>
+using namespace std;
+
+unordered_set<int> u;
+u.insert(1);
+u.insert(2);
+unordered_set<int>::const_iterator it = u.find(2);
+if (it == u.end())
+  cout << "Not found" << endl;
+else
+  cout << *it << "is here" << endl;
+```
+
+# pair
+* Generate pair
+```c++
+vector<int> v1{1,2,3,4,5};
+vector<int> v2{11,22,33,44,55};
+vector<pair<int,int>> vp;
+for (int i = 0; i < v1.size(); i++)
+  vp.push_back(make_pair(v1[i], v2[i]));
+```
+* sort
+```c++
+// sort with first element
+sort(result.begin(), result.end());
+// sort with second element
+bool compare_func(pair<int,int> &num1, pair<int,int> &num2){
+  if (num1.second < num2.second)
+    return true;
+  else
+    return false;
+}
+sort(result.begin(), result.end(), compare_func);
+```
+
+# list
+* push
+```c++
+#include <list>
+
+list<int> l;
+l.push_back(2);  // [2]
+l.push_back(3);  // [2,3]
+l.push_front(1); // [1,2,3]
+```
+* iterate
+```c++
+list<int>::iterator it;
+for (it = l.begin(); it != l.end(); ++it) 
+  cout << *it << " ";
+// reverse
+list<int>::reverse_iterator rit;
+for (rit = l.rbegin(); rit != l.rend(); rit++)
+  cout << *rit << " ";
+```
+* remove & erase
+  - remove is to delete the same value of the element.
+  - erase is to delete the same pointer of the element.
+```c++
+list<int> l;
+// WARNING: We can't remove/erase before ++. This will go wrong.
+for (auto it = l.begin(); it != l.end();) {
+  auto pit = it++; // record the previous element first
+  // erase
+  // l.erase(pit);
+  // remove
+  // l.remove(*pit);
+}
+```
