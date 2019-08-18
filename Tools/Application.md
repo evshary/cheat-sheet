@@ -51,6 +51,10 @@
   - File Compressor.
 * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   - Show the health of disk.
+* [HDDScan](http://hddscan.com/)
+  - Show the detail health of disk.
+* [HDD LLF Low Level Format Tool](http://hddguru.com/software/HDD-LLF-Low-Level-Format-Tool/)
+  - Disk low level format tool.
 * [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
   - Show system information, including CPU, memory, etc.
 * [qBittorrent](https://www.qbittorrent.org/)
