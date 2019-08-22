@@ -6,3 +6,6 @@ Python example code for serial programming.
 
 # [thread](Python/thread)
 Python example code for thread.
+
+# [binary](Python/binary.md)
+Binary operation.
