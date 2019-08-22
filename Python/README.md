@@ -1,10 +1,10 @@
-# [network](Python/network)
+# [network](network)
 Python example code for network.
 
-# [serial](Python/serial)
+# [serial](serial)
 Python example code for serial programming.
 
-# [thread](Python/thread)
+# [thread](thread)
 Python example code for thread.
 
 # [binary](binary.md)
