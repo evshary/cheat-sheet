@@ -93,3 +93,9 @@
   - Burn DVD file.
 * [BurnAware](http://www.burnaware.com)
   - Create iso file or burn CD file.
+* [ActivePresenter](https://atomisystems.com/download/)
+  - Screen Recorder.
+
+# Others
+* [Ninite](https://ninite.com/)
+  - Install and update everything at once.
