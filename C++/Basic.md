@@ -84,6 +84,53 @@ ptr1.reset();
 cout << ptr2.use_count();
 ```
 
+# weak_ptr
+## Usage
+* weak_ptr is to avoid cyclic dependency. Often used with shared_ptr.
+
+## Example
+* The example below cause memory leak.
+  - A and B can't be released since they are used by each other.
+```c++
+class A {
+public:
+  shared_ptr<B> b;
+};
+
+class B {
+public:
+  shared_ptr<A> a;
+};
+
+int main() {
+  shared_ptr<A> ptrA(new A);
+  shared_ptr<B> ptrB(new B);
+  A->b = ptrB;
+  B->a = ptrA;
+  // ...
+}
+```
+* We can use weak_ptr instead.
+```c++
+class A {
+public:
+  weak_ptr<B> b;
+};
+
+class B {
+public:
+  weak_ptr<A> a;
+};
+
+int main() {
+  shared_ptr<A> ptrA(new A);
+  shared_ptr<B> ptrB(new B);
+  A->b = ptrB;
+  B->a = ptrA;
+  // ...
+}
+```
+
 # default value for function argument
 ```c++
 int func(int, int = 1);
