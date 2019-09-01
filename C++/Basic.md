@@ -11,11 +11,13 @@ delete [] arr;
 ```
 
 # auto_ptr
+auto_ptr is deprecated. Use unique_ptr instead.
+
 ## Usage
 * auto_ptr can help us to manage the memory. Resource is freed while leaving the variable scope.
 * auto_ptr is **inline** implementation, so the efficiency isn't affected.
 * auto_ptr can't be used to manage dynamic arrays. The result is unpredictable.
-* Don't put auto_ptr into container since the operation of container may affect auto_ptr.
+* Don't put auto_ptr into STL container since the operation of STL container may affect auto_ptr.
 * Don't use multiple auto_ptr to the same address since it may cause multiple free.
 
 ## Example
@@ -41,6 +43,24 @@ if(int_ptr.get() == 0) {
 auto_ptr<int> ptr1(new int(1));
 auto_ptr<int> ptr2(new int(2));
 ptr2 = ptr1;
+```
+
+# unique_ptr
+## Usage
+* unique_ptr is developed to replace auto_ptr in C++11.
+  - We can't use assignment but need to use move to transfer ownership.
+* Use it when we want to ensure single ownership of resource.
+
+## Example
+```c++
+unique_ptr<int> ptr1(new int(1));
+cout << ptr1.get(); // resource's address
+// wrong operation
+unique_ptr<int> ptr2 = ptr1;
+// correct operation
+unique_ptr<int> ptr2 = move(ptr1);
+cout << ptr1.get(); // Now is zero. 
+cout << ptr2.get(); // resource's address
 ```
 
 # default value for function argument
