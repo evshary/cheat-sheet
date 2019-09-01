@@ -63,6 +63,27 @@ cout << ptr1.get(); // Now is zero.
 cout << ptr2.get(); // resource's address
 ```
 
+# shared_ptr
+## Usage
+* Allow multiple pointers to the same resource and manage with counters.
+* The resource will be released while counter is 0.
+
+## Example
+```c++
+shared_ptr<int> ptr1(new int(1));
+shared_ptr<int> ptr2(ptr1);
+// show the same resource's address here.
+cout << ptr1.get();
+cout << ptr2.get();
+// Both show 2 here. (use count)
+cout << ptr1.use_count();
+cout << ptr2.use_count();
+// Reset ptr1 ownership
+ptr1.reset();
+// Use count becomes 1.
+cout << ptr2.use_count();
+```
+
 # default value for function argument
 ```c++
 int func(int, int = 1);
