@@ -10,6 +10,7 @@ cmake is a tool to generate Makefile for multiple platform.
 # Example
 * [simple example](simple_example): The simplest one. 
 * [multiple folder](multiple_folder): cmake with multiple folder.
+* [test and install example](test_install_example): The example for test and install.
 
 # Document
 We can refer to the [official document](https://cmake.org/cmake/help/latest/index.html) for detail.
