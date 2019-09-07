@@ -280,3 +280,82 @@ while ((pos = str.find(delimiter, last_pos)) != string::npos) {
 string val = to_string(256);  // from 256 to string
 int val = stoi("256");        // from string to 256
 ```
+
+# cast
+## static_cast
+Change the type directly without checking while runtime.
+
+```c++
+int v1 = 1234;
+long v2 = static_cast<long>(v1);
+char v3 = static_cast<char>(v1);  // with data loss
+```
+
+However it may be dangerous while downcasting. We should check it carefully.
+
+```c++
+class Base {...};
+class Derived : Base {...};
+...
+// We don't know whether base can be transformed into Derived or not.
+if (typeid(*base) == typeid(Derived)) {
+  Derived *d = static_cast<Derived *>(base);
+}
+```
+
+## reinterpret_cast
+static_cast can't do the following transformation.
+
+```c++
+int v1 = 1234;
+int *v2 = &v1;
+// transfrom from value to pointer
+int *v3 = static_cast<int *>(v1);
+// tranform between two different pointer
+char *v4 = static_cast<char *>(v2);
+```
+
+We can use reinterpret_cast instead.
+
+```c++
+int *v3 = reinterpret_cast<int *>(v1);
+// tranform between two different pointer
+char *v4 = reinterpret_cast<char *>(v2);
+```
+
+## dynamic_cast
+Able to do safe downcasting.
+
+```c++
+class Base {...};
+class Derived : Base {...};
+...
+Derived *d;
+if (d = dynamic_cast<Derived *>(base)) {
+  // return 0 while dynamic_cast error
+}
+```
+
+## const_cast
+Used to add/remove const and volatile of variable.
+
+```c++
+// If v1 is const, the operation will be undefined.
+int v1 = 1;
+const int *v2 = &v1;
+int *v3 = const_cast<int *>(v2);
+*v3 = 2; // v1 will become 2.
+```
+
+const_cast can be used to pass const variable to function without non-const parameter.
+
+```c++
+void func(int *v) {
+  cout << *v << endl;
+}
+...
+const int v = 5;
+// compile error with the following line.
+// func(&v));
+func(const_cast<int *>(&v));
+```
