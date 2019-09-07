@@ -69,14 +69,14 @@ int main() {
 # template
 * function template
 ```c++
-template <class T>
+template <typename T>
 T T_ADD(T a, T b) {
   return a + b;
 }
 ```
 * class template
 ```c++
-template <class T>
+template <typename T>
 class T_CLASS {
   T add(T a, T b) {
     return a + b;
@@ -90,7 +90,7 @@ int main() {
 * partial specialization
 ```c++
 // general
-template <class T1, class T2>
+template <typename T1, typename T2>
 class T_CLASS {
   void print(T1 t1, T2 t2) {
     cout << t1 << endl;
@@ -98,7 +98,7 @@ class T_CLASS {
   }
 };
 // special
-template <class T1>
+template <typename T1>
 class T_CLASS<T1, int> {
   void print(T1 t1, int val) {
     cout << t1 << endl;
