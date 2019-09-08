@@ -84,6 +84,25 @@ ostream& operator<<(ostream& out, const OBJ& obj) {
 }
 ```
 
+# struct
+* The difference between struct and  is the visibility of member.
+  - struct is public in default while class is private.
+* How to choose struct or class is based on convention.
+  - Used as interface (Data memeber can be accessed by others) => use struct.
+  - Dependency in data member (Data member should not be modified directly) => use class.
+
+```c++
+struct DERIVED {
+  DERIVED(int v) {member = v;}
+  void show() {cout << member << endl;}
+  int member;
+};
+// ...
+// DERIVED d or struct DERIVED d are both OK.
+DERIVED d(123);
+d.show();
+```
+
 # namespace
 We can use namespace to avoid symbol confliction.
 

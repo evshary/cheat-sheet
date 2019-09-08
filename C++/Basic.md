@@ -165,6 +165,40 @@ int *ptr = &var;
 int *&ref = ptr;
 ```
 
+# enum
+* WARNING: We can't increase enum in C++.
+  - However if we want to implement FSM, overloading operator++ of the class is a good idea.
+```c++
+enum NUM {
+  ZERO = 0,
+  FIRST,
+  TWO
+};
+
+NUM num = ZERO; // ok
+NUM num1 = 0; // error
+NUM num2 = ZERO + 1; // error
+NUM num3 = num++; // error
+cout << num+1 << endl; // ok
+```
+
+# union
+* The data member of union is using the same space.
+* Default member visibility is public, but private and protected are also available.
+* We can declare constructor, deconstructor or member function.
+```c++
+union VALUE {
+public: // default is public
+  char c;
+  int i;
+  double d;
+  VALUE() {}
+  VALUE(char v) {c = v;}
+  VALUE(int v) {i= v;}
+  VALUE(double v) {d = v;}
+};
+```
+
 # algorithm
 To use algorithm, we need `#include <algorithm>` first.
 
