@@ -112,6 +112,23 @@ ostream& operator<<(ostream& out, const OBJ& obj) {
 }
 ```
 
+## User-Defined Conversion
+* We can define how to work while convert to other type.
+
+```c++
+class OBJ {
+public:
+  OBJ(int v) {num = v;}
+  // Define how it works while OBJ tranform into int.
+  operator int() {return num;}
+private:
+  int num;
+};
+//...
+OBJ obj(123);
+cout << obj + 1 << endl;
+```
+
 # struct
 * The difference between struct and  is the visibility of member.
   - struct is public in default while class is private.
