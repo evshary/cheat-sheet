@@ -35,6 +35,34 @@ OBJ obj(456);
 OBJ obj = OBJ(789);
 ```
 
+## Copy Constructor
+* When the member of object is malloced, it may cause memory access error while copy the object.
+  - We should redefine the copy constructor.
+
+```c++
+class OBJ {
+public:
+  OBJ(int len) {
+    arr = new int[len];
+    length = len;
+  }
+  ~OBJ() {
+    delete [] arr;
+  }
+  // copy constructor
+  OBJ(const OBJ& obj) : length(obj.length) {
+    arr = new int[length];
+    for (int i = 0; i < length; i++) arr[i] = obj.arr[i];
+  }
+private:
+  int *arr;
+  int length;
+};
+// ...
+OBJ obj1(5);
+OBJ obj2 = obj1; 
+```
+
 ## Operator overloading
 ```c++
 class OBJ {
