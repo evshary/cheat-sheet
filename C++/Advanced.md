@@ -1,4 +1,5 @@
 # object
+## Usage
 * class declaration
 ```c++
 class OBJ {
@@ -32,6 +33,55 @@ int OBJ::func() {
 OBJ *obj = new(123);
 OBJ obj(456);
 OBJ obj = OBJ(789);
+```
+
+## Operator overloading
+```c++
+class OBJ {
+public:
+  OBJ(int n);
+  OBJ operator+(const OBJ&); // overload +
+  OBJ& operator++(); // overload ++obj 
+  OBJ operator++(int); // overload obj++ 
+  // If we use global friend function, we should add one more parameter
+  friend OBJ operator*(const OBJ&, const OBJ&); // overload * 
+  // friend OBJ operator++(OBJ&); // overload ++obj
+  // friend OBJ operator++(OBJ&, int); // overload obj++
+  friend ostream& operator<<(ostream&, const OBJ&); // overload <<
+
+private:
+  int num;
+};
+
+OBJ::OBJ(int n) {
+  num = n;
+}
+
+OBJ OBJ::operator+(const OBJ& obj) {
+  OBJ tmp(this->num + obj.num);
+  return tmp;
+}
+
+OBJ& OBJ::operator++() {
+  this->num++;
+  return *this;
+} 
+
+OBJ OBJ::operator++(int) {
+  OBJ tmp(this->num);
+  this->num++;
+  return tmp;
+}
+
+OBJ operator*(const OBJ& obj1, const OBJ& obj2) {
+  OBJ obj(obj1.num * obj2.num);
+  return obj;
+}
+
+ostream& operator<<(ostream& out, const OBJ& obj) {
+  out << "num:" << obj.num;
+  return out;
+}
 ```
 
 # namespace
