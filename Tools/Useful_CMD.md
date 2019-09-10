@@ -32,3 +32,20 @@
   - TCP socket: `ss -t`
   - UDP socket: `ss -u`
   - Domain socket: `ss -x`
+
+# Peripheral Device
+* List all USB device
+  - `lsusb`
+* List all PCI device
+  - `lspci`
+* List the disk
+  - `df -h`
+
+# Others
+* Search with filename
+  - `find <PATH> -name <FILE NAME>`
+* Search content from files
+  - `ag <CONTENT>`
+  - Should install `silversearcher-ag` first.
+* Show folder size
+  - `du -sh <FOLDER>`
