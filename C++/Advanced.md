@@ -163,6 +163,38 @@ OBJ obj(123);
 cout << obj + 1 << endl;
 ```
 
+# RTTI
+RTTI stands for **Run-Time Type Information**. Able to get object ID while runtime.
+
+Remember to `#include <typeinfo>` first.
+
+```c++
+#include <typeinfo> 
+
+class PARENT {
+public:
+  virtual void func() { cout << "BASE" << endl; }
+};
+class CHILD1 : public PARENT{
+public:
+  void func() { cout << "CHILD1" << endl; }
+};
+class CHILD2 : public PARENT{
+public:
+  void func() { cout << "CHILD2" << endl; }
+};
+int main() {
+  PARENT *ptr;
+  CHILD1 c1;
+  CHILD2 c2;
+  ptr = &c1;
+  cout << typeid(*ptr).name() << endl;
+  ptr = &c2;
+  cout << typeid(*ptr).name() << endl;
+  return 0;
+}
+```
+
 # struct
 * The difference between struct and  is the visibility of member.
   - struct is public in default while class is private.
