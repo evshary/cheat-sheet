@@ -35,6 +35,40 @@ OBJ obj(456);
 OBJ obj = OBJ(789);
 ```
 
+## const & mutable
+* const object can only access const members, while non const object doesn't have the limitation.
+* const function member can't modify the data member, except mutable one.
+
+```c++
+class OBJ {
+public:
+  OBJ(int val) {num1 = num2 = val;}
+  void func_c(void) const {
+    //num1++; // Unable to modify const one
+    num2++; // Able to modify mutable one
+    cout << num1 << " " << num2 << endl;
+  }
+  void func(void) {
+    num1++;
+    num2++;
+    cout << num1 << " " << num2 << endl;
+  }
+private:
+  int num1;
+  mutable int num2;
+};
+
+int main() {
+  OBJ obj1(0);
+  const OBJ obj2(0);
+  obj1.func_c();  // 0 1
+  obj1.func();    // 1 2
+  obj2.func_c();  // 0 1
+  //obj2.func();  // Unable to call non const function member
+  return 0;
+}
+```
+
 ## Copy Constructor
 * When the member of object is malloced, it may cause memory access error while copy the object.
   - We should redefine the copy constructor.
