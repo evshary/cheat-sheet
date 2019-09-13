@@ -41,6 +41,23 @@
 * List the disk
   - `df -h`
 
+# Packages - apt
+* Update source list
+  - `apt update`
+* List packages
+  - List all packages: `apt list`
+  - List installed packages: `apt list --installed`
+  - Search packages: `apt search <PACKAGES>`
+  - Show packages: `apt show <PACKAGES>`
+* Install/Uninstall packages
+  - Install: `apt install <PACKAGES>`
+  - Uninstall: `apt remove <PACKAGES>`
+  - Uninstall(Including config): `apt purge <PACKAGES>`
+* Upgrade packages
+  - Upgrade all: `apt upgrade`
+  - Upgrade certain: `apt install <PACKAGES>`
+  - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
