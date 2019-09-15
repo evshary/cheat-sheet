@@ -35,6 +35,119 @@ OBJ obj(456);
 OBJ obj = OBJ(789);
 ```
 
+## Inheritance
+### protected,private inheritance
+* Child can inherit parents with 3 ways: public, protected, private
+
+| - | pulbic(orig.) | protected(orig.) | private(orig.) |
+| --- | --- | --- | --- |
+| public inheritance | public->public | protected->protected | - |
+| protected inheritance | public->protected | protected->protected | - |
+| private inheritance | public->private | protected->private | - |
+
+```c++
+class PARENT {
+public:
+  void func() {
+    cout << "PARENT" << endl;
+  }
+};
+class CHILD : public PARENT {
+public:
+  void func() {
+    this->PARENT::func();
+    cout << "CHILD" << endl;
+  }
+};
+int main() {
+  CHILD c;
+  c.func(); // output: PARENT CHILD
+  return 0;
+}
+```
+
+### The order of constructor & deconstructor
+```c++
+class A {
+public:
+  A() {cout << "A" << endl;}
+  ~A() {cout << "~A" << endl;}
+};
+class B {
+public:
+  B() {cout << "B" << endl;}
+  ~B() {cout << "~B" << endl;}
+};
+class C : public A, public B {
+public:
+  C() {cout << "C" << endl;}
+  ~C() {cout << "~C" << endl;}
+};
+int main () {
+  C c;  // order: A, B, C, ~C, ~B, ~A
+  return 0;
+}
+```
+
+### Virtual Inheritance
+* Virtual Inheritance is to avoid duplicate base class.
+
+```c++
+class GrandParents {};
+// Avoid duplicate GrandParents
+class Parents1 : virtual public GrandParents {};
+class Parents2 : virtual public GrandParents {};
+class Child : public Parents1, public Parents2 {};
+```
+
+## Override & Virtual function
+* Override is "Early binding" or "Static binding".
+* Virtual function is "Late binding" or "Dynamic binding".
+
+```c++
+class PARENT {
+public:
+  virtual void func1() {
+    cout << "PARENT virtual" << endl;
+  }
+  void func2() {
+    cout << "PARENT not virtual" << endl;
+  }
+};
+class CHILD : public PARENT {
+public:
+  void func1() {
+    cout << "CHILD virtual" << endl;
+  }
+  void func2() {
+    cout << "CHILD not virtual" << endl;
+  }
+};
+int main() {
+  CHILD c;
+  PARENT *p = &c;
+  c.func1(); // output: CHILD virtual
+  p->func1(); // output: CHILD virtual
+  c.func2(); // output: CHILD not virtual 
+  p->func2(); // output: PARENT not virtual
+  return 0;
+}
+```
+
+## Absract class
+* The class with pure virtual function is called abstract class.
+  - Pure virtual function should be always defined by subclass.
+
+```c++
+class PARENT {
+public:
+  virtual void func() = 0; // pure virtual function
+};
+class CHILD {
+  void func() {cout << "CHILD" << endl;}
+};
+```
+
 ## const & mutable
 * const object can only access const members, while non const object doesn't have the limitation.
 * const function member can't modify the data member, except mutable one.
