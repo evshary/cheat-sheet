@@ -12,3 +12,6 @@ Containers are the powerful function for C++.
 
 # [Advanced](Advanced.md)
 object, template and namespace for C++.
+
+# [Exception](Exception.md)
+Some exception handling for C++.
