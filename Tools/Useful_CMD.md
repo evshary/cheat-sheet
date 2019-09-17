@@ -58,6 +58,11 @@
   - Upgrade certain: `apt install <PACKAGES>`
   - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
 
+# System
+* Update system time with NTP
+  - `ntpdate <NTP Server>`
+  - `ntpdate time.stdtime.gov.tw`
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
