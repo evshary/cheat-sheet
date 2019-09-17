@@ -9,6 +9,7 @@
 ## Shell
 * zsh: Better shell.
 * tmux: Shell session manager.
+* byobu: Friendly shell session manager based on tmux.
 * mosh: Keep the network connection for SSH.
 
 ## Others
