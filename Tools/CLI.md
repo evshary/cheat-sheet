@@ -12,6 +12,10 @@
 * byobu: Friendly shell session manager based on tmux.
 * mosh: Keep the network connection for SSH.
 
+## Serial
+* minicom: A serial console tool for command line.
+* gtkterm: A GUI serial console tool for Linux Desktop.
+
 ## Others
 * ipython: Better shell for python.
 * silversearcher-ag: Used to find the string efficiently.
