@@ -76,6 +76,8 @@
   - Able to view outlook mail but unable to export attachment.
 * [CoolUtils Outlook Viewer](https://www.coolutils.com/OutlookViewer)
   - Able to export attachment but the text may be garbled.
+* [Calibre](https://calibre-ebook.com)
+  - Cross-platform epub reader.
 
 # Community
 * [Telegram](https://telegram.org)
