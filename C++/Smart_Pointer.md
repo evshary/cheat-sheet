@@ -118,3 +118,51 @@ int main() {
   // ...
 }
 ```
+
+# enable_shared_from_this
+If we want to return shared pointer of an object, we need to inherit `enable_shared_from_this`.
+
+## Example we can't use
+```c++
+#include <iostream>
+#include <functional>
+#include <memory>
+
+class EXAMPLE {
+public:
+  std::function<void(std::shared_ptr<EXAMPLE>)> callback;
+  void trigger() {
+    callback(this); // we should not use this here.
+  }
+};
+int main() {
+  std::shared_ptr<EXAMPLE> example(new EXAMPLE());
+  example->callback = [](std::shared_ptr<EXAMPLE>) {
+    std::cout << "This is callback" << std::endl;
+  };
+  example->trigger();
+}
+```
+
+## Example we can use
+```c++
+#include <iostream>
+#include <functional>
+#include <memory>
+
+// Inherit enable_shared_from_this
+class EXAMPLE : public std::enable_shared_from_this<EXAMPLE> {
+public:
+  std::function<void(std::shared_ptr<EXAMPLE>)> callback;
+  void trigger() {
+    callback(shared_from_this()); // Use shared_from_this to generate shared_ptr
+  }
+};
+int main() {
+  std::shared_ptr<EXAMPLE> example(new EXAMPLE());
+  example->callback = [](std::shared_ptr<EXAMPLE>) {
+    std::cout << "This is callback" << std::endl;
+  };
+  example->trigger();
+}
+```
