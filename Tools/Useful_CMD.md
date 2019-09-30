@@ -41,7 +41,8 @@
 * List the disk
   - `df -h`
 
-# Packages - apt
+# Packages
+## apt
 * Update source list
   - `apt update`
 * List packages
@@ -58,7 +59,7 @@
   - Upgrade certain: `apt install <PACKAGES>`
   - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
 
-# Packages - choco
+## Chocolatey
 * List packages
   - List all packages: `choco list`
   - List installed packages: `choco list --local-only`
