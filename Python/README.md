@@ -12,3 +12,6 @@ Binary operation.
 
 # [object](object.md)
 About object.
+
+# [collections](collections.md)
+About collections.
