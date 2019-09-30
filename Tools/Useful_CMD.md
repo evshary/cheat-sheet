@@ -34,10 +34,10 @@
   - Domain socket: `ss -x`
 
 # Peripheral Device
-* List all USB device
-  - `lsusb`
-* List all PCI device
-  - `lspci`
+* List device info
+  - CPU: `lscpu`
+  - USB: `lsusb`
+  - PCI: `lspci`
 * List the disk
   - `df -h`
 
@@ -57,6 +57,19 @@
   - Upgrade all: `apt upgrade`
   - Upgrade certain: `apt install <PACKAGES>`
   - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
+
+# Packages - choco
+* List packages
+  - List all packages: `choco list`
+  - List installed packages: `choco list --local-only`
+  - Search packages: `choco search <PACKAGES>`
+* Install/Uninstall packages
+  - Install: `choco install <PACKAGES>`
+  - Uninstall: `choco uninstall <PACKAGES>`
+* Upgrade packages
+  - Upgrade all: `choco upgrade all`
+  - Upgrade certain: `choco upgrade <PACKAGES>`
+  - Upgrade all except: `choco upgrade all --except="'<PACKAGES>,<PACKAGES>'"`
 
 # System
 * Update system time with NTP
