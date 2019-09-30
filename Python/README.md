@@ -9,3 +9,6 @@ Python example code for thread.
 
 # [binary](binary.md)
 Binary operation.
+
+# [object](object.md)
+About object.
