@@ -82,6 +82,8 @@
   - Able to export attachment but the text may be garbled.
 * [Calibre](https://calibre-ebook.com)
   - Cross-platform epub reader.
+* [Foxit Reader](http://www.foxitsoftware.tw/downloads/)
+  - Cross-platform PDF reader.
 
 # Community
 * [Telegram](https://telegram.org)
