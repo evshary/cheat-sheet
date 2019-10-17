@@ -16,6 +16,9 @@
 * minicom: A serial console tool for command line.
 * gtkterm: A GUI serial console tool for Linux Desktop.
 
+## debug
+* stress: emulate the stress condition on the host.
+
 ## Others
 * ipython: Better shell for python.
 * silversearcher-ag: Used to find the string efficiently.
