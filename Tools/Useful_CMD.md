@@ -72,6 +72,12 @@
   - Upgrade certain: `choco upgrade <PACKAGES>`
   - Upgrade all except: `choco upgrade all --except="'<PACKAGES>,<PACKAGES>'"`
 
+# Debug
+* Emulate stress status
+  - CPU: `stress --cpu N`
+  - Memory(2 workers alloc/free 1GB): `stress --vm 2 --vm-bytes 1G`
+  - IO: `stress --io N`
+
 # System
 * Update system time with NTP
   - `ntpdate <NTP Server>`
