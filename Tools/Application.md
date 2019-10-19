@@ -107,3 +107,5 @@
 # Others
 * [Ninite](https://ninite.com/)
   - Install and update everything at once.
+* [MuseScore](https://musescore.org/)
+  - Free music notation software.
