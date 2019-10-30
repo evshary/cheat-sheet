@@ -38,6 +38,7 @@
   - CPU: `lscpu`
   - USB: `lsusb`
   - PCI: `lspci`
+  - Block devices: `lsblk`
 * List the disk
   - `df -h`
 
