@@ -35,6 +35,7 @@
 
 # Peripheral Device
 * List device info
+  - Hardware: `lshw`
   - CPU: `lscpu`
   - USB: `lsusb`
   - PCI: `lspci`
@@ -83,6 +84,16 @@
 * Update system time with NTP
   - `ntpdate <NTP Server>`
   - `ntpdate time.stdtime.gov.tw`
+* Change default program (editor...)
+  - `update-alternatives --display <COMMAND>`: List all candidates for certain command.
+  - `sudo update-alternatives --config <COMMAND>`: Select which program we use in default.
+  - `update-alternatives --install <LINK> <NAME> <PATH> <PRIORITY>`: Add option for certain command.
+    * LINK: command absolute directory
+    * NAME: command
+    * PATH: real program absolute directory
+    * PRIORITY
+    * e.g. `update-alternatives --install /usr/bin/vim vim /usr/bin/vim.basic 1000`
+  - `update-alternatives --remove <NAME> <PATH>`: Remove option for certain command.
 
 # Others
 * Search with filename
