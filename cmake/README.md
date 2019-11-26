@@ -3,9 +3,9 @@ cmake is a tool to generate Makefile for multiple platform.
 
 # Installation
 * cmake:
-  - `sudo apt-get install cmake`
+  - `sudo apt install cmake`
 * ccmake:
-  - `sudo apt-get install cmake-curses-gui`
+  - `sudo apt install cmake-curses-gui`
 
 # Example
 * [simple example](simple_example): The simplest one. 
