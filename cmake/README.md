@@ -13,6 +13,12 @@ cmake is a tool to generate Makefile for multiple platform.
 * [test and install example](test_install_example): The example for test and install.
 * [compile_option_example](compile_option_example): The example for adding compile options.
 
+# Environment Variables List
+* CMAKE_SOURCE_DIR: The entry point of CMake.
+* CMAKE_BINARY_DIR: The build folder of CMake.
+* CMAKE_CURRENT_SOURCE_DIR: The path of current processing CMakeLists.txt.
+* CMAKE_CURRENT_BINARY_DIR: The build directory path of current processing CMakeLists.txt.
+
 # Document
 We can refer to the [official document](https://cmake.org/cmake/help/latest/index.html) for detail.
 
