@@ -40,6 +40,7 @@
   - USB: `lsusb`
   - PCI: `lspci`
   - Block devices: `lsblk`
+  - Memory: `lsmem`
 * List the disk
   - `df -h`
 
