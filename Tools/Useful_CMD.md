@@ -33,6 +33,29 @@
   - UDP socket: `ss -u`
   - Domain socket: `ss -x`
 
+## Network Manager
+* Enable/Disable Network Mangager
+  - `nmcli networking on`
+  - `nmcli networking off`
+* Show network device status
+  - `nmcli device status`
+* Show detail device info
+  - `nmcli device show`
+* Show connection record
+  - `nmcli connection show`
+* Show wireless signal
+  - `nmcli device wifi`
+* Connect to SSID
+  - `nmcli device wifi connect <SSID> password <password>`
+  - Connection infomation will be in `/etc/NetworkManager/system-connections/<SSID>`
+* Connect/disconnect to SSID already known
+  - `nmcli connection show` to get UUID
+  - `nmcli connection up <UUID>`
+  - `nmcli connection down <UUID>`
+
+# Wireless Device detail
+* `iwconfig`
+
 # Peripheral Device
 * List device info
   - Hardware: `lshw`
