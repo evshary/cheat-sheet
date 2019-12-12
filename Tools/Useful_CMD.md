@@ -53,6 +53,13 @@
   - `nmcli connection up <UUID>`
   - `nmcli connection down <UUID>`
 
+# CPU
+* Should install `cpufrequtils` first.
+* `cpufreq-info`: Show the status of CPU
+  - You can use `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor`.
+* `cpufreq-set -r -g performance -c <CPU core>`: Set CPU to performance mode
+  
+
 # Wireless Device detail
 * `iwconfig`
 
