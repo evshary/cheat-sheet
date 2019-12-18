@@ -62,6 +62,7 @@
 
 # Wireless Device detail
 * `iwconfig`
+* `iwlist`: More functions
 
 # Peripheral Device
 * List device info
