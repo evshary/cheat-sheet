@@ -2,13 +2,14 @@
 cmake_minimum_required(VERSION 3.10)
 
 # project name
-project(somelib)
+project(funclib)
 
 # Assign all the source code in current directory to LIB_SOURCES
 aux_source_directory(. LIB_SOURCES)
 
 # Generate library
-add_library(func_lib ${LIB_SOURCES})
+add_library(funclib ${LIB_SOURCES})
 
-# Set the output of library to lib folder
-set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib) 
+set(CMAKE_INSTALL_PREFIX .)
+install(TARGETS funclib DESTINATION install/lib)
+install(FILES func.h DESTINATION install/include)
