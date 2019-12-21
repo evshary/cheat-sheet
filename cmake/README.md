@@ -28,6 +28,13 @@ cmake <location> -DCMAKE_BUILD_TYPE=Debug
 ```
 cmake <location> -DCMAKE_BUILD_TYPE=Release
 ```
+* Make
+```
+# Equals to make
+cmake --build <location>
+# Equals to make install
+cmake --build <location> --target install
+```
 
 # Document
 We can refer to the [official document](https://cmake.org/cmake/help/latest/index.html) for detail.
