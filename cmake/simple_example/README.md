@@ -14,6 +14,6 @@ cd ..
 
 # Clean
 ```sh
-# Just remove the build folder
-rm -rf build
+# Just remove the files under build folder
+rm -rf build/*
 ```
