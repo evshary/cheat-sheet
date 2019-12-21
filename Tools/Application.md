@@ -43,6 +43,9 @@
   - Tools for SNMPv1, SNMPv2 and trap in Personal Edition
 * [ManageEngine MibBrowser](https://www.manageengine.com/products/mibbrowser-free-tool/)
   - Tools for SNMPv3.
+* linssid
+  - Show wifi channels detail. Only works in Linux. 
+  - `sudo apt install linssid`
 
 ## Remote
 * [TeamViewer](https://www.teamviewer.com/tw/download/windows/)
