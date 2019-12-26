@@ -41,8 +41,13 @@
   - `nmcli device status`
 * Show detail device info
   - `nmcli device show`
-* Show connection record
-  - `nmcli connection show`
+* Connect/Disconnect device
+  - `nmcli device connect <interface>`
+  - `nmcli device disconnect <interface>`
+* Network Settings
+  - `nmcli device modify <interface> ipv4.method manual ipv4.addresses 10.0.0.1/8 ipv4.gateway 10.0.0.254 ipv4.dns "8.8.8.8 8.8.4.4"`
+  - `nmcli device modify <interface> ipv4.method auto`
+  - We can use `-` to remove setting. For example, `nmcli device modify enp1s0 -ipv4.dns 0`.
 * Show wireless signal
   - `nmcli device wifi`
 * Connect to SSID
