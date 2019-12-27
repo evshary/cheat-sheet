@@ -1,6 +1,8 @@
 # Development
 ## Editor
 * vim: No need to explain.
+* hd: Show hex file.
+* bvi: Hex file editor.
 
 ## Version
 * git: Version control tool.
