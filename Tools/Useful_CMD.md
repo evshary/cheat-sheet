@@ -132,6 +132,11 @@
     * e.g. `update-alternatives --install /usr/bin/vim vim /usr/bin/vim.basic 1000`
   - `update-alternatives --remove <NAME> <PATH>`: Remove option for certain command.
 
+# Video
+* Play the video from /dev/video0
+  - `mplayer tv://device=/dev/video0`: need to `sudo apt install mplayer` first
+  - `vlc v4l2:///dev/video0`: need to `sudo apt install vlc` first
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
