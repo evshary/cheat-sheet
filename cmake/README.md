@@ -12,6 +12,7 @@ cmake is a tool to generate Makefile for multiple platform.
 * [multiple folder](multiple_folder): cmake with multiple folder.
 * [test and install example](test_install_example): The example for test and install.
 * [compile_option_example](compile_option_example): The example for adding compile options.
+* [library](library): The example for how to build cmake library.
 
 # Environment Variables List
 * CMAKE_SOURCE_DIR: The entry point of CMake.
