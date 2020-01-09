@@ -133,8 +133,8 @@
   - `update-alternatives --remove <NAME> <PATH>`: Remove option for certain command.
 * Change directory history
   - `pushd <directory>`: Push the current directory.
-  - `dir -p -v`: Show directory stack.
-  - `dir -c`: Clear directory stack.
+  - `dirs -p -v`: Show directory stack.
+  - `dirs -c`: Clear directory stack.
   - `popd`: Pop the latest directory.
   - `pushd +N`: Choose the directory.
 
