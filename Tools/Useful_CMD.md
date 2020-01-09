@@ -131,6 +131,12 @@
     * PRIORITY
     * e.g. `update-alternatives --install /usr/bin/vim vim /usr/bin/vim.basic 1000`
   - `update-alternatives --remove <NAME> <PATH>`: Remove option for certain command.
+* Change directory history
+  - `pushd <directory>`: Push the current directory.
+  - `dir -p -v`: Show directory stack.
+  - `dir -c`: Clear directory stack.
+  - `popd`: Pop the latest directory.
+  - `pushd +N`: Choose the directory.
 
 # Video
 * Play the video from /dev/video0
