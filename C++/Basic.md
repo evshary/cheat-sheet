@@ -9,7 +9,7 @@ delete ptr
 int *arr = new int[5];
 delete [] arr;
 ```
-Placement new
+Placement new: Create object on specific memory, e.g. stack
 
 ```c++
 // buffer on stack 
