@@ -9,6 +9,17 @@ delete ptr
 int *arr = new int[5];
 delete [] arr;
 ```
+Placement new
+
+```c++
+// buffer on stack 
+unsigned char buf[10];
+// placement new
+OBJ *obj = new (buf) OBJ();
+// Do something....
+// Explicit call for destructor
+obj->~OBJ();
+```
 
 # default value for function argument
 ```c++
