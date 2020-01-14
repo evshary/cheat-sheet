@@ -121,6 +121,11 @@
 * Update system time with NTP
   - `ntpdate <NTP Server>`
   - `ntpdate time.stdtime.gov.tw`
+* System time
+  - `timedatectl`: Show system and RTC time
+  - `sudo systemctl restart systemd-timesyncd.service`: Restart the service adn synchronize the time
+  - `timedatectl list-timezones`: List the timezone
+  - `timedatectl set-timezone Asia/Taipei`: Set the timezone
 * Change default program (editor...)
   - `update-alternatives --display <COMMAND>`: List all candidates for certain command.
   - `sudo update-alternatives --config <COMMAND>`: Select which program we use in default.
