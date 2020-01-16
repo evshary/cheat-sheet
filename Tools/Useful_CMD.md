@@ -79,6 +79,9 @@
   - Memory: `lsmem`
 * List the disk
   - `df -h`
+* udev
+  - Monitor udev event: `udevadm monitor`
+  - Get the ID of device: `udevadm info /dev/<device_name>`
 
 # Packages
 ## apt
