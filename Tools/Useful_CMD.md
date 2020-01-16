@@ -150,10 +150,12 @@
   - `sudo dkms uninstall -m <module_name> -v <version>`: Uninstall kernel module
   - `sudo dkms remove <module_name>/<version> --all`: Remove all the kernel module source
 
-# Video
+# Audio&Video
 * Play the video from /dev/video0
   - `mplayer tv://device=/dev/video0`: need to `sudo apt install mplayer` first
   - `vlc v4l2:///dev/video0`: need to `sudo apt install vlc` first
+* Play audio
+  - aplay /usr/share/sounds/xxx/xxx.wav
 
 # Others
 * Search with filename
