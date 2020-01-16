@@ -7,6 +7,9 @@
 | FIFO(Named PIPE) | one-direction | N | process |
 | Unix Domain Socket | Most commonly used | N | process |
 
+# Common
+You can use `ipcs` to show all the IPC.
+
 # Shared Memory
 ## prototype
 ```c
