@@ -101,6 +101,12 @@
   - Upgrade certain: `apt install <PACKAGES>`
   - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
 
+## dpkg
+* Show deb info
+  - `dpkg --info xxxx.deb`
+* Show what will be installed
+  - `dpkg -c xxxx.deb`
+
 ## Chocolatey
 * List packages
   - List all packages: `choco list`
