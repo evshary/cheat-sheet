@@ -26,8 +26,8 @@ cd ../..
 ```
 * Build the code which uses library
 ```sh
-# Enter build
-cd use_lib/build
+# Enter build (ConfigUselib/ModulUselib)
+cd <USELIB>/build
 # Generate Makefile
 cmake ..
 # Build code
