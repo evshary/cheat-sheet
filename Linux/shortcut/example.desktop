@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Example
+Comment=This is my example
+Exec=/home/username/example.sh
+Terminal=false
+StartupNotify=false
