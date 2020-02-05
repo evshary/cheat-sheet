@@ -106,6 +106,8 @@
   - Create iso file or burn CD file.
 * [ActivePresenter](https://atomisystems.com/download/)
   - Screen Recorder.
+* [pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)
+  - Automatic subtitles generator.
 
 # Others
 * [Ninite](https://ninite.com/)
