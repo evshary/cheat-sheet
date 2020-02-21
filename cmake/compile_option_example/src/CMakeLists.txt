@@ -1,4 +1,5 @@
-# RPATH settings: must be set before add_executable
+# The following setting which starts with "CMAKE_" must be set before add_executable
+# RPATH settings
 ## Don't skip RPATH for the build tree
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 ## Use RPATH while building
@@ -7,6 +8,11 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH "/opt")
 ## Use RPATH while install
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+# Set output folder: Same function as EXECUTABLE_OUTPUT_PATH and LIBRARY_OUTPUT_PATH
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 # Assign all the source code in current directory to SOURCES
 aux_source_directory(. SOURCES)
