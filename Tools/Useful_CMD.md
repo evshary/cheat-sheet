@@ -132,6 +132,8 @@
   - `sudo systemctl restart systemd-timesyncd.service`: Restart the service adn synchronize the time
   - `timedatectl list-timezones`: List the timezone
   - `timedatectl set-timezone Asia/Taipei`: Set the timezone
+* Save local time into RTC (If you use Windows and Linux in the same machine, it's necessary for time sync)
+  - `sudo hwclock --localtime --systohc`
 * Change default program (editor...)
   - `update-alternatives --display <COMMAND>`: List all candidates for certain command.
   - `sudo update-alternatives --config <COMMAND>`: Select which program we use in default.
