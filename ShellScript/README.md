@@ -5,11 +5,9 @@ Here is some cheatsheet for writing shell script.
 # if condition
 
 ```sh
-if [ "$1" = "abc" ]
-then
+if [ "$1" = "abc" ]; then
     echo "abc"
-elif [ "$1" = "123" ]
-then
+elif [ "$1" = "123" ]; then
     echo "123"
 else
     echo "others"
@@ -19,8 +17,7 @@ fi
 ## Useful operators
 
 ```sh
-if [ -f /this/is/filename ]
-then
+if [ -f /this/is/filename ]; then
     echo "File exist."
 fi
 ```
@@ -31,6 +28,13 @@ fi
 * `-s name`: return true if name is not empty (size is not 0).
 * `-w name`: return ture if name is writable.
 * `-x name`: return true if name is executable.
+
+## Check absolute path or not
+
+```sh
+if [[ "$TEST_PATH" = /* ]]; then
+fi
+```
 
 # for-loop
 
