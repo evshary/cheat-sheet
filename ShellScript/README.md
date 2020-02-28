@@ -64,3 +64,29 @@ do
     echo $i
 done
 ```
+
+# function
+
+```
+# function definition
+function funcname()
+{
+  # Get function name
+  func_name=$0
+  # Get parameter
+  arg1=$1
+  arg2=$2
+  # Get arg number
+  argn=$#
+  # Get all arg
+  echo "All arg: $*"
+  echo "All arg: $@"
+}
+
+# call function
+funcname arg1 arg2
+```
+
+# Others
+* Include other shell file
+  - `source shell_file_name`
