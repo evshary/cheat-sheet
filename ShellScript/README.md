@@ -67,7 +67,7 @@ done
 
 # function
 
-```
+```sh
 # function definition
 function funcname()
 {
