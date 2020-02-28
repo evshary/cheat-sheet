@@ -65,6 +65,29 @@ do
 done
 ```
 
+# Array
+
+* Declaration
+```sh
+array=(
+      element1
+      element2
+      element3
+      )
+```
+* Get/Set: start from 1
+```sh
+array[1]="modified element1"
+echo $array[1]
+```
+* Interation
+```sh
+# The quotes is needed
+for i in "${array[@]}"; do
+    echo "$i"
+done
+```
+
 # function
 
 ```sh
