@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.10)
 project(ConfigUselib)
 
 # find library
-find_package(funclib REQUIRED CONFIG PATHS "${CMAKE_SOURCE_DIR}/../funclib/build/install/lib/cmake/func")
+find_package(funclib REQUIRED CONFIG PATHS "${CMAKE_SOURCE_DIR}/../funclib/build/install/lib/cmake/")
 
 # Assign all the source code in current directory to SOURCES
 aux_source_directory(. SOURCES)
