@@ -19,6 +19,7 @@ cmake is a tool to generate Makefile for multiple platform.
 * CMAKE_BINARY_DIR: The build folder of CMake.
 * CMAKE_CURRENT_SOURCE_DIR: The path of current processing CMakeLists.txt.
 * CMAKE_CURRENT_BINARY_DIR: The build directory path of current processing CMakeLists.txt.
+* CMAKE_CURRENT_LIST_DIR: Current processing path, including `include`. Refer to [Difference between CMAKE_CURRENT_SOURCE_DIR and CMAKE_CURRENT_LIST_DIR](https://stackoverflow.com/questions/15662497/difference-between-cmake-current-source-dir-and-cmake-current-list-dir).
 
 # Useful command
 * Debug Build:
