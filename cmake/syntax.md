@@ -96,7 +96,7 @@ foreach(i LIST)
 endforeach()
 ```
 
-## string: operation of string
+## string: string operation
 
 refer to [string](https://cmake.org/cmake/help/latest/command/string.html)
 
@@ -107,13 +107,22 @@ string(REPLACE " " "-" OUTPUT_VAR "This is input")
 string(TOUPPER "this is input" OUTPUT_VAR)
 ```
 
-## file: operation of file
+## file: file operation
 
 refer to [file](https://cmake.org/cmake/help/latest/command/file.html)
 
 ```
 # globbing-expression: find all files which match "test.h" and put into FILES_VAR
 file(GLOB FILES_VAR test.h)
+```
+
+## list: list operation
+
+refer to [list](https://cmake.org/cmake/help/latest/command/list.html)
+
+```
+# Append element into list
+list(APPEND <list> [<element>...])
 ```
 
 ## get_property / set_property
