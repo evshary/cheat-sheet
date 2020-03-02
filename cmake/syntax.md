@@ -21,6 +21,17 @@ option(FLAG "This is statement" ON)
 # We can use ${WERROR} to get value
 ```
 
+## configure_file
+
+```
+# Replace ${VAR} or @VAR@ in input file, and output
+configure_file(<input> <output>)
+# Replace only @VAR@ in input file, and output
+configure_file(<input> <output> @ONLY)
+# Only copy
+configure_file(<input> <output> COPYONLY)
+```
+
 ## if-else statement
 
 ```
