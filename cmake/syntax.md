@@ -107,6 +107,15 @@ string(REPLACE " " "-" OUTPUT_VAR "This is input")
 string(TOUPPER "this is input" OUTPUT_VAR)
 ```
 
+## file: operation of file
+
+refer to [file](https://cmake.org/cmake/help/latest/command/file.html)
+
+```
+# globbing-expression: find all files which match "test.h" and put into FILES_VAR
+file(GLOB FILES_VAR test.h)
+```
+
 ## get_property / set_property
 
 refer to [get_property](https://cmake.org/cmake/help/latest/command/get_property.html) & [set_property](https://cmake.org/cmake/help/latest/command/set_property.html)
