@@ -18,21 +18,23 @@ set(CMAKE_INSTALL_PREFIX install)
 target_include_directories(funclib PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}> # headers for building
     $<INSTALL_INTERFACE:include>           # headers for install
-    )
+  )
 
 # We need to include CMakePackageConfigHelpers before using
 # configure_package_config_file or write_basic_package_version_file
 include(CMakePackageConfigHelpers)
 # Create <Package>Config.cmake from PackageConfig.cmake.in
 configure_package_config_file(
-  "cmake/PackageConfig.cmake.in"
-  "${PROJECT_NAME}Config.cmake"
-  INSTALL_DESTINATION lib/cmake)
+    "cmake/PackageConfig.cmake.in"
+    "${PROJECT_NAME}Config.cmake"
+    INSTALL_DESTINATION lib/cmake  # I think this line is not necessary, but cmake still needs it...
+  )
 # Create <Package>Version.cmake
 write_basic_package_version_file(
-  "${PROJECT_NAME}Version.cmake"
-  VERSION ${PROJECT_VERSION}
-  COMPATIBILITY SameMajorVersion)
+    "${PROJECT_NAME}Version.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+  )
 
 # For make install
 install(FILES func.h DESTINATION include)
@@ -40,10 +42,12 @@ install(FILES func.h DESTINATION include)
 install(FILES 
     "${CMAKE_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     "${CMAKE_BINARY_DIR}/${PROJECT_NAME}Version.cmake"
-    DESTINATION lib/cmake)
+    DESTINATION lib/cmake
+  )
 # Add EXPORT for funclib
 install(TARGETS funclib EXPORT funclib DESTINATION lib)
 # Able to install export
 install(EXPORT funclib
-        FILE "${PROJECT_NAME}Targets.cmake"
-        DESTINATION lib/cmake)
+    FILE "${PROJECT_NAME}Targets.cmake"
+    DESTINATION lib/cmake
+  )
