@@ -1,6 +1,11 @@
 # introduction
 cmake is a tool to generate Makefile for multiple platform.
 
+Modern cmake use target and property instead of just variables.
+
+target can be created by 3 commands: add_library, add_executable, add_custom_target.
+Almost everything in cmake has properties. Here is [properties list](https://cmake.org/cmake/help/latest/manual/cmake-properties.7.html).
+
 # Installation
 * cmake:
   - `sudo apt install cmake`
@@ -20,6 +25,11 @@ cmake is a tool to generate Makefile for multiple platform.
 * CMAKE_CURRENT_SOURCE_DIR: The path of current processing CMakeLists.txt.
 * CMAKE_CURRENT_BINARY_DIR: The build directory path of current processing CMakeLists.txt.
 * CMAKE_CURRENT_LIST_DIR: Current processing path, including `include`. Refer to [Difference between CMAKE_CURRENT_SOURCE_DIR and CMAKE_CURRENT_LIST_DIR](https://stackoverflow.com/questions/15662497/difference-between-cmake-current-source-dir-and-cmake-current-list-dir).
+* CMAKE_CURRENT_LIST_LINE: Current line of the variable.
+* CMAKE_C_FLAGS: Used by C compiler.
+* CMAKE_CXX_FLAGS: Used by C++ compiler.
+* [LIBRARY_OUTPUT_PATH](https://cmake.org/cmake/help/latest/variable/LIBRARY_OUTPUT_PATH.html): Output library path. (Old varaibles)
+* [EXECUTABLE_OUTPUT_PATH](https://cmake.org/cmake/help/v3.7/variable/EXECUTABLE_OUTPUT_PATH.html): Output executable path. (Old variables)
 
 # Useful command
 * Debug Build:
@@ -38,7 +48,9 @@ cmake --build <location>
 cmake --build <location> --target install
 ```
 
-# Document
-We can refer to the [official document](https://cmake.org/cmake/help/latest/index.html) for detail.
-
-The reserved word for cmake is [here](https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html).
+# Resource
+* [official document](https://cmake.org/cmake/help/latest/index.html)
+* [Reserved word for cmake](https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html)
+* [eBook](https://github.com/Akagi201/learning-cmake/tree/master/docs)
+* [Github: learning-cmake](https://github.com/Akagi201/learning-cmake)
+* [Modern CMake 简介](https://zhuanlan.zhihu.com/p/76975231)
