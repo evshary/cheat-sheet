@@ -14,7 +14,7 @@ aux_source_directory(. SOURCES)
 add_executable(test_exe ${SOURCES}) 
 
 # Link with func library
-target_link_libraries(test_exe funclib)
+target_link_libraries(test_exe funclib::funclib)
 
 # Set the output of exe to bin folder
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)

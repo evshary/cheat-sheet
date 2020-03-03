@@ -48,6 +48,7 @@ install(FILES
 install(TARGETS funclib EXPORT funclib DESTINATION lib)
 # Able to install export
 install(EXPORT funclib
+    NAMESPACE ${PROJECT_NAME}:: # Add namespace
     FILE "${PROJECT_NAME}Targets.cmake"
     DESTINATION lib/cmake
   )
