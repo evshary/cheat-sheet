@@ -150,6 +150,8 @@
   - `dirs -c`: Clear directory stack.
   - `popd`: Pop the latest directory.
   - `pushd +N`: Choose the directory.
+* Open file manager from terminal
+  - `xdg-open .`: Open file manager.
 * Driver module management
   - `sudo dkms add ./<module_src_folder>`: Add module source folder
   - `sudo dkms build -m <module_name> -v <version>`: Build kernel module
