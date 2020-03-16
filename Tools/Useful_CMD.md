@@ -166,6 +166,9 @@
   - `vlc v4l2:///dev/video0`: need to `sudo apt install vlc` first
 * Play audio
   - aplay /usr/share/sounds/xxx/xxx.wav
+* Control the volume of audio
+  - `sudo apt install pavucontrol`
+  - `pavucontrol`
 
 # Others
 * Search with filename
