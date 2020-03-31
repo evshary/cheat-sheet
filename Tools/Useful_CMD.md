@@ -63,7 +63,7 @@
 * `cpufreq-info`: Show the status of CPU
   - You can use `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor`.
 * `cpufreq-set -r -g performance -c <CPU core>`: Set CPU to performance mode
-  
+* Easier UI tool: `sudo apt install indicator-cpufreq`
 
 # Wireless Device detail
 * `iwconfig`
