@@ -65,6 +65,7 @@ struct msgbuf {
   - `type == 0`: The first message in queue.
   - `type > 0`: The first message which type==mtype.
   - `type < 0`: Find the message which mtype <= |type| and the mtype is the minimum.
+* The message queue will be created at `/dev/mqueue`.
 
 # PIPE
 ## prototype
