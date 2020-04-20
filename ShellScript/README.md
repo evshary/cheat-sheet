@@ -40,6 +40,13 @@ fi
 
 There are several ways for for-loop.
 
+* `list`
+```sh
+for i in item1 item2 item3
+do
+    echo $i
+done
+```
 * `seq`
 ```sh
 for i in $(seq 1 10)
