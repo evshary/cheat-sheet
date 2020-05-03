@@ -117,6 +117,25 @@
   - Upgrade certain: `choco upgrade <PACKAGES>`
   - Upgrade all except: `choco upgrade all --except="'<PACKAGES>,<PACKAGES>'"`
 
+## nvm/npm
+* nvm is the version controller of npm, so should install first.
+  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
+  - You should view [the github](https://github.com/nvm-sh/nvm) and get the newest version.
+* nvm:
+  - List version: `nvm list`
+  - List available version: `nvm list available`
+  - Install version: `nvm install <version>`
+  - Use certain version: `nvm use <version>`
+* npm:
+  - Init project and create package.json: `npm init`
+    * description and repo url should not be empty.
+  - Install package: `npm install <package name>`
+    * Will create 3 files: `package.json` and `package-lock.json` should be controlled by git and `node_modules` should be ignored.
+    * Install package and save into package.json: `npm install <package name> --save`
+  - Restore dependy while git clone from repo: `npm install`
+  - Uninstall package: `npm uninstall <package name>`
+    * Uninstall package and save into package.json: `npm uninstall <package name> --save`
+
 # Debug
 * Emulate stress status
   - CPU: `stress --cpu N`
