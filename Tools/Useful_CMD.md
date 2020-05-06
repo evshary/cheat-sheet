@@ -87,6 +87,7 @@
 * List packages
   - List all packages: `apt list`
   - List installed packages: `apt list --installed`
+  - List upgradable packages: `apt list --upgradable`
   - Search packages: `apt search <PACKAGES>`
   - Show packages: `apt show <PACKAGES>`
 * Install/Uninstall packages
