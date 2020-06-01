@@ -106,6 +106,8 @@
   - Create iso file or burn CD file.
 * [ActivePresenter](https://atomisystems.com/download/)
   - Screen Recorder.
+* [OBS Studio](https://obsproject.com/)
+  - Screen Recorder for multi-platform.
 * [pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)
   - Automatic subtitles generator.
 
