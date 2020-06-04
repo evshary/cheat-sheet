@@ -6,6 +6,9 @@
 * Set IP address
   - Set address: `ip a add <IP>/<NETMASK> dev <DEVICE>`
   - Clear address: `ip a del <IP>/<NETMASK> dev <DEVICE>`
+* DHCP address
+  - `dhclient <interface>`: Get IP address from DHCP Server
+  - `dhclient -r <interface>`: Release IP address
 
 ## Router
 * Show router
