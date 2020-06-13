@@ -1,3 +1,14 @@
+# Bisect
+```
+# stop means the commit with bug, while start means the commit with no bug
+git bisect start <stop> <start>
+# Decide the commit is good or bad until you find out the bad commit
+git bisect good
+git bisect bad
+# Return origin commit
+git bisect reset
+```
+
 # Patch
 ## Generate Patch
 ```
