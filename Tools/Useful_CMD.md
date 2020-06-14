@@ -62,11 +62,16 @@
   - `nmcli connection down <UUID>`
 
 # CPU
-* Should install `cpufrequtils` first.
-* `cpufreq-info`: Show the status of CPU
-  - You can use `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor`.
-* `cpufreq-set -r -g performance -c <CPU core>`: Set CPU to performance mode
-* Easier UI tool: `sudo apt install indicator-cpufreq`
+* cpufrequtils
+  - Should install `cpufrequtils` first.
+  - `cpufreq-info`: Show the status of CPU
+      - You can use `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor`.
+  - `cpufreq-set -r -g performance -c <CPU core>`: Set CPU to performance mode
+  - Easier UI tool: `sudo apt install indicator-cpufreq`
+* pidstat: Show which CPU core process run on.
+* i7z: Show CPU freq, temp. and turbo mode
+  - `sudo apt install i7z`
+  - `sudo i7z`
 
 # Wireless Device detail
 * `iwconfig`
