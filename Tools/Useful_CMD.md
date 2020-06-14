@@ -211,6 +211,12 @@
   - `sudo apt install pavucontrol`
   - `pavucontrol`
 
+# Desktop (tested in Ubuntu 18.04)
+* `gnome-www-browser <file>`: Open file in browser
+* `gnome-calculator`: Open calculator
+* `gnome-terminal`: Open terminal
+* `xdg-open`: Open file with GUI tools
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
