@@ -72,6 +72,9 @@
 * `iwconfig`
 * `iwlist`: More functions
 
+# Ethernet Device detail
+* `ethtool`
+
 # Peripheral Device
 * List device info
   - Hardware: `lshw`
