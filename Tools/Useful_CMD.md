@@ -73,14 +73,21 @@
   - `sudo apt install i7z`
   - `sudo i7z`
 
-# Wireless Device detail
+# File
+## lsof
+* `lsof <file name>`: Who open the file
+* `lsof -c <command>`: List files opened by certain command
+* `lsof -p <PID>`: List files opened by certain process
+
+# Device
+## Wireless Device detail
 * `iwconfig`
 * `iwlist`: More functions
 
-# Ethernet Device detail
+## Ethernet Device detail
 * `ethtool`
 
-# Peripheral Device
+## Peripheral Device
 * List device info
   - Hardware: `lshw`
   - CPU: `lscpu`
