@@ -215,6 +215,10 @@
 * `gnome-terminal`: Open terminal
 * `xdg-open`: Open file with GUI tools
 
+# Disk
+* Clear disk
+  - `dd if=/dev/zero of=/dev/sda bs=1M`
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
