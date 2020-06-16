@@ -217,7 +217,7 @@
 
 # Disk
 * Clear disk
-  - `dd if=/dev/zero of=/dev/sda bs=1M`
+  - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
 
 # Others
 * Search with filename
