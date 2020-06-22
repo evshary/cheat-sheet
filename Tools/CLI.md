@@ -38,7 +38,9 @@
 * smartmontools: Read the status of disk.
 * mtr: Show the network status. The combination of ping and traceroute.
 * tree: List the directory.
-* htop, iotop, iftop
+* htop, iotop, iftop, powertop
+* dstat: vmstat+iostat+ifstat
+  - Usage: `alias dstat='dstat -cdlmnpsy'`
 * httpie: Useful HTTP client.
   - Usage: `http [URL]`
 * ncdu: Enhanced du.
