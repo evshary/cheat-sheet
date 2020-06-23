@@ -227,3 +227,9 @@
   - Should install `silversearcher-ag` first.
 * Show folder size
   - `du -sh <FOLDER>`
+* xargs
+  - `echo a b c d e f | xargs -n 3`: Echo the first 3 items
+  - `echo a b c d e f | xargs -p`: Check before execution
+  - `find . -name "*.swp" | xargs rm -f -p`: Delete all the files match the search result.
+  - `find . -name "*.swp" -print0 | xargs -0 rm -rf -p`: Delete all the files match the search result. (name can have space.)
+  - `find . -name '*.c' | xargs grep 'main'`: Pase all the `.c` files and find main.
