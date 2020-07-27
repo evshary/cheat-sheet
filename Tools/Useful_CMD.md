@@ -72,6 +72,7 @@
 * i7z: Show CPU freq, temp. and turbo mode
   - `sudo apt install i7z`
   - `sudo i7z`
+* [system-monitor extension](http://ubuntuhandbook.org/index.php/2019/03/display-cpu-memory-network-usage-in-ubuntu-18-04-panel/)
 
 # File
 ## lsof
