@@ -7,6 +7,9 @@ Python example code for serial programming.
 # [thread](thread)
 Python example code for thread.
 
+# [re](re)
+Python example code for re.
+
 # [binary](binary.md)
 Binary operation.
 
@@ -15,3 +18,4 @@ About object.
 
 # [collections](collections.md)
 About collections.
+
