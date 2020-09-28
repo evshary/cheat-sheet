@@ -33,6 +33,7 @@
 * docker: OS virtualization tool.
 
 # System
+* neofetch: Used to show the system info.
 * lynis: Used to check the security of system
   - Usage: `lynis -c`
 * smartmontools: Read the status of disk.
