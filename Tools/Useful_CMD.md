@@ -120,6 +120,12 @@
 * Install certain version
   - Check packages version: `apt policy <PACKAGES>`
   - Install certain version: `apt install <PACKAGES>=<VERSION>`
+* Search pkg which contains certain files
+  ```bash
+  sudo apt install apt-file
+  sudo apt update
+  apt-file search <FILE_NAME>
+  ```
 * Disable APT daily update
   ```bash
   sudo systemctl stop apt-daily.service
