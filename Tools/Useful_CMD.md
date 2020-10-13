@@ -240,6 +240,9 @@
   - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
 
 # Others
+* Add SSH key to remote host
+  - Create Key: `ssh-keygen`
+  - Copy Key: `ssh-copy-id -i ~/.ssh/id_rsa.pub username@host`
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
 * Search content from files
