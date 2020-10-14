@@ -22,6 +22,8 @@
 # Console
 * [MobaXterm](https://mobaxterm.mobatek.net)
   - Enhanced terminal for Windows, including SSH, FTP, serial
+* [SnowFlake](https://github.com/subhra74/snowflake)
+  - Enhanced terminal for Linux.
 * [TeraTerm](https://ttssh2.osdn.jp)
   - Open source terminal emulator.
   - Used to open serial port and file transfer with xmodem.
