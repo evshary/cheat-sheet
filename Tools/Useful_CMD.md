@@ -137,6 +137,12 @@
   sudo systemctl disable apt-daily-upgrade.service
   sudo systemctl disable apt-daily-upgrade.timer
   ```
+* For error "E: Could not get lock /var/lib/dpkg/lock-frontend ...."
+  ```
+  sudo lsof /var/lib/dpkg/lock-frontend
+  sudo kill -9 [PID]
+  sudo rm -rf /var/lib/dpkg/lock-frontend
+  ```
 
 ## dpkg
 * Show deb info
