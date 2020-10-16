@@ -262,3 +262,5 @@
   - `find . -name "*.swp" | xargs rm -f -p`: Delete all the files match the search result.
   - `find . -name "*.swp" -print0 | xargs -0 rm -rf -p`: Delete all the files match the search result. (name can have space.)
   - `find . -name '*.c' | xargs grep 'main'`: Pase all the `.c` files and find main.
+* Crash kernel manually
+  - `sudo sh -c "echo c > /proc/sysrq-trigger"`
