@@ -194,7 +194,8 @@
   - `ntpdate time.stdtime.gov.tw`
 * System time
   - `timedatectl`: Show system and RTC time
-  - `sudo systemctl restart systemd-timesyncd.service`: Restart the service adn synchronize the time
+  - `sudo systemctl restart systemd-timesyncd.service`: Restart the service and synchronize the time
+    * If you don't want to use NTP, restarting the SNTP service is a good way.
   - `timedatectl list-timezones`: List the timezone
   - `timedatectl set-timezone Asia/Taipei`: Set the timezone
 * Save local time into RTC (If you use Windows and Linux in the same machine, it's necessary for time sync)
