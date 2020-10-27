@@ -223,6 +223,9 @@
   - `sudo dkms status`: Show the list of kernel module
   - `sudo dkms uninstall -m <module_name> -v <version>`: Uninstall kernel module
   - `sudo dkms remove <module_name>/<version> --all`: Remove all the kernel module source
+* Hostname
+  - `hostnamectl`: Show hostname
+  - `hostnamectl set-hostname [new hostname]`: Modify new hostname
 
 # Picture & Audio & Video
 * Show picture from terminal
