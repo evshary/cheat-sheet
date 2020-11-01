@@ -143,6 +143,13 @@
   sudo kill -9 [PID]
   sudo rm -rf /var/lib/dpkg/lock-frontend
   ```
+* While apt is deadlock with certain packages
+  ```
+  # Remove the package forcely
+  sudo dpkg --ignore-depends=[pkg name] -P [pkg name]
+  # Fix the apt dependency
+  sudo apt --fix-broken install
+  ```
 
 ## dpkg
 * Show deb info
