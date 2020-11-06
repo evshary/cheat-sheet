@@ -3,6 +3,33 @@
 ```
 sudo docker run --rm -it ubuntu:20.04 bash
 ```
+* Run ROS 2 foxy for testing
+```
+sudo docker run --rm -it ros:foxy bash
+```
+
+# Build docker image from Dockerfile
+* Create Dockerfile
+```
+FROM ros:foxy
+
+# install ros package
+RUN apt-get update && apt-get install -y \
+      ros-${ROS_DISTRO}-demo-nodes-cpp \
+      ros-${ROS_DISTRO}-demo-nodes-py && \
+    rm -rf /var/lib/apt/lists/*
+
+# launch ros package
+CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
+```
+* Build docker image
+```
+docker build -t myimage:mytag .
+```
+* Run
+```
+docker run -it --rm myimage:mytag
+```
 
 # Useful Operations
 * Able to use docker without sudo
