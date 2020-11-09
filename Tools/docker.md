@@ -7,6 +7,10 @@ sudo docker run --rm -it ubuntu:20.04 bash
 ```
 sudo docker run --rm -it ros:foxy bash
 ```
+* Show docker log
+```
+sudo docker logs <container ID>
+```
 
 # Build docker image from Dockerfile
 * Create Dockerfile
