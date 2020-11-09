@@ -36,6 +36,17 @@ if [[ "$TEST_PATH" = /* ]]; then
 fi
 ```
 
+# Read input
+```bash
+echo -n "What is your input? (y/N)"
+read your_input
+if [ "$your_input" '==' "y" ] || [ "$your_input" '==' "Y" ]; then
+    echo "Yes"
+else
+    echo "No"
+fi
+```
+
 # for-loop
 
 There are several ways for for-loop.
