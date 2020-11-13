@@ -11,6 +11,13 @@ sudo docker run --rm -it ros:foxy bash
 ```
 sudo docker logs <container ID>
 ```
+* Prune
+```
+# Remove all dangling images
+sudo docker image prune
+# Remove stopped containers
+sudo docker container prune
+```
 
 # Build docker image from Dockerfile
 * Create Dockerfile
