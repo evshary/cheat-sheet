@@ -275,3 +275,6 @@
   - `find . -name '*.c' | xargs grep 'main'`: Pase all the `.c` files and find main.
 * Crash kernel manually
   - `sudo sh -c "echo c > /proc/sysrq-trigger"`
+* Make you seem like busy
+  - `sudo apt install hollywood`
+  - `hollywood`
