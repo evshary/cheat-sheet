@@ -253,6 +253,7 @@
   - `x11vnc -storepasswd`
 * Run VNC server
   - `x11vnc -forever -usepw -display :0`
+* Download [VNC viewer (Client)](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog)
 
 # Desktop (tested in Ubuntu 18.04)
 * `gnome-www-browser <file>`: Open file in browser
