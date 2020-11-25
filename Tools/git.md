@@ -1,3 +1,6 @@
+# Clear
+* Clear all the ignore files: `git clean -fX`
+
 # Bisect
 ```
 # stop means the commit with bug, while start means the commit with no bug
