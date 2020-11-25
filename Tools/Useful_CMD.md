@@ -246,6 +246,14 @@
   - `sudo apt install pavucontrol`
   - `pavucontrol`
 
+# VNC
+* Install x11vnc
+  - `sudo apt install x11vnc`
+* Set password
+  - `x11vnc -storepasswd`
+* Run VNC server
+  - `x11vnc -forever -usepw -display :0`
+
 # Desktop (tested in Ubuntu 18.04)
 * `gnome-www-browser <file>`: Open file in browser
 * `gnome-calculator`: Open calculator
