@@ -79,6 +79,10 @@
 * `lsof <file name>`: Who open the file
 * `lsof -c <command>`: List files opened by certain command
 * `lsof -p <PID>`: List files opened by certain process
+## zip
+* `sudo apt install zip unzip`: Installation
+* `zip -r file.zip folder/*`: Compress folder into file.zip
+* `unzip file.zip`: Uncompress the folder
 
 # Device
 ## Wireless Device detail
