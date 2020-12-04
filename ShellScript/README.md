@@ -132,6 +132,15 @@ function funcname()
 funcname arg1 arg2
 ```
 
+# argument
+
+```sh
+if [ $# -ne 2 ]; then
+    echo "./script.sh <arg1> <arg2>"
+    exit 1
+fi
+```
+
 # Others
 * Include other shell file
   - `source shell_file_name`
