@@ -49,6 +49,13 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 # logout and login
 ```
+* docker run with the same SSH privilege as host
+```
+docker run -it --rm \
+       -v $SSH_AUTH_SOCK:/ssh-agent \
+       -e SSH_AUTH_SOCK=/ssh-agent \
+       ubuntu:20.04 bash
+```
 
 # docker-compose
 * Installation
