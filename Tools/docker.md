@@ -88,3 +88,15 @@ docker-compose logs listener
 docker-compose stop
 docker-compose rm
 ```
+
+# Support Normal User in docker
+* Add the following line in Dockerfile to support normal user
+```
+ARG HOST_UID=1000
+ARG HOST_GID=1000
+ARG USER_NAME=user
+RUN groupadd -g $HOST_GID $USER_NAME
+RUN useradd --create-home --shell /bin/bash -u $HOST_UID -g $HOST_GID -G sudo $USER_NAME
+RUN echo "ros ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+USER $USER_NAME
+```
