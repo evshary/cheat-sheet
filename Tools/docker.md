@@ -1,4 +1,5 @@
-# Useful Commands
+# docker
+## Useful Commands
 * Run Ubuntu 20.04 for testing
 ```
 sudo docker run --rm -it ubuntu:20.04 bash
@@ -19,30 +20,7 @@ sudo docker image prune
 sudo docker container prune
 ```
 
-# Build docker image from Dockerfile
-* Create Dockerfile
-```
-FROM ros:foxy
-
-# install ros package
-RUN apt-get update && apt-get install -y \
-      ros-${ROS_DISTRO}-demo-nodes-cpp \
-      ros-${ROS_DISTRO}-demo-nodes-py && \
-    rm -rf /var/lib/apt/lists/*
-
-# launch ros package
-CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
-```
-* Build docker image
-```
-docker build -t myimage:mytag .
-```
-* Run
-```
-docker run -it --rm myimage:mytag
-```
-
-# Useful Operations
+## Tips
 * Able to use docker without sudo
 ```
 sudo groupadd docker
@@ -89,7 +67,31 @@ docker-compose stop
 docker-compose rm
 ```
 
-# Support Normal User in docker
+# Dockerfile
+## Build docker image from Dockerfile
+* Create Dockerfile
+```
+FROM ros:foxy
+
+# install ros package
+RUN apt-get update && apt-get install -y \
+      ros-${ROS_DISTRO}-demo-nodes-cpp \
+      ros-${ROS_DISTRO}-demo-nodes-py && \
+    rm -rf /var/lib/apt/lists/*
+
+# launch ros package
+CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
+```
+* Build docker image
+```
+docker build -t myimage:mytag .
+```
+* Run
+```
+docker run -it --rm myimage:mytag
+```
+
+## Support Normal User in docker
 * Add the following line in Dockerfile to support normal user
 ```
 ARG HOST_UID=1000
