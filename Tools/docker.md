@@ -47,6 +47,26 @@ docker run -it --rm \
        ubuntu:20.04 bash
 ```
 
+# docker registry
+* Run registry server
+```
+mkdir registry
+docker run --rm -d -p 5000:5000 -v $PWD/registry:/var/lib/registry --name registry registry:2
+```
+* Optional: Run web server to see the current images
+```
+docker run --rm -it -p 8080:8080 -d --name registry-web --link registry -e REGISTRY_URL=http://registry:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
+```
+* Tag and push
+```
+docker tag [image_name]:[tag] 127.0.0.1:5000/[image_name]
+docker push 127.0.0.1:5000/[image_name]
+```
+* Pull from docker Hub
+```
+docker pull 127.0.0.1:5000/[image_name]
+```
+
 # docker-compose
 * Installation
   - Please refer to [official site](https://docs.docker.com/compose/install/).
