@@ -129,10 +129,13 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 ```
 docker-machine create --driver virtualbox [vm_name]
 ```
-* List machine / get IP
+* List machine / get IP / get env
 ```
 docker-machine ls
 docker-machine ip [vm_name]
+docker-machine env [vm_name]
+# If you can't run env, please regenerate certificate
+docker-machine regenerate-certs [vm_name]
 ```
 * Run/Stop machine
 ```
@@ -201,4 +204,16 @@ docker service inspect --pretty [service_name]
 * Stop service
 ```
 docker service rm [service_name]
+```
+### stack
+Refer to https://docs.docker.com/engine/swarm/stack-deploy/
+
+* Create docker-compose file in your swarm manager
+* Deploy compose-file
+```
+docker stack deploy -c docker-compose.yml [APP name]
+```
+* Stop service from compose-file
+```
+docker stack rm [APP name]
 ```
