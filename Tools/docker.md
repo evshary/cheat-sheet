@@ -114,3 +114,91 @@ RUN useradd --create-home --shell /bin/bash -u $HOST_UID -g $HOST_GID -G sudo $U
 RUN echo "ros ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 USER $USER_NAME
 ```
+
+# docker management
+## docker-mahcine
+* Install docker machine
+  - Refer to https://docs.docker.com/machine/install-machine/
+```
+base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+```
+* Create machine
+```
+docker-machine create --driver virtualbox [vm_name]
+```
+* List machine / get IP
+```
+docker-machine ls
+docker-machine ip [vm_name]
+```
+* Run/Stop machine
+```
+docker-machine start [vm_name]
+docker-machine stop [vm_name]
+```
+* Control machine
+```
+docker-machine ssh [vm_name]
+```
+## docker swarm
+There is two parts in docker swarm: swarm manager & worker node
+
+swarm manager can put docker service into worker node.
+
+The diagram is from [docker documentation](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/).
+
+![](https://docs.docker.com/engine/swarm/images/services-diagram.png)
+
+### swarm
+* Select machine to become manager
+```
+# Connect to machine
+docker-machine ssh [vm_name]
+# Change into swarm manager
+docker swarm init --advertise-addr [machine IP]
+```
+* Copy the output like the following and run in other machine
+```
+docker swarm join --token [token] [machine IP]:2377
+```
+* Leave the swarm
+```
+docker swarm leave
+```
+### node
+* Now you can manage other machines from manager
+```
+# show the swarm info
+docker node ls
+# Promote node to manager
+docker node promote [vm_name]
+# Demote manager to node
+docker node demote [vm_name]
+```
+* Start / Stop node
+```
+# stop node
+docker node update --availability drain [vm_name]
+# start node
+docker node update --availability active [vm_name]
+```
+### service
+* Run service on node
+  - `--replicas n` means run in n machines
+```
+docker service create --replicas n --name [service_name] [images] [command]
+# EX: docker service create --replicas 1 --name ros_talker osrf/ros:foxy-desktop ros2 run demo_nodes_py talker
+```
+* Show service info
+```
+docker service ls
+docker service ps [service_name]
+docker service inspect --pretty [service_name]
+```
+* Stop service
+```
+docker service rm [service_name]
+```
