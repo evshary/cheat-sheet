@@ -20,6 +20,18 @@ sudo docker image prune
 sudo docker container prune
 ```
 
+## Save & Export
+* Save & Load: Save the current image status
+```
+docker save [image_name]:[tag] > [name].tar
+docker load < [name].tar
+```
+* Export & Import: Export the current container status (including filesystem changes)
+```
+docker export [container_name] > [name].tar
+cat [name].tar | docker import - [image_name]:[tag]
+```
+
 ## Tips
 * Able to use docker without sudo
 ```
