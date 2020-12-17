@@ -121,6 +121,7 @@
   - Upgrade all: `apt upgrade`
   - Upgrade certain: `apt install <PACKAGES>`
   - Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
+  - Only upgrade ROS foxy packages: `apt --only-upgrade install "^ros-foxy-*"`
 * Install certain version
   - Check packages version: `apt policy <PACKAGES>`
   - Install certain version: `apt install <PACKAGES>=<VERSION>`
