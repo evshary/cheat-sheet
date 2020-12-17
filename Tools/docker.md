@@ -19,6 +19,13 @@ sudo docker image prune
 # Remove stopped containers
 sudo docker container prune
 ```
+* Copy file into / outside container
+```
+# outside
+docker cp <container ID>:<src> <dst>
+# into
+docker cp <src> <container ID>:<dst>
+```
 
 ## Save & Export
 * Save & Load: Save the current image status
