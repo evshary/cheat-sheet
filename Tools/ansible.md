@@ -3,6 +3,13 @@
 sudo apt install ansible
 ```
 
+# Files
+There are 3 files in the directory:
+
+* ansible.cfg: default config
+* inventory: host list
+* your_playbook.yml: what thing you want to do
+
 # Usage
 * Create `ansible.cfg`
 ```
