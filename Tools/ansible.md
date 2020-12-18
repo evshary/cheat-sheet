@@ -14,14 +14,14 @@ There are 3 files in the directory:
 * Create `ansible.cfg`
 ```
 [defaults]
-inventory = ./inventory
+inventory = hosts
 ```
-* Create `inventory` for host infomation
+* Create `hosts` for host infomation
 ```
-[ROS2]
+[YOUR_HOSTS]
 <IP>
 
-[ROS2:vars]
+[YOUR_HOSTS:vars]
 ansible_password=<pass>
 ansible_become_pass=<pass>
 ansible_ssh_user=<user>
@@ -37,7 +37,7 @@ ansible all --list-hosts
 ```
 * Test
 ```
-ansible ROS2 -m ping
+ansible YOUR_HOSTS -m ping
 ```
 * Create playbook "your_playbook.yml"
 ```
@@ -54,3 +54,6 @@ ansible ROS2 -m ping
 ```
 ansible-playbook your_playbook.yml
 ```
+
+# Reference
+* https://chusiang.gitbooks.io/automate-with-ansible/content/
