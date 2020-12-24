@@ -8,7 +8,7 @@ There are two modes for `find_packages`:
 - Module mode: First priority. Use Find<package>.cmake file located within project.
 - Config mode: Second priority. Use <package>Config.cmake file located outside and produced by `install`
 
-You can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/20746936/what-use-is-find-package-if-you-need-to-specify-cmake-module-path-anyway).
+You can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/20746936/what-use-is-find-package-if-you-need-to-specify-cmake-module-path-anyway) or [Cmake之深入理解find_package()的用法](https://zhuanlan.zhihu.com/p/97369704).
 
 ## Create library
 
