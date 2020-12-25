@@ -1,0 +1,8 @@
+---
+- hosts: YOUR_HOSTS
+  become: true  # use sudo
+  tasks:
+    - name: Install vim
+      apt: name=vim update_cache=yes state=latest
+    - name: Get date
+      shell: date

@@ -1,0 +1,9 @@
+[YOUR_HOSTS]
+<IP>
+
+[YOUR_HOSTS:vars]
+ansible_password=adlinkros
+ansible_become_pass=adlinkros
+ansible_ssh_user=ros
+host_key_checking=False
+ansible_python_interpreter=/usr/bin/python3
