@@ -7,16 +7,20 @@ sudo apt install ansible
 There are 3 files in the directory:
 
 * ansible.cfg: default config
-* inventory: host list
+* hosts inventory: host list
 * your_playbook.yml: what thing you want to do
 
+You can refer to the architecture from [IBM blog](https://www.ibm.com/cloud/blog/end-to-end-application-provisioning-with-ansible-and-terraform).
+
+![](https://1.cms.s81c.com/sites/default/files/2018-11-22/Ansible_ov.png)
+
 # Usage
-* Create `ansible.cfg`
+* Create `ansible.cfg`. `inventory = hosts` assign the inventory name.
 ```
 [defaults]
 inventory = hosts
 ```
-* Create `hosts` for host infomation
+* Create `hosts` for host inventory.
 ```
 [YOUR_HOSTS]
 <IP>
@@ -28,7 +32,7 @@ ansible_ssh_user=<user>
 host_key_checking=False
 ansible_python_interpreter=/usr/bin/python3
 ```
-* List the current status
+* List the current host status.
 ```
 # List inventory settings
 ansible-inventory --list -y
