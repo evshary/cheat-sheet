@@ -161,6 +161,8 @@
   - `dpkg --info xxxx.deb`
 * Show what will be installed
   - `dpkg -c xxxx.deb`
+* Extract deb file
+  - `dpkg -x xxxx.deb <output directory>`
 
 ## Chocolatey
 * List packages
