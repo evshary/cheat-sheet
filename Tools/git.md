@@ -1,5 +1,18 @@
 # Clear
 * Clear all the ignore files: `git clean -fX`
+* Force clean (include directory): `git clean -f -FXd`
+
+# Submodule
+* Add submodule
+```
+cd <folder>
+git submodule add  <repo url>
+```
+* Get submodule after clone project
+```
+git submodule init
+git submodule update
+```
 
 # Bisect
 ```
