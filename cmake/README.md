@@ -47,6 +47,14 @@ cmake --build <location>
 # Equals to make install
 cmake --build <location> --target install
 ```
+* Set verbose to see the detail of make
+```
+cmake <location> -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON 
+```
+* Decide the build folder and install folder (`./build` and `./install`)
+```
+cmake -Bbuild -H. -DCMAKE_INSTALL_PREFIX=./install
+```
 
 # Resource
 * [official document](https://cmake.org/cmake/help/latest/index.html)
