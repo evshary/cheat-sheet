@@ -18,6 +18,7 @@ Almost everything in cmake has properties. Here is [properties list](https://cma
 * [test and install example](test_install_example): The example for test and install.
 * [compile_option_example](compile_option_example): The example for adding compile options.
 * [library](library): The example for how to build cmake library.
+* [include external project](https://zhuanlan.zhihu.com/p/102050750): There are 3 ways to include external project (submodule, ExternalProject_Add, FetchContent).
 
 # Environment Variables List
 * CMAKE_SOURCE_DIR: The entry point of CMake.
@@ -62,3 +63,4 @@ cmake -Bbuild -H. -DCMAKE_INSTALL_PREFIX=./install
 * [eBook](https://github.com/Akagi201/learning-cmake/tree/master/docs)
 * [Github: learning-cmake](https://github.com/Akagi201/learning-cmake)
 * [Modern CMake 简介](https://zhuanlan.zhihu.com/p/76975231)
+* [CMake 如何入门？](https://www.zhihu.com/question/58949190)
