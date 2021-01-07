@@ -293,10 +293,16 @@
   - Stop: `multipass stop myvm`
   - Clean: `multipass delete --purge myvm`
 
-# Others
+# SSH
 * Add SSH key to remote host
   - Create Key: `ssh-keygen`
   - Copy Key: `ssh-copy-id -i ~/.ssh/id_rsa.pub username@host`
+* Connect SSH with graphic
+  - `ssh -X <IP>`
+* Connect SSH with forwarding SSH agent
+  - `ssh -A <IP>`
+
+# Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
 * Search content from files
