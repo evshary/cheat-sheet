@@ -20,6 +20,9 @@ fi
 if [ -f /this/is/filename ]; then
     echo "File exist."
 fi
+if [ ! -f /this/is/filename ]; then
+    echo "File not exist."
+fi
 ```
 
 * `-d name`: return true if name is directory.
