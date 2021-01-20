@@ -53,6 +53,12 @@ docker run -it --rm \
        -e SSH_AUTH_SOCK=/ssh-agent \
        ubuntu:20.04 bash
 ```
+* Use the same time with the host
+```
+docker run -it --rm \
+       -v /etc/localtime:/etc/localtime:ro \
+       ubuntu:2004 bash
+```
 
 # docker registry
 * Run registry server
