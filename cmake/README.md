@@ -56,6 +56,10 @@ cmake <location> -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
 ```
 cmake -Bbuild -H. -DCMAKE_INSTALL_PREFIX=./install
 ```
+* If your cmake is library and you want to link to it, export the environmental variables.
+```
+export LD_LIBRARY_PATH=$PWD/install/lib/
+```
 
 # Resource
 * [official document](https://cmake.org/cmake/help/latest/index.html)
