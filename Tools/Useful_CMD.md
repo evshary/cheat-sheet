@@ -302,6 +302,19 @@
 * Connect SSH with forwarding SSH agent
   - `ssh -A <IP>`
 
+# Build
+* Check what `make install` will do.
+  - `make -n install`
+
+## checkinstall
+* Refer to [the tutorial](https://www.ptt.cc/bbs/Linux/M.1497723043.A.002.html).
+* Install checkinstall
+  - `sudo apt install checkinstall`
+* interactive command
+  - `sudo checkinstall`
+* Assign name and version
+  - `sudo checkinstall --pkgname=your-pkg-name --pkgversion=your-pkg-version`
+
 # Others
 * Search with filename
   - `find <PATH> -name <FILE NAME>`
