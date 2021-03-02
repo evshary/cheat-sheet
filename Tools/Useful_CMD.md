@@ -131,6 +131,9 @@
   sudo apt update
   apt-file search <FILE_NAME>
   ```
+* Switch APT server
+  - Find the appropriate apt server here: https://launchpad.net/ubuntu/+archivemirrors
+  - Use vim to open and change the server by regular expression: `:%s/http:\\/\\/archive.ubuntu.com\\/ubuntu/http:\\/\\/free.nchc.org.tw\\/ubuntu/g`
 * Disable APT daily update
   ```bash
   sudo systemctl stop apt-daily.service
