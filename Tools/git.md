@@ -25,6 +25,9 @@ git bisect bad
 git bisect reset
 ```
 
+# Stash
+* stash specific file: `git stash push -m your_message <file_name>`
+
 # Patch
 ## Generate Patch
 ```
