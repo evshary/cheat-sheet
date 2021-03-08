@@ -74,6 +74,7 @@ npm install
 
 # yarn
 yarn is the replacement of npm.
+yarn can cache the downloaded packages (no need to download again) and has better performance.
 
 ## installation
 * install (suggestion)
