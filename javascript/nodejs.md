@@ -33,6 +33,9 @@ nvm alias default <version>
 ```
 
 # npm (Node.js Package Manager)
+npm is used to manage the packages of Node.js.
+After npm5, it'll create package-lock.json to specify the version npm uses.
+
 ## init
 * Init workspace (It'll create packages.json)
 ```bash
@@ -75,6 +78,7 @@ npm install
 # yarn
 yarn is the replacement of npm.
 yarn can cache the downloaded packages (no need to download again) and has better performance.
+It'll create yarn.lock to specify the packages version yarn uses.
 
 ## installation
 * install (suggestion)
@@ -89,7 +93,7 @@ sudo apt update
 sudo apt install --no-install-recommends yarn
 ```
 
-* Usage
+## Usage
 
 | npm | yarn |
 | - | - |
@@ -98,3 +102,34 @@ sudo apt install --no-install-recommends yarn
 | npm uninstall --save <pkg> | yarn remove <pkg> |
 | rm -rf node_modules && npm install | yarn upgrade | 
 | npm run <target> | yarn run <target> |
+
+# Lerna
+Used to manage multiple packages (build, version control...) in one project.
+
+## Installation
+```bash
+npm install -g lerna
+```
+## Usage
+* init
+  - There are two modes in Lerna: Fixed Mode and Independent Mode
+    - Fixed Mode: All the packages use the same version of dependencies.
+    - Independent Mode: Each packages has its own version of dependencies.
+```bash
+# Fixed Mode
+lerna init
+# Independent Mode (suggested)
+lerna init --independent
+```
+* list packages
+```bash
+lerna ls
+```
+* Run scripts
+```bash
+lerna run [script]
+```
+* Clean node_modules
+```bash
+lerna clean
+```
