@@ -14,6 +14,8 @@ cd ..
 
 # test
 ```sh
+ctest
+# or
 make test
 ```
 
