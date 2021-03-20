@@ -75,6 +75,12 @@ npm install
 * `npm update`: Check packages update
 * `npm prune`: Remove unused packages
 
+## Upgrade packages
+```bash
+npm install -g npm-upgrade
+npm-upgrade
+```
+
 # yarn
 yarn is the replacement of npm.
 yarn can cache the downloaded packages (no need to download again) and has better performance.
