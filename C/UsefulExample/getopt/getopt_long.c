@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <getopt.h>
 
 /* Be aware that 'c' and 'd' should also be included here */
