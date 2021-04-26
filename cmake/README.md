@@ -31,6 +31,8 @@ Almost everything in cmake has properties. Here is [properties list](https://cma
 * CMAKE_CXX_FLAGS: Used by C++ compiler.
 * [LIBRARY_OUTPUT_PATH](https://cmake.org/cmake/help/latest/variable/LIBRARY_OUTPUT_PATH.html): Output library path. (Old varaibles)
 * [EXECUTABLE_OUTPUT_PATH](https://cmake.org/cmake/help/v3.7/variable/EXECUTABLE_OUTPUT_PATH.html): Output executable path. (Old variables)
+* PROJECT_SOURCE_DIR: The source directory of this cmake project (Note that it'll point to the source folder of subproject.) 
+* PROJECT_BINARY_DIR: The build directory of this cmake project (Note that it'll point to the build folder of subproject.)
 
 # Useful command
 * Debug Build:
