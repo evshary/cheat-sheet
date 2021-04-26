@@ -17,6 +17,13 @@ add_executable(test_exe ${SOURCES})
 # install to {CMAKE_INSTALL_PREFIX}/bin
 install(TARGETS test_exe DESTINATION bin)
 
+# Good way to install header: https://stackoverflow.com/questions/10487256/cmake-how-to-properly-copy-static-librarys-header-file-into-usr-include
+# set_target_properties(mylib PROPERTIES PUBLIC_HEADER "myheader1.h;myheader2.h")
+# install(TARGETS mylib 
+#         LIBRARY DESTINATION some/libpath
+#         PUBLIC_HEADER DESTINATION some/includepath
+# )
+
 # Enable testing
 enable_testing()
 
