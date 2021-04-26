@@ -18,7 +18,9 @@ Almost everything in cmake has properties. Here is [properties list](https://cma
 * [test and install example](test_install_example): The example for test and install.
 * [compile_option_example](compile_option_example): The example for adding compile options.
 * [library](library): The example for how to build cmake library.
-* [include external project](https://zhuanlan.zhihu.com/p/102050750): There are 3 ways to include external project (submodule, ExternalProject_Add, FetchContent).
+* [include external project](https://zhuanlan.zhihu.com/p/102050750):
+  - There are 3 ways to include external project: submodule(add_subdirectory), ExternalProject_Add, FetchContent
+  - For the first way, to avoid install not necessary binary: add_subdirectory(external_project EXCLUDE_FROM_ALL). Refer to [this](https://stackoverflow.com/questions/35344132/cpack-exclude-install-commands-from-subdirectory-googletest-directory).
 
 # Environment Variables List
 * CMAKE_SOURCE_DIR: The entry point of CMake.
