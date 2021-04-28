@@ -28,6 +28,9 @@ set(CPACK_GENERATOR "DEB")
 set(CPACK_PACKAGE_VERSION "1.0.0")
 # Set the package name
 set(CPACK_PACKAGE_NAME "test_package_name")
+# Set the package file format
+execute_process(COMMAND dpkg --print-architecture OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE CPACK_DEBIAN_PACKAGE_ARCHITECTURE)
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}_${CPACK_PACKAGE_VERSION}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}")
 # Set the installation location
 set(CPACK_SET_DESTDIR true)
 set(CPACK_INSTALL_PREFIX "/opt/test_packages/")
