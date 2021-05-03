@@ -1,6 +1,7 @@
 # Clear
 * Clear all the ignore files: `git clean -fX`
 * Force clean (include directory): `git clean -f -FXd`
+* Clean deleted remote branch: `git remote prune origin`
 
 # Submodule
 * Add submodule
