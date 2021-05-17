@@ -39,30 +39,39 @@ Almost everything in cmake has properties. Here is [properties list](https://cma
 
 # Useful command
 * Debug Build:
-```
+```bash
 cmake <location> -DCMAKE_BUILD_TYPE=Debug
 ```
 * Release Build
-```
+```bash
 cmake <location> -DCMAKE_BUILD_TYPE=Release
 ```
 * Make
-```
+```bash
 # Equals to make
 cmake --build <location>
 # Equals to make install
 cmake --build <location> --target install
 ```
-* Set verbose to see the detail of make
+* See the detail of cmake
+```bash
+cmake --debug-output <location>
+# More detail
+cmake --trace <location>
 ```
-cmake <location> -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON 
+* Set verbose to see the detail of make
+```bash
+# Add verbose while make
+make VERBOSE=1
+# Or add definition before make
+cmake <location> -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
 ```
 * Decide the build folder and install folder (`./build` and `./install`)
-```
+```bash
 cmake -Bbuild -H. -DCMAKE_INSTALL_PREFIX=./install
 ```
 * If your cmake is library and you want to link to it, export the environmental variables.
-```
+```bash
 export LD_LIBRARY_PATH=$PWD/install/lib/
 ```
 
