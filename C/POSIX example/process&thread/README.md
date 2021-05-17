@@ -12,6 +12,7 @@ make
 # cmake
 
 ```bash
+rm -rf build
 cmake -Bbuild -H.
 cmake --build build
 ```
