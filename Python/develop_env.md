@@ -68,5 +68,43 @@ pip3 list
 deactivate
 ```
 
+# poetry
+
+* Installation & Usage
+
+```bash
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+# Before use poetry
+source $HOME/.poetry/env
+# Update poetry
+poetry self update
+```
+
+* init poetry (Generate pyproject.toml)
+
+```bash
+# --no-interaction means not to ask questions
+poetry init --no-interaction
+```
+
+* Use correct Python version
+
+```bash
+poetry env use $(which python3)
+```
+
+* Install poetry packages from pyproject.toml
+
+```bash
+poetry install
+```
+
+* Run python with poetry environment
+
+```bash
+poetry run [python3 command]
+```
+
 # Reference
 * [pyenv & virtualenv usage](https://www.maxlist.xyz/2020/04/01/python-pyenv-virtualenv/)
+* [poetry with Django](https://ithelp.ithome.com.tw/articles/10233355)
