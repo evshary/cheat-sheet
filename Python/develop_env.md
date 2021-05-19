@@ -105,6 +105,15 @@ poetry install
 poetry run [python3 command]
 ```
 
+* Config
+
+```bash
+# list all the config
+poetry config --list
+# disable virtualenv
+poetry config virtualenvs.create false
+```
+
 # Reference
 * [pyenv & virtualenv usage](https://www.maxlist.xyz/2020/04/01/python-pyenv-virtualenv/)
 * [poetry with Django](https://ithelp.ithome.com.tw/articles/10233355)
