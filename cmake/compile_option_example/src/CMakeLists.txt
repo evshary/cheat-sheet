@@ -8,7 +8,8 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH "/opt")
 ## Use RPATH while install
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-## You can also set RPATH to certain target
+## You can also set RPATH to certain target (and also set several RPATH at the same time)
+## Reference: https://stackoverflow.com/questions/40146437/how-to-set-multiple-rpath-directories-using-cmake-on-macos
 #set_property(
 #    TARGET mytarget
 #    PROPERTY INSTALL_RPATH
