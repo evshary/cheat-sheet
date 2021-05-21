@@ -8,6 +8,13 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH "/opt")
 ## Use RPATH while install
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+## You can also set RPATH to certain target
+#set_property(
+#    TARGET mytarget
+#    PROPERTY INSTALL_RPATH
+#    "@loader_path/../lib"
+#    "@loader_path/../thirdparty/lib"
+#)
 
 # Set output folder: Same function as EXECUTABLE_OUTPUT_PATH and LIBRARY_OUTPUT_PATH
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
