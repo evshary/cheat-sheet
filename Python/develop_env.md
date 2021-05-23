@@ -2,6 +2,24 @@
 
 This is Python develop environment note.
 
+# Environment
+
+* Find sys.path: `python3 -m site`
+
+# pip
+
+* pip should be installed after installing python.
+* Correct to use pip
+  - `python3 -m pip install <your_package>`
+  - installed in `~/.local/lib/<python_version>/site-packages`
+  - Note: if you use `apt install python-<packag>`, the path will be `/usr/lib/<python_version>/dist-packages`. (Not suggested)
+* Show packages detail
+  - `python3 -m pip show <your_package>`
+* Show all installed packages
+  - `python3 -m pip list`
+  - `python3 -m pip list -v`: more detail with path
+* Upgrade pip: `python3 -m pip install --upgrade pip`
+
 # pyenv
 
 * Installation
