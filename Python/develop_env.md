@@ -5,6 +5,7 @@ This is Python develop environment note.
 # Environment
 
 * Find sys.path: `python3 -m site`
+* More beautiful environment: `sudo apt install ipython ipython3`
 
 # pip
 
@@ -13,6 +14,9 @@ This is Python develop environment note.
   - `python3 -m pip install <your_package>`
   - installed in `~/.local/lib/<python_version>/site-packages`
   - Note: if you use `apt install python-<packag>`, the path will be `/usr/lib/<python_version>/dist-packages`. (Not suggested)
+  - The difference between site-packages and dist-packages:
+    * site-packages: install from pip
+    * dist-packages: install from apt
 * Show packages detail
   - `python3 -m pip show <your_package>`
 * Show all installed packages
@@ -57,6 +61,17 @@ pyenv versions
 pyenv global <version>
 pyenv local <version>
 pyenv shell <version>
+# clean shell python version
+pyenv shell --unset
+```
+
+* Show current python path and execute
+
+```
+# Show current python path
+pyenv which python
+# Execute python with current version
+pyenv exec python
 ```
 
 # virtualenv
@@ -73,6 +88,8 @@ pip3 install virtualenv
 virtualenv venv
 # Assign python version
 virtualenv -p /usr/bin/python3 venv
+# If you use pyenv, you the following commands
+virtualenv -p $(pyenv which python) venv
 ```
 
 * Activate / Deactivate venv
@@ -109,6 +126,8 @@ poetry init --no-interaction
 
 ```bash
 poetry env use $(which python3)
+# If you use pyenv
+poetry env use $(pyenv which python)
 ```
 
 * Install poetry packages from pyproject.toml
@@ -121,6 +140,8 @@ poetry install
 
 ```bash
 poetry run [python3 command]
+# Run shell with poetry environment
+poetry shell
 ```
 
 * Config
