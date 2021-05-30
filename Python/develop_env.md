@@ -9,6 +9,8 @@ This is Python develop environment note.
 
 # pip
 
+Used to install packages for Python.
+
 * pip should be installed after installing python.
 * Correct to use pip
   - `python3 -m pip install <your_package>`
@@ -25,6 +27,8 @@ This is Python develop environment note.
 * Upgrade pip: `python3 -m pip install --upgrade pip`
 
 # pyenv
+
+Used to run different version of Python.
 
 * Installation
 
@@ -76,6 +80,8 @@ pyenv exec python
 
 # virtualenv
 
+Used to run virtual and clean Python environment.
+
 * Installation
 
 ```bash
@@ -104,6 +110,8 @@ deactivate
 ```
 
 # poetry
+
+Python package manager, like npm in javascript.
 
 * Installation & Usage
 
