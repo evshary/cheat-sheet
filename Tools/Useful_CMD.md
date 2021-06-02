@@ -61,6 +61,10 @@
   - `nmcli connection up <UUID>`
   - `nmcli connection down <UUID>`
 
+## Remote
+* Scan the certain port in the LAN
+  - `nmap -p <port> 192.168.0.1-255`
+
 # CPU
 * cpufrequtils
   - Should install `cpufrequtils` first.
