@@ -168,6 +168,12 @@ poetry config --list
 poetry config virtualenvs.create false
 ```
 
+* Package
+
+```bash
+poetry build
+```
+
 # Reference
 * [pyenv & virtualenv usage](https://www.maxlist.xyz/2020/04/01/python-pyenv-virtualenv/)
 * [poetry with Django](https://ithelp.ithome.com.tw/articles/10233355)
