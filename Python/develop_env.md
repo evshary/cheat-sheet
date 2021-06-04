@@ -138,6 +138,13 @@ poetry env use $(which python3)
 poetry env use $(pyenv which python)
 ```
 
+* Add/Remove package for poetry
+
+```bash
+poetry add <package_name>
+poetry remove <package_name>
+```
+
 * Install poetry packages from pyproject.toml
 
 ```bash
