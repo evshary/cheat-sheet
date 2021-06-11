@@ -13,7 +13,7 @@ int main(void)
     struct iwreq wreq;
 
     memset(&wreq, 0, sizeof(struct iwreq));
-    sprintf(wreq.ifr_name, WIRELESS_INTERFACE);
+    sprintf(wreq.ifr_name, "%s", WIRELESS_INTERFACE);
 
     if ((sock_fd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
         printf("Unable to open socket\n");
