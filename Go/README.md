@@ -26,7 +26,7 @@ You can see the environmental variables by `go env`.
 # Go project
 
 * Create new project
-  - Will create go.mod to record used packages
+  - Will create `go.mod` to record used packages
 
 ```bash
 mkdir <project-name>
@@ -34,11 +34,13 @@ go mod init <project-name>
 ```
 
 * Add packages
-  - Will create go.sum to record the actual version of the package you use
+  - Update the package list in `go.mod`
+  - Will create `go.sum` to record the actual version of the package you use
 
 ```bash
-go get <package path>
-# EX: go get golang.org/x/example/hello
+go get -d <package path>
+# go get -d golang.org/x/example/hello
+# -d means only download not installed, and will be default in the future
 ```
 
 * Build / Run / Clean project
@@ -47,6 +49,15 @@ go get <package path>
 go build .
 go run .
 go clean
+```
+
+* Install / Remove build result
+
+```bash
+# will install binary to ~/go/bin
+go install
+# remove install result
+go clean -i -x
 ```
 
 * Remove unused packages in project
@@ -58,6 +69,13 @@ go mod tidy
 # Manage the packages
 
 All the downloaded packages will be under `~/go/pkg/mod/`
+
+* Install external package
+
+```bash
+go install <package path>
+# go install golang.org/x/example/hello@latest
+```
 
 * Clean all packages
 
