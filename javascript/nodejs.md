@@ -43,6 +43,7 @@ mkdir test_ws && cd test_ws
 npm init
 ```
 * Install/Uninstall necessary packages
+  - Note: <packages> here can be replaced by repo
 ```bash
 # --save means to put packages info into packages.json
 npm install --save <packages>
@@ -74,6 +75,7 @@ npm install
 ## Useful command
 * `npm update`: Check packages update
 * `npm prune`: Remove unused packages
+* `npm audit fix`: Fix security issues in packages
 
 ## Upgrade packages
 ```bash
