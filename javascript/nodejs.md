@@ -1,6 +1,7 @@
 # nvm (Node.js Version Manager)
 
 ## installation
+
 * Install from script
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -15,6 +16,7 @@ nvm install node
 ```
 
 ## Useful commands
+
 * Get remote version
 ```bash
 nvm ls-remote
@@ -33,10 +35,15 @@ nvm alias default <version>
 ```
 
 # npm (Node.js Package Manager)
+
 npm is used to manage the packages of Node.js.
 After npm5, it'll create package-lock.json to specify the version npm uses.
 
+Note: npm should be installed after using nvm, but you can also install by nodesource
+      Please refer to https://github.com/nodesource/distributions/blob/master/README.md
+
 ## init
+
 * Init workspace (It'll create packages.json)
 ```bash
 mkdir test_ws && cd test_ws
@@ -51,6 +58,7 @@ npm uninstall --save <packages>
 ```
 
 ## Run script in packages.json
+
 * Add scripts in packages.json (Take vuepress as an example)
 ```json
 ...
@@ -67,28 +75,33 @@ npm run dev
 ```
 
 ## Exist project
+
 * Install dependency project in packages.json
 ```bash
 npm install
 ```
 
 ## Useful command
+
 * `npm update`: Check packages update
 * `npm prune`: Remove unused packages
 * `npm audit fix`: Fix security issues in packages
 
 ## Upgrade packages
+
 ```bash
 npm install -g npm-upgrade
 npm-upgrade
 ```
 
 # yarn
+
 yarn is the replacement of npm.
 yarn can cache the downloaded packages (no need to download again) and has better performance.
 It'll create yarn.lock to specify the packages version yarn uses.
 
 ## installation
+
 * install (suggestion)
 ```bash
 npm install -g yarn
@@ -112,13 +125,16 @@ sudo apt install --no-install-recommends yarn
 | npm run <target> | yarn run <target> |
 
 # Lerna
+
 Used to manage multiple packages (build, version control...) in one project.
 
 ## Installation
 ```bash
 npm install -g lerna
 ```
+
 ## Usage
+
 * init
   - There are two modes in Lerna: Fixed Mode and Independent Mode
     - Fixed Mode: All the packages use the same version of dependencies.
