@@ -39,8 +39,13 @@ nvm alias default <version>
 npm is used to manage the packages of Node.js.
 After npm5, it'll create package-lock.json to specify the version npm uses.
 
-Note: npm should be installed after using nvm, but you can also install by nodesource
-      Please refer to https://github.com/nodesource/distributions/blob/master/README.md
+## Installation
+
+npm should be installed after using nvm, but you can also install by nodesource.
+
+Refer to https://github.com/nodesource/distributions/blob/master/README.md
+
+However, suggest to use nvm if you have several version of nodejs.
 
 ## init
 
