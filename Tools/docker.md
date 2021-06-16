@@ -148,6 +148,12 @@ RUN echo "ros ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 USER $USER_NAME
 ```
 
+## Avoid interactive while installing tzdata
+* tzdata requires entering your timezone while installing, which will cause problems to `docker build`
+```
+RUN DEBIAN_FRONTEND="noninteractive" TZ="Asia/Taipei" apt-get -qqy install tzdata
+```
+
 # docker management
 ## docker-mahcine
 * Install docker machine
