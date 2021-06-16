@@ -148,10 +148,16 @@ RUN echo "ros ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 USER $USER_NAME
 ```
 
-## Avoid interactive while installing tzdata
-* tzdata requires entering your timezone while installing, which will cause problems to `docker build`
+## Other tips
+* Avoid interactive while installing tzdata
+  - tzdata requires entering your timezone while installing, which will cause problems to `docker build`
 ```
 RUN DEBIAN_FRONTEND="noninteractive" TZ="Asia/Taipei" apt-get -qqy install tzdata
+```
+* Enable modify Network Manager in host
+  - Refer to https://stackoverflow.com/questions/52654962/nmcli-in-a-docker-container/54914701
+```bash
+docker run --privileged --network=host --volume /var/run/dbus:/var/run/dbus [Your Args]
 ```
 
 # docker management
