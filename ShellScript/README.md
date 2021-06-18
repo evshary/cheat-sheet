@@ -90,6 +90,24 @@ do
 done
 ```
 
+# while loop
+
+* Infinte loop
+```sh
+while :
+do
+    echo "Waiting..."
+    sleep 1
+done
+```
+* Condition
+```sh
+while [ $1 -le 10 ]
+do
+    echo "Do something..."
+done
+```
+
 # Array
 
 * Declaration
