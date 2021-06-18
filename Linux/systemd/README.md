@@ -46,11 +46,56 @@ WantedBy=multi-user.target
 
 * Then enable the service.
 
-```
+```bash
 systemctl enable myprog
+```
+
+* After reboot, see the running status
+
+```bash
+# See all the running service
+systemctl status
+# See the status of myprog
+systemctl status myprog
+```
+
+# Run specific command with user privilege
+
+* Put the `myprog.service` file under `~/.config/systemd/user`
+
+```
+[Unit]
+Description=myprog description
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=idle
+ExecStart=/path/to/myprog
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.targe
+```
+
+* Then enable the service
+  - It'll create a symbolic link to `~/.config/systemd/user/multi-user.target.wants/`.
+
+```bash
+systemctl enable --user myprog
+```
+
+* After reboot, see the running status
+
+```bash
+# See all the running user service
+systemctl status --user
+# See the status of myprog
+systemctl status --user myprog
 ```
 
 # Reference
 
 * [systemd from archlinux](https://wiki.archlinux.org/index.php/Systemd)
 * [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+* [linux systemctl 命令](https://www.cnblogs.com/sparkdev/p/8472711.html)
