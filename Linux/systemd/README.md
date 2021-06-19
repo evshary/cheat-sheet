@@ -107,6 +107,15 @@ systemctl status --user
 systemctl status --user myprog
 ```
 
+* Note: if you want to control other non-login user systemd
+
+```bash
+# Make sure /run/user/<USER ID> is available
+loginctl enable-linger <USER_NAME>
+# Add environmental variable to run systemctl command
+sudo -H -u <USER_NAME> bash -c 'export XDG_RUNTIME_DIR=/run/user/<USER ID>; systemctl --user'
+```
+
 # Reference
 
 * [systemd from archlinux](https://wiki.archlinux.org/index.php/Systemd)
