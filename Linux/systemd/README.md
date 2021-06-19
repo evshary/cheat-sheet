@@ -65,12 +65,16 @@ systemctl status myprog
 * Optional: Make sure the user systemd can run without login
   - Default user in Ubuntu has already run systemd. View it with `systemctl status user-1000.slice` and `systemctl --user status`
   - If the user is created later, you should make sure `systemd` is running.
+  - Refer to https://superuser.com/questions/1561076/systemctl-use-failed-to-connect-to-bus-no-such-file-or-directory-debian-9
 
 ```bash
+# Make sure user service will start no matter login or not
 loginctl enable-linger <your-username>
+# Will create user name file under `/var/lib/systemd/linger`, you can also view by `loginctl user-status | grep Linger`
 ```
 
 * Put the `myprog.service` file under `~/.config/systemd/user`
+  - Note the `WantedBy target` can get from `systemctl --user --type=target`
 
 ```
 [Unit]
@@ -84,7 +88,7 @@ ExecStart=/path/to/myprog
 RemainAfterExit=yes
 
 [Install]
-WantedBy=default.targe
+WantedBy=default.target
 ```
 
 * Then enable the service
