@@ -25,6 +25,7 @@ There are several commands tool set in systemd, like systemctl, systemd-analyze,
 * `loginctl list-sessions`: List all the current sessions
 * `loginctl list-users`: List all the current login user
 * `loginctl user-status`: Show the running process of login user
+* `loginctl show-user`: Show login user parameters
 
 Refer to [manual](http://manpages.ubuntu.com/manpages/bionic/zh_TW/man1/loginctl.1.html) for more detail.
 
@@ -60,6 +61,14 @@ systemctl status myprog
 ```
 
 # Run specific command with user privilege
+
+* Optional: Make sure the user systemd can run without login
+  - Default user in Ubuntu has already run systemd. View it with `systemctl status user-1000.slice` and `systemctl --user status`
+  - If the user is created later, you should make sure `systemd` is running.
+
+```bash
+loginctl enable-linger <your-username>
+```
 
 * Put the `myprog.service` file under `~/.config/systemd/user`
 
