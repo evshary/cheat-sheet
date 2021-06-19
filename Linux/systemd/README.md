@@ -62,9 +62,9 @@ systemctl status myprog
 
 # Run specific command with user privilege
 
-* Optional: Make sure the user systemd can run without login
-  - Default user in Ubuntu has already run systemd. View it with `systemctl status user-1000.slice` and `systemctl --user status`
-  - If the user is created later, you should make sure `systemd` is running.
+* Make sure the user systemd can run without login
+  - See whether the user systemd is running or not: `systemctl status user-1000.slice` and `systemctl --user status`
+  - If the user is not linger, user systemd will not run before login
   - Refer to https://superuser.com/questions/1561076/systemctl-use-failed-to-connect-to-bus-no-such-file-or-directory-debian-9
 
 ```bash
