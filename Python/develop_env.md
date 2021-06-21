@@ -121,6 +121,8 @@ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.p
 source $HOME/.poetry/env
 # Update poetry
 poetry self update
+# Uninstall
+POETRY_UNINSTALL=1 bash -c 'curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3'
 ```
 
 * init poetry (Generate pyproject.toml)
