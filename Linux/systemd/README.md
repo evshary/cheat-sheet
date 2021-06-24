@@ -16,6 +16,10 @@ There are several commands tool set in systemd, like systemctl, systemd-analyze,
 * `systemctl disable xxx`: Stop a service while bootup.
 * `systemctl daemon-reload`: Reload systemd and regenerate the Unit dependency tree.
 
+## Log service
+* `journalctl -u xxx`: See the log of service.
+* `journalctl --user -u xxx`: See the log of user serivce.
+
 ## Bootup analyze
 * `systemd-analyze`: Lookup the bootup time.
 * `systemd-analyze blame`: Anaylze the bootup time for each service.
