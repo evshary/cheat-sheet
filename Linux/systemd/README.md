@@ -19,6 +19,7 @@ There are several commands tool set in systemd, like systemctl, systemd-analyze,
 ## Log service
 * `journalctl -u xxx`: See the log of service.
 * `journalctl --user -u xxx`: See the log of user serivce.
+* `journalctl -u xxx -b -0`: See the last time log of xxx. `-0` can be replaced with other number.
 
 ## Bootup analyze
 * `systemd-analyze`: Lookup the bootup time.
