@@ -24,6 +24,7 @@ There are several commands tool set in systemd, like systemctl, systemd-analyze,
 * `systemd-analyze`: Lookup the bootup time.
 * `systemd-analyze blame`: Anaylze the bootup time for each service.
 * `systemd-analyze critical-chain`: Show bootup time in waterfall way.
+* Add `--user` to view user service. For example, `systemd-analyze --user critical-chain`
 
 ## Session manager
 * `loginctl list-sessions`: List all the current sessions
