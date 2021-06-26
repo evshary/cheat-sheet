@@ -26,4 +26,5 @@ You can refer to [Differences between LuaTeX, ConTeXt and XeTeX](https://tex.sta
 * Texmaker: https://www.xm1math.net/texmaker/
 
 # Reference
+* [新手安裝LaTeX懶人教學(Step by step)](https://leavedcorn.pixnet.net/blog/post/24773932-%E6%96%B0%E6%89%8B%E5%AE%89%E8%A3%9Dlatex%E6%87%B6%E4%BA%BA%E6%95%99%E5%AD%B8(step-by-step))
 * [TeX 家族（TeX, XeTeX, LuaTeX,XeLaTeX …看完这篇就懂了）](https://zhuanlan.zhihu.com/p/248669482)
