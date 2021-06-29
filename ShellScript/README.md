@@ -177,6 +177,9 @@ fi
 * Ignore output
   - `script >/dev/null`: Only ignore standard output
   - `scriptname >/dev/null 2>&1` or `scriptname >/dev/null 2>/dev/null`: Also ignore error output
+* Replace string in file: use sed
+  - Note: we need to use `""` for shell variable `$`
+  - `sed -i "s/vx.x.x/${version}/g" filename`
 * Equation:
   - `-eq` used in numeric.
   - `=` used in string.
