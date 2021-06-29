@@ -70,3 +70,9 @@ git am <patch_name>
 # Apply all patches in patch_directory with order
 git am <patch_directory>/*
 ```
+
+# Deploy
+* Only clone necessary commit based on branch or tag (For example, v1.0.0)
+```bash
+git clone -b 'v1.0.0' --single-branch --depth 1 <URL>
+```
