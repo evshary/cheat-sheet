@@ -2,6 +2,15 @@
 
 Here is some cheatsheet for writing shell script.
 
+# Get execution output
+
+```sh
+OUTPUT=`cat xxxx`
+if [ $OUTPUT = "yyy" ]
+    echo $OUTPUT
+fi
+```
+
 # if condition
 
 ```sh
@@ -43,7 +52,7 @@ fi
 ```bash
 echo -n "What is your input? (y/N)"
 read your_input
-if [ "$your_input" '==' "y" ] || [ "$your_input" '==' "Y" ]; then
+if [ "$your_input" = "y" ] || [ "$your_input" = "Y" ]; then
     echo "Yes"
 else
     echo "No"
@@ -162,6 +171,14 @@ if [ $# -ne 2 ]; then
 fi
 ```
 
-# Others
+# Tips:
 * Include other shell file
   - `source shell_file_name`
+* Ignore output
+  - `script >/dev/null`: Only ignore standard output
+  - `scriptname >/dev/null 2>&1` or `scriptname >/dev/null 2>/dev/null`: Also ignore error output
+* Equation:
+  - `-eq` used in numeric.
+  - `=` used in string.
+  - `==` only used in bash.
+  - refer to https://stackoverflow.com/questions/20449543/shell-equality-operators-eq
