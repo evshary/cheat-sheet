@@ -129,6 +129,8 @@ sudo apt install --no-install-recommends yarn
 | rm -rf node_modules && npm install | yarn upgrade | 
 | npm run <target> | yarn run <target> |
 
+* `yarn install --frozen-lockfile`: Install packages with the same version in yarn.lock.
+
 # Lerna
 
 Used to manage multiple packages (build, version control...) in one project.
