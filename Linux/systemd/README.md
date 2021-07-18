@@ -4,6 +4,33 @@ systemd is "system and service manager" in Linux.
 
 There are several commands tool set in systemd, like systemctl, systemd-analyze, hostnamectl, localectl, timedatectl, loginctl.
 
+# Architecture
+
+This figure is from https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E8%A9%B3%E7%B4%B0%E4%BB%8B%E7%B4%B9-unit%E3%80%81unit-file%E3%80%81systemctl%E3%80%81target/
+
+![](https://www.3chy2.com.tw/wp-content/uploads/2020/09/2b6e63f55d7877e7ea440ccdcd24ad95.jpg)
+
+# Unit File
+
+The basic concept of systemd is unit. There are several types of unit.
+
+The table is from https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E8%A9%B3%E7%B4%B0%E4%BB%8B%E7%B4%B9-unit%E3%80%81unit-file%E3%80%81systemctl%E3%80%81target/
+
+| Type | filename extention | Description |
+| - | - | - |
+| Service |	.service | 封裝守護進程的啟動、停止、重啟和重載操作，是最常見的一種 Unit 文件 |
+| Target | .target | 定義 target 信息及依賴關係，一般僅包含 Unit 段 |
+| Device | .device | 對於 /dev 目錄下的硬件設備，主要用於定義設備之間的依賴關係 |
+| Mount | .mount | 定義文件系統的掛載點，可以替代過去的 /etc/fstab 配置文件 |
+| Automount | .automount | 用於控制自動掛載文件系統，相當於 SysV-init 的 autofs 服務 |
+| Path | .path | 用於監控指定目錄或文件的變化，並觸發其它 Unit 運行 |
+| Scope | .scope | 這種 Unit 文件不是用戶創建的，而是 Systemd 運行時產生的，描述一些系統服務的分組信息 |
+| Slice | .slice | 用於表示一個 CGroup 的樹 |
+| Snapshot | .snapshot | 用於表示一個由 systemctl snapshot 命令創建的 Systemd Units 運行狀態快照，可以切回某個快照 |
+| Socket | .socket | 監控來自於系統或網絡的數據消息 |
+| Swap | .swap | 定義一個用戶做虛擬內存的交換分區 |
+| Timer | .timer | 用於配置在特定時間觸發的任務，替代了 Crontab 的功能 |
+
 # Useful command
 
 ## Manage service
@@ -124,6 +151,7 @@ sudo -H -u <USER_NAME> bash -c 'export XDG_RUNTIME_DIR=/run/user/<USER ID>; syst
 
 # Reference
 
+* [Linux Systemd 詳細介紹: Unit、Unit File、Systemctl、Target](https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E8%A9%B3%E7%B4%B0%E4%BB%8B%E7%B4%B9-unit%E3%80%81unit-file%E3%80%81systemctl%E3%80%81target/)
 * [systemd from archlinux](https://wiki.archlinux.org/index.php/Systemd)
 * [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 * [linux systemctl 命令](https://www.cnblogs.com/sparkdev/p/8472711.html)
