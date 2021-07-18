@@ -9,6 +9,7 @@ python3 -m pip install opencv-python
 
 * read / write operation: readwrite.py
 * size operation: size.py
+* process camera image: camera.py
 
 # Reference
 
