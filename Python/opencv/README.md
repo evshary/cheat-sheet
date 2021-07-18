@@ -8,7 +8,7 @@ python3 -m pip install opencv-python
 # Example
 
 * read / write operation: readwrite.py
-*
+* size operation: size.py
 
 # Reference
 
