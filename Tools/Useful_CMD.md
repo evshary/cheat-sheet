@@ -275,6 +275,7 @@
 * `gnome-calculator`: Open calculator
 * `gnome-terminal`: Open terminal
 * `xdg-open`: Open file with GUI tools
+  - `xdg-open .`: Open the current folder
 * `gtk-launch xxx.desktop`: Run desktop application in CLI
   - Note that you need to change the directory to the destination.
   - For more limitation: https://unix.stackexchange.com/questions/393079/gtk-launch-only-works-when-present-working-directory-is-desktop
