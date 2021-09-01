@@ -12,6 +12,8 @@
 * [Python](https://www.python.org/downloads/)
 * [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/zh-hant/downloads/?rr=https%3A%2F%2Findex.ros.org%2Fdoc%2Fros2%2FInstallation%2FDashing%2FWindows-Install-Binary%2F)
+* [Insomnia](https://insomnia.rest/)
+  - RESTful API client
 
 # Simple Server
 * [Quick 'n Easy FTP Server Lite](http://www.pablosoftwaresolutions.com/html/quick__n_easy_ftp_server_lite.html)
