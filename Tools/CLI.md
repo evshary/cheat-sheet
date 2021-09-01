@@ -37,6 +37,7 @@
 * lynis: Used to check the security of system
   - Usage: `lynis -c`
 * smartmontools: Read the status of disk.
+* GParted: Disk Manager in Linux
 * mtr: Show the network status. The combination of ping and traceroute.
 * tree: List the directory.
 * htop, iotop, iftop, powertop
