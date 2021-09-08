@@ -8,8 +8,8 @@
   - pub key: `gpg -ao mypub.asc --export <ID substring>`
   - priv key: `gpg -ao mypriv.asc --export-secret-keys <ID substring>`
 * import
-  - pub key: gpg --import <mypub.asc>
-  - priv key: gpg --import <mypriv.asc>
+  - pub key: `gpg --import <mypub.asc>`
+  - priv key: `gpg --import <mypriv.asc>`
 * List all current key
   - pub key: `gpg --list-keys`
   - secret key: `gpg --list-secret-keys`
