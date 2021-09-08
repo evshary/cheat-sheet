@@ -10,8 +10,12 @@
 * import
   - pub key: gpg --import <mypub.asc>
   - priv key: gpg --import <mypriv.asc>
-* List my current key
-  - `gpg --list-secret-keys`
+* List all current key
+  - pub key: `gpg --list-keys`
+  - secret key: `gpg --list-secret-keys`
+* Delete key (pub key can only be deleted while there's no priv key)
+  - pub key: `gpg --delete-keys <ID substring>`
+  - priv key: `gpg --delete-secret-keys <ID substring>`
 * Backup
   - copy ~/.gnupg
   - export and then import key
@@ -38,9 +42,14 @@
 * Decrypt
   - `gpg -d < encyrpt_file.asc > originfile`
 
-## Digital Sign
+# Digital Sign
 
 * Sign: will generate originfile.asc
   - `gpg --clearsign <originfile>`
 * Verify
   - `gpg --verify < originfile.asc`
+
+# Reference
+
+* [[GnuPG] gpg 金鑰管理](http://pre.tir.tw/008/blog/output/gnupg-gpg-jin-yao-guan-li.html)
+* [使用 GnuPG 建立你的 PGP 金鑰， 讓別人能夠私密寄信給你](https://newtoypia.blogspot.com/2013/12/gnupg-pgp.html)
