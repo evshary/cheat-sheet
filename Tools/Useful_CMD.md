@@ -162,6 +162,15 @@
   # Fix the apt dependency
   sudo apt --fix-broken install
   ```
+* Key
+  ```bash
+  # Add key
+  wget -qO - https://www.aptly.info/pubkey.txt | sudo apt-key add -
+  # List key
+  sudo apt-key list
+  # Delete key
+  sudo apt-key del <the_last_8_bytes_ID>
+  ```
 
 ## dpkg
 * Show deb info
