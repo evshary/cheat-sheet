@@ -31,19 +31,52 @@
 
 # Key operation
 
+The key will be in `/etc/apt/trusted.gpg` or under `/etc/apt/trusted.gpg.d/`
+
 * Add key: `wget -qO - https://www.aptly.info/pubkey.txt | sudo apt-key add -`
 * List key: `sudo apt-key list`
 * Delete key: `sudo apt-key del <the_last_8_bytes_ID>`
+* Advanced option:
+  - Get key from key server: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4`
 
-# Launchpad PPA
+# How to add new repository
+
+## Add from source.list 
+
+* Edit `/etc/apt/source.list`
+  - You need to add key for the source repo, or need to add `[trusted=yes]`
+* If you want to use CLI tools instead
+```bash
+# It'll be put into /etc/apt/source.list
+sudo add-apt-repository 'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
+# If you want to remove
+sudo add-apt-repository --remove 'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
+```
+* source.list format: `[deb/deb-src] [URL] [Ubuntu version] [Type]`
+  - Example: `deb [trusted=yes] http://website:8080/common/ focal main`
+  - deb/deb-src
+    - deb:binary, deb-src:source code
+  - URL
+    - Download URL
+  - Ubuntu version
+    - 18.04:bionic, 20.04:focal
+  - Type
+
+|            | Free Software | Not Free Software |
+|    -       |       -       |         -         |
+| Official   | Main          | Restricted        |
+| Unofficial | Universe      | Multiverse        |
+
+## Add from Launchpad PPA
 
 PPA: Personal Package Archives
 
 You can upload your package to PPA, and others can apt install from your PPA repo.
+You don't need to add key by yourself.
 
 https://launchpad.net/ubuntu/+ppas
 
-## Usage
+### Usage
 
 * Add PPA
   - The PPA will be stored under `/etc/apt/sources.list.d/`
