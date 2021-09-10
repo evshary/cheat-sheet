@@ -12,6 +12,8 @@
   - Install: `apt install <PACKAGES>`
   - Uninstall: `apt remove <PACKAGES>`
   - Uninstall(Including config): `apt purge <PACKAGES>`
+* Download packages
+  - Download: `apt download <PACKAGES>`
 * Upgrade packages
   - Upgrade all: `apt upgrade`
   - Upgrade certain: `apt install <PACKAGES>`
@@ -32,6 +34,30 @@
 * Add key: `wget -qO - https://www.aptly.info/pubkey.txt | sudo apt-key add -`
 * List key: `sudo apt-key list`
 * Delete key: `sudo apt-key del <the_last_8_bytes_ID>`
+
+# Launchpad PPA
+
+PPA: Personal Package Archives
+
+You can upload your package to PPA, and others can apt install from your PPA repo.
+
+https://launchpad.net/ubuntu/+ppas
+
+## Usage
+
+* Add PPA
+  - The PPA will be stored under `/etc/apt/sources.list.d/`
+  - Remember to run `apt update` after adding PPA
+```bash
+# sudo add-apt-repository ppa:<user_name>/<ppa_name>
+sudo add-apt-repository ppa:nginx/stable
+```
+
+* Remove PPA
+```bash
+# sudo add-apt-repository --remove ppa:<user_name>/<ppa_name>
+sudo add-apt-repository --remove ppa:nginx/stable
+```
 
 # Scenario
 
