@@ -171,6 +171,21 @@ if [ $# -ne 2 ]; then
 fi
 ```
 
+# Split String
+
+```sh
+# Split the string
+strarr=(`echo "abc-def-ghi" | tr '-' ' '`)
+for var in ${strarr[@]}
+do
+   echo $var
+done
+echo $strarr[0]
+echo $strarr[1]
+echo $strarr[2]
+# If you use zsh, it should start with 1, that is echo ${strarr[1]}
+```
+
 # Tips:
 * Include other shell file
   - `source shell_file_name`
