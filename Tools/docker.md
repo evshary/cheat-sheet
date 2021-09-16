@@ -131,7 +131,7 @@ docker-compose up -d
 ```
 * Run specific service
 ```bash
-docker-compose
+docker-compose run listener
 ```
 * See the log
 ```bash
