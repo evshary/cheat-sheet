@@ -27,6 +27,33 @@ docker cp <container ID>:<src> <dst>
 docker cp <src> <container ID>:<dst>
 ```
 
+## volume
+* List current volume
+```bash
+docker volume ls
+```
+* Create the volume
+  - Default will put under `/var/lib/docker/volumes`
+```bash
+docker volume create myvolume
+```
+* Inspect the volume
+```bash
+docker volume inspect myvolume
+```
+* Run docker with volume
+  - Mount the myvolume on /myspace in docker
+```bash
+docker run --rm -it -v myvolume:/myspace ubuntu:bionic bash
+```
+* Remove volume
+```bash
+# Remove certain volume
+docker volume rm myvolume
+# NOTE: This will remove all the unused volume!
+docker volume prune
+```
+
 ## Save & Export
 * Save & Load: Save the current image status
 ```
