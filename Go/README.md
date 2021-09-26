@@ -23,52 +23,6 @@ You can see the environmental variables by `go env`.
 * GOROOT: where you install go and how to find standard library, should be `/usr/local/go`
 * GOPATH: where the packages you download, should be `~/go`
 
-# Go project
-
-* Create new project
-  - Will create `go.mod` to record used packages
-
-```bash
-mkdir <project-name>
-go mod init <project-name>
-```
-
-* Add packages (Optional)
-  - Update the package list in `go.mod`
-  - Will create `go.sum` to record the actual version of the package you use
-
-```bash
-go get -d <package path>
-# go get -d golang.org/x/example/hello
-# -d means only download not installed, and will be default in the future
-```
-
-* Write your own code
-  - In our example, `example.go`
-
-* Build / Run / Clean project
-
-```bash
-go build .
-go run .
-go clean
-```
-
-* Install / Remove build result
-
-```bash
-# will install binary to ~/go/bin
-go install
-# remove install result
-go clean -i -x
-```
-
-* Remove unused packages in project
-
-```bash
-go mod tidy
-```
-
 # Manage the packages
 
 All the downloaded packages will be under `~/go/pkg/mod/`
@@ -85,6 +39,9 @@ go install <package path>
 ```bash
 go clean -modcache
 ```
+
+# Example
+* [simple_example](simple_example): Simple Go project example.
 
 # Reference
 * [Go 语言教程](https://www.runoob.com/go/go-tutorial.html)
