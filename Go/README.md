@@ -33,7 +33,7 @@ mkdir <project-name>
 go mod init <project-name>
 ```
 
-* Add packages
+* Add packages (Optional)
   - Update the package list in `go.mod`
   - Will create `go.sum` to record the actual version of the package you use
 
@@ -42,6 +42,9 @@ go get -d <package path>
 # go get -d golang.org/x/example/hello
 # -d means only download not installed, and will be default in the future
 ```
+
+* Write your own code
+  - In our example, `example.go`
 
 * Build / Run / Clean project
 
