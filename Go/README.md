@@ -42,6 +42,7 @@ go clean -modcache
 
 # Example
 * [simple_example](simple_example): Simple Go project example.
+* [library_example](library_example): How to build Go project into shared library.
 
 # Reference
 * [Go 语言教程](https://www.runoob.com/go/go-tutorial.html)
