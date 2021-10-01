@@ -121,6 +121,7 @@
   - List all packages: `choco list`
   - List installed packages: `choco list --local-only`
   - Search packages: `choco search <PACKAGES>`
+  - Search packages contains string: `choco search ros-melodic-`
 * Install/Uninstall packages
   - Install: `choco install <PACKAGES>`
   - Uninstall: `choco uninstall <PACKAGES>`
