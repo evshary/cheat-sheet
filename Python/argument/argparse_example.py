@@ -29,7 +29,18 @@ def _simple_parser():
     print(args.argument)
     return args
 
+# usage: argparse_example.py [-h] [-v] cmd ...
 # 
+# Argument Test Example
+# 
+# positional arguments:
+#   cmd            The command you want
+#     list         List all items
+#     create       Create Parser
+# 
+# optional arguments:
+#   -h, --help     show this help message and exit
+#   -v, --version  show program's version number and exit
 def _subcmd_parser(): 
     parser = argparse.ArgumentParser(description="Argument Test Example")
     parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
