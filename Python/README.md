@@ -1,21 +1,19 @@
-# [network](network)
-Python example code for network.
+# Introduction
 
-# [serial](serial)
-Python example code for serial programming.
+Suggest to use Python3.
 
-# [thread](thread)
-Python example code for thread.
+# Useful function
 
-# [re](re)
-Python example code for re.
+* `dir(variable)`: List available members of the object
+* `vars(variable)`: Return key-value pairs of the object in dictionary type
 
-# [binary](binary.md)
-Binary operation.
+# Others
 
-# [object](object.md)
-About object.
-
-# [collections](collections.md)
-About collections.
+* [network](network): Python example code for network.
+* [serial](serial): Python example code for serial programming.
+* [thread](thread): Python example code for thread.
+* [re](re): Python example code for re.
+* [binary](binary.md): Binary operation.
+* [object](object.md): About object.
+* [collections](collections.md): About collections.
 
