@@ -42,25 +42,30 @@ def _simple_parser():
 #   -h, --help     show this help message and exit
 #   -v, --version  show program's version number and exit
 def _subcmd_parser(): 
-    parser = argparse.ArgumentParser(description="Argument Test Example")
-    parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
-    subcmd = parser.add_subparsers(dest='subcmd', metavar='cmd', required=True, help="The command you want")
+    main_parser = argparse.ArgumentParser(description="Argument Test Example")
+    main_parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
+    cmd_parser = main_parser.add_subparsers(dest='cmd', metavar='cmd', required=True, help="Functions")
 
     # list
-    list_parser = subcmd.add_parser('list', help="List all items")
+    list_parser = cmd_parser.add_parser('list', help="List all items")
     list_parser.add_argument('path', metavar='PATH', help="Where the path")
+    list_parser.add_argument('-n', type=int, help='MAX item number')
 
-    # create
-    create_parser = subcmd.add_parser('create', help="Create Parser")
-    create_parser.add_argument('project', metavar='PROJ', help="Your project name")
-    create_parser.add_argument('-n', type=int, help='project number')
+    # project
+    project_parser = cmd_parser.add_parser('project', help="Related to project")
+    project_subparser = project_parser.add_subparsers(dest='subcmd', metavar='subcmd', required=True, help="Functions")
+    prj_create_parser = project_subparser.add_parser('create', help="create project")
+    prj_create_parser.add_argument('project', metavar='PROJ', help="Your project name")
+    prj_delete_parser = project_subparser.add_parser('delete', help="delete project")
+    prj_delete_parser.add_argument('project', metavar='PROJ', help="Your project name")
 
-    args = parser.parse_args()
-    if args.subcmd == "list":
+    args = main_parser.parse_args()
+    if args.cmd == "list":
         print("list: "+args.path)
-    elif args.subcmd == "create":
-        print("create: "+args.project)
-        print("        n=%d" % args.n)
+        print("      n=%d" % args.n)
+    elif args.cmd == "project":
+        print("project subcmd: "+args.subcmd)
+        print("project name: "+args.project)
     return args
 
 def main():
