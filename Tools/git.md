@@ -8,6 +8,10 @@
 * Clean deleted remote branch: `git remote prune origin`
 
 # Submodule
+* List all submodules
+```bash
+git submodule status
+```
 * Add submodule
 ```bash
 cd <folder>
