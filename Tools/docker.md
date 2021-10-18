@@ -127,11 +127,18 @@ services:
 ```
 * Run all the service
 ```bash
+# Run without daemon
+docker-compose up
+# Run as daemon
 docker-compose up -d
 ```
 * Run specific service
 ```bash
 docker-compose run listener
+```
+* Run bash of specific service
+```bash
+docker-compose exec listener bash
 ```
 * See the log
 ```bash
@@ -139,8 +146,12 @@ docker-compose logs listener
 ```
 * Stop and clean
 ```bash
+# stop service
 docker-compose stop
+# remove containers
 docker-compose rm
+# stop and remove containers
+docker-compose down
 ```
 
 # Dockerfile
