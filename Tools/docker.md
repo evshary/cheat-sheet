@@ -125,6 +125,12 @@ services:
      image: osrf/ros:foxy-desktop
      command: ros2 run demo_nodes_py listener
 ```
+* Build container (not necessary)
+```bash
+docker-compose build
+# Build without cache (rebuild)
+docker-compose build --no-cache
+```
 * Run all the service
 ```bash
 # Run without daemon
@@ -132,7 +138,12 @@ docker-compose up
 # Run as daemon
 docker-compose up -d
 ```
+* Show running docker-compose
+```bash
+docker-compose ps
+```
 * Run specific service
+  - Note that if you use run, then you can't stop all containers.
 ```bash
 docker-compose run listener
 ```
