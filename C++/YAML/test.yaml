@@ -1,0 +1,5 @@
+mytopic: myvalue
+mylist:
+  "item 1": 123
+  "item 2": 456
+  "item 3": 789
