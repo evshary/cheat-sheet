@@ -29,6 +29,7 @@ int main() {
     std::cout << "print as<std::string>() => item1: " << yaml_data["mylist"]["item 1"].as<std::string>() << std::endl;
 
     // Output yaml file
+    // Reference: https://yaml-cpp.docsforge.com/master/how-to-emit-yaml/
     std::cout << std::endl;
     std::cout << "Output YAML string" << std::endl;
     YAML::Emitter out;
