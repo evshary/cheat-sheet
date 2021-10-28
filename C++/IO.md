@@ -19,25 +19,3 @@ cout.flags(flag);
 cout << 15 << endl; // 0xf
 ```
 
-# File Operation
-You should `#include <fstream>` first.
-
-## Write
-```c++
-#include <fstream>
-ofstream fout("file.txt");
-fout << "key" << "\t" << "value" << endl;
-fout.close();
-```
-
-## Read
-```c++
-#include <fstream>
-string k, v;
-ifstream fin("file.txt");
-while(!fin.eof()) {
-  fin >> k >> v;
-}
-cout << k << ":" << v << endl;
-fin.close();
-```
