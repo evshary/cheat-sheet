@@ -200,3 +200,7 @@ echo $strarr[2]
   - `=` used in string.
   - `==` only used in bash.
   - refer to https://stackoverflow.com/questions/20449543/shell-equality-operators-eq
+* Trace the shell script:
+  - It'll print all commands you run (print + sign before the line)
+  - Enable: `set -x` or `set -o xtrace`
+  - Disable: `set +x`
