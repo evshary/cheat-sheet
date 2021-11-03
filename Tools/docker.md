@@ -183,6 +183,8 @@ CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
 * Build docker image
 ```bash
 docker build -t myimage:mytag .
+# If you want to assign Dockerfile name
+docker build -t myimage:mytag -f myDockerfile .
 ```
 * Run
 ```bash
