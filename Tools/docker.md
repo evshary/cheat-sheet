@@ -71,7 +71,7 @@ cat [name].tar | docker import - [image_name]:[tag]
 ```bash
 sudo groupadd docker
 sudo gpasswd -a $USER docker
-# logout and login
+# run `newgrp docker` or logout&login 
 ```
 * docker run with the same SSH privilege as host
 ```bash
