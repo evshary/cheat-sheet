@@ -46,6 +46,10 @@ USER $USER_NAME
 * Avoid interactive while installing tzdata
   - tzdata requires entering your timezone while installing, which will cause problems to `docker build`
 ```bash
+# Add environmental variables
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV TZ="Asia/Taipei"
+# or run like the following
 RUN DEBIAN_FRONTEND="noninteractive" TZ="Asia/Taipei" apt-get -qqy install tzdata
 ```
 * Enable modify Network Manager in host
