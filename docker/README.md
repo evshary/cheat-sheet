@@ -91,6 +91,33 @@ docker push 127.0.0.1:5000/[image_name]
 docker pull 127.0.0.1:5000/[image_name]
 ```
 
+# Useful shell scripts
+
+* Check image exist or not
+
+```bash
+if [ ! "$(docker images -q $image_name)" ]; then
+fi
+```
+
+* Check container exist or not
+
+```bash
+if [ ! "$(docker ps -aq -f name=$container_name)" ]; then
+fi
+```
+
+* Check container status
+
+```bash
+# Exited
+if [ "$(docker ps -aq -f status=exited -f name=$container_name)" ]; then
+fi
+# Running
+if [ "$(docker ps -aq -f status=running -f name=$container_name)" ]; then
+fi
+```
+
 # Tips
 
 * Able to use docker without sudo
