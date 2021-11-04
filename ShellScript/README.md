@@ -204,3 +204,6 @@ echo $strarr[2]
   - It'll print all commands you run (print + sign before the line)
   - Enable: `set -x` or `set -o xtrace`
   - Disable: `set +x`
+* Get the shell you're using:
+  - `cat /proc/$$/cmdline | tr -d '\0'`
+  - refer to https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
