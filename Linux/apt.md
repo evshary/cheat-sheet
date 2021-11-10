@@ -39,12 +39,17 @@ The key will be in `/etc/apt/trusted.gpg` or under `/etc/apt/trusted.gpg.d/`
 * Advanced option:
   - Get key from key server: `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4`
 
-# How to add new repository
+# How to add/delete new repository
 
-## Add from source.list 
+## From source.list 
 
 * Edit `/etc/apt/source.list`
+  - Add: Add something like this: `deb [trusted=yes] http://website:8080/common/ focal main`
+  - Remove: Delete/Comment the line you added
   - You need to add key for the source repo, or need to add `[trusted=yes]`
+* Files under `/etc/apt/source.list.d/xxx.list`
+  - Add (e.g. ROS 2): `echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null`
+  - Remove: `rm -rf /etc/apt/source.list.d/xxx.list`
 * If you want to use CLI tools instead
 ```bash
 # It'll be put into /etc/apt/source.list
@@ -67,7 +72,7 @@ sudo add-apt-repository --remove 'deb [arch=amd64] https://repo.mongodb.org/apt/
 | Official   | Main          | Restricted        |
 | Unofficial | Universe      | Multiverse        |
 
-## Add from Launchpad PPA
+## From Launchpad PPA
 
 PPA: Personal Package Archives
 
