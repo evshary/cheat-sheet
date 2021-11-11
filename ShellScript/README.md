@@ -23,7 +23,7 @@ else
 fi
 ```
 
-## Useful operators
+## File operators
 
 ```sh
 if [ -f /this/is/filename ]; then
@@ -40,6 +40,19 @@ fi
 * `-s name`: return true if name is not empty (size is not 0).
 * `-w name`: return ture if name is writable.
 * `-x name`: return true if name is executable.
+
+## Variable operation
+
+```sh
+if [ -n "$1" ]; then
+    echo "If you have the first argument."
+else
+    echo "No first argument."
+fi
+```
+
+* `-n variable`: return true if variable is set.
+* `-z variable`: return true if variable is not set.
 
 ## Check absolute path or not
 
