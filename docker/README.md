@@ -139,4 +139,11 @@ docker run -it --rm \
        -v /etc/localtime:/etc/localtime:ro \
        ubuntu:2004 bash
 ```
-
+* Whether running in container
+```bash
+if [ -f /.dockerenv ]; then
+    echo "In the container"
+else
+    echo "Not in the container"
+fi
+```
