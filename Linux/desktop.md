@@ -19,6 +19,39 @@
   - Example: GNOME, KDE...
   - Comparison: https://www.eet-china.com/mp/a10976.html
 
-# Reference
+## Reference
 * [鳥哥私房菜-第二十三章、X Window 設定介紹](http://linux.vbird.org/linux_basic/0590xwindow.php)
 * [What is the difference between a desktop environment and a window manager?](https://askubuntu.com/questions/18078/what-is-the-difference-between-a-desktop-environment-and-a-window-manager)
+
+# Environment Variables
+
+* `XDG_CURRENT_DESKTOP`: what the desktop environment is, e.g. ubuntu:GNOME
+* `XDG_SESSION_TYPE`: what kind of protocol used currently, e.g. x11.
+* `DISPLAY`: X display name.
+
+# Useful tools
+
+## xrandr
+Refer to https://clay-atlas.com/blog/2020/10/23/linux-cn-xrandr-adjust-resolution-screen-settings/
+
+* Get information: `xrandr`
+* Show screen:
+```bash
+# Show both screen
+xrandr --output eDP-1 --auto --output HDMI-1 --auto
+# Turn off one screen
+xrandr --output eDP-1 --auto --output HDMI-1 --off
+```
+* Set screen sync / extension
+```bash
+# HDMI in right
+xrandr --output eDP-1 --left-of HDMI-1
+# HDMI in left
+xrandr --output eDP-1 --right-of HDMI-1
+# Set sync
+xrandr --output eDP-1 --same-as HDMI-1
+```
+* Set resolution
+```bash
+xrandr --output eDP-1 --mode 1920x1080
+```
