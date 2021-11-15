@@ -23,6 +23,11 @@
 * [鳥哥私房菜-第二十三章、X Window 設定介紹](http://linux.vbird.org/linux_basic/0590xwindow.php)
 * [What is the difference between a desktop environment and a window manager?](https://askubuntu.com/questions/18078/what-is-the-difference-between-a-desktop-environment-and-a-window-manager)
 
+# Settings
+
+* `/etc/X11/default-display-manager`: Configure what desktop environment is running. Default is `/usr/sbin/gdm3`.
+* `/etc/gdm3/custom.conf`: GDM settings, i.e. whether to login automatically(AutomaticLoginEnable/).
+
 # Environment Variables
 
 * `XDG_CURRENT_DESKTOP`: what the desktop environment is, e.g. ubuntu:GNOME
@@ -32,6 +37,9 @@
 # Useful tools
 
 ## xrandr
+
+Used for monitor settings.
+
 Refer to https://clay-atlas.com/blog/2020/10/23/linux-cn-xrandr-adjust-resolution-screen-settings/
 
 * Get information: `xrandr`
