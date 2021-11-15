@@ -25,8 +25,13 @@
 
 # Settings
 
-* `/etc/X11/default-display-manager`: Configure what desktop environment is running. Default is `/usr/sbin/gdm3`.
-* `/etc/gdm3/custom.conf`: GDM settings, i.e. whether to login automatically(AutomaticLoginEnable/).
+* Use another desktop environment
+  - Install xubuntu: `sudo apt install xubuntu-desktop`
+  - Remove xubuntu: `sudo apt purge xubuntu-* xfce4-* plymouth-theme-xubuntu-`
+  - (Optional) change logo: `sudo update-alternatives --config default.plymouth`
+* `/etc/X11/default-display-manager`: Show what display manager is running. Default is `/usr/sbin/gdm3`.
+  - If you want to change display manger, please use `sudo dpkg-reconfigure gdm`
+* `/etc/gdm3/custom.conf`: GDM settings, i.e. whether to login automatically(AutomaticLoginEnable/AutomaticLogin).
 
 # Environment Variables
 
