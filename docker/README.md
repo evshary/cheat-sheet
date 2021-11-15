@@ -147,3 +147,14 @@ else
     echo "Not in the container"
 fi
 ```
+* Run GUI application in docker container
+```bash
+# Allow permission
+xhost +local:
+# Pass .X11-unix
+docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix --env="QT_X11_NO_MITSHM=1" --env "DISPLAY=$DISPLAY" ros:foxy
+# Test GUI in docker
+#apt update && apt install -y ros-foxy-rviz2
+#source /opt/ros/foxy/setup.bash
+#rviz2
+```
