@@ -1,9 +1,39 @@
-# Jetpack
+# JetPack
+
+JetPack: JetsonDevelopment Pack
+
+* Components:
+  - Deep learning: TensorRT, cuDNN
+  - Computer Vision: NVIDIA VisionWorks, OpenCV
+  - GPU: CUDA
+  - Multi-media: ISP, Camera, CODEC
+
+# tips
 
 * Enable all the performance: `sudo nvpmodel -m 0`
-* Show current CPU status
+* Show current jetpack status
 
 ```bash
 pip install jetson-stats
 jtop
+```
+* Check jetson version: `jetson_release`
+
+# docker
+
+Refer to [【邊緣AI系列】在NVIDIA Jetson NANO 上使用 Docker Container 部署視覺應用](https://grady1006.medium.com/%E9%82%8A%E7%B7%A3ai%E7%B3%BB%E5%88%97-%E5%9C%A8nvidia-jetson-nano-%E4%B8%8A%E4%BD%BF%E7%94%A8-docker-container-%E9%83%A8%E7%BD%B2%E8%A6%96%E8%A6%BA%E6%87%89%E7%94%A8-1719b2062f15)
+
+* Run docker
+```bash
+docker pull nvcr.io/nvidia/l4t-base:r32.4.3
+xhost +
+docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix nvcr.io/nvidia/l4t-base:r32.4.3
+```
+* Run example
+```bash
+apt-get update && apt-get install -y --no-install-recommends make g++
+cp -r /usr/local/cuda/samples /tmp
+cd /tmp/samples/5_Simulations/nbody
+make
+./nbody
 ```
