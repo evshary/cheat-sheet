@@ -2,11 +2,20 @@
 
 JetPack: JetsonDevelopment Pack
 
+![image](https://user-images.githubusercontent.com/456210/141880836-5af1ae87-045f-4fbf-8431-ed2333b54620.png)
+[image source](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/overview.html)
+
 * Components:
-  - Deep learning: TensorRT, cuDNN
-  - Computer Vision: NVIDIA VisionWorks, OpenCV
+  - Deep learning: TensorRT(Inference), cuDNN(Training)
+  - Computer Vision: NVIDIA VisionWorks(Vision API with CUDA supported), OpenCV, VPI(Replace VisionWorks)
   - GPU: CUDA
-  - Multi-media: ISP, Camera, CODEC
+  - Graphics: OpenGL, EGL...
+  - Multimedia: V4L2 library, Gstreamer, CODEC
+
+Deepstream SDK: Build seamless streaming pipelines for AI-based video, audio, and image analytics.
+
+![image](https://user-images.githubusercontent.com/456210/141881460-500a4754-37d2-4377-9392-c76f68bbd0d4.png)
+[image source](https://galliot.us/2020/06/01/deepstream-sdk/)
 
 # tips
 
