@@ -68,3 +68,18 @@ xrandr --output eDP-1 --same-as HDMI-1
 ```bash
 xrandr --output eDP-1 --mode 1920x1080
 ```
+
+## xhost
+
+Manage who can access X server
+
+```bash
+# Show the current allowed list
+xhost
+# Allow all access
+xhost +
+# Add local user
+xhost +local:username
+# Add remote user
+xhost +inet:username@domain.name
+```
