@@ -38,6 +38,11 @@ docker cp <src> <container ID>:<dst>
 docker ps -a --size
 ```
 
+* Analyze docker's layer size
+```bash
+docker history <image>
+```
+
 # volume
 
 * List current volume
