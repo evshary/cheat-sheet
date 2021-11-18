@@ -34,6 +34,7 @@ jtop
 * docker image from nvidia: https://catalog.ngc.nvidia.com/containers
 * Dockerfile: https://gitlab.com/nvidia/container-images/l4t-base
 * jetson container for ROS: https://github.com/dusty-nv/jetson-containers
+* Run docker with Ubuntu 20.04 in jetson series: https://forums.developer.nvidia.com/t/cuda-enabled-ubuntu-20-04-docker-images-for-jetson/186418
 
 ## Example
 
@@ -53,3 +54,7 @@ cd /tmp/samples/5_Simulations/nbody
 make
 ./nbody
 ```
+
+## Note
+* Unable to run docker with the recent nvidia-container-runtime
+  - Refer to [Docker fails to create container after upgrading docker on Jetpack 4.9](https://github.com/dusty-nv/jetson-containers/issues/108)
