@@ -6,14 +6,17 @@
 ```bash
 sudo docker run --rm -it ubuntu:20.04 bash
 ```
+
 * Run ROS 2 foxy for testing
 ```bash
 sudo docker run --rm -it ros:foxy bash
 ```
+
 * Show docker log
 ```bash
 sudo docker logs <container ID>
 ```
+
 * Prune
 ```bash
 # Remove all dangling images
@@ -21,6 +24,7 @@ sudo docker image prune
 # Remove stopped containers
 sudo docker container prune
 ```
+
 * Copy file into / outside container
 ```bash
 # outside
@@ -29,26 +33,35 @@ docker cp <container ID>:<src> <dst>
 docker cp <src> <container ID>:<dst>
 ```
 
+* Show docker container size
+```bash
+docker ps -a --size
+```
+
 # volume
 
 * List current volume
 ```bash
 docker volume ls
 ```
+
 * Create the volume
   - Default will put under `/var/lib/docker/volumes`
 ```bash
 docker volume create myvolume
 ```
+
 * Inspect the volume
 ```bash
 docker volume inspect myvolume
 ```
+
 * Run docker with volume
   - Mount the myvolume on /myspace in docker
 ```bash
 docker run --rm -it -v myvolume:/myspace ubuntu:bionic bash
 ```
+
 * Remove volume
 ```bash
 # Remove certain volume
@@ -64,6 +77,7 @@ docker volume prune
 docker save [image_name]:[tag] > [name].tar
 docker load < [name].tar
 ```
+
 * Export & Import: Export the current container status (including filesystem changes)
 ```bash
 docker export [container_name] > [name].tar
@@ -77,15 +91,18 @@ cat [name].tar | docker import - [image_name]:[tag]
 mkdir registry
 docker run --rm -d -p 5000:5000 -v $PWD/registry:/var/lib/registry --name registry registry:2
 ```
+
 * Optional: Run web server to see the current images
 ```bash
 docker run --rm -it -p 8080:8080 -d --name registry-web --link registry -e REGISTRY_URL=http://registry:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
 ```
+
 * Tag and push
 ```bash
 docker tag [image_name]:[tag] 127.0.0.1:5000/[image_name]
 docker push 127.0.0.1:5000/[image_name]
 ```
+
 * Pull from docker Hub
 ```bash
 docker pull 127.0.0.1:5000/[image_name]
@@ -94,21 +111,18 @@ docker pull 127.0.0.1:5000/[image_name]
 # Useful shell scripts
 
 * Check image exist or not
-
 ```bash
 if [ ! "$(docker images -q $image_name)" ]; then
 fi
 ```
 
 * Check container exist or not
-
 ```bash
 if [ ! "$(docker ps -aq -f name=$container_name)" ]; then
 fi
 ```
 
 * Check container status
-
 ```bash
 # Exited
 if [ "$(docker ps -aq -f status=exited -f name=$container_name)" ]; then
@@ -126,6 +140,7 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 # run `newgrp docker` or logout&login 
 ```
+
 * docker run with the same SSH privilege as host
 ```bash
 docker run -it --rm \
@@ -133,12 +148,14 @@ docker run -it --rm \
        -e SSH_AUTH_SOCK=/ssh-agent \
        ubuntu:20.04 bash
 ```
+
 * Use the same time with the host
 ```bash
 docker run -it --rm \
        -v /etc/localtime:/etc/localtime:ro \
        ubuntu:2004 bash
 ```
+
 * Whether running in container
 ```bash
 if [ -f /.dockerenv ]; then
@@ -147,6 +164,7 @@ else
     echo "Not in the container"
 fi
 ```
+
 * Run GUI application in docker container
 ```bash
 # Allow permission
