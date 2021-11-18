@@ -219,4 +219,6 @@ echo $strarr[2]
   - Disable: `set +x`
 * Get the shell you're using:
   - `cat /proc/$$/cmdline | tr -d '\0'`
-  - refer to https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
+    - refer to https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
+  - Note that if you are using login shell, the output will be like `-bash`
+    - you can try `sudo login -f <username>` or refer to https://superuser.com/questions/278859/dash-in-front-of-bash
