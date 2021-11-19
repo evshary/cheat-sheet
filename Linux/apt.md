@@ -28,6 +28,14 @@
   sudo apt update
   apt-file search <FILE_NAME>
   ```
+* Clean apt cache
+  - While dpkg install deb, deb files will put under `/var/cache/apt/archives/`
+  ```bash
+  # Clean all deb files
+  apt clean
+  # Only clean outdated deb files
+  apt autoclean
+  ```
 
 # Key operation
 
@@ -126,4 +134,3 @@ sudo add-apt-repository --remove ppa:nginx/stable
   # Fix the apt dependency
   sudo apt --fix-broken install
   ```
-
