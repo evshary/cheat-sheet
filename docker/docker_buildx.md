@@ -50,3 +50,26 @@ docker buildx rm mybuilder
 docker buildx prune
 ```
 
+# Run cross-platform docker
+
+* Install qemu for different platform
+
+```bash
+docker run --privileged --rm tonistiigi/binfmt --install *
+# There should be qemu binary here
+ls /proc/sys/fs/binfmt_misc/*
+```
+
+* You can run different platform docker image by assigning the SHA
+  - The SHA can be gotten from `docker buildx imagetools inspect evshary/buildxtest`
+
+```bash
+docker run --rm -it docker.io/evshary/buildxtest:latest@sha256:803761f0046cbee916faba69dd16a054d277c7d428f2c3decca4f8ab23072832 bash
+```
+
+* If you want to remove qemu
+
+```bash
+docker run --privileged --rm tonistiigi/binfmt --uninstall "*" 
+docker rmi tonistiigi/binfmt
+```
