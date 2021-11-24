@@ -23,6 +23,8 @@ sudo docker logs <container ID>
 sudo docker image prune
 # Remove stopped containers
 sudo docker container prune
+# Clean all the things
+sudo docker system prune
 ```
 
 * Copy file into / outside container
