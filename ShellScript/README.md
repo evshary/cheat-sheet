@@ -2,12 +2,37 @@
 
 Here is some cheatsheet for writing shell script.
 
-# Get execution output
+# Check execution output
+
+* Whether equals to certain output
 
 ```sh
 OUTPUT=`cat xxxx`
 if [ $OUTPUT = "yyy" ]
     echo $OUTPUT
+fi
+```
+
+* Whether the output is empty
+
+```sh
+if [[ $(ls -al) ]]; then
+    echo "files exist"
+else
+    echo "empty"
+fi
+```
+
+* Check exit code
+
+```bash
+files=$(ls -al)
+if [[ $? != 0 ]]; then
+    echo "execution failed"
+elif [[ $files ]]; then
+    echo "files exist"
+else
+    echo "empty"
 fi
 ```
 
