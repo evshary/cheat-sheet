@@ -48,7 +48,7 @@ docker history <image>
 * Show status of container (CPU, memory status...)
 
 ```bash
-docker stats <container name>
+docker stats
 ```
 
 # volume
