@@ -39,6 +39,21 @@ sudo apt install cgroup-tools
 ```bash
 cd /sys/fs/cgroup/cpu
 sudo mkdir nick_cpu
+# Include the configuration inherited from cpu
+ls /sys/fs/cgroup/cpu/nick_cpu
+```
+* Set the configuration
+```bash
+sudo su
+echo 100000 > nick_cpu/cpu.cfs_period_us
+echo 10000 > nick_cpu/cpu.cfs_quota_us
+```
+* Build the cpu test program
+```bash
+make
+sudo su
+time ./cpu.out
+time cgexec -g cpu:nick_cpu ./cpu.out
 ```
 
 # Reference
