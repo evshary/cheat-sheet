@@ -45,6 +45,12 @@ docker ps -a --size
 docker history <image>
 ```
 
+* Show status of container (CPU, memory status...)
+
+```bash
+docker stats <container name>
+```
+
 # volume
 
 * List current volume
