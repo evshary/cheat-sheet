@@ -47,6 +47,8 @@ The table is from https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E
 * `journalctl -u xxx`: See the log of service.
 * `journalctl --user -u xxx`: See the log of user serivce.
 * `journalctl -u xxx -b -0`: See the last time log of xxx. `-0` can be replaced with other number.
+* `journalctl --verify`: Verify the log completion.
+* `journalctl --disk-usage`: Show the log usage.
 
 ## Bootup analyze
 * `systemd-analyze`: Lookup the bootup time.
