@@ -42,6 +42,8 @@ The table is from https://www.3chy2.com.tw/3c%E8%B3%87%E8%A8%8A/linux-systemd-%E
 * `systemctl enable xxx`: Start a service while bootup.
 * `systemctl disable xxx`: Stop a service while bootup.
 * `systemctl daemon-reload`: Reload systemd and regenerate the Unit dependency tree.
+* `systemctl edit --full xxx`: Edit the current .service file.
+  - You can change the editor to vim: `export SYSTEMD_EDITOR=vim`
 
 ## Log service
 * `journalctl -u xxx`: See the log of service.
