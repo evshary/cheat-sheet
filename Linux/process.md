@@ -1,5 +1,7 @@
 # PID, PGID, SID
-* Show the process PID, PGID, SID: `ps axj`
+* Show the process PID, PGID, SID:
+  - `ps axj`
+  - `ps -o pid,pgid,ppid,sid,args`
 * The concept of [process group, session, job control](http://epaper.gotop.com.tw/PDFSample/AXP015900.pdf) 
 
 # daemon
