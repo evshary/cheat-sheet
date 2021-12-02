@@ -259,6 +259,15 @@
 * Connect SSH with forwarding SSH agent
   - `ssh -A <IP>`
 
+# nohup
+Make sure the program can continue running while the session exits (ssh)
+
+* Run: `nohup ./myprogram &`
+* See output: 
+  - `cat nohup.txt`
+  - Assign filename: `nohup ./myprogram &> mylog.txt &`
+  - Separate normal & error message: `nohup ./myprogram > my.log 2> my.err &`
+
 # Build
 * Check what `make install` will do.
   - `make -n install`
