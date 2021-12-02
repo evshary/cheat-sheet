@@ -224,6 +224,30 @@ echo $strarr[2]
 # If you use zsh, it should start with 1, that is echo ${strarr[1]}
 ```
 
+# Trap
+trap is the shell built-in command, which can catch the signal.
+Refer to [trap](https://wangchujiang.com/linux-command/c/trap.html)
+
+* List all available trap: `trap -l`
+* Show the trap settings: `trap -p`
+* Set trap and test:
+```bash
+# While receiving INT signal, run `echo test123`
+trap "echo test123" INT
+# Send INT signal to current shell
+kill -2 $$
+```
+* Useful commands
+  - refer to [What is the difference between "kill 0" and "kill -‍- -$$"?](https://stackoverflow.com/questions/19252115/what-is-the-difference-between-kill-0-and-kill)
+```bash
+# Send TERM signal to the process group, which is the absolute number of current process ID.
+# If pid is 10, send signal to pgid 10
+trap "kill -TERM -$$ ; exit 1" INT QUIT
+# Send TERM signal to the process group of the current process ID.
+# If pid is 10 and pgid is 20, send signal to pgid 20
+trap "kill -TERM 0 ; exit 1" INT QUIT
+```
+
 # Tips:
 * Include other shell file
   - `source shell_file_name`
