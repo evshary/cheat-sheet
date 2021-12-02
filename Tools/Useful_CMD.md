@@ -260,7 +260,8 @@
   - `ssh -A <IP>`
 
 # nohup
-Make sure the program can continue running while the session exits (ssh)
+Make sure the program can continue running while the session exits (ssh).
+That is, ignore SIGHUP signal after session exits
 
 * Run: `nohup ./myprogram &`
 * See output: 
