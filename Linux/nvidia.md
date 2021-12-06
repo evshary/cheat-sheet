@@ -45,6 +45,7 @@ UBUNTU_CODENAME=bionic
 
 # tips
 
+* Check jetpack version: `cat /etc/nv_tegra_release`
 * Enable all the performance: `sudo nvpmodel -m 0`
 * Show current jetpack status
 
