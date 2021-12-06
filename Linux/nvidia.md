@@ -17,6 +17,32 @@ Deepstream SDK: Build seamless streaming pipelines for AI-based video, audio, an
 ![image](https://user-images.githubusercontent.com/456210/141881460-500a4754-37d2-4377-9392-c76f68bbd0d4.png)
 [image source](https://galliot.us/2020/06/01/deepstream-sdk/)
 
+# Installation
+
+You need to use sdkmanager to install jetpack into nvidia platform.
+
+* Install [sdkmanager](https://developer.nvidia.com/nvidia-sdk-manager)
+* Follow the following steps: https://blog.csdn.net/caiguanhong/article/details/114550412
+
+Note you need to sdkmanager can only run on ubuntu 18.04, so you need to fake your host PC to ubuntu 18.04.
+
+* Backup `/usr/bin/os-release`
+* Modify `/usr/bin/os-release` to the following
+```bash
+NAME="Ubuntu"
+VERSION="18.04.5 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.5 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+```
+
 # tips
 
 * Enable all the performance: `sudo nvpmodel -m 0`
