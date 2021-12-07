@@ -24,10 +24,13 @@ The feature of PulseAudio:
 ### pactl
 
 * `pactl list`: list all the modules/input/output of PulseAudio.
+  - `pactl list short`: Only list brief message.
 * `pactl list sinks`: List the audio output of PulseAudio
   - You can adjust the volume and see its changes.
+  - `pactl list short sinks`: Only list brief message.
 * `pactl set-sink-mute 1 toggle`: Toggle the audio output (mute or not)
 * `pactl list sink-inputs`: List all the application use the audio output now.
+  - `pactl list short sink-inputs`: Only list brief message.
 * `pactl set-sink-input mute <N> toggle`: Mute audio output of certain application.
 * `pactl move-sink-input <N> <ALSA output>`: Move audio ouput of certain application to specific audio hardware
 * `pactl info`: Basic info for PulseAudio.
@@ -35,6 +38,17 @@ The feature of PulseAudio:
 ### pacmd
 
 pacmd has the same function of pactl, but it also can show interactive interface on CLI.
+
+The difference between pactl & pacmd: [Change PulseAudio Input/Output from Shell?](https://unix.stackexchange.com/questions/65246/change-pulseaudio-input-output-from-shell)
+
+> pacmd - Used to reconfigure a PulseAudio sound server during runtime.
+> 
+> pactl - Used to control a running PulseAudio sound server.
+
+Useful commands:
+
+* `pacmd list-cards`: List sound card.
+* `pacmd list-sinks`: **Useful**. Same as `pactl list sinks`, but able to show the number who use the sinks.
 
 ### pulseaudio
 
