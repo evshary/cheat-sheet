@@ -37,6 +37,7 @@ Refer to [the official website of tpm2-tools](https://tpm2-tools.readthedocs.io/
 
 # Reference
 
+* [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
 * [用 TPM 晶片登入 SSH](https://blog.libralight.dev/tpm2-ssh-key/)
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160)
-* [可信計算基礎](https://www.slideserve.com/sadie/2222582): Good resource to realize the architecture of TPM and how it works.
+* [對TCG的概要分析和對TPM的學習-可信存儲根RTS（三）](https://www.twblogs.net/a/5e5518f4bd9eee2117c5bdee): Explain keys in TPM
