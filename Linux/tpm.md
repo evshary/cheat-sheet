@@ -30,7 +30,13 @@ sudo tpm2_selftest -f
 
 Refer to [the official website of tpm2-tools](https://tpm2-tools.readthedocs.io/en/latest/)
 
+* Get random 8 bytes from the TPM: `sudo tpm2_getrandom 8 | xxd -p`
+* List PCR in TPM: `sudo tpm2_pcrread`
+  - Only list certain PCR (e.g. sha256:0): `sudo tpm2_pcrread sha256:0`
+  - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
+
 # Reference
 
 * [用 TPM 晶片登入 SSH](https://blog.libralight.dev/tpm2-ssh-key/)
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160)
+* [可信計算基礎](https://www.slideserve.com/sadie/2222582): Good resource to realize the architecture of TPM and how it works.
