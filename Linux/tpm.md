@@ -41,6 +41,7 @@ Refer to [the official website of tpm2-tools](https://tpm2-tools.readthedocs.io/
   - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
 * Get the capabilities and properties of TPM: `tpm2_getcap properties-fixed`
 * Read SRK(Storage Root Key) attributes and public key: `tpm2_readpublic -c 0x81000001`
+* Test whether the algorithm is supported by TPM: `tpm2_testparms rsa4096`
 
 # Use TPM to SSH
 
