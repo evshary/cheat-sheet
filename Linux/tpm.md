@@ -39,12 +39,16 @@ Refer to [the official website of tpm2-tools](https://tpm2-tools.readthedocs.io/
 * List PCR in TPM: `sudo tpm2_pcrread`
   - Only list certain PCR (e.g. sha256:0): `sudo tpm2_pcrread sha256:0`
   - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
+* Get the capabilities and properties of TPM: `tpm2_getcap properties-fixed`
+* Read SRK(Storage Root Key) attributes and public key: `tpm2_readpublic -c 0x81000001`
 
 # Use TPM to SSH
 
-Refer to [用 TPM 晶片登入 SSH](https://blog.libralight.dev/tpm2-ssh-key/)
+Refer to [用 TPM 晶片登入 SSH](https://blog.libralight.dev/tpm2-ssh-key/) and [Protecting authentication keys with a TPM 2.0](https://www.barbhack.fr/slides/2021/barbhack2021_tpm_auth.pdf)
 
 * Init database and create slot for keys
+  - The key is stored under the database `$HOME/.tpm2_pkcs11/tpm2_pkcs11.sqlite3`
+  - The key is encrypted by Storage Root Key (SRK)
 ```bash
 tpm2_ptool init
 ```
