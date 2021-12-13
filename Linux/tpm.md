@@ -71,7 +71,13 @@ reboot
 * List PCR in TPM: `sudo tpm2_pcrread`
   - Only list certain PCR (e.g. sha256:0): `sudo tpm2_pcrread sha256:0`
   - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
-* Get the capabilities and properties of TPM: `tpm2_getcap properties-fixed`
+* Get the capabilities of TPM
+```bash
+# Supported commands
+tpm2_getcap commands
+# fixed TPM properties
+tpm2_getcap properties-fixed
+```
 * Read SRK(Storage Root Key) attributes and public key: `tpm2_readpublic -c 0x81000001`
 * Test whether the algorithm is supported by TPM
 ```bash
