@@ -5,7 +5,7 @@ TPM is the chip which has interface TCTI defined by TCG(Trusted Computing Group)
 Goal:
 * Key generation/storage: much safer because key doesn't exist in memory (encryption/decryption are done in TPM)
 * Random number generation: Much more random
-* Secure boot: Ensure the integrity of boot process 
+* Secure boot: Ensure the integrity of boot process. Refer to detail [here](https://www.twblogs.net/a/5e5518f4bd9eee2116847267).
 
 If your application support PCKS #11, which is the API to communicate with hardware password, then you can use TPM.
 
@@ -54,7 +54,16 @@ Refer to [the manual of TPM](https://github.com/tpm2-software/tpm2-tools/tree/ma
   - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
 * Get the capabilities and properties of TPM: `tpm2_getcap properties-fixed`
 * Read SRK(Storage Root Key) attributes and public key: `tpm2_readpublic -c 0x81000001`
-* Test whether the algorithm is supported by TPM: `tpm2_testparms rsa4096`
+* Test whether the algorithm is supported by TPM
+```bash
+# specifier:  type
+tpm2_testparms rsa4096
+# specifier:  type:scheme:symmetric-details
+tpm2_testparms ecc256:ecdsa:aes128ctr
+# Show result:
+# 0: success, 1-4: different errors, 5: not supported
+echo $?
+```
 
 # Use TPM to SSH
 
