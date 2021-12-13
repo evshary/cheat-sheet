@@ -48,6 +48,25 @@ sudo tpm2_selftest -f
 
 Refer to [the manual of TPM](https://github.com/tpm2-software/tpm2-tools/tree/master/man)
 
+How to use tpm-tools [example](https://blog.csdn.net/jianming21/article/details/108042271)
+
+* Manage Access
+```bash
+# 3 kinds of password: owner, endorsement, lockout
+# Set new password
+tpm2_changeauth -c owner <pass>
+tpm2_changeauth -c endorsement <pass>
+tpm2_changeauth -c lockout <pass>
+# Update password
+tpm2_changeauth -c o -p <pass> <newpass>
+tpm2_changeauth -c e -p <pass> <newpass>
+tpm2_changeauth -c l -p <pass> <newpass>
+# Set the password to empty
+tpm2)changeauth -c o -p <pass>
+# If you forget the password, reset TPM
+echo 5 > /sys/class/tpm/tpm0/ppi/request
+reboot
+```
 * Get random 8 bytes from the TPM: `sudo tpm2_getrandom 8 | xxd -p`
 * List PCR in TPM: `sudo tpm2_pcrread`
   - Only list certain PCR (e.g. sha256:0): `sudo tpm2_pcrread sha256:0`
@@ -63,6 +82,48 @@ tpm2_testparms ecc256:ecdsa:aes128ctr
 # Show result:
 # 0: success, 1-4: different errors, 5: not supported
 echo $?
+```
+* Create primary key
+```bash
+# Create primary object
+# -C: o(owner), p(platform), e(endorsement), n(null)
+# -g: hash algorithm
+# -G: how to generate key, e.g. rsa2048:null:aes128cfb, ecc
+# -c: context output path
+tpm2_createprimary -C o -g sha256 -G ecc -c primary.ctx
+# Simpler
+tpm2_createprimary -c primary.ctx
+```
+* Create child object, which can be key or sealed object
+  - Able to seal data in to TPM in 128 bytes
+```bash
+tpm2_create -C primary.ctx -u key.pub -r key.priv
+# Use different algorithm, e.g. rsa2048
+tpm2_create -C primary.ctx -Grsa2048 -u key.pub -r key.priv
+# Also seal data into TPM
+echo "This is sealed data" > seal.dat
+tpm2_create -C primary.ctx -u key.pub -r key.priv -i seal.dat
+```
+* Load public/private key into TPM
+```bash
+tpm2_load -C primary.ctx -u key.pub -r key.priv -c key.ctx
+```
+* encrypt/decrypt (RSA)
+  - Note that you need to use rsa2048 in tpm2_create
+```bash
+echo "plaintext message" > msg.dat
+# encrypt
+tpm2_rsaencrypt -c key.ctx -o msg.enc msg.dat
+# decrypt
+tpm2_rsadecrypt -c key.ctx -o msg.ptext msg.enc
+cat msg.ptext
+```
+* Sign
+```bash
+# Sign the data
+tpm2_sign -c key.ctx -g sha256 -o sig.rssa msg.dat
+# Verify signature
+tpm2_verifysignature -c key.ctx -g sha256 -s sig.rssa -m msg.dat
 ```
 
 # Use TPM to SSH
