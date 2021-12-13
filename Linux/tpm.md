@@ -1,13 +1,19 @@
 # TPM (Trusted Platform Module)
 
-TPM is the cheap which has interface TCTI defined by TCG(Trusted Computing Group).
-No matter key generation/storage, encryption/decrytion are done in TPM.
+TPM is the chip which has interface TCTI defined by TCG(Trusted Computing Group).
 
-Since the key doesn't exist in memory, it'll be much safer.
+Goal:
+* Key generation/storage: much safer because key doesn't exist in memory (encryption/decryption are done in TPM)
+* Random number generation: Much more random
+* Secure boot: Ensure the integrity of boot process 
 
 If your application support PCKS #11, which is the API to communicate with hardware password, then you can use TPM.
 
 If you want to know more about TPM software, refer to [tpm2-software community](https://tpm2-software.github.io/)
+
+# TPM architecture
+![image](https://user-images.githubusercontent.com/456210/145745734-59d77c5e-baa8-4559-aee7-1c2486331ee2.png)
+[image source](https://blog.fpmurphy.com/2016/02/accessing-tpm-functionality-from-uefi-shell-part-1.html)
 
 # Install packages
 
@@ -18,6 +24,13 @@ ls /dev/tpm*
 * Check the TPM's version
 ```bash
 dmesg | grep -i tpm
+# Another way
+cat /sys/class/tpm/tpm0/device/firmware_node/description
+```
+* Run TPM in docker (optional)
+  - Since some TPM tool needs Ubuntu 21.04, you need to use docker to run
+```bash
+docker run --rm -it -v /dev:/dev -v /sys:/sys -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged ubuntu:21.04
 ```
 * Install TPM packages
   - Note that only work in Ubuntu 21.04
@@ -33,7 +46,7 @@ sudo tpm2_selftest -f
 
 # tpm-tools usage
 
-Refer to [the official website of tpm2-tools](https://tpm2-tools.readthedocs.io/en/latest/)
+Refer to [the manual of TPM](https://github.com/tpm2-software/tpm2-tools/tree/master/man)
 
 * Get random 8 bytes from the TPM: `sudo tpm2_getrandom 8 | xxd -p`
 * List PCR in TPM: `sudo tpm2_pcrread`
@@ -78,15 +91,9 @@ ssh-keygen -D /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1
 ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 ```
 
-# Note
-* Run TPM in docker
-  - Since some TPM tool needs Ubuntu 21.04, you need to use docker to run
-```bash
-docker run --rm -it -v /dev:/dev -v /sys:/sys -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged ubuntu:21.04
-```
-
 # Reference
 
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160)
 * [對TCG的概要分析和對TPM的學習-可信存儲根RTS（三）](https://www.twblogs.net/a/5e5518f4bd9eee2117c5bdee): Explain keys in TPM
+* [TCG TPM v2.0 Provisioning Guidance](https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-v2.0-Provisioning-Guidance-Published-v1r1.pdf): The standard of TPM.
