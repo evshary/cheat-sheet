@@ -78,6 +78,13 @@ ssh-keygen -D /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1
 ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 ```
 
+# Note
+* Run TPM in docker
+  - Since some TPM tool needs Ubuntu 21.04, you need to use docker to run
+```bash
+docker run --rm -it -v /dev:/dev -v /sys:/sys -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged ubuntu:21.04
+```
+
 # Reference
 
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
