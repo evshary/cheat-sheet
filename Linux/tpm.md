@@ -101,14 +101,10 @@ tpm2_createprimary -C o -g sha256 -G ecc -c primary.ctx
 tpm2_createprimary -c primary.ctx
 ```
 * Create child object, which can be key or sealed object
-  - Able to seal data in to TPM in 128 bytes
 ```bash
 tpm2_create -C primary.ctx -u key.pub -r key.priv
 # Use different algorithm, e.g. rsa2048
 tpm2_create -C primary.ctx -Grsa2048 -u key.pub -r key.priv
-# Also seal data into TPM
-echo "This is sealed data" > seal.dat
-tpm2_create -C primary.ctx -u key.pub -r key.priv -i seal.dat
 ```
 * Load public/private key into TPM
 ```bash
@@ -130,6 +126,30 @@ cat msg.ptext
 tpm2_sign -c key.ctx -g sha256 -o sig.rssa msg.dat
 # Verify signature
 tpm2_verifysignature -c key.ctx -g sha256 -s sig.rssa -m msg.dat
+```
+* Seal & Unseal data
+```bash
+# We can seal data into TPM while running tpm2_create (at most 128 bytes)
+echo "This is sealed data" > seal.dat
+tpm2_create -C primary.ctx -u key.pub -r key.priv -i seal.dat
+
+# Load the context
+tpm2_load -C primary.ctx -u key.pub -r key.priv -c key.ctx
+
+# evict a persistent handle
+# Output:
+# persistent-handle: 0x81000000
+# action: persisted
+tpm2_evictcontrol -C o -c key.ctx   # Same as `tpm2_evictcontrol --hierarchy=o --object-context=key.ctx`
+# Remove key from TPM
+tpm2_evictcontrol -C o -c 0x81000000
+
+# List and read persistent handler
+tpm2_getcap handles-persistent
+tpm2_readpublic -c 0x81000000
+
+# Unseal data from TPM
+tpm2_unseal -c 0x81000000   # `tpm2_unseal --object-context=0x81000000`
 ```
 
 # Use TPM to SSH
