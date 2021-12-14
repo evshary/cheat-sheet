@@ -67,10 +67,6 @@ tpm2)changeauth -c o -p <pass>
 echo 5 > /sys/class/tpm/tpm0/ppi/request
 reboot
 ```
-* Get random 8 bytes from the TPM: `sudo tpm2_getrandom 8 | xxd -p`
-* List PCR in TPM: `sudo tpm2_pcrread`
-  - Only list certain PCR (e.g. sha256:0): `sudo tpm2_pcrread sha256:0`
-  - The meaning of the number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
 * Get the capabilities of TPM
 ```bash
 # Supported commands
@@ -78,7 +74,6 @@ tpm2_getcap commands
 # fixed TPM properties
 tpm2_getcap properties-fixed
 ```
-* Read SRK(Storage Root Key) attributes and public key: `tpm2_readpublic -c 0x81000001`
 * Test whether the algorithm is supported by TPM
 ```bash
 # specifier:  type
@@ -88,6 +83,17 @@ tpm2_testparms ecc256:ecdsa:aes128ctr
 # Show result:
 # 0: success, 1-4: different errors, 5: not supported
 echo $?
+```
+* Get random 8 bytes from the TPM: `sudo tpm2_getrandom 8 | xxd -p`
+* PCR operation
+  - The meaning of the different PCR number can refer to [here](https://link.springer.com/chapter/10.1007/978-1-4302-6584-9_12#Tab1)
+```bash
+# List all PCR in TPM
+tpm2_pcrread
+# Only list certain PCR (e.g. sha256:0)
+tpm2_pcrread sha256:0
+# Extend PCR
+tpm2_pcrextend 4:sha1=f1d2d2f924e986ac86fdf7b36c94bcdf32beec15
 ```
 * Create primary key
 ```bash
@@ -136,7 +142,7 @@ tpm2_create -C primary.ctx -u key.pub -r key.priv -i seal.dat
 # Load the context
 tpm2_load -C primary.ctx -u key.pub -r key.priv -c key.ctx
 
-# evict a persistent handle
+# evict a persistent handle (Note that the handles will exist after reboot)
 # Output:
 # persistent-handle: 0x81000000
 # action: persisted
@@ -150,6 +156,13 @@ tpm2_readpublic -c 0x81000000
 
 # Unseal data from TPM
 tpm2_unseal -c 0x81000000   # `tpm2_unseal --object-context=0x81000000`
+```
+* TPM read/write data stored in a Non-Volatile (NV)s index
+```bash
+tpm2_nvdefine -C o -s 32 -a "ownerread|policywrite|ownerwrite" 1
+echo "please123abc" > nv.dat
+tpm2_nvwrite -C o -i nv.dat 1
+tpm2_nvread -C o -s 32 1
 ```
 
 # Use TPM to SSH
@@ -190,6 +203,7 @@ ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 # Reference
 
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
-* [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160)
+* [I'M JAY'S FATHER - TRUSTED PLATFORM MODULE (TPM)](http://junyelee.blogspot.com/2020/11/a-practical-guide-to-tpm-2.html): How to use TPM pratically
 * [對TCG的概要分析和對TPM的學習-可信存儲根RTS（三）](https://www.twblogs.net/a/5e5518f4bd9eee2117c5bdee): Explain keys in TPM
 * [TCG TPM v2.0 Provisioning Guidance](https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-v2.0-Provisioning-Guidance-Published-v1r1.pdf): The standard of TPM.
+* [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160): Test criteria of TPM
