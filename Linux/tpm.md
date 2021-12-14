@@ -9,7 +9,16 @@ Goal:
 
 If your application support PCKS #11, which is the API to communicate with hardware password, then you can use TPM.
 
-If you want to know more about TPM software, refer to [tpm2-software community](https://tpm2-software.github.io/)
+If you want to know more about TPM software (tpm2-tools), refer to [tpm2-software community](https://tpm2-software.github.io/)
+
+The tools can has several functions:
+
+* NV tools: store data in NV
+* Attestation tools: prove software identity
+* Key management tools: manage key
+* Encryption/Decryption tools: encrypt / decrypt
+* Signing tools: sign the data
+* utilities: create random number, hash...
 
 **NOTE: tpm2-tools is always changin its commands and argument, so the data might be out-dated after few years ago.....**
 
@@ -166,6 +175,10 @@ echo "please123abc" > nv.dat
 tpm2_nvwrite -C o -i nv.dat 1
 tpm2_nvread -C o -s 32 1
 ```
+* hash
+```bash
+tpm2_hash -g sha1 -o hash.bin -t ticket.bin data.txt
+```
 
 # Use TPM to SSH
 
@@ -209,3 +222,4 @@ ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 * [對TCG的概要分析和對TPM的學習-可信存儲根RTS（三）](https://www.twblogs.net/a/5e5518f4bd9eee2117c5bdee): Explain keys in TPM
 * [TCG TPM v2.0 Provisioning Guidance](https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-v2.0-Provisioning-Guidance-Published-v1r1.pdf): The standard of TPM.
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160): Test criteria of TPM
+* [A Technical Introduction to the Use of Trusted Platform Module 2.0 with Linux](https://lenovopress.com/lp0599.pdf): TPM usage provided by Lenovo. Although its commands are out-dated, it's valuable to learn the basic knowledge of TPM.
