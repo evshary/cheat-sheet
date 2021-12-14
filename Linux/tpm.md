@@ -11,6 +11,8 @@ If your application support PCKS #11, which is the API to communicate with hardw
 
 If you want to know more about TPM software, refer to [tpm2-software community](https://tpm2-software.github.io/)
 
+**NOTE: tpm2-tools is always changin its commands and argument, so the data might be out-dated after few years ago.....**
+
 # TPM architecture
 ![image](https://user-images.githubusercontent.com/456210/145745734-59d77c5e-baa8-4559-aee7-1c2486331ee2.png)
 [image source](https://blog.fpmurphy.com/2016/02/accessing-tpm-functionality-from-uefi-shell-part-1.html)
