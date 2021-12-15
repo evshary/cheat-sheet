@@ -284,8 +284,10 @@ diff -Naur orig_folder new_folder > your.patch
 ```bash
 # Test the running result
 patch --dry-run -i your.patch
-# Patch the files
+# Patch the files (Will only refer to filename and ignore the path)
 patch -i your.patch
+# Refer to the path in patch file
+patch -p0 -i your.patch
 # Ignore the some directory of old path in the patch file
 patch -p1 -i your.patch # Ignore 1 directory
 patch -p2 -i your.patch # Ignore 2 directories
