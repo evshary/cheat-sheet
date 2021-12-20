@@ -200,6 +200,11 @@
 * Play the video from /dev/video0
   - `mplayer tv://device=/dev/video0`: need to `sudo apt install mplayer` first
   - `vlc v4l2:///dev/video0`: need to `sudo apt install vlc` first
+* Check the resolution & FPS of camera
+```bash
+sudo apt-get install v4l-utils
+v4l2-ctl --list-formats-ext
+```
 * Play audio
   - aplay /usr/share/sounds/xxx/xxx.wav
 * Control the volume of audio
