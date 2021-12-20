@@ -51,6 +51,8 @@ UBUNTU_CODENAME=bionic
 
 ```bash
 pip install jetson-stats
+# Or you can run this
+python3 -m pip install jetson-stats
 jtop
 ```
 * Check jetson version: `jetson_release`
