@@ -87,3 +87,10 @@ make
 ## Note
 * Unable to run docker with the recent nvidia-container-runtime
   - Refer to [Docker fails to create container after upgrading docker on Jetpack 4.9](https://github.com/dusty-nv/jetson-containers/issues/108)
+
+# AI
+
+Refer to [NVIDIA Jetson Nano — 02 執行深度學習範例：影像辨識、物件偵測、影像分割、人體姿勢預測](https://d246810g2000.medium.com/nvidia-jetson-nano-for-jetpack-4-4-02-%E5%9F%B7%E8%A1%8C%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E7%AF%84%E4%BE%8B-%E5%BD%B1%E5%83%8F%E8%BE%A8%E8%AD%98-%E7%89%A9%E4%BB%B6%E5%81%B5%E6%B8%AC-%E5%BD%B1%E5%83%8F%E5%88%86%E5%89%B2-%E4%BA%BA%E9%AB%94%E5%A7%BF%E5%8B%A2%E9%A0%90%E6%B8%AC-2e39f1734a8e) or [深入使用NVIDIA Jetson Inference機器學習專案 - 電腦視覺圖片分類任務](https://www.rs-online.com/designspark/nvidia-jetson-inference-cn) for how to run AI inference on jetson.
+
+* The packages for AI: [jetson-release](https://github.com/dusty-nv/jetson-inference)
+* ROS packages for AI on jetson: [ros_deep_learning](https://github.com/dusty-nv/ros_deep_learning)
