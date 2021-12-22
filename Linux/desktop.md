@@ -9,14 +9,15 @@
 * X client: Receive events from client and decide what to do, e.g. what will happen while the mouse move.
 * The protocol between X server and X client called X or X11
 * Window manager: Manage multiple X clients, e.g. resize, minimize...
-* Device manger: Provide login interface.
-  - In Gnome, GNOME Display Manger(gdm) is used.
+* Display manger: Provide login interface.
+  - In Gnome, GNOME Display Manger(gdm) is used. Others are lightdm, kdm.
+  - Comparison: https://askubuntu.com/questions/829108/what-is-gdm3-kdm-lightdm-how-to-install-and-remove-them
 
 ![](https://www.cv.nrao.edu/~pmurphy/Talks/gnome/gnome-fig2.png)
 [image source](https://www.cv.nrao.edu/~pmurphy/Talks/gnome/allparts.shtml)
 
 * Desktop environment: Provide the whole user experience, e.g. panels, menu, starter, icons...
-  - Example: GNOME, KDE...
+  - Example: GNOME, KDE, xfce...
   - Comparison: https://www.eet-china.com/mp/a10976.html
 
 ## Reference
