@@ -33,6 +33,11 @@
   - If you want to change display manger, please use `sudo dpkg-reconfigure gdm`
 * `/etc/gdm3/custom.conf`: GDM settings, i.e. whether to login automatically(AutomaticLoginEnable/AutomaticLogin).
 
+# Debug message
+
+* gdm: `sudo systemctl status gdm`
+* xserver: `less /var/log/Xorg.0.log`
+
 # Environment Variables
 
 * `XDG_CURRENT_DESKTOP`: what the desktop environment is, e.g. ubuntu:GNOME
