@@ -35,7 +35,7 @@
 
 # Debug message
 
-* gdm: `sudo systemctl status gdm`
+* gdm: `sudo systemctl status gdm` or `sudo journalctl -u gdm`
 * xserver: `less /var/log/Xorg.0.log`
 
 # Environment Variables
