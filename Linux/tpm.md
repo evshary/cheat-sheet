@@ -248,3 +248,5 @@ make
 * [Documentation for TPM specification](https://trustedcomputinggroup.org/resources?): The standard of TPM.
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160): Test criteria of TPM
 * [A Technical Introduction to the Use of Trusted Platform Module 2.0 with Linux](https://lenovopress.com/lp0599.pdf): TPM usage provided by Lenovo. Although its commands are out-dated, it's valuable to learn the basic knowledge of TPM.
+* A Practical Guide to TPM 2.0: The book which describes the detail of TPM.
+  - [中文版：TPM 2.0 原理及應用指南新安全時代的可信平臺模塊](https://github.com/leeehui/a-practical-guide-to-tpm2-book-cn)
