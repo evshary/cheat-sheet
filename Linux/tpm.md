@@ -220,6 +220,6 @@ ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
 * [I'M JAY'S FATHER - TRUSTED PLATFORM MODULE (TPM)](http://junyelee.blogspot.com/2020/11/a-practical-guide-to-tpm-2.html): How to use TPM pratically
 * [對TCG的概要分析和對TPM的學習-可信存儲根RTS（三）](https://www.twblogs.net/a/5e5518f4bd9eee2117c5bdee): Explain keys in TPM
-* [TCG TPM v2.0 Provisioning Guidance](https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-v2.0-Provisioning-Guidance-Published-v1r1.pdf): The standard of TPM.
+* [Documentation for TPM specification](https://trustedcomputinggroup.org/resources?): The standard of TPM.
 * [TPM自我測試與系統測試的澄清](https://www.wpgdadatong.com/tw/blog/detail?BID=B0160): Test criteria of TPM
 * [A Technical Introduction to the Use of Trusted Platform Module 2.0 with Linux](https://lenovopress.com/lp0599.pdf): TPM usage provided by Lenovo. Although its commands are out-dated, it's valuable to learn the basic knowledge of TPM.
