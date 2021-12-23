@@ -4,7 +4,7 @@ udev is the device manager of Linux, which will handle all the userspace actions
 
 While kernel starts to run, devtmpfs will create device node. 
 udev can receive uevent from sysfs, which is netlink message.
-Then load kernel module (according to /lib/modules/<kernel>/modules.alias), manage device node privilege, and create corresponding symlink file.
+Then load kernel module (according to `/lib/modules/<kernel>/modules.alias`), manage device node privilege, and create corresponding symlink file.
 
 Refer to [Does udev load kernel modules?](https://unix.stackexchange.com/questions/392113/does-udev-load-kernel-modules)
 
