@@ -44,7 +44,8 @@ cat /sys/class/tpm/tpm0/device/firmware_node/description
 docker run --rm -it -v /dev:/dev -v /sys:/sys -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged ubuntu:21.04
 ```
 * Install TPM packages
-  - Note that only work in Ubuntu 21.04
+  - The following packages only work in Ubuntu 21.04
+  - If you don't have /dev/tpmrm0, it means that your kernel is < 4.14 and need to install Access Broker and Resource Manager Daemon (ABRMD). ABRMD / /dev/tpmrm0 can help multiple application access /dev/tpm0 at the same time.
 ```bash
 sudo apt install libtpm2-pkcs11-1 libtpm2-pkcs11-tools
 ```
