@@ -3,10 +3,19 @@
 udev is the device manager of Linux, which will handle all the userspace actions while adding/removing hardware.
 
 While kernel starts to run, devtmpfs will create device node. 
-udev can receive uevent from sysfs, which is netlink message.
+udev can receive uevent from kernel, which is netlink message.
 Then load kernel module (according to `/lib/modules/<kernel>/modules.alias`), manage device node privilege, and create corresponding symlink file.
 
 Refer to [Does udev load kernel modules?](https://unix.stackexchange.com/questions/392113/does-udev-load-kernel-modules)
+
+In Linux 2.4, devfs used to create device node while bootup, but it's not flexible. It's replaced by udev for dynamically detecting device, but some devices need to be loaded faster while bootup, so still reserve devtmpfs.
+
+The sysfs and /dev can both control devices, but sysfs has more advantages:
+
+1. Able to have fine-grained permission settings
+2. Able to control device with easier way (echo / cat). /dev needs to use ioctl.
+
+Refer to [sysfs and devtmpfs](https://unix.stackexchange.com/questions/236533/sysfs-and-devtmpfs)
 
 # udevadm
 
