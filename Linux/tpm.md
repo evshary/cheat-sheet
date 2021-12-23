@@ -215,6 +215,31 @@ ssh-keygen -D /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1
 ssh -I /usr/lib/x86_64-linux-gnu/libtpm2_pkcs11.so.1 [username]@[server_name]
 ```
 
+# Infineon Embedded Linux TPM Toolbox 2
+
+Besides standard TPM tools, you can use the tools provide by other TPM vendor, for example, Infineon.
+
+* Build
+
+```bash
+git clone https://github.com/Infineon/eltt2
+cd eltt2
+make
+```
+
+* Run
+
+```bash
+# Full test
+./eltt2 -t full
+# Get properties
+./eltt2 -g
+# Generate random number (8 bytes)
+./eltt2 -G 8
+# Hash ABCD with SHA-256
+./eltt2 -S 41424344
+```
+
 # Reference
 
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
