@@ -240,6 +240,11 @@ make
 ./eltt2 -S 41424344
 ```
 
+# TPM simulator
+If you don't have TPM hardware, you can use [IBM's Software TPM 2.0](https://sourceforge.net/projects/ibmswtpm2/).
+
+Refer to [How to setup TPM-simulator in Ubuntu 20.04](https://francislampayan.medium.com/how-to-setup-tpm-simulator-in-ubuntu-20-04-25ec673b88dc) for how to use TPM simulator.
+
 # Reference
 
 * [可信計算基礎](https://www.slideserve.com/sadie/2222582): **Really good resource** to realize the architecture of TPM and how it works.
