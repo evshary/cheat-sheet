@@ -89,3 +89,13 @@ xhost +local:username
 # Add remote user
 xhost +inet:username@domain.name
 ```
+
+## xinput
+
+xinput can view the input device for X11
+
+Refer to [Which driver is handling my touchpad?](https://unix.stackexchange.com/questions/131432/which-driver-is-handling-my-touchpad) for how to find the driver of input device.
+
+```bash
+xinput list
+```
