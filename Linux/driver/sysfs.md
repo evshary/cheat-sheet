@@ -17,3 +17,12 @@ The sysfs and /dev can both control devices, but sysfs has more advantages:
 2. Able to control device with easier way (echo / cat). /dev needs to use ioctl.
 
 Refer to [sysfs and devtmpfs](https://unix.stackexchange.com/questions/236533/sysfs-and-devtmpfs)
+
+# Tips
+
+* To check what driver the device is using: `ls -ld /sys/class/<device class>/<device name>/device/driver`
+  - For example, `ls -ld /sys/class/video4linux/video0/device/driver`
+* Other way to know the driver
+  - PCI-connected driver: `lspci -nk`
+  - All devices: `lshw`
+  - USB driver: Use `lsusb` to get vendor ID and then use `usb-devices` to view the driver
