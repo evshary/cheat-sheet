@@ -10,3 +10,11 @@ print(s.safe_substitute(mydict))
 # Only part of variables
 print(s.safe_substitute(item1='frog'))
 ```
+
+# iterate alphebat
+
+```ascii_lowercase
+import string
+for ch in string.ascii_lowercase:
+  print(ch)
+```
