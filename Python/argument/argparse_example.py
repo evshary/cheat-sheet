@@ -29,21 +29,24 @@ def _simple_parser():
     print(args.argument)
     return args
 
-# usage: argparse_example.py [-h] [-v] cmd ...
+# usage: argparse_example.py [-h] [-v] [-o OUTPUT] cmd ...
 # 
 # Argument Test Example
 # 
 # positional arguments:
-#   cmd            The command you want
-#     list         List all items
-#     create       Create Parser
+#   cmd                   Functions
+#     list                List all items
+#     project             Related to project
 # 
 # optional arguments:
-#   -h, --help     show this help message and exit
-#   -v, --version  show program's version number and exit
+#   -h, --help            show this help message and exit
+#   -v, --version         show program's version number and exit
+#   -o OUTPUT, --output OUTPUT
+#                         Output result
 def _subcmd_parser(): 
     main_parser = argparse.ArgumentParser(description="Argument Test Example")
     main_parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
+    main_parser.add_argument('-o', '--output', type=str, help="Output result")
     cmd_parser = main_parser.add_subparsers(dest='cmd', metavar='cmd', required=True, help="Functions")
 
     # list
