@@ -47,6 +47,7 @@ def _subcmd_parser():
     main_parser = argparse.ArgumentParser(description="Argument Test Example")
     main_parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
     main_parser.add_argument('-o', '--output', type=str, help="Output result")
+    main_parser.add_argument('-b', '--verbose', help="Show detail of command", action="store_true")
     cmd_parser = main_parser.add_subparsers(dest='cmd', metavar='cmd', required=True, help="Functions")
 
     # list
@@ -65,6 +66,8 @@ def _subcmd_parser():
     args = main_parser.parse_args()
     if args.output != None:
         print("Output content will be in %s" % args.output)
+    if args.verbose == True:
+        print("Show verbose information")
     if args.cmd == "list":
         print("list: "+args.path)
         if args.n:
