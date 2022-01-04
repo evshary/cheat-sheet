@@ -63,9 +63,12 @@ def _subcmd_parser():
     prj_delete_parser.add_argument('project', metavar='PROJ', help="Your project name")
 
     args = main_parser.parse_args()
+    if args.output != None:
+        print("Output content will be in %s" % args.output)
     if args.cmd == "list":
         print("list: "+args.path)
-        print("      n=%d" % args.n)
+        if args.n:
+            print("      n=%d" % args.n)
     elif args.cmd == "project":
         print("project subcmd: "+args.subcmd)
         print("project name: "+args.project)
