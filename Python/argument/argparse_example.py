@@ -29,7 +29,7 @@ def _simple_parser():
     print(args.argument)
     return args
 
-# usage: argparse_example.py [-h] [-v] [-o OUTPUT] cmd ...
+# usage: argparse_example.py [-h] [-v] [-o OUTPUT] [-b] cmd ...
 # 
 # Argument Test Example
 # 
@@ -43,6 +43,7 @@ def _simple_parser():
 #   -v, --version         show program's version number and exit
 #   -o OUTPUT, --output OUTPUT
 #                         Output result
+#   -b, --verbose         Show detail of command
 def _subcmd_parser(): 
     main_parser = argparse.ArgumentParser(description="Argument Test Example")
     main_parser.add_argument('-v', '--version', action='version', version=VERSION_STR)
