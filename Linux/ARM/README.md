@@ -32,5 +32,23 @@ LABEL primary
       APPEND ${cbootargs} quiet
 ```
 
+## Compile
+
+```
+                           DTC(Device Tree Compiler)
+DTS(Device Tree Source)  ---------------------------->  DTB(Device Tree Blob)
+
+
+                           DTC(Device Tree Compiler)                                      /opt/nvidia/jetson-io/config-by-hardware.py
+DTS(Device Tree Source)  ---------------------------->  DTBO(Device Tree Blob Overlay)  ----------------------------------------------> DTB
+```
+
+* Usage
+
+```bash
+# Compile to dtbo
+dtc -O dtb -o <my.dtbo> <my.dts>
+```
+
 # Reference
 * [linux设备树笔记--dts基本概念及语法](https://e-mailky.github.io/2016-12-06-dts-introduce): Basic device tree syntax.
