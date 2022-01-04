@@ -43,6 +43,13 @@ VERSION_CODENAME=bionic
 UBUNTU_CODENAME=bionic
 ```
 
+# Build from source code
+
+The latest jetpack can be downloaded from [the official website](https://developer.nvidia.com/embedded/jetpack)
+
+The kernel in jetpack 4.6 is [L4T 32.6.1](https://developer.nvidia.com/embedded/linux-tegra-r3261).
+  - You can download the driver packages & file system from the link above.
+
 # tips
 
 * Check jetpack version: `cat /etc/nv_tegra_release`
