@@ -316,6 +316,9 @@ cat *.patch | patch
   - Should install `silversearcher-ag` first.
 * Show folder size
   - `du -sh <FOLDER>`
+* List the largest file under the path
+  - Include directories: `du -ah * | sort -rh | head -n 10`
+  - Ignore directories: `find . -type f -exec du -ah {} + | sort -rh | head -n 10`
 * xargs
   - `echo a b c d e f | xargs -n 3`: Echo the first 3 items
   - `echo a b c d e f | xargs -p`: Check before execution
