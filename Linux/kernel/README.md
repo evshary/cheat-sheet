@@ -69,3 +69,10 @@ sudo make modules_install
 sudo make install
 ```
 
+# Tips
+* Check kernel version from source code
+
+```bash
+make kernelversion
+# You can also view version from Makefile directly.
+```
