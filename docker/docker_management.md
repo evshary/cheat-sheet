@@ -32,6 +32,12 @@ docker-machine stop [vm_name]
 ```bash
 docker-machine ssh [vm_name]
 ```
+* Remove unused machines
+```bash
+docker-machine rm [vm_name]
+# force to remove
+docker-machine rm -f [vm_name]
+```
 
 # docker swarm
 
