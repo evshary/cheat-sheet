@@ -1,5 +1,8 @@
 # Linux driver
 
+* dummy_example: show an example driver which can also create /dev/dummy device node.
+* parameter_example: an example driver which can receive parameters from users.
+
 ## reference
 
 * [ch8: 裝置驅動程式的基本知識](https://hackmd.io/@splasky/SJ4so_DXe?type=view): Some examples of Linux driver.
