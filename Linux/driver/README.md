@@ -1,3 +1,9 @@
+# Linux driver
+
+## reference
+
+* [ch8: 裝置驅動程式的基本知識](https://hackmd.io/@splasky/SJ4so_DXe?type=view): Some examples of Linux driver.
+
 # DKMS
 
 DKMS is proposed by Dell for driver module management.
