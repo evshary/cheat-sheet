@@ -47,14 +47,14 @@ static int dummy_release(struct inode *inode, struct file *file)
 static ssize_t dummy_read(struct file *file,
 			char *buffer, size_t length, loff_t * offset)
 {
-	pr_info("%s %u\n", __func__, length);
+	pr_info("%s %lu\n", __func__, length);
 	return 0;
 }
 
 static ssize_t dummy_write(struct file *file,
 			 const char *buffer, size_t length, loff_t * offset)
 {
-	pr_info("%s %u\n", __func__, length);
+	pr_info("%s %lu\n", __func__, length);
 	return length;
 }
 
