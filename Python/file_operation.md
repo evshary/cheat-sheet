@@ -29,6 +29,34 @@ with open("myfile.txt", "w") as f:
     f.write("test123")
 ```
 
+# Check file / directory
+
+* check whether file / directory exists or not
+
+```py
+import os
+# File exists or not
+os.path.isfile("./myfile")
+# Directory exists or not
+os.path.isdir("./mydir")
+# No matter file / directory
+os.path.exists("./mypath")
+```
+
+* Use pathlib
+
+```py
+from pathlib import Path
+mypath = Path("./mypath")
+# File exists or not
+if mypath.exists():
+    print("mypath exists")
+if mypath.is_file():
+    print("mypath is a file")
+if mypath.is_dir():
+    print("mypath is a directory")
+```
+
 * List file / directory
 
 ```py
