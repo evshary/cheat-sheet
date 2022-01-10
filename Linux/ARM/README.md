@@ -37,10 +37,6 @@ LABEL primary
 ```
                            DTC(Device Tree Compiler)
 DTS(Device Tree Source)  ---------------------------->  DTB(Device Tree Blob)
-
-
-                           DTC(Device Tree Compiler)                                      /opt/nvidia/jetson-io/config-by-hardware.py
-DTS(Device Tree Source)  ---------------------------->  DTBO(Device Tree Blob Overlay)  ----------------------------------------------> DTB
 ```
 
 * Usage
@@ -48,6 +44,25 @@ DTS(Device Tree Source)  ---------------------------->  DTBO(Device Tree Blob Ov
 ```bash
 # Compile to dtbo
 dtc -O dtb -o <my.dtbo> <my.dts>
+```
+
+## NVIDIA platform
+
+```
+                           DTC(Device Tree Compiler)                                      /opt/nvidia/jetson-io/config-by-hardware.py
+DTS(Device Tree Source)  ---------------------------->  DTBO(Device Tree Blob Overlay)  ----------------------------------------------> DTB
+                                                            should be under /boot
+```
+
+* Usage
+
+```bash
+# List hardware modules
+sudo /opt/nvidia/jetson-io/config-by-hardware.py -l
+# Apply DTBO
+sudo /opt/nvidia/jetson-io/config-by-hardware.py -n "Your overlay name"
+## If the number of hardware module is 2, not 1
+sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Your overlay name"
 ```
 
 # Reference
