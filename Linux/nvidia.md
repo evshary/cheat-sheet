@@ -50,9 +50,19 @@ The latest jetpack can be downloaded from [the official website](https://develop
 The kernel in jetpack 4.6 is [L4T 32.6.1](https://developer.nvidia.com/embedded/linux-tegra-r3261).
   - You can download the driver packages & file system from the link above.
 
+# version
+
+We can't get Jetpack version on TX2, but able to get l4t version.
+
+Jetpack only matches one l4t major version, and l4t version only matches one Linux kernel version.
+
+For example, Jetpack 4.6 uses l4t R32.6.x, and R32.6.x uses kernel 4.9.253.
+
+* kernel version: `uname -r`.
+* l4t version: `cat /etc/nv_tegra_release`
+
 # tips
 
-* Check jetpack version: `cat /etc/nv_tegra_release`
 * Enable all the performance: `sudo nvpmodel -m 0`
 * Show current jetpack status
 
