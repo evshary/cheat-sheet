@@ -48,24 +48,6 @@ else
 fi
 ```
 
-## File operators
-
-```sh
-if [ -f /this/is/filename ]; then
-    echo "File exist."
-fi
-if [ ! -f /this/is/filename ]; then
-    echo "File not exist."
-fi
-```
-
-* `-d name`: return true if name is directory.
-* `-f name`: return true if name is file.
-* `-r name`: return true if name is readable.
-* `-s name`: return true if name is not empty (size is not 0).
-* `-w name`: return ture if name is writable.
-* `-x name`: return true if name is executable.
-
 ## Variable operation
 
 ```sh
@@ -222,6 +204,34 @@ echo $strarr[0]
 echo $strarr[1]
 echo $strarr[2]
 # If you use zsh, it should start with 1, that is echo ${strarr[1]}
+```
+
+# File operation
+
+## Path attributes
+
+```sh
+if [ -f /this/is/filename ]; then
+    echo "File exist."
+fi
+if [ ! -f /this/is/filename ]; then
+    echo "File not exist."
+fi
+```
+
+* `-d name`: return true if name is directory.
+* `-f name`: return true if name is file.
+* `-r name`: return true if name is readable.
+* `-s name`: return true if name is not empty (size is not 0).
+* `-w name`: return ture if name is writable.
+* `-x name`: return true if name is executable.
+
+## Iterate files
+
+```bash
+for filename in mypath/*.txt; do
+    echo $filename
+done
 ```
 
 # Trap
