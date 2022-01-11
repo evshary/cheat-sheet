@@ -22,6 +22,11 @@ The relationship between the state of aptly and commands.
 
 ![image](https://user-images.githubusercontent.com/456210/148864549-5a259971-5698-4625-9f34-c790fb8475f1.png)
 
+There are two ways to setup aptly server:
+
+1. Mirror existed server => take snapshot => publish
+2. Create your own repo => take snapshot (not necessary) => publish
+
 # Usages
 
 ## Command Line
