@@ -3,7 +3,10 @@
 #include <linux/init.h>
 
 static int my_param = 0;
-module_param(my_param, int, 0);
+// You can find parameter in /sys/module/dummy/param/my_param
+module_param(my_param, int, 0644);
+// If you don't want to have /sys/module/dummy/param/my_param
+//module_param(my_param, int, 0);
 MODULE_PARM_DESC(my_param, "Parameter from user space.");
 
 static int __init dummy_init(void)

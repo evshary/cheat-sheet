@@ -18,3 +18,5 @@ insmod dummy.ko my_param=123
 # remove module
 rmmod dummy
 ```
+
+Note: you can modify the parameter by modifying `/sys/module/dummy/param/my_param`
