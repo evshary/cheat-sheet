@@ -1,7 +1,24 @@
 # Linux driver
 
+## Example
+
 * dummy_example: show an example driver which can also create /dev/dummy device node.
 * parameter_example: an example driver which can receive parameters from users.
+
+## Useful tools
+
+* `lsmod`: List the modules loaded now
+* `sudo insmod xxx.ko`: Insert module
+* `sudo rmmod xxx.ko`: Remove module
+* modprobe: same as insmod & rmmod, but also deal with module dependencies
+```bash
+# insert module
+sudo modprobe xxx
+# remove module
+sudo modprobe -r xxx
+```
+* depmod:
+`sudo depmod`
 
 ## reference
 
