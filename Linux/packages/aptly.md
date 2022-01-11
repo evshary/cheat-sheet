@@ -20,6 +20,8 @@ aptly can manage your apt server easily.
 
 The relationship between the state of aptly and commands.
 
+![image](https://user-images.githubusercontent.com/456210/148864549-5a259971-5698-4625-9f34-c790fb8475f1.png)
+
 # Usages
 
 ## Command Line
