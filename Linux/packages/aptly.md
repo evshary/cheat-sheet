@@ -81,6 +81,8 @@ We can use RESTful API to control aptly.
 Refer to https://www.aptly.info/doc/api/
 
 * Create repo and publish
+  - create flow: create repo => upload files => add file into repo => publish repo
+  - update flow: upload file => add file into repo => update publish
 
 ```bash
 # Create repos
