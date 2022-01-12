@@ -26,11 +26,15 @@
 #include <linux/fs.h>
 #include <linux/device.h>
 
+#define CREATE_CLASS 1
+
 #define DEVICE_NAME "dummy"
 #define MAJOR_NUM 42
 #define NUM_DEVICES 4
 
+#if CREATE_CLASS
 static struct class *dummy_class;
+#endif
 
 static int dummy_open(struct inode *inode, struct file *file)
 {
@@ -69,30 +73,31 @@ struct file_operations dummy_fops = {
 int __init dummy_init(void)
 {
 	int ret;
-	int i;
 
 	printk("Dummy loaded\n");
 	ret = register_chrdev(MAJOR_NUM, DEVICE_NAME, &dummy_fops);
 	if (ret != 0)
 		return ret;
 
+#if CREATE_CLASS
 	dummy_class = class_create(THIS_MODULE, DEVICE_NAME);
-	for (i = 0; i < NUM_DEVICES; i++) {
+	for (int i = 0; i < NUM_DEVICES; i++) {
 		device_create(dummy_class, NULL,
 			      MKDEV(MAJOR_NUM, i), NULL, "dummy%d", i);
 	}
+#endif
 
 	return 0;
 }
 
 void __exit dummy_exit(void)
 {
-	int i;
-
-	for (i = 0; i < NUM_DEVICES; i++) {
+#if CREATE_CLASS
+	for (int i = 0; i < NUM_DEVICES; i++) {
 		device_destroy(dummy_class, MKDEV(MAJOR_NUM, i));
 	}
 	class_destroy(dummy_class);
+#endif
 
 	unregister_chrdev(MAJOR_NUM, DEVICE_NAME);
 	printk("Dummy unloaded\n");
