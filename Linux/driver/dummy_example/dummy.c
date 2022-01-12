@@ -38,69 +38,70 @@ static struct class *dummy_class;
 
 static int dummy_open(struct inode *inode, struct file *file)
 {
-	pr_info("%s\n", __func__);
-	return 0;
+    pr_info("%s\n", __func__);
+    return 0;
 }
 
 static int dummy_release(struct inode *inode, struct file *file)
 {
-	pr_info("%s\n", __func__);
-	return 0;
+    pr_info("%s\n", __func__);
+    return 0;
 }
 
-static ssize_t dummy_read(struct file *file,
-			char *buffer, size_t length, loff_t * offset)
+static ssize_t dummy_read(struct file *file, char *buffer, size_t length, loff_t * offset)
 {
-	pr_info("%s %lu\n", __func__, length);
-	return 0;
+    pr_info("%s %lu\n", __func__, length);
+    return 0;
 }
 
-static ssize_t dummy_write(struct file *file,
-			 const char *buffer, size_t length, loff_t * offset)
+static ssize_t dummy_write(struct file *file, const char *buffer, size_t length, loff_t * offset)
 {
-	pr_info("%s %lu\n", __func__, length);
-	return length;
+    pr_info("%s %lu\n", __func__, length);
+    return length;
 }
 
 struct file_operations dummy_fops = {
-	.owner = THIS_MODULE,
-	.open = dummy_open,
-	.release = dummy_release,
-	.read = dummy_read,
-	.write = dummy_write,
+    .owner = THIS_MODULE,
+    .open = dummy_open,
+    .release = dummy_release,
+    .read = dummy_read,
+    .write = dummy_write,
 };
 
 int __init dummy_init(void)
 {
-	int ret;
-
-	printk("Dummy loaded\n");
-	ret = register_chrdev(MAJOR_NUM, DEVICE_NAME, &dummy_fops);
-	if (ret != 0)
-		return ret;
-
+    int ret;
 #if CREATE_CLASS
-	dummy_class = class_create(THIS_MODULE, DEVICE_NAME);
-	for (int i = 0; i < NUM_DEVICES; i++) {
-		device_create(dummy_class, NULL,
-			      MKDEV(MAJOR_NUM, i), NULL, "dummy%d", i);
-	}
+    int i;
 #endif
 
-	return 0;
+    printk("Dummy loaded\n");
+    ret = register_chrdev(MAJOR_NUM, DEVICE_NAME, &dummy_fops);
+    if (ret != 0)
+        return ret;
+
+#if CREATE_CLASS
+    dummy_class = class_create(THIS_MODULE, DEVICE_NAME);
+    for (i = 0; i < NUM_DEVICES; i++) {
+        device_create(dummy_class, NULL, MKDEV(MAJOR_NUM, i), NULL, "dummy%d", i);
+    }
+#endif
+
+    return 0;
 }
 
 void __exit dummy_exit(void)
 {
 #if CREATE_CLASS
-	for (int i = 0; i < NUM_DEVICES; i++) {
-		device_destroy(dummy_class, MKDEV(MAJOR_NUM, i));
-	}
-	class_destroy(dummy_class);
+    int i;
+    for (i = 0; i < NUM_DEVICES; i++) {
+        device_destroy(dummy_class, MKDEV(MAJOR_NUM, i));
+    }
+    class_destroy(dummy_class);
 #endif
 
-	unregister_chrdev(MAJOR_NUM, DEVICE_NAME);
-	printk("Dummy unloaded\n");
+    unregister_chrdev(MAJOR_NUM, DEVICE_NAME);
+    printk("Dummy unloaded\n");
 }
 
 module_init(dummy_init);
