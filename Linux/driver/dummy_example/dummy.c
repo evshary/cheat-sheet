@@ -29,12 +29,15 @@
 #define CREATE_CLASS 1
 
 #define DEVICE_NAME "dummy"
-#define MAJOR_NUM 42
+// You can assign your own major number: 0 means assigned by kernel. 
+#define MAJOR_NUM 0
 #define NUM_DEVICES 4
 
 #if CREATE_CLASS
 static struct class *dummy_class;
 #endif
+
+static int major_num = 0;
 
 static int dummy_open(struct inode *inode, struct file *file)
 {
@@ -70,15 +73,15 @@ struct file_operations dummy_fops = {
 
 int __init dummy_init(void)
 {
-    int ret;
 #if CREATE_CLASS
     int i;
 #endif
 
-    printk("Dummy loaded\n");
-    ret = register_chrdev(MAJOR_NUM, DEVICE_NAME, &dummy_fops);
-    if (ret != 0)
-        return ret;
+    // If you want to generate major number automatically, MAJOR_NUM can be 0 and return value is major number
+    major_num = register_chrdev(MAJOR_NUM, DEVICE_NAME, &dummy_fops);
+    if (major_num < 0)
+        return major_num;
+    printk("Dummy loaded: major number=%d\n", major_num);
 
 #if CREATE_CLASS
     dummy_class = class_create(THIS_MODULE, DEVICE_NAME);
