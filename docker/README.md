@@ -4,27 +4,29 @@
 
 * Run Ubuntu 20.04 for testing
 ```bash
-sudo docker run --rm -it ubuntu:20.04 bash
+docker run --rm -it ubuntu:20.04 bash
 ```
 
 * Run ROS 2 foxy for testing
 ```bash
-sudo docker run --rm -it ros:foxy bash
+docker run --rm -it ros:foxy bash
 ```
 
 * Show docker log
 ```bash
-sudo docker logs <container ID>
+docker logs <container ID>
 ```
 
-* Prune
+* Disk usage & Prune
 ```bash
+# Show disk usage
+docker system df
 # Remove all dangling images
-sudo docker image prune
+docker image prune
 # Remove stopped containers
-sudo docker container prune
+docker container prune
 # Clean all the things
-sudo docker system prune
+docker system prune
 ```
 
 * Copy file into / outside container
