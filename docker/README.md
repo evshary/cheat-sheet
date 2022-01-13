@@ -189,3 +189,9 @@ docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix --env="QT_X11_NO_MITSHM=1" 
 #source /opt/ros/foxy/setup.bash
 #rviz2
 ```
+
+* Remove multiple container with wildcard filter
+
+```bash
+docker rmi -f $(docker images --filter=reference="*myimage*" -q)
+```
