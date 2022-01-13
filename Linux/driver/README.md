@@ -20,9 +20,23 @@ sudo modprobe -r xxx
 * depmod:
 `sudo depmod`
 
+## The mapping between user and kernel driver operation
+
+| user | kernel |
+| - | - |
+| open | open |
+| close | release 
+| read/pread | read |
+| write/pwrite | write |
+| ioctl | ioctl/unlocked_ioctl |
+| llseek | llseek/lseek |
+| select | poll |
+| mmap | mmap |
+
 ## reference
 
 * [ch8: 裝置驅動程式的基本知識](https://hackmd.io/@splasky/SJ4so_DXe?type=view): Some examples of Linux driver.
+* 你也可以撰寫Linux核心：從嵌入式系統切入 / 嵌入式Linux驱动模板精讲与项目实践 (林錫龍)
 
 # DKMS
 
