@@ -1,5 +1,7 @@
 # Installation
 
+You can refer to [official installation guide](https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/installation-ade.html)
+
 * Download ade-cli from [release page](https://gitlab.com/ApexAI/ade-cli/-/releases)
 * Rename to ade, add execute privilege, and then put under `/usr/local/bin/`.
 * Update ade-cli: `ade update-cli`
@@ -24,6 +26,14 @@ ade --rc .aderc-amd64-foxy-lgsvl start --update --enter
 # If you've already run ade start
 ade --enter
 ```
+
+# Usage
+
+Refer to https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/usage.html#usage-odd-demos
+
+## SVL simulator
+
+Refer to https://autowarefoundation.gitlab.io/autoware.auto/AutowareAuto/lgsvl.html
 
 # Uninstallation
 
