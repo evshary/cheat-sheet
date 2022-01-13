@@ -27,6 +27,8 @@ docker image prune
 docker container prune
 # Clean all the things
 docker system prune
+# Also clean unused images and volumes
+docker system prune -a --volumes
 ```
 
 * Copy file into / outside container
