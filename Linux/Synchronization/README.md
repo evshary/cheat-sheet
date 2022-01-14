@@ -1,10 +1,11 @@
 # List
+
 | Name | Sleep | Usage | Description |
 | --- | --- | --- | --- |
 | Semaphore | Y | Used as signal or notification(producer&consumer), and ensure the order of execution | Ensure the max #thread in the critical section. The resource can be released by other thread. |
 | Mutex | Y | Common usage(longer critical section or resource saving) | Who takes and who should release |
 | Spinlock | N | Small critical section or context switch | Busy waiting for CPU usage |
-| Read-Write Lock | Y | While #reader > #writer | Multiple readers or one writer at the same time |
+| Read-Write Lock | N | While #reader > #writer | Multiple readers or one writer at the same time |
 
 # Semaphore
 There are two kind of header for semaphore
@@ -82,3 +83,16 @@ int pthread_rwlock_destroy(pthread_rwlock_t *rwlock);
 
 ## example
 Please refer to [RWL_example.c](RWL_example.c).
+
+# usage in kernel
+
+* mutually exclusive
+  - disable interrupt: `local_irq_disable` and `local_irq_enable`
+  - atomic operation
+  - spinlock: `spinlock_t`, `spin_lock_init`, `spin_lock`, `spin_unlock`
+  - read-write lock: `rwlock_t`, `rwlock_init`, `read_lock`, `read_unlock`, `write_lock`, `write_unlock`
+  - mutex(count = 1): `mutex_init`, `mutex_lock`, `mutex_unlock`
+  - semaphore: `sema_init`, `up`, `down`
+* synchronization
+  - semaphore: `sema_init`, `up`, `down`
+  - completion: `init_completion`, `wait_for_completion`, `complete`
