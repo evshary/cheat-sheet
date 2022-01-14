@@ -3,8 +3,10 @@
 * Remove remote tag / branch: `git push origin --delete <tag/branch>`
 
 # Clear
-* Clear all the ignore files: `git clean -fX`
-* Force clean (include directory): `git clean -f -FXd`
+* Clear only the ignored files: `git clean -fXd`
+* Clear all the untracked files: `git clean -fd`
+* Clear all the the untracked and ignored files: `git clean -fxd`
+* For git clean, use `-n` to dry run.
 * Clean deleted remote branch: `git remote prune origin`
 
 # Submodule
