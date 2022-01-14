@@ -1,4 +1,4 @@
-# introduction
+# Introduction
 
 Here is some cheatsheet for writing shell script.
 
@@ -281,3 +281,10 @@ trap "kill -TERM 0 ; exit 1" INT QUIT
     - refer to https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
   - Note that if you are using login shell, the output will be like `-bash`
     - you can try `sudo login -f <username>` or refer to https://superuser.com/questions/278859/dash-in-front-of-bash
+* Check whether run in root privilege
+```bash
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run in root privilege"
+  exit
+fi
+```
