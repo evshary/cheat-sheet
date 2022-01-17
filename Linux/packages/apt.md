@@ -139,3 +139,7 @@ sudo add-apt-repository --remove ppa:nginx/stable
   ```bash
   dpkg -S [file]
   ```
+* What the content in packages
+  ```bash
+  dpkg -L [deb name]
+  ```
