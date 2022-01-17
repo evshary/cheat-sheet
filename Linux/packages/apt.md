@@ -135,3 +135,7 @@ sudo add-apt-repository --remove ppa:nginx/stable
   # Fix the apt dependency
   sudo apt --fix-broken install
   ```
+* What packages the file belongs to
+  ```bash
+  dpkg -S [file]
+  ```
