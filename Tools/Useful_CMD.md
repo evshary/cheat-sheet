@@ -198,11 +198,21 @@
 sudo apt-get install v4l-utils
 v4l2-ctl --list-formats-ext
 ```
+
+## audio
+The following commands belong to `alsa-utils` package.
+
 * Play audio
   - aplay /usr/share/sounds/xxx/xxx.wav
-* Control the volume of audio
+* Record
+  - arecord <mywav.wav>
+* Control the volume of audio (CLI)
+  - alsamixer
+* Control the volume of audio (GUI)
   - `sudo apt install pavucontrol`
   - `pavucontrol`
+* Show all the supported codec
+  - `gst-inspect-1.0`
 
 # VNC
 * Install x11vnc
