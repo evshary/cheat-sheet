@@ -215,12 +215,14 @@ The following commands belong to `alsa-utils` package.
   - `gst-inspect-1.0`
 
 ## graphic
-The following commands belong to `mesa-utils` package.
-
-* Show whether the system support "direct rendering"
-  - `glxinfo | grep "direct rendering"`
-* Test FPS of the graphic
-  - `glxgears`
+* mesa-utils:
+  - Show whether the system support "direct rendering"
+    - `glxinfo | grep "direct rendering"`
+  - Test FPS of the graphic
+    - `glxgears`
+* read-edid:
+  - Read edid of display equipment
+    - `sudo get-edid | parse-edid`
 
 # VNC
 * Install x11vnc
@@ -245,6 +247,16 @@ The following commands belong to `mesa-utils` package.
 # Disk
 * Clear disk
   - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
+* Show partition information
+  - `sudo dumpe2fs -h /dev/sda0`
+* Show the list of disks
+  - `sudo fdisk -l`
+* Test read/write of the disk
+  - `sudo hdparm -Tt /dev/sda0`
+* Format the disk (mkfs.<ext>)
+  - `sudo mkfs.fat /dev/sda`
+* Reload partition
+  - `partprobe`
 
 # multipass
 * Install
