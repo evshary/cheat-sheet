@@ -214,6 +214,14 @@ The following commands belong to `alsa-utils` package.
 * Show all the supported codec
   - `gst-inspect-1.0`
 
+## graphic
+The following commands belong to `mesa-utils` package.
+
+* Show whether the system support "direct rendering"
+  - `glxinfo | grep "direct rendering"`
+* Test FPS of the graphic
+  - `glxgears`
+
 # VNC
 * Install x11vnc
   - `sudo apt install x11vnc`
