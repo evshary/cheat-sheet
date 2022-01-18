@@ -100,8 +100,8 @@
 * List device info
   - Hardware: `lshw`
   - CPU: `lscpu`
-  - USB: `lsusb`
-  - PCI: `lspci`
+  - USB: `lsusb` (The ID is in `/usr/share/misc/usb.ids`)
+  - PCI: `lspci` (The ID is in `/usr/share/misc/pci.ids`)
   - Block devices: `lsblk`
   - Memory: `lsmem`
 * List the disk
@@ -234,10 +234,11 @@ The following commands belong to `alsa-utils` package.
 * Download [VNC viewer (Client)](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog) or [REAL VNC](https://www.realvnc.com/en/connect/download/viewer/)
 
 
-# Desktop (tested in Ubuntu 18.04)
+# Desktop (tested in Ubuntu 20.04)
 * `gnome-www-browser <file>`: Open file in browser
 * `gnome-calculator`: Open calculator
 * `gnome-terminal`: Open terminal
+* `gnome-power-statistics`: View power estimation
 * `xdg-open`: Open file with GUI tools
   - `xdg-open .`: Open the current folder
 * `gtk-launch xxx.desktop`: Run desktop application in CLI
@@ -253,10 +254,17 @@ The following commands belong to `alsa-utils` package.
   - `sudo fdisk -l`
 * Test read/write of the disk
   - `sudo hdparm -Tt /dev/sda0`
-* Format the disk (mkfs.<ext>)
+* Format the disk (`mkfs.<ext>`)
   - `sudo mkfs.fat /dev/sda`
 * Reload partition
   - `partprobe`
+
+# input
+Need to install `input-utils`
+
+* List input device: `sudo lsinput`
+* Detect event from input: `sudo input-events <number>`
+* Detect keyboard press / release: `sudo showkey`
 
 # multipass
 * Install
@@ -360,3 +368,7 @@ cat *.patch | patch
 * Make you seem like busy
   - `sudo apt install hollywood`
   - `hollywood`
+* View ACPI event(Volume up/down, power button)
+  - `acpi_listen`
+* Show power status
+  - `upower -d`
