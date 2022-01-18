@@ -13,6 +13,8 @@ sudo apt-get install devscripts build-essential lintian
   - compat: compatibility
 * Run debuild
   - `debuild -b -uc -us`
+* Clean intermediate files
+  - `debuild -- clean`
 
 # Reference
 * [Building debian packages with debuild](https://blog.packagecloud.io/debian/debuild/packaging/2015/06/08/buildling-deb-packages-with-debuild/)
