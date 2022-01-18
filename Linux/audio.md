@@ -96,6 +96,18 @@ The list of vendor which supports ALSA: https://www.alsa-project.org/main/index.
 
 You can also download driver from this official website.
 
+# Useful commands
+* Basic operations
+  - Install: `sudo apt install alsa-utils`
+  - Play audio: `aplay /usr/share/sounds/xxx/xxx.wav`
+  - Record: `arecord <mywav.wav>`
+  - Control the volume of audio (CLI): `alsamixer`
+* Control the volume of audio (GUI)
+  - `sudo apt install pavucontrol`
+  - `pavucontrol`
+* Show all the supported codec
+  - `gst-inspect-1.0`
+
 # Some tips
 
 * While system fails to detect ALSA device and has no audio output, it might be that module-udev-detect fails to detect audio hardware and load corresponding modules.

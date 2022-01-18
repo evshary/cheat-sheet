@@ -187,7 +187,7 @@
   - `hostnamectl`: Show hostname
   - `hostnamectl set-hostname [new hostname]`: Modify new hostname
 
-# Picture & Audio & Video
+# Picture & Video
 * Show picture from terminal
   - `eog picture.png`
 * Play the video from /dev/video0
@@ -198,21 +198,6 @@
 sudo apt-get install v4l-utils
 v4l2-ctl --list-formats-ext
 ```
-
-## audio
-The following commands belong to `alsa-utils` package.
-
-* Play audio
-  - aplay /usr/share/sounds/xxx/xxx.wav
-* Record
-  - arecord <mywav.wav>
-* Control the volume of audio (CLI)
-  - alsamixer
-* Control the volume of audio (GUI)
-  - `sudo apt install pavucontrol`
-  - `pavucontrol`
-* Show all the supported codec
-  - `gst-inspect-1.0`
 
 ## graphic
 * mesa-utils:
