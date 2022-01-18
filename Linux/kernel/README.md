@@ -85,6 +85,10 @@ make kernelversion
   - Solution: Make sure you don't open any files in the kernel
 * dpkg-source: error: orig directory 'linux-5.10.92.orig' already exists, not overwriting, giving up;
   - Solution: Remove unsed folder and packages created while creating deb packages
+* If you want to recreate deb file, need to remove the following files
+  - link file, e.g. vmlinux-gdb.py
+  - file / folder created while creating deb packages, e.g. linux-5.10.92.orig
+  - debian folder
 
 ## Build kernel
 * No rule to make target 'debian/canonical-certs.pem', needed by 'certs/x509_certificate_list'
