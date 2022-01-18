@@ -1,0 +1,12 @@
+Source: mypkg
+Maintainer: ChenYing Kuo <evshary@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Section: utils
+
+Package: mypkg
+Priority: extra  
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}  
+Description: A simple example packages
+  Print a simple line and exit
