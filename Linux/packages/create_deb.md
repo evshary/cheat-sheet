@@ -15,7 +15,7 @@ There are 3 ways to create packages:
 * pbuilder
   - Use clean environment to create packages
 
-# Steps
+# Create your own packages
 
 * Install necessary packages
 ```bash
@@ -33,6 +33,21 @@ sudo apt-get install devscripts build-essential lintian
 * Use debuild
   - Build: `debuild -b -uc -us`
   - Clean: `debuild -- clean`
+
+# Download existed packages
+
+* Modify `/etc/apt/sources.list` and uncomment the line of deb-src
+* Run `sudo apt update`
+* Get the packages `sudo apt source <package name>`, e.g. `sudo apt source hello`
+* Install dependencies of the packages: `sudo apt build-dep hello`
+* Do the modification to the source code
+* Rebuild packages
+```bash
+cd hello-xxx
+dpkg-buildpackage -rfakeroot -b -uc -us
+# Or another way
+debuild -b -uc -us
+```
 
 # Reference
 * [[Debian套件打包] 設定好debian目錄後的打包](http://wen00072.github.io/blog/2014/06/12/package-debian-packages-set-after-list-of-debian-packages/): Several ways to generate deb files
