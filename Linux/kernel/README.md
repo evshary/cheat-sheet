@@ -10,7 +10,7 @@ tar Jxvf linux-5.9.8.tar.xz
 2. Install necessary packages
 
 ```bash
-sudo apt install kernel-package build-essential libncurses-dev bison flex libssl-dev libelf-dev
+sudo apt install kernel-package build-essential libncurses-dev bison flex libssl-dev libelf-dev dwarves
 ```
 
 3. Copy the config file from current kernel. This make the configuration much more easier.
@@ -76,3 +76,18 @@ sudo make install
 make kernelversion
 # You can also view version from Makefile directly.
 ```
+
+# Common Error
+## Creating deb packages
+* If there is link file in the kernel folder, it'll fail while creating deb packages. (For example, vmlinux-gdb.py)
+  - Solution: delete link file.
+* dpkg-source: error: cannot represent change to .config.swp: binary file contents changed
+  - Solution: Make sure you don't open any files in the kernel
+* dpkg-source: error: orig directory 'linux-5.10.92.orig' already exists, not overwriting, giving up;
+  - Solution: Remove unsed folder and packages created while creating deb packages
+
+## Build kernel
+* No rule to make target 'debian/canonical-certs.pem', needed by 'certs/x509_certificate_list'
+  - Solution: modify `.config`, and empty `CONFIG_SYSTEM_TRUSTED_KEYS` and `CONFIG_SYSTEM_REVOCATION_KEYS`
+* BTF: .tmp_vmlinux.btf: pahole (pahole) is not available
+  - Solution: `sudo apt install dwarves` or modify `CONFIG_DEBUG_INFO_BTF=n` in `.config`
