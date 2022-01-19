@@ -248,6 +248,7 @@ v4l2-ctl --list-formats-ext
 Need to install `input-utils`
 
 * List input device: `sudo lsinput`
+  - The same as viewing `/proc/bus/input/devices`
 * Detect event from input: `sudo input-events <number>`
 * Detect keyboard press / release: `sudo showkey`
 

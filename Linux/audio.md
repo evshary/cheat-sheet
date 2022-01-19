@@ -108,6 +108,14 @@ You can also download driver from this official website.
 * Show all the supported codec
   - `gst-inspect-1.0`
 
+# Useful file
+* `/proc/asound/cards`: Sound card
+* `/proc/asound/pcm`: PCM list
+* `/proc/asound/modules`: Driver module
+* `/proc/asound/version`: ALSA version
+* `/dev/snd`: List of sound device
+* `/sys/class/sound`: Same as `/dev/snd`
+
 # Some tips
 
 * While system fails to detect ALSA device and has no audio output, it might be that module-udev-detect fails to detect audio hardware and load corresponding modules.

@@ -77,6 +77,8 @@ make kernelversion
 # You can also view version from Makefile directly.
 ```
 
+* Check the config of the current kernel: `cat /boot/config-$(uname -r)`
+
 # Common Error
 ## Creating deb packages
 * If there is link file in the kernel folder, it'll fail while creating deb packages. (For example, vmlinux-gdb.py)
