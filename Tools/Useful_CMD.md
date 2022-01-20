@@ -358,3 +358,5 @@ cat *.patch | patch
   - `acpi_listen`
 * Show power status
   - `upower -d`
+* Show "Device is busy" while umount
+  -  `fuser -m <folder_name>` will show which processes use the folder.
