@@ -1,3 +1,8 @@
+# Layout
+
+![image](https://user-images.githubusercontent.com/456210/150629562-5c87e08a-8de8-4bd4-927b-49354d279b0d.png)
+[Image Src](https://joerismissaert.dev/managing-storage-understanding-mbr-and-gpt-partitions/)
+
 # File system type
 
 * FAT: Used by DOS. Follow 8.3 rules and not support 4G file.
