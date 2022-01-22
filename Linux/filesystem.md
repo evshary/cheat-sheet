@@ -1,3 +1,30 @@
+# File system type
+
+* FAT: Used by DOS. Follow 8.3 rules and not support 4G file.
+* VFAT: Solve the issue of FAT.
+* NTFS: Windows file system format
+* EXT2/EXT3/EXT4: Linux file system format
+* NFS: Network file system
+* SMB/CIFS: Used by Samba
+
+# Disk
+
+* Clear disk
+  - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
+* Show partition information
+  - `sudo dumpe2fs -h /dev/sda0`
+* Show the list of disks
+  - `sudo fdisk -l`
+* Test read/write of the disk
+  - `sudo hdparm -Tt /dev/sda0`
+* Format the disk (`mkfs.<ext>`)
+  - `sudo mkfs.fat /dev/sda`
+* Reload partition
+  - `partprobe`
+* List the disk: `df -h`
+  - Also show filesystem type: `df -hT`
+
+
 # chroot
 
 * Before chroot, mount necessary folder

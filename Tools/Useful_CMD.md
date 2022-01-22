@@ -104,8 +104,6 @@
   - PCI: `lspci` (The ID is in `/usr/share/misc/pci.ids`)
   - Block devices: `lsblk`
   - Memory: `lsmem`
-* List the disk
-  - `df -h`
 
 # Packages
 ## dpkg
@@ -229,20 +227,6 @@ v4l2-ctl --list-formats-ext
 * `gtk-launch xxx.desktop`: Run desktop application in CLI
   - Note that you need to change the directory to the destination.
   - For more limitation: https://unix.stackexchange.com/questions/393079/gtk-launch-only-works-when-present-working-directory-is-desktop
-
-# Disk
-* Clear disk
-  - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
-* Show partition information
-  - `sudo dumpe2fs -h /dev/sda0`
-* Show the list of disks
-  - `sudo fdisk -l`
-* Test read/write of the disk
-  - `sudo hdparm -Tt /dev/sda0`
-* Format the disk (`mkfs.<ext>`)
-  - `sudo mkfs.fat /dev/sda`
-* Reload partition
-  - `partprobe`
 
 # input
 Need to install `input-utils`
