@@ -107,11 +107,15 @@ You can also download driver from this official website.
   - `pavucontrol`
 
 # Useful file
-* `/proc/asound/cards`: Sound card
-* `/proc/asound/pcm`: PCM list
-* `/proc/asound/modules`: Driver module
-* `/proc/asound/version`: ALSA version
+* `/proc/asound/`: The interface ALSA provides
+  - `cards`: sound card
+  - `pcm`: hardware codec
+  - `modules`: driver module
+  - `version`: ALSA version
 * `/dev/snd`: List of sound device
+  - `controlC?`: control the volume
+  - `pcmC?D?p`: play device
+  - `pcmC?D?c`: capture device
 * `/sys/class/sound`: Same as `/dev/snd`
 
 # Some tips
