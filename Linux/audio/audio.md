@@ -2,6 +2,8 @@
 
 Linux audio uses PulseAudio to bridge application and the audio input/output hardware.
 
+![image](https://user-images.githubusercontent.com/456210/150628760-f983ec96-9624-4ae8-a31e-315dc9504df1.png)
+
 # PulseAudio
 
 The following figure is from wiki:
@@ -96,7 +98,7 @@ The list of vendor which supports ALSA: https://www.alsa-project.org/main/index.
 
 You can also download driver from this official website.
 
-# Useful commands
+## Useful commands
 * Basic operations
   - Install: `sudo apt install alsa-utils`
   - Play audio: `aplay /usr/share/sounds/xxx/xxx.wav`
@@ -106,7 +108,7 @@ You can also download driver from this official website.
   - `sudo apt install pavucontrol`
   - `pavucontrol`
 
-# Useful file
+## Useful file
 * `/proc/asound/`: The interface ALSA provides
   - `cards`: sound card
   - `pcm`: hardware codec
