@@ -3,7 +3,9 @@
 * serial port/COM port: The hardware of serial communication, mostly used DB9.
 * UART/USART: Define the communication protocol layer(i.e. baudrate, 8N1...). TTL/RS232/RS485 all belong to UART.
   - The difference between USART and UART is that USART includes clock pin, but it can also run as UART.
-* TTL/RS232/RS485: Define the signal and voltage of each pin.
+* TTL/RS232/RS485: Define the signal and voltage of each pin. Note that TTL is not compatible to RS232.
+
+![image](https://user-images.githubusercontent.com/456210/150623539-a19687f7-e199-47a8-bc93-44f57c065f6b.png)
 
 # Usage
 
