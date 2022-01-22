@@ -105,8 +105,6 @@ You can also download driver from this official website.
 * Control the volume of audio (GUI)
   - `sudo apt install pavucontrol`
   - `pavucontrol`
-* Show all the supported codec
-  - `gst-inspect-1.0`
 
 # Useful file
 * `/proc/asound/cards`: Sound card
