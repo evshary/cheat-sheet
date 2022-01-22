@@ -32,3 +32,5 @@ The size of the audio data each second: 44100 * 16 * 2 = 1411200 bits
   - Get mp3 codec: `gst-inspect-1.0 | grep decoder | grep mp3`
 
 gstreamer acts as encoder/decoder in audio.
+
+![image](https://user-images.githubusercontent.com/456210/150624381-7ef46a54-b681-441e-a621-4c0ef4c1bcd7.png)
