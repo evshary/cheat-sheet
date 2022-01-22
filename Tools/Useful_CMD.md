@@ -160,7 +160,9 @@ Need to install `input-utils`
 
 * List input device: `sudo lsinput`
   - The same as viewing `/proc/bus/input/devices`
+  - Get brief name: `sudo lsinput | grep name`
 * Detect event from input: `sudo input-events <number>`
+  - Mouse / keyboard are both OK.
 * Detect keyboard press / release: `sudo showkey`
 
 # multipass
