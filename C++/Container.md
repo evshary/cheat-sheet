@@ -120,6 +120,30 @@ Default is that the largest value has the highest priority.
   - `q.top()`: Read the value of element which has highest priority.
   - `q.empty()`: Check whether the q is empty or not.
   - `q.size()`: Return the current number of elements.
+* Implement compare functions
+
+```c++
+#include <queue>
+#include <vector>
+#include <iostream>
+
+template<class T>
+void printQueue(T& q) {
+    while (!q.empty()) {
+        std::cout << q.top() << std::endl;
+        q.pop();
+    }
+}
+
+int main() {
+    auto cmp = [](int a, int b) { return a < b; };
+    std::priority_queue<int, std::vector<int>, decltype(cmp)> myqueue(cmp);
+    for (int n : {5,2,3,1,9})
+        myqueue.push(n);
+    printQueue(myqueue);
+    return 0;
+}
+```
 
 # map & unordered_map
 ## Usage
