@@ -31,7 +31,7 @@
 ### Installation
 ```bash
 # Ubuntu
-sudo apt install qemu
+sudo apt install qemu-system-arm
 # gentoo
 QEMU_SOFTMMU_TARGETS="arm i386 x86_64" QEMU_USER_TARGETS="arm i386 x86_64" emerge qemu
 # mac
@@ -49,8 +49,8 @@ We need to use `-initrd` to load kernel and `-kernel` to specify which kernel we
 # Create image
 qemu-img create -f raw hda.img 3G
 # Download initrd and linux
-wget http://ftp.debian.org/debian/dists/wheezy/main/installer-armhf/current/images/vexpress/netboot/initrd.gz
-wget http://ftp.debian.org/debian/dists/wheezy/main/installer-armhf/current/images/vexpress/netboot/vmlinuz-3.2.0-4-vexpress
+wget http://archive.debian.org/debian/dists/wheezy/main/installer-armhf/current/images/vexpress/netboot/initrd.gz
+wget http://archive.debian.org/debian/dists/wheezy/main/installer-armhf/current/images/vexpress/netboot/vmlinuz-3.2.0-4-vexpress
 # Install OS
 qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.gz -append "root=/dev/mmcblk0" -drive if=sd,cache=unsafe,file=hda.img
 # Extract the initrd in img, then qemu can use initrd to start kernel
@@ -63,11 +63,11 @@ umount mountdir/
 qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -append "root=/dev/mmcblk0p2" -drive if=sd,cache=unsafe,file=hda.img
 # Run Linux with network
 # Map port 6666 on host to port 8080 on guest
-qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -append "root=/dev/mmcblk0p2" -drive if=sd,cache=unsafe,file=hda.img -redir tcp:6666::8080
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -append "root=/dev/mmcblk0p2" -drive if=sd,cache=unsafe,file=hda.img -nic user,hostfwd=tcp::6666-:8080
 # Set your IP in qemu
 ifconfig eth0 10.0.2.15 netmask 255.255.255.0
 # You can use "nographic" to disable GUI and show console on ttyAMA0
-qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -append "root=/dev/mmcblk0p2 console=ttyAMA0" -drive if=sd,cache=unsafe,file=hda.img -redir tcp:6666::22 -nographic
+qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -append "root=/dev/mmcblk0p2 console=ttyAMA0" -drive if=sd,cache=unsafe,file=hda.img -nic user,hostfwd=tcp::6666-:8080 -nographic
 ```
 
 There are some ways we don't need to install by ourselves
@@ -149,7 +149,7 @@ Refer to [here]](https://balau82.wordpress.com/2012/03/31/compile-linux-kernel-3
   - Operating System：linux, elf, uclinux...
   - C Library：eabi, gnu, gnueabi, uclibc
   - EX: i686-pc-linux-gnu, x86_64-pc-linux-gnu, armv7a-hardfloat-linux-gnueabi, arm-unknown-linux-gnu
-* -S：使用stable
+* -S：Use stable
 * -v：verbose
 
 You can also define with more detail.
@@ -191,13 +191,13 @@ qemu-arm -L /usr/armv6j-hardfloat-linux-gnueabi/ abc
 
 ```bash
 # Installation
-sudo apt-get install gcc-arm-linux-gnueabi
+sudo apt install gcc-arm-linux-gnueabi
 # Build
 arm-linux-gnueabi-gcc --static test.c -o test
 # Execution
-qemu-arm test
+qemu-arm-static test
 # You need to link library, you don't build with static link (-L means library path)
-qemu-arm -L /usr/arm-linux-gnueabi/ test
+qemu-arm-static -L /usr/arm-linux-gnueabi/ test
 ```
 
 ## Reference
