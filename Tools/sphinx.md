@@ -35,3 +35,4 @@ SPHINX configuration is under `conf.py`
 
 # Reference
 * [Official website](https://www.sphinx-doc.org)
+* [RST syntax](https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html)
