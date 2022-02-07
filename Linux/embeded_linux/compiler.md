@@ -30,29 +30,38 @@ make
 # select your settings
 ./ct-ng arm-unknown-linux-gnueabi
 # Configure
-# Remove Render the toolchain read-only from PATH and misc
-# Select hardware(FPU) in Target options | Floating point
-# Add --enable-obsolete-rpc in C-library | extra config
+# Remove "Render the toolchain read-only" from "Paths and misc options"
+# Select "hardware (FPU)" in "Target options => Floating point"
+# Add "--enable-obsolete-rpc" in "C-library => extra config"
 ./ct-ng menuconfig
+# Fix issues: https://github.com/crosstool-ng/crosstool-ng/issues/1625
+sed -e 's|CT_ISL_MIRRORS=.*$|CT_ISL_MIRRORS="https://libisl.sourceforge.io"|' \
+    -e 's|CT_EXPAT_MIRRORS=.*$|CT_EXPAT_MIRRORS="https://github.com/libexpat/libexpat/releases/download/R_2_2_6"|' \
+    -i .config
 # Compile
 ./ct-ng build
 ```
     
-* Compiler will be under `~/x-tools/arm-cortex_a8-linux-gnueabihf/bin/`
-  - Add PATH
+* Compiler will be under `~/x-tools/arm-unknown-linux-gnueabihf/bin/` and we need to add PATH
 
 ```bash
-PATH=~/x-tools/arm-cortex_a8-linux-gnueabihf/bin/:$PATH
+export PATH=~/x-tools/arm-unknown-linux-gnueabihf/bin/:$PATH
 ```
 
 # Download existed compiler from vendors
 
+Here are several sources you can download toolchain:
+
+* ARM official website: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+* Linaro: https://www.linaro.org/downloads/
+* mentor.com(Acquired by Siemens): http://cursuri.cheche.ro/sourcery.mentor.com/public/gnu_toolchain/arm-none-linux-gnueabi/
+
 ```bash
 wget https://sourcery.mentor.com/GNUToolchain/package12813/public/arm-none-linux-gnueabi/arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2
 tar xvf arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2
-PATH=<path to "arm-2014.05/bin">:$PATH
+export PATH=<path to "arm-2014.05/bin">:$PATH
 # for example
-PATH=~/workspace/cross_compiler_test/arm-2014.05/bin/:$PATH
+export PATH=~/workspace/cross_compiler_test/arm-2014.05/bin/:$PATH
 ```
 
 # Download from Linux distribution
