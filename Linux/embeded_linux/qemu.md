@@ -1,6 +1,19 @@
 # qemu
 
-## Usage
+Hardware simulation tools.
+
+# Installation
+
+```bash
+# Ubuntu
+sudo apt install qemu-system-arm
+# gentoo
+QEMU_SOFTMMU_TARGETS="arm i386 x86_64" QEMU_USER_TARGETS="arm i386 x86_64" emerge qemu
+# mac
+brew install qemu
+```
+
+# Usage
 
 * qemu-img: `qemu-img create [-f format] filename size`
   - format: raw(default)、qcow、cow、vmdk、cloop
@@ -26,21 +39,7 @@
   - ctrl + a + c：toggle between the guest system console and HMI console.
   - ctrl + a + x：immediately kill the QEMU instance.
 
-## ARM simulation
-
-### Installation
-```bash
-# Ubuntu
-sudo apt install qemu-system-arm
-# gentoo
-QEMU_SOFTMMU_TARGETS="arm i386 x86_64" QEMU_USER_TARGETS="arm i386 x86_64" emerge qemu
-# mac
-brew install qemu
-```
-
-### Usage
-
-Use Debian distribution
+# ARM simulation
 
 Since ARM doesn't have BIOS, it can not init disk and read the first sector on disk.
 We need to use `-initrd` to load kernel and `-kernel` to specify which kernel we want to use.
@@ -82,57 +81,3 @@ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd
 qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_standard.qcow2 -append "root=/dev/sda1"
 qemu-system-arm -M versatilepb -kernel vmlinuz-3.2.0-4-versatile -initrd initrd.img-3.2.0-4-versatile -hda debian_wheezy_armel_desktop.qcow2 -append "root=/dev/sda1"
 ```
-
-Build from Linux source code
-
-```bash
-# Download your toolchain (cross compiler first)
-# Download kernel source code: Here we use Linux 3.18.11
-make ARCH=arm vexpress_defconfig # Use vexpress settings
-make ARCH=arm menuconfig
-# Note that "General setup-->Cross-compiler tool prefix" should be arm-linux-gnueabi-
-make ARCH=arm
-# You can specify CROSS_COMPILE instead of modifying .config
-make ARCH=arm CROSS_COMPILE=armv6j-hardfloat-linux-gnueabi-
-# zImage will be under arch/arm/boot
-
-# Test
-armv6j-hardfloat-linux-gnueabi-gcc -static init.c -o init
-echo init|cpio -o --format=newc > initramfs
-# Run
-qemu-system-arm -M vexpress-a9 -kernel zImage -initrd initramfs -serial stdio -append "console=tty1"
-
-# Use busybox to create file system
-# Download from http://busybox.net/
-make ARCH=arm menuconfig
-# Go to "Busybox Settings->Build Options" and check "Build BusyBox as a static binary", then we don't need to copy library by ourselves
-make ARCH=arm CROSS_COMPILE=armv6j-hardfloat-linux-gnueabi-
-make install CROSS_COMPILE=armv6j-hardfloat-linux-gnueabi-
-# _install folder will be created
-# Modify linuxrc
-mv linuxrc init
-# Add new folder
-mkdir dev etc lib opt proc sys tmp var
-# Copy cross compiler library (If you use static binary, ignore this step)
-cp /usr/armv6j-hardfloat-linux-gnueabi/lib/* lib
-
-# Add /etc/init.d/rcS
-#!/bin/sh
-mount -t proc none /proc
-mount -t sysfs none /sys
-# Generate node file needed by drivers
-/sbin/mdev -s
-
-# Modify privilege
-chmod +x rcS
-
-# Create root file system
-cd _install
-find . | cpio -H newc -o > ../initrd
-gzip ../initrd
-qemu-system-arm -M vexpress-a9 -kernel zImage -initrd initrd.gz -append "console=tty1"
-# If you want to run on terminal use "-serial stdio" to show serial message on stdio and pass kernel message to ttyAMA0
-qemu-system-arm -M vexpress-a9 -kernel zImage -initrd initrd.gz -serial stdio -append "console=ttyAMA0"
-```
-
-Refer to [here]](https://balau82.wordpress.com/2012/03/31/compile-linux-kernel-3-2-for-arm-and-emulate-with-qemu/)
