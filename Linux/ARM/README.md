@@ -32,6 +32,12 @@ LABEL primary
       APPEND ${cbootargs} quiet
 ```
 
+* Check whether device tree is new or not
+
+```bash
+cat /proc/device-tree/nvidia,dtbbuildtime
+```
+
 ## Compile
 
 ```
