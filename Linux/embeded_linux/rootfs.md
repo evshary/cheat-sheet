@@ -23,7 +23,7 @@ export CROSS_COMPILE=arm-linux-gnueabi-
 ```bash
 git clone git://busybox.net/busybox.git
 # Since busybox git often fails, use the following link instead
-wget https://busybox.net/downloads/busybox-1.31.1.tar.bz2
+wget https://busybox.net/downloads/busybox-1.35.0.tar.bz2
 # Enter busybox
 make distclean
 make ARCH=arm defconfig
@@ -95,10 +95,10 @@ cd rootfs
 
 ```bash
 sudo mkdir lib proc sys dev etc etc/init.d
-sudo cp -r ../_install/* .
+sudo cp -r ../busybox/_install/* .
 sudo cp -P /usr/arm-linux-gnueabi/lib/*  lib/
 
-sudo cp ../examples/bootfloppy/etc/inittab  etc/
+sudo cp ../busybox/examples/bootfloppy/etc/inittab  etc/
 sudo touch etc/init.d/rcS
 sudo chmod 0777 etc/init.d/rcS
 sudo echo "#!/bin/sh" >> etc/init.d/rcS
@@ -114,7 +114,6 @@ sudo chmod 0755 etc/init.d/rcS
 ```bash
 cd ..
 sudo umount rootfs/
-mv sdcard.ext3 ../..
 ```
 
 * Run qemu
