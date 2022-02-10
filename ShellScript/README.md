@@ -288,3 +288,10 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 ```
+* Check where the script is
+  - Also available while source by other script
+  - `${BASH_SOURCE[0]}` is the script name
+```bash
+export SCRIPT_PATH=`realpath ${BASH_SOURCE[0]}`
+export DIR_PATH=`dirname ${SCRIPT_PATH}`
+```
