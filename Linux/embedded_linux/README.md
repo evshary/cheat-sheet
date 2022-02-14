@@ -1,4 +1,4 @@
-# Embeded Linux
+# Embedded Linux
 
 To create your own system, you need to do the following works:
 
