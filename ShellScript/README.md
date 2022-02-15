@@ -191,21 +191,6 @@ if [ $# -ne 2 ]; then
 fi
 ```
 
-# Split String
-
-```sh
-# Split the string
-strarr=(`echo "abc-def-ghi" | tr '-' ' '`)
-for var in ${strarr[@]}
-do
-   echo $var
-done
-echo $strarr[0]
-echo $strarr[1]
-echo $strarr[2]
-# If you use zsh, it should start with 1, that is echo ${strarr[1]}
-```
-
 # File operation
 
 ## Path attributes
@@ -264,9 +249,6 @@ trap "kill -TERM 0 ; exit 1" INT QUIT
 * Ignore output
   - `script >/dev/null`: Only ignore standard output
   - `scriptname >/dev/null 2>&1` or `scriptname >/dev/null 2>/dev/null`: Also ignore error output
-* Replace string in file: use sed
-  - Note: we need to use `""` for shell variable `$`
-  - `sed -i "s/vx.x.x/${version}/g" filename`
 * Equation:
   - `-eq` used in numeric.
   - `=` used in string.
