@@ -42,6 +42,7 @@ qemu-system-arm -M vexpress-a9 -m 256 -kernel u-boot --nographic
 sudo apt install tftp-hpa tftpd-hpa
 # Check the path of TFTP_DIRECTORY in "/etc/default/tftpd-hpa", and then copy kernel image
 sudo cp linux/arch/arm/boot/zImage /var/lib/tftpboot
+sudo cp linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb /var/lib/tftpboot
 sudo systemctl start tftpd-hpa.service
 ```
 
@@ -60,8 +61,83 @@ ls zImage
 sudo apt install bridge-utils uml-utilities
 ```
 
+* Create `tuntap.sh`
+
+```bash
+#!/bin/bash
+
+set -x
+
+ETH=enp1s0   #Ethernet interface in your HOST
+USR=$USER    #User name- whoami
+
+if test -z $1 ; then
+        echo need a arg: down/up
+        exit
+fi
+
+if [ "up" = $1 ] ; then
+
+        brctl addbr br0
+
+        ifconfig $ETH down
+        brctl addif br0 $ETH
+
+        #Close Spanning Tree Protocol
+        brctl stp br0 off
+
+        ifconfig br0 10.8.8.1 netmask 255.255.255.0 promisc up  #3
+        ifconfig $ETH 10.8.8.10 netmask 255.255.255.0 promisc up #2
+
+        tunctl -t tap0 -u $USR
+        ifconfig tap0 10.8.8.11 netmask 255.255.255.0 promisc up #4
+        brctl addif br0 tap0
+else
+        ifconfig tap0 down
+        brctl delif br0 tap0
+
+        ifconfig $ETH down
+        brctl delif br0 enp2s0
+
+        ifconfig br0 down
+        brctl delbr br0
+
+        ifconfig $ETH 10.8.8.10 netmask 255.255.255.0  #2
+fi
+```
+
+* Run network settings script
+
+```bash
+chmod a+x tuntap.sh
+sudo ./tuntap.sh up
+# Remember to down after using
+sudo ./tuntap.sh down
+```
+
 * Boot from uboot
 
 ```bash
 qemu-system-arm -M vexpress-a9 -m 512 --nographic -net nic -net tap,ifname=tap0,script=no -sd sdcard.ext3 -kernel u-boot/u-boot
 ```
+
+* Set uboot environment
+
+```
+# Network
+=> setenv serverip 10.8.8.1; setenv ipaddr 10.8.8.2; setenv netmask 255.255.255.0;
+# Test
+=> ping 10.8.8.1
+# boot environment
+=> setenv bootargs "console=ttyAMA0,115200 root=/dev/ram rw"
+=> setenv bootargs "console=ttyAMA0 rootwait rw root=/dev/mmcblk0 init=/linuxrc"
+# Upload zImage
+=> tftp 0x60000000 zImage
+# Upload dtb
+=> tftp 0x70000000 vexpress-v2p-ca9.dtb
+# Run kernel
+=> bootz 0x60000000 - 0x70000000
+```
+
+# Reference
+* [qemu network not working needed for tftp booting](https://stackoverflow.com/questions/67522041/qemu-network-not-working-needed-for-tftp-booting)
