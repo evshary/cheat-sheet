@@ -57,11 +57,14 @@ Here are several sources you can download toolchain:
 * mentor.com(Acquired by Siemens): http://cursuri.cheche.ro/sourcery.mentor.com/public/gnu_toolchain/arm-none-linux-gnueabi/
 
 ```bash
+# Use mentor.com
 wget https://sourcery.mentor.com/GNUToolchain/package12813/public/arm-none-linux-gnueabi/arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2
 tar xvf arm-2014.05-29-arm-none-linux-gnueabi-i686-pc-linux-gnu.tar.bz2
-export PATH=<path to "arm-2014.05/bin">:$PATH
-# for example
-export PATH=~/workspace/cross_compiler_test/arm-2014.05/bin/:$PATH
+export PATH=$PWD/arm-2014.05/bin:$PATH
+# If you want to use toolchain from ARM
+wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+tar xvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+export PATH=$PWD/gcc-arm-none-eabi-10.3-2021.10/bin:$PATH
 ```
 
 # Download from Linux distribution

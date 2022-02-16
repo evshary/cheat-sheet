@@ -25,13 +25,14 @@ cd u-boot
 make ARCH=arm vexpress_ca9x4_defconfig
 # Build
 make ARCH=arm
+cd ..
 ```
 
 * Test with qemu
   - If you want to stop, press ctrl+a, and then x.
 
 ```bash
-qemu-system-arm -M vexpress-a9 -m 256 -kernel u-boot --nographic
+qemu-system-arm -M vexpress-a9 -m 256 -kernel u-boot/u-boot --nographic
 ```
 
 # Boot from uboot and run Linux
@@ -68,8 +69,8 @@ sudo apt install bridge-utils uml-utilities
 
 set -x
 
-ETH=enp1s0   #Ethernet interface in your HOST
-USR=$USER    #User name- whoami
+ETH=enp1s0        #Ethernet interface in your HOST
+USR=$SUDO_USER    #User name
 
 if test -z $1 ; then
         echo need a arg: down/up
@@ -97,7 +98,7 @@ else
         brctl delif br0 tap0
 
         ifconfig $ETH down
-        brctl delif br0 enp2s0
+        brctl delif br0 $ETH
 
         ifconfig br0 down
         brctl delbr br0
@@ -122,21 +123,21 @@ qemu-system-arm -M vexpress-a9 -m 512 --nographic -net nic -net tap,ifname=tap0,
 ```
 
 * Set uboot environment
+  - Note the following commands run in u-boot
 
 ```
 # Network
-=> setenv serverip 10.8.8.1; setenv ipaddr 10.8.8.2; setenv netmask 255.255.255.0;
+setenv serverip 10.8.8.1; setenv ipaddr 10.8.8.2; setenv netmask 255.255.255.0;
 # Test
-=> ping 10.8.8.1
+ping 10.8.8.1
 # boot environment
-=> setenv bootargs "console=ttyAMA0,115200 root=/dev/ram rw"
-=> setenv bootargs "console=ttyAMA0 rootwait rw root=/dev/mmcblk0 init=/linuxrc"
+setenv bootargs "console=ttyAMA0 rootwait rw root=/dev/mmcblk0 init=/linuxrc"
 # Upload zImage
-=> tftp 0x60000000 zImage
+tftp 0x60000000 zImage
 # Upload dtb
-=> tftp 0x70000000 vexpress-v2p-ca9.dtb
+tftp 0x70000000 vexpress-v2p-ca9.dtb
 # Run kernel
-=> bootz 0x60000000 - 0x70000000
+bootz 0x60000000 - 0x70000000
 ```
 
 # Reference
