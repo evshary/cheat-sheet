@@ -1,11 +1,18 @@
-# install
+# ansible
+
+ansible can manage your device easily.
+
+# Installation
+
 * Use apt. It seems like install from python-pip may cause some problems.
-```
+
+```bash
 sudo apt install ansible
 ```
 
 # Files
-There are 3 files in the directory:
+
+There are 3 important files in ansible
 
 * ansible.cfg: default config
 * hosts inventory: host list
@@ -15,51 +22,15 @@ You can refer to the architecture from [IBM blog](https://www.ibm.com/cloud/blog
 
 ![](https://1.cms.s81c.com/sites/default/files/2018-11-22/Ansible_ov.png)
 
-# Usage
-* Create `ansible.cfg`. `inventory = hosts` assign the inventory name.
-```
-[defaults]
-inventory = hosts
-```
-* Create `hosts` for host inventory.
-```
-[YOUR_HOSTS]
-<IP>
+# Simple test
 
-[YOUR_HOSTS:vars]
-ansible_password=<pass>
-ansible_become_pass=<pass>
-ansible_ssh_user=<user>
-host_key_checking=False
-ansible_python_interpreter=/usr/bin/python3
-```
-* List the current host status.
-```
-# List inventory settings
-ansible-inventory --list -y
-# List hosts
-ansible all --list-hosts
-```
-* Test
-```
-ansible YOUR_HOSTS -m ping
-```
-* Create playbook "your_playbook.yml"
-```
----
-- hosts: YOUR_HOSTS
-  become: true  # use sudo
-  tasks:
-    - name: Install vim
-      apt: name=vim update_cache=yes state=latest
-    - name: Get date
-      shell: date
-```
-* Run playbook
-```
-ansible-playbook your_playbook.yml
+* Connect to localhost and run command.
+
+```bash
+ansible localhost -m command -a 'echo Hello World.'
 ```
 
 # Reference
+
 * [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html)
 * [現代 IT 人一定要知道的 Ansible 自動化組態技巧](https://chusiang.gitbooks.io/automate-with-ansible/content/)

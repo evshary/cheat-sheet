@@ -1,5 +1,5 @@
 [YOUR_HOSTS]
-<IP>
+127.0.0.1
 
 [YOUR_HOSTS:vars]
 ansible_password=adlinkros
