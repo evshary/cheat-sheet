@@ -97,3 +97,8 @@ make kernelversion
   - Solution: modify `.config`, and empty `CONFIG_SYSTEM_TRUSTED_KEYS` and `CONFIG_SYSTEM_REVOCATION_KEYS`
 * BTF: .tmp_vmlinux.btf: pahole (pahole) is not available
   - Solution: `sudo apt install dwarves` or modify `CONFIG_DEBUG_INFO_BTF=n` in `.config`
+
+# cmdline
+
+* We can pass parameters to kernel with cmdline
+  - refer to [cmdline](https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html)

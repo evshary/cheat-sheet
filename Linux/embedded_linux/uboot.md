@@ -35,7 +35,7 @@ cd ..
 qemu-system-arm -M vexpress-a9 -m 256 -kernel u-boot/u-boot --nographic
 ```
 
-# Boot from uboot and run Linux
+# Boot from uboot and run Linux with TFTP
 
 * Settings TFTP
 
@@ -140,5 +140,25 @@ tftp 0x70000000 vexpress-v2p-ca9.dtb
 bootz 0x60000000 - 0x70000000
 ```
 
+# u-boot useful commands
+
+Refer to [uboot 常用指令介紹](http://pominglee.blogspot.com/2014/12/uboot.html)
+
+## Basic
+
+* `help`: show all commands
+* `bdinfo`: show board information
+* `printenv`: print environment information
+
+## SD card
+
+* `mmc list`: List SD card
+* `mmcinfo`: Show SD card information
+* `mmcpart`: Show the partition on SD card
+* `ls mmc a:b`: Show the partition b in SD card a
+  - e.g.: `ls mmc 0:0`
+
 # Reference
+
 * [qemu network not working needed for tftp booting](https://stackoverflow.com/questions/67522041/qemu-network-not-working-needed-for-tftp-booting)
+* [在家学习嵌入式2--在qemu环境下使用uboot启动linux](https://wowothink.com/1b0d21a9/)
