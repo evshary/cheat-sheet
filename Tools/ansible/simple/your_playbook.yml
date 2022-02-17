@@ -1,8 +1,21 @@
 ---
-- hosts: YOUR_HOSTS
+# Note that in the playbook, there are play, task, and module
+# play
+- name: PLAY1
+  hosts: MY_HOSTS_GRP1
   become: true  # use sudo
   tasks:
+    # task 1
     - name: Install vim
+      # module
       apt: name=vim update_cache=yes state=latest
+    # task 2
     - name: Get date
+      # module
       shell: date
+
+- name: PLAY2
+  hosts: all
+  tasks:
+    - name: Get environment
+      shell: echo $HOST

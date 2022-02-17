@@ -22,12 +22,21 @@ You can refer to the architecture from [IBM blog](https://www.ibm.com/cloud/blog
 
 ![](https://1.cms.s81c.com/sites/default/files/2018-11-22/Ansible_ov.png)
 
-# Simple test
+# Two modes
 
-* Connect to localhost and run command.
+There are two modes in ansible Ad-Hoc and Playbook.
+
+* Ad-Hoc
+  - Connect to localhost and run command.
 
 ```bash
 ansible localhost -m command -a 'echo Hello World.'
+```
+
+* Playbook
+
+```bash
+ansible-playbook xxx.yml
 ```
 
 # Reference

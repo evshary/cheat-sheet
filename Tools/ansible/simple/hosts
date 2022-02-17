@@ -1,7 +1,17 @@
-[YOUR_HOSTS]
+[MY_HOSTS_GRP1]
 127.0.0.1
 
-[YOUR_HOSTS:vars]
+[MY_HOSTS_GRP1:vars]
+ansible_password=adlinkros
+ansible_become_pass=adlinkros
+ansible_ssh_user=chenying
+host_key_checking=False
+ansible_python_interpreter=/usr/bin/python3
+
+[MY_HOSTS_GRP2]
+172.30.80.167
+
+[MY_HOSTS_GRP2:vars]
 ansible_password=adlinkros
 ansible_become_pass=adlinkros
 ansible_ssh_user=ros
