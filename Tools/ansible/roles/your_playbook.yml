@@ -1,0 +1,13 @@
+---
+- name: PLAY1
+  hosts: MY_HOSTS_GRP1
+  gather_facts: false
+
+  vars:
+    - timezone: "Asia/Taipei"
+  roles:
+    - yatesr.timezone
+  
+  tasks:
+    - name: include timezone task
+      include: roles/yatesr.timezone/tasks/main.yml
