@@ -140,6 +140,39 @@ tftp 0x70000000 vexpress-v2p-ca9.dtb
 bootz 0x60000000 - 0x70000000
 ```
 
+# Boot from uboot and run Linux from SD card
+
+We can load kernel and dtb from SD card and run it.
+
+* Put your kernel and dtb into rootfs
+
+```bash
+sudo mount -t ext3 -o loop sdcard.ext3 rootfs/
+sudo cp linux/arch/arm/boot/zImage rootfs
+sudo cp linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb rootfs
+sudo umount rootfs/
+```
+
+* Run qemu with SD
+
+```bash
+qemu-system-arm -M vexpress-a9 -m 512 --nographic -sd sdcard.ext3 -kernel u-boot/u-boot 
+```
+
+* Set uboot environment
+
+```
+# See the data in SD card
+ls mmc 0:0
+# load kernel and dtb
+load mmc 0:0 0x60000000 zImage
+load mmc 0:0 0x70000000 vexpress-v2p-ca9.dtb
+# boot environment
+setenv bootargs "console=ttyAMA0 rootwait rw root=/dev/mmcblk0 init=/linuxrc"
+# Run kernel
+bootz 0x60000000 - 0x70000000
+```
+
 # u-boot useful commands
 
 Refer to [uboot 常用指令介紹](http://pominglee.blogspot.com/2014/12/uboot.html)
@@ -148,13 +181,20 @@ Refer to [uboot 常用指令介紹](http://pominglee.blogspot.com/2014/12/uboot.
 
 * `help`: show all commands
 * `bdinfo`: show board information
-* `printenv`: print environment information
+* `printenv <key>`: print environment information
+* `setenv <key> "<value>"`: set environmental variables
+* `saveenv`: save environment varialbes, but might fail while using qemu
+* `ping <host>`: test network availability
+* `tftp <address> <file>`: load file into address by tftp
+* `bootz <kernel_address> <ramdisk_address> <dtb_address>`: run zImage in address
+  - If there is no ramdisk_address, replace it with `-`
+* `reset`: reset uboot
 
 ## SD card
 
 * `mmc list`: List SD card
 * `mmcinfo`: Show SD card information
-* `mmcpart`: Show the partition on SD card
+* `mmc part`: Show the partition on SD card
 * `ls mmc a:b`: Show the partition b in SD card a
   - e.g.: `ls mmc 0:0`
 
