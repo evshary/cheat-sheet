@@ -201,4 +201,5 @@ Refer to [uboot 常用指令介紹](http://pominglee.blogspot.com/2014/12/uboot.
 # Reference
 
 * [qemu network not working needed for tftp booting](https://stackoverflow.com/questions/67522041/qemu-network-not-working-needed-for-tftp-booting)
-* [在家学习嵌入式2--在qemu环境下使用uboot启动linux](https://wowothink.com/1b0d21a9/)
+* [在家学习嵌入式2--在qemu环境下使用uboot启动linux](https://wowothink.com/1b0d21a9/): Use SD card to boot
+* [在 QEMU 上使用 U-Boot 启动自制内核](https://stdrc.cc/post/2021/02/23/u-boot-qemu-virt/): Use flash to boot
