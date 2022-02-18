@@ -1,0 +1,41 @@
+---
+- name: PLAY1
+  hosts: MY_HOSTS_GRP1
+  gather_facts: false
+  vars:
+    default_var: "myvar"
+    mylists:
+      type1:
+        - item1
+        - item2
+      type2:
+        - itema
+        - itemb
+  tasks:
+    - include_vars: var.yml
+      when: add_include_flag == 'true'
+  
+    # Print arg
+    - name: print arg
+      shell:
+        cmd: |
+          echo "add_include_flag: {{ add_include_flag }}"
+          echo "list_type: {{ list_type }}"
+
+    # Print var.yml
+    - name: print var.yml
+      when: add_include_flag == 'true'
+      shell:
+        cmd: |
+          echo "myvar1: {{ myvar1 }}"
+          echo "myvar2: {{ myvar2 }}"
+
+    # debug message
+    - debug: msg="default_var={{ default_var }}"
+
+    # Print vars
+    - name: print vars
+      shell:
+        cmd: | 
+          echo "This is mylists[list_type]"
+          echo "{{ mylists[list_type] }}"
