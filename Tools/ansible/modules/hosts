@@ -1,0 +1,9 @@
+[MY_HOSTS_GRP1]
+127.0.0.1
+
+[MY_HOSTS_GRP1:vars]
+ansible_password=adlinkros
+ansible_become_pass=adlinkros
+ansible_ssh_user=chenying
+host_key_checking=False
+ansible_python_interpreter=/usr/bin/python3

@@ -1,0 +1,21 @@
+---
+- name: PLAY1
+  hosts: MY_HOSTS_GRP1
+  gather_facts: false
+  become: true  # use sudo
+  tasks:
+    # apt install
+    - name: Install vim
+      apt: name=vim update_cache=yes state=latest
+    # Create file / folder
+    - name: Create folder
+      ansible.builtin.file:
+        path: /tmp/myfolder
+        state: directory
+        mode: '0755'
+    # Remove folder
+    - name: Remove folder recursively
+      ansible.builtin.file:
+        path: /tmp/myfolder
+        state: absent
+
