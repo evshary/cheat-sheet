@@ -1,0 +1,6 @@
+---
+- name: PLAY1
+  hosts: MY_HOSTS_GRP1
+  tasks:
+    - name: Get date
+      shell: date
