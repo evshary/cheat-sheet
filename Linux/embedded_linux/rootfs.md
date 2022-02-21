@@ -121,3 +121,25 @@ sudo umount rootfs/
 ```bash
 qemu-system-arm -M vexpress-a9 -m 512 -kernel linux/arch/arm/boot/zImage -sd sdcard.ext3 -nographic -append "console=ttyAMA0 rootwait rw root=/dev/mmcblk0 init=/linuxrc" -dtb linux/arch/arm/boot/dts/vexpress-v2p-ca9.dtb
 ```
+
+# The relationship between initramfs and rootfs
+
+We need to know the flow of kernel booting:
+
+* load kernel and initial RAM disk
+* Convert initrd to normal RAM disk
+* Run init in RAM disk
+* init will mount real rootfs (based on `root=` in cmdline)
+* init will use pivot_root system call to change to new rootfs
+* init will run /sbin/init in rootfs
+* Remove initrd
+
+Refer to [Using the initial RAM disk (initrd) in kernel](https://www.kernel.org/doc/html/latest/admin-guide/initrd.html#operation)
+
+## View the content of initrd
+
+In Ubuntu, there are some tools to see the content of initrd.img
+
+* See the file list: `lsinitramfs /boot/initrd.img`
+* Extract the file: `unmkinitramfs /boot/initrd.img tmp`
+  - The init script will be under `tmp/main/init`
