@@ -1,3 +1,7 @@
+# GStreamer
+
+GStreamer is a framework for creating streaming media application.
+
 # Installation
 
 ```bash
