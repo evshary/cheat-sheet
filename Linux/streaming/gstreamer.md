@@ -16,8 +16,21 @@ GStreamer is a framework for creating streaming media application.
 sudo apt install libgstreamer1.0-dev
 ```
 
-# Run
+# Usage
+
+* gst-inspect-1.0: Show the detail of the element
+
+```bash
+gst-inspect-1.0 oggdemux
+```
+
+* gst-launch-1.0: Launch the pipeline
 
 ```bash
 gst-launch-1.0 v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-raw,format=RGB ! queue ! videoconvert ! ximagesink
 ```
+
+# Programming
+
+* Write GStreamer application: https://gstreamer.freedesktop.org/documentation/application-development/basics/index.html?gi-language=c
+* Write Plugin: https://gstreamer.freedesktop.org/documentation/application-development/basics/index.html?gi-language=c
