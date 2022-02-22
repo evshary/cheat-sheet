@@ -37,6 +37,10 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-
 
 # Plugin
 
+The existed plugin usage: https://gstreamer.freedesktop.org/documentation/plugins_doc.html?gi-language=c
+
+## Build your own plugin
+
 * Install meson first
 
 ```bash
@@ -68,3 +72,7 @@ gst-inspect-1.0 builddir/gst-plugin/libgstplugin.so
 # Show camera image with plugin
 gst-launch-1.0 --gst-plugin-path=$PWD/builddir/gst-plugin v4l2src device=/dev/video0 ! plugin ! videoconvert ! videoscale ! video/x-raw,format=RGB ! queue ! videoconvert ! ximagesink
 ```
+
+# Reference
+
+* [Gstreamer基础教程](https://www.cnblogs.com/xleng/tag/gstreamer/)
