@@ -24,6 +24,7 @@ make
 
 * Run
   - More information will be under `board/qemu/arm-versatile/readme.txt`
+  - Login user name is root
 
 ```bash
 qemu-system-arm -M versatilepb -kernel output/images/zImage -dtb output/images/versatile-pb.dtb -drive file=output/images/rootfs.ext2,if=scsi,format=raw -append "rootwait root=/dev/sda console=ttyAMA0,115200" -serial stdio -net nic,model=rtl8139 -net user # qemu_arm_versatile_defconfig
