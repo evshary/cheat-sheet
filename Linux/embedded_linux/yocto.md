@@ -35,6 +35,16 @@ source oe-init-build-env
 bitbake core-image-minimal
 ```
 
+* Run qemu
+  - Remember to source environment
+  - Login with user root without password
+
+```bash
+runqemu qemuarm
+# If you want run without graphic
+runqemu qemuarm nographic
+```
+
 # Reference
 
 * [Official Documentation](https://docs.yoctoproject.org/current/index.html)
