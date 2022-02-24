@@ -9,6 +9,8 @@ To create your own system, you need to do the following works:
 
 We use [qemu](qemu.md) here for simulation.
 
+You can build the whole system with easier tools: [Buildroot](buildroot.md) and [Yocto](yocto.md).
+
 # Reference
 * Use the compiler from vendors, but lack of how to build uboot (gcc version is too old)
   - [https://hackmd.io/@c_0KKCwzQE2rsd39mpvNQQ/rknxhDzvB](https://hackmd.io/@c_0KKCwzQE2rsd39mpvNQQ/rknxhDzvB)

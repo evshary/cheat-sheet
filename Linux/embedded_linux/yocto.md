@@ -45,6 +45,16 @@ runqemu qemuarm
 runqemu qemuarm nographic
 ```
 
+# bitbake
+
+* List all recipes: `bitbake -s`
+* Show the tasks in the recipes: `bitbake <recipe> -c listtasks`
+  - `bitbake core-image-minimal -c listtasks`
+* Run the specific recipe: `bitbake <recipe>`
+  - `bitbake core-image-minimal`
+* Show the environment of the recipe: `bitbake -e recipe`
+  - `bitbake -e core-image-minimal`
+
 # Reference
 
 * [Official Documentation](https://docs.yoctoproject.org/current/index.html)
