@@ -4,6 +4,10 @@
 
 # Usage
 
+The following figure from Yocto official website shows how we generates build environment in Yocto.
+
+![image](https://user-images.githubusercontent.com/456210/155638914-b618de42-daa0-4683-8fae-9c93b97a0292.png)
+
 * Install necessary packages
 
 ```bash
@@ -55,6 +59,55 @@ runqemu qemuarm nographic
 * Show the environment of the recipe: `bitbake -e recipe`
   - `bitbake -e core-image-minimal`
 
+# metalayer
+
+Yocto uses metalayer to build system.
+
+The figure shows how the layers consist of build system.
+
+![image](https://user-images.githubusercontent.com/456210/155637711-9c695f8c-4862-489b-a6c8-9db4b4eb7242.png)
+[img src](https://www.aosabook.org/en/yocto.html)
+
+The figure from official website shows the file architecture of metalayer.
+
+![image](https://user-images.githubusercontent.com/456210/155639257-d1d2527a-9320-47d5-83d5-8d8e1a0a25e6.png)
+
+* Create new layers "custom"
+
+```bash
+source oe-init-build-env
+# custom folder will be created under build
+bitbake-layers create-layer custom
+```
+
+* Modify `conf/bblayers.conf` and add the path in BBLAYERS
+
+```bash
+BBLAYERS ?= " \
+  /home/chenying/embedded_linux/poky/meta \
+  /home/chenying/embedded_linux/poky/meta-poky \
+  /home/chenying/embedded_linux/poky/meta-yocto-bsp \
+  /home/chenying/embedded_linux/poky/build/custom \
+  "
+```
+
+* In fact, you can add / remove metalayer with commands
+
+```bash
+bitbake-layers add-layer custom
+bitbake-layers remove-layer custom
+```
+
+* Show the current metalyare / recipes
+
+```bash
+bitbake-layers show-layers
+bitbake-layers show-recipes
+```
+
+* You can modify the metalayer properties in `custom/conf/layer.conf`
+
 # Reference
 
 * [Official Documentation](https://docs.yoctoproject.org/current/index.html)
+* [Yocto Project Overview and Concepts Manual](https://www.yoctoproject.org/docs/2.5/overview-manual/overview-manual.html)
