@@ -277,3 +277,9 @@ fi
 export SCRIPT_PATH=`realpath ${BASH_SOURCE[0]}`
 export DIR_PATH=`dirname ${SCRIPT_PATH}`
 ```
+* put string into file with root privilege
+```bash
+echo 'My conntent' | sudo tee /tmp/filename > /dev/null
+# append string into file
+echo 'My appended content' | sudo tee -a /tmp/filename > /dev/null
+```
