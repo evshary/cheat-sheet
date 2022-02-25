@@ -2,6 +2,14 @@
 
 [Yocto](https://www.yoctoproject.org/) can be used to build up your own Linux system.
 
+# Concept
+
+* bitbake: The task executor and scheduler for Yocto
+* build > meta-layers > recipes > tasks
+  - The build system(`build/conf/bblayers.conf`) will include several meta-layers
+  - The meta-layer(`meta-name/conf/layer.conf`) contain several recipes
+  - The recipe(end with `.bb`) defines the tasks, including do_install, do_compile...
+
 # Usage
 
 The following figure from Yocto official website shows how we generates build environment in Yocto.
