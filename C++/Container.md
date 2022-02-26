@@ -36,12 +36,14 @@ We need to add `#include <vector>` first. Assume v is a vector for examples belo
 // Use index
 for(int i=0; i<v.size(); i++) cout << v[i] << " ";
 for(int i=0; i<v.size(); i++) cout << v.at(i) << " ";
+// Simpler
+for(auto i : v) cout << i << " ";
 // Use iterator
 vector<int>::iterator it_i;
 for(it_i=ff.begin(); it_i!=ff.end(); ++it_i) cout << *it_i << " ";
 vector<int>::reverse_iterator it_i;
 for(it_i=ff.rbegin(); it_i!=ff.rend(); ++it_i) cout << *it_i << " ";
-/// Use auto
+// Use auto
 for(auto it=ff.begin(); it!=ff.end(); ++it) cout << *it << " ";
 ```
 * Construction and Assignment
