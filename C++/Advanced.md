@@ -405,3 +405,21 @@ class T_CLASS<int, int> {
   }
 };
 ```
+
+# permutation
+Need to `#include <algorithm>` before using permutation.
+
+There are `is_permutation` and `next_permutation`.
+
+```bash
+vector<int> v = {1,2,3};
+vector<int> a = {3,2,1};
+if (is_permutation(v.begin(), v.end(), a.begin())) {
+    cout << "Yes, is permutation" << endl;
+}
+do {
+    for (auto i : v)
+        cout << i << " ";
+    cout << endl;
+} while (next_permutation(v.begin(), v.end()));
+```
