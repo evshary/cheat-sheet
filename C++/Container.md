@@ -65,6 +65,8 @@ vector v2(v1.begin(), v1.begin()+3); // Copy the first 3 element from v1
 // Init 2D array
 vector<vector<int>> vect { { 11, 12, 13 },
                            { 21, 22, 23 } };
+// Easier way: row 2 and col 3
+vector<vector<int>> vect(2, vector<int>(3, 0));
 // Use assign
 vector<int> row;
 row.assign(n,0); // Init an vector with n elements
