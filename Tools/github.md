@@ -11,6 +11,7 @@ How to setup your own self action server
 * Go to Organization => Action => Runners
 
 * Click "New runner" and follow the steps to setup your server.
+  - While running `run.sh` on your server, it'll prompt to enter password if GitHub action include "sudo apt-get" command. You can add "apt-get" into sudoers for the current user.
 
 * Note that add "runs-on: [self-hosted, Linux, X64]" in your action jobs.
 
