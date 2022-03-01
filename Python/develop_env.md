@@ -7,6 +7,24 @@ This is Python develop environment note.
 * Find sys.path: `python3 -m site`
 * More beautiful environment: `sudo apt install ipython ipython3`
 
+# Include other module
+
+* Add sys.path
+```py
+# In your python file
+import sys
+sys.path.append("/your_module_path/lib/python3.6/dist-packages")
+```
+* Use environment variables: `PYTHONPATH`
+```bash
+env PYTHONPATH="/your_module_path/lib/python3.6/dist-packages" python3
+```
+* Use pth: Put `.pth` file under `/usr/local/lib/python3.6/dist-packages/`
+  - File content:
+```
+/your_module_path/lib/python3.6/dist-packages
+```
+
 # pip
 
 Used to install packages for Python.

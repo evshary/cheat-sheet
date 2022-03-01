@@ -143,3 +143,8 @@ sudo add-apt-repository --remove ppa:nginx/stable
   ```bash
   dpkg -L [deb name]
   ```
+* If you apt server https is invalid
+  ```bash
+  echo 'Acquire::https::YOUR_DOMAIN_NAME::Verify-Peer "false";' | sudo tee /etc/apt/apt.conf.d/your_apt_conf > /dev/null
+  echo 'Acquire::https::YOUR_DOMAIN_NAME::Verify-Host "false";' | sudo tee -a /etc/apt/apt.conf.d/your_apt_conf > /dev/null
+  ```
