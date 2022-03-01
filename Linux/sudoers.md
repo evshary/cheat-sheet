@@ -1,6 +1,6 @@
-# sudoer
+# sudoers
 
-There are two paths for sudoer:
+There are two paths for sudoers:
 
 * `/etc/sudoers`: Default path for sudoers
 * `/etc/sudoers.d/filename`: Customized configuration for sudoers
