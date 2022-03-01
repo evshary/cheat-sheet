@@ -1,6 +1,11 @@
 # Remote
 
 * Remove remote tag / branch: `git push origin --delete <tag/branch>`
+* Delete multiple tag
+```bash
+git push -d origin $(git tag -l "v*")
+git tag -d $(git tag -l "v*")
+```
 
 # Clear
 * Clear only the ignored files: `git clean -fXd`
