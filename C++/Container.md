@@ -78,6 +78,15 @@ array2D.assign(n,row);  // init an vector with n vectors
 vector<int> v(8);
 fill(v.begin(), v.end(), 8); // fill with 8
 ```
+* Find max / min number
+```c++
+#include <algorithm>
+vector<int> v{3,2,1,7,8,9};
+int max_index = max_element(v.begin(), v.end()) - v.begin();
+int max_element = *max_element(v.begin(), v.end());
+int min_index = min_element(v.begin(), v.end()) - v.begin();
+int min_element = *min_element(v.begin(), v.end());
+```
 
 # queue
 ## Usage
