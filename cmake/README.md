@@ -16,7 +16,9 @@ Almost everything in cmake has properties. Here is [properties list](https://cma
 * [simple example](simple_example): The simplest one. 
 * [multiple folder](multiple_folder): cmake with multiple folder.
 * [test and install example](test_install_example): The example for test and install.
-* [compile_option_example](compile_option_example): The example for adding compile options.
+* [compile option example](compile_option_example): The example for adding compile options.
+* [version example](version_example): The example for how to add version in cmake project.
+* [package](package): The example for how to package your project to deb fil.
 * [library](library): The example for how to build cmake library.
 * [include external project](https://zhuanlan.zhihu.com/p/102050750):
   - There are 3 ways to include external project: submodule(add_subdirectory), ExternalProject_Add, FetchContent

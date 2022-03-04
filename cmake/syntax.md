@@ -1,5 +1,12 @@
 # Useful syntax
 
+## debug
+
+```
+# The debug message will be shown while running cmake
+message("======== This is debug message ${CMAKE_BINARY_DIR} ========")
+```
+
 ## project
 
 refer to [project](https://cmake.org/cmake/help/latest/command/project.html)
@@ -43,6 +50,14 @@ endif()
 
 ## useful operator
 
+* Fackage found:
+```
+find_package (Python COMPONENTS Interpreter Development QUIET)
+if (Python_FOUND)
+endif()
+if (NOT Python_FOUND)
+endif()
+```
 * Logical operation:
 ```
 if(NOT expr)
@@ -125,6 +140,8 @@ refer to [file](https://cmake.org/cmake/help/latest/command/file.html)
 ```
 # globbing-expression: find all files which match "test.h" and put into FILES_VAR
 file(GLOB FILES_VAR test.h)
+# Create file: create <file_name> with <content>
+file(WRITE <file_name> <content>)
 ```
 
 ## list: list operation
