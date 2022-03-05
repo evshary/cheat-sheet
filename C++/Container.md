@@ -13,9 +13,9 @@ We need to add `#include <vector>` first. Assume v is a vector for examples belo
   - `v.pop_back()`: Delete the last element of vector.
   - `v.insert()`: Insert elements into any location of vector.
     * `v.insert(v.begin()+3, 5)`: Insert "5" into vector v. The location will be 4th.
-  - `v.erase()`: Remove elements from vector.
-    * `v.erase(vec.begin(), vec.end())`: Remove all the element.
-    * `v.erase(vec.begin()+2, vec.begin()+4)`: Remove the element which index is from 2 to 3.
+  - `v.erase()`: Remove elements from vector by the index.
+    * `v.erase(v.begin(), v.end())`: Remove all the element.
+    * `v.erase(v.begin()+2, v.begin()+4)`: Remove the element which index is from 2 to 3.
   - `v.clear()`: Clear all the elements.
 * Get the length / capacity
   - `v.empty()`: Return true if vector is empty.
@@ -29,6 +29,13 @@ We need to add `#include <vector>` first. Assume v is a vector for examples belo
   - `v.end()`: Return a iterator which points to the element next to the last element. (WARNING: not the last one)
   - `v.rbegin()`: Return a reverse iterator which points to the last element.
   - `v.rend()`: Return a reverse iterator which points to the element right before the first element. (WARNING: not the first one)
+* erase-remove idiom: remove the element from vector
+  - remove will move the matched element to the end of the vector, and erase will remove these elements.
+```cpp
+#include <algorithm>
+// Remove 8 from vector v
+v.erase(std::remove(v.begin(), v.end(), 8), v.end());
+```
 
 ## Example
 * Iterate
