@@ -183,7 +183,6 @@ The difference between them:
 * unordered_map:
   - The internal data structure is a hash table, so lookup only needs O(1)
   - Building hash table takes time.
-  - To erase, worst case is O(N). Refer to https://stackoverflow.com/questions/34556937/stdunordered-seterase-complexity
 
 ## Example
 * insert
@@ -284,6 +283,7 @@ if (it == u.end())
   cout << "Not found" << endl;
 else
   cout << *it << "is here" << endl;
+// To erase, worst case is O(N). Refer to https://stackoverflow.com/questions/34556937/stdunordered-seterase-complexity
 u.erase(2);
 ```
 
