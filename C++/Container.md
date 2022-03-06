@@ -283,6 +283,7 @@ if (it == u.end())
   cout << "Not found" << endl;
 else
   cout << *it << "is here" << endl;
+u.erase(2);
 ```
 
 # pair
