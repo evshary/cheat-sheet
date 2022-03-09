@@ -149,6 +149,11 @@ if [ "$(docker ps -aq -f status=running -f name=$container_name)" ]; then
 fi
 ```
 
+# reverse docker
+
+* How to build docker image: `docker history --no-trunc <docker-image>`
+* How to run docker container: `docker inspect <container_name>`
+
 # Tips
 
 * Able to use docker without sudo
