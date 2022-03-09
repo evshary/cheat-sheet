@@ -94,6 +94,15 @@ int max_element = *max_element(v.begin(), v.end());
 int min_index = min_element(v.begin(), v.end()) - v.begin();
 int min_element = *min_element(v.begin(), v.end());
 ```
+* Find the specific number
+```c++
+#include <algorithm>
+vector<int> v{3,2,1,7,8,9};
+auto it = find(v.begin(), v.end(), 7);
+if (it != v.end()) {
+  cout << *it << " is at index " << it-v.begin() << endl;
+}
+```
 
 # queue
 ## Usage
