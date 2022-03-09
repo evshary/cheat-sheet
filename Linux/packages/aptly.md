@@ -95,8 +95,9 @@ curl -X DELETE http://localhost:8080/api/repos/myrepo
 curl -X POST -F file=@mydeb.deb http://localhost:8080/api/files/myrepo
 # List file (optional)
 curl http://localhost:8080/api/files
-# Add file into repo
+# Add file into repo (whether force replace or not)
 curl -X POST http://localhost:8080/api/repos/myrepo/file/myrepo
+curl -X POST http://localhost:8080/api/repos/myrepo/file/myrepo?forceReplace=1
 # List packages detail in repo (optional)
 curl http://localhost:8080/api/repos/myrepo/packages
 # Publish
@@ -106,6 +107,8 @@ curl http://localhost:8080/api/publish
 # The packages can be viewed under ~/.aptly/public/pool/main/
 # Update publish while local change
 curl -X PUT http://localhost:8080/api/publish/:./focal
+# You can add passphrase and force overwrite in header
+curl -X PUT -H 'Content-Type: application/json' --data '{"SourceKind":"local", "ForceOverwrite":true, "Signing":{"Batch":true,"Passphrase":"${{secrets.APTLY_GPG_KEY}}"}}' http://localhost:8080/api/publish/:./focal
 ```
 
 ## How to run with apt install
@@ -121,3 +124,8 @@ deb [trusted=yes] http://localhost:8080/ focal main
 ```bash
 sudo apt update
 ```
+
+# Note
+
+* If you want to have different distributions at the same time, the deb filename should not be the same.
+  - Refer to https://groups.google.com/g/aptly-discuss/c/YTLXLUqBbFo?pli=1
