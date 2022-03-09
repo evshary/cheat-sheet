@@ -75,9 +75,19 @@ aptly publish snapshot -distribution=focal <snapshot_name>
 # ...
 ```
 
+* Clean the unreferenced packages from package pool
+
+```bash
+# Dry run
+aptly db cleanup -dry-run -verbose
+# Real clean
+aptly db cleanup
+```
+
 ## API
 
 We can use RESTful API to control aptly.
+Note that not every aptly command supports RESTful API.
 Refer to https://www.aptly.info/doc/api/
 
 * Create repo and publish
