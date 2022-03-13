@@ -302,8 +302,18 @@ u.erase(2);
 vector<int> v1{1,2,3,4,5};
 vector<int> v2{11,22,33,44,55};
 vector<pair<int,int>> vp;
-for (int i = 0; i < v1.size(); i++)
+for (int i = 0; i < v1.size(); i++) {
   vp.push_back(make_pair(v1[i], v2[i]));
+}
+```
+* Simpler to generate and read pair
+```c++
+vector<pair<int,int>> vp;
+vp.push_back({1,2});
+vp.push_back({3,4});
+for (auto [x,y] : pairs) {
+    cout << x << " " << y << endl;
+}
 ```
 * sort
 ```c++
