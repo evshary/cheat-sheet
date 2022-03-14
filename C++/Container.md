@@ -112,6 +112,7 @@ We need to add `#include <queue>` first. Assume q is a queue for examples below.
 * `q.pop()`: Remove the first element in q.
 * `q.back()`: Get the value of the last element in q.
 * `q.front()`: Get the value of the first element in q.
+* `q.empty()`: Check whether there is any element in q.
 
 ## Example
 ```c++
