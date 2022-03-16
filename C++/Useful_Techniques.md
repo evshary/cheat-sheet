@@ -28,3 +28,19 @@ for (int d = 0; d < 4; d++) {
 	}
 }
 ```
+
+# Use emplace instead of push (Actually compiler will optimize it for you)
+
+push will initialize the temporary variable and then push into stack,
+while emplace will call constructor directly
+
+Ref: https://www.gushiciku.cn/pl/gxZH/zh-tw
+
+```c++
+vector<pair<string,int>> v;
+v.push_back({"abc", 123});
+v.emplace_back("def", 456);
+for (auto & [s, i] : v) {
+    cout << s << " " << i << endl;
+}
+```
