@@ -144,8 +144,9 @@ Default is that the largest value has the highest priority.
   - `priority_queue<int> pqueue;`: Default is largest value first.
   - `priority_queue<int,vector<int>,less<int>>`: Largest value first.
   - `priority_queue<int,vector<int>,greater<int>>`: Smallest value first.
+  - `priority_queue<pair<int,int>>`: Default is to sort the 1st element of the pair from big to small.
 * Operations:
-  - `q.push(element)`: Put element into q.
+  - `q.push(element)`: Put element into q. Time complexity is O(NlogN).
   - `q.pop()`: Take the highest priority element from queue and delete.
   - `q.top()`: Read the value of element which has highest priority.
   - `q.empty()`: Check whether the q is empty or not.
@@ -202,12 +203,23 @@ map<string, int> m;
 m.insert(pair<string,int>("test1", 111));
 // Insert directly
 m["test2"] = 222;
+// Count occurrence
+if (m.find(1) == m.end())
+    m[1] = 1;
+else
+    m[1]++;
 ```
 * Iterate
 ```c++
 unordered_map<string, string> maps;
 for (auto it = maps.begin(); it != maps.end(); ++it)  
-    cout << it->first << " " << it->second << endl;  
+    cout << it->first << " " << it->second << endl;
+// simpler way
+for (auto m : maps)
+    cout << m.first << " " << m.second << endl;
+// more simpler way
+for (auto [_, second] : maps)
+    cout << second << endl;
 ```
 * find
 ```c++
@@ -234,8 +246,11 @@ bool comp(pair<int,int> l, pair<int,int> r) {
     return r.second < l.second;
 }
 unordered_map<int,int> htable; // or map<int,int> is the same
+// 1st way to transform into vector
 vector<pair<int,int>> sort_result;
 for (auto i : htable) sort_result.push_back(i);
+// 2nd way to transform into vector
+vector<pair<int,int>> sort_result2(htable.begin(), htable.end());
 sort(sort_result.begin(), sort_result.end(), comp);
 ```
 
