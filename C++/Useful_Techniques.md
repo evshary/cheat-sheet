@@ -44,3 +44,17 @@ for (auto & [s, i] : v) {
     cout << s << " " << i << endl;
 }
 ```
+
+# Exchange
+
+`int z = std::exchange(x, y);` means
+
+1. x is assigned the value of y,
+2. z is assigned the value that x had initially.
+
+```c++
+#include <utility>
+int a = 1;
+int b = 2;
+b = std::exchange(a, b);
+```
