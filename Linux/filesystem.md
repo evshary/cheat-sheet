@@ -22,6 +22,8 @@
   - `sudo dumpe2fs -h /dev/sda0`
 * Show the list of disks
   - `sudo fdisk -l`
+* Create/delete partiion for the disk
+  - `sudo fdisk /dev/nvme0n1p1`
 * Test read/write of the disk
   - `sudo hdparm -Tt /dev/sda0`
 * Format the disk (`mkfs.<ext>`)
@@ -33,7 +35,7 @@
 * Mount/Unmount the device:
   - `mount <device> <mount point>`
   - `umount <device>` or `umount <mount point>`
-  - e.g. `mount /dev/nvmen1 /mnt`
+  - e.g. `mount /dev/nvme0n1p1 /mnt`
 
 ## NVME
 
