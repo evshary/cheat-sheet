@@ -14,7 +14,7 @@
 
 # Disk
 
-* List all available disk (No matter filesystem exists or not)
+* List all available disk (No matter disk is mount or not)
   - `lsblk`
 * Clear disk
   - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
@@ -28,8 +28,12 @@
   - `sudo mkfs.fat /dev/sda`
 * Reload partition
   - `partprobe`
-* List the disk (Only filesystem exists): `df -h`
+* List the disk (Only disk is mount): `df -h`
   - Also show filesystem type: `df -hT`
+* Mount/Unmount the device:
+  - `mount <device> <mount point>`
+  - `umount <device>` or `umount <mount point>`
+  - e.g. `mount /dev/nvmen1 /mnt`
 
 ## NVME
 
