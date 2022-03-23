@@ -14,6 +14,8 @@
 
 # Disk
 
+* List all available disk (No matter filesystem exists or not)
+  - `lsblk`
 * Clear disk
   - `dd if=/dev/zero of=/dev/sda bs=1M status=progress`
 * Show partition information
@@ -26,9 +28,19 @@
   - `sudo mkfs.fat /dev/sda`
 * Reload partition
   - `partprobe`
-* List the disk: `df -h`
+* List the disk (Only filesystem exists): `df -h`
   - Also show filesystem type: `df -hT`
 
+## NVME
+
+If you use NVME device, you'll see three devices: `/dev/nvme0`, `/dev/nvme0n1`, `/dev/nvme0n1p1`
+
+* `/dev/nvme0` means NVME device controller
+* `/dev/nvme0n1` means NVME storage namespaces: the devices you use for actual storage
+  - You can format the disk by operating this device
+* `/dev/nvme0n1p1`: means the partition in NVME
+
+Reference: [Why is there both character device and block device for nvme?](https://serverfault.com/questions/892134/why-is-there-both-character-device-and-block-device-for-nvme)
 
 # chroot
 
