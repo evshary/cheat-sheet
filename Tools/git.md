@@ -91,3 +91,9 @@ git am <patch_directory>/*
 ```bash
 git clone -b v1.0.0 --single-branch --depth 1 <URL>
 ```
+
+# Modify commit date
+
+```bash
+git commit --amend --no-edit --date "Sat 26 Mar 2022 21:45:19 GMT"
+```
