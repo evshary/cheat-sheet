@@ -36,6 +36,16 @@
   - `mount <device> <mount point>`
   - `umount <device>` or `umount <mount point>`
   - e.g. `mount /dev/nvme0n1p1 /mnt`
+* Check disk health
+```bash
+sudo apt install smartmontools
+# Run self-test
+sudo smartctl -t short /dev/sda
+# Get result
+sudo smartctl -H /dev/sda
+# Detail overall status
+sudo smartctl -a /dev/sda
+```
 
 ## NVME
 
