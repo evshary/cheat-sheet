@@ -199,8 +199,14 @@ docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix --env="QT_X11_NO_MITSHM=1" 
 #rviz2
 ```
 
-* Remove multiple container with wildcard filter
+* Remove multiple images with wildcard filter
 
 ```bash
 docker rmi -f $(docker images --filter=reference="*myimage*" -q)
+```
+
+* Remove all exited containers
+
+```bash
+docker rm -f $(docker ps -a --filter=status="exited" -q)
 ```
