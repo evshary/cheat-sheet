@@ -97,3 +97,11 @@ git clone -b v1.0.0 --single-branch --depth 1 <URL>
 ```bash
 git commit --amend --no-edit --date "Sat 26 Mar 2022 21:45:19 GMT"
 ```
+
+# Commit with signoff
+
+```bash
+git commit --signoff
+# If you also want to modify the author email
+git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
+```
