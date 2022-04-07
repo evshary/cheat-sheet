@@ -25,3 +25,20 @@ How to setup your own self action server
 Put your password or sensitive data in secret in GitHub.
 
 Usage: use `${{secrets.YOUR_SECRET_NAME}}` in action.
+
+# Personal Access Tokens (PAT)
+
+* Go to Settings => Developer settings => Personal access tokens
+
+# How to use GHCR
+
+Refer to https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+
+* Generate PAT with the following privileges:
+  - read:packages
+  - write:packages
+  - delete:packages
+* Export PAT: `export CR_PAT=YOUR_TOKEN`
+* Login: `echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin`
+* Tag your images: `docker tag IMAGE_NAME:latest ghcr.io/OWNER/IMAGE_NAME:latest`
+* Push docker images: `docker push ghcr.io/OWNER/IMAGE_NAME:latest`
