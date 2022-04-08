@@ -15,6 +15,11 @@ How to setup your own self action server
 
 * Note that add "runs-on: [self-hosted, Linux, X64]" in your action jobs.
 
+### WARNING: You need to make sure Action has right permission:
+
+* Action => General => General actions permissions => Policies: Add your repository into it.
+* Action => Runner Groups => Default => Repository access: Add your repository into it.
+
 ## Useful example
 
 * To run in different architecture: [uraimo/run-on-arch-action](https://github.com/uraimo/run-on-arch-action)
