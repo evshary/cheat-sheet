@@ -50,6 +50,8 @@ DTS(Device Tree Source)  ---------------------------->  DTB(Device Tree Blob)
 ```bash
 # Compile to dtbo
 dtc -O dtb -o <my.dtbo> <my.dts>
+# Decompile
+dtc -I dtb -O dts <my.dtb> > <my.dts>
 ```
 
 ## NVIDIA platform
