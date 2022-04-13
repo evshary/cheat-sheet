@@ -76,6 +76,7 @@ sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Your overlay name"
 # Useful tips
 
 * Show the current device tree: `tree /proc/device-tree | less`
+* The description of kernel device tree: https://www.kernel.org/doc/Documentation/devicetree/bindings/
 
 # Reference
 * [linux设备树笔记--dts基本概念及语法](https://e-mailky.github.io/2016-12-06-dts-introduce): Basic device tree syntax.
