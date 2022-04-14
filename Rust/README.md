@@ -32,6 +32,24 @@ rustup self uninstall
 
 # Usage
 
+## rustc
+
+* Create `main.rs`
+
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+* Build code
+
+```sh
+rustc main.rs
+```
+
+## cargo
+
 * Create new project
   - Create Cargo.toml and src folder
 
@@ -45,6 +63,8 @@ cd hello_world
 ```sh
 # Clean: remove target folder
 cargo clean
+# Check compile without creating executables
+cargo check
 # Build: create target folder
 cargo build
 # Release build
