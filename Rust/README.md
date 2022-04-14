@@ -12,9 +12,10 @@ There are 3 binaries for rust.
 
 * Install rustup
   - the binary of rust will be in `~/.cargo/bin`, and rustup will setup the environemt variable for you.
+  - The environment settings `. "$HOME/.cargo/env"` will be under `~/.profile`, `~/.bashrc` and `~/.zshenv`.
 
 ```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
 * Update rust
