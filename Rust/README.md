@@ -51,7 +51,8 @@ rustc main.rs
 ## cargo
 
 * Create new project
-  - Create Cargo.toml and src folder
+  - It'll create Cargo.toml and src folder
+  - `Cargo.toml` will record the package you need and `Cargo.toml` will record the specific version of dependencies related to the package.
 
 ```sh
 cargo new hello_world
