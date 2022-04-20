@@ -36,6 +36,11 @@ We need to add `#include <vector>` first. Assume v is a vector for examples belo
 // Remove 8 from vector v
 v.erase(std::remove(v.begin(), v.end(), 8), v.end());
 ```
+* reverse the vector
+```cp
+#include <algorithm>
+std::reverse(v.begin(), v.end());
+```
 
 ## Example
 * Iterate
