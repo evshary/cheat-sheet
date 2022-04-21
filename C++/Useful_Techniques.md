@@ -9,7 +9,7 @@ Refer to [Faster to swap or assign a vector of strings?](https://stackoverflow.c
 ```c++
 vector<string> temp;
 v = temp;           // complexity is linear in the size of the temp
-v.swap( temp );     // complexity is constant
+v.swap(temp);     // complexity is constant
 ```
 
 # Elegant way to run DFS
