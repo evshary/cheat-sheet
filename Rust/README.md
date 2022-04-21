@@ -77,3 +77,8 @@ cargo build --release
 ```sh
 cargo run
 ```
+
+# Example
+
+* [hello_world](hello_world): Simple example
+* [struct_example](struct_example): How to use struct and debug
