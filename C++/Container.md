@@ -201,6 +201,16 @@ The difference between them:
   - Building hash table takes time.
 
 ## Example
+* init and size
+```c++
+unordered_map<char, char>
+        n{ { 'A', 'G' },
+           { 'B', 'E' },
+           { 'C', 'E' },
+           { 'D', 'K' },
+           { 'E', 'S' } };
+cout << n.size() << endl;  // will be 5
+```
 * insert
 ```c++
 map<string, int> m;
@@ -208,6 +218,9 @@ map<string, int> m;
 m.insert(pair<string,int>("test1", 111));
 // Insert directly
 m["test2"] = 222;
+// In fact, if the key does not exist, it'll initialize as 0
+// Refer to https://stackoverflow.com/questions/62495482/what-does-unordered-map-returns-when-looking-for-a-key-that-doesnt-exist
+m["not_exist_key"]++;  // m["not_exist_key"]=1
 // Count occurrence
 if (m.find(1) == m.end())
     m[1] = 1;
@@ -226,11 +239,17 @@ for (auto m : maps)
 for (auto [_, second] : maps)
     cout << second << endl;
 ```
-* find
+* find & count
 ```c++
+// find
 map<string,int>::iterator it = m.find("test1");
 if(it != m.end())
     cout << "Value is " << it->second << endl;
+else
+    cout << "Not found." << endl;
+// count (Just check exist or not)
+if (m.count("test1"))
+    cout << "Value found" << endl;
 else
     cout << "Not found." << endl;
 ```
