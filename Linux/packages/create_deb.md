@@ -3,7 +3,7 @@
 There are 3 ways to create packages:
 
 * dpkg-buildpackage
-  - Do the following things
+  - The command will do the following things
     - clean: `debian/rules clean`
     - apply patches: `dpkg-source -b`
     - build: `debian/rules build`
@@ -17,6 +17,8 @@ There are 3 ways to create packages:
 
 # Create your own packages
 
+## Formal
+
 * Install necessary packages
 ```bash
 sudo apt-get install devscripts build-essential lintian
@@ -28,11 +30,19 @@ sudo apt-get install devscripts build-essential lintian
   - rules: How to build the package
   - copyright: It can be blank
   - compat: compatibility
-* Use dpkg-buildpackage
-  - `dpkg-buildpackage -rfakeroot -b -uc -us`
-* Use debuild
-  - Build: `debuild -b -uc -us`
-  - Clean: `debuild -- clean`
+* Packages:
+  - Use dpkg-buildpackage
+      * `dpkg-buildpackage -rfakeroot -b -uc -us`
+  -  Use debuild
+      * Build: `debuild -b -uc -us`
+      * Clean: `debuild -- clean`
+
+## Simple
+
+* Write your own program
+* Create `DEBIAN` folder (must be uppercase)
+* Create `DEBIAN/control` file and add necessary information
+* Leave current folder and run `dpkg -b <your folder>`
 
 # Download existed packages
 
@@ -48,6 +58,11 @@ dpkg-buildpackage -rfakeroot -b -uc -us
 # Or another way
 debuild -b -uc -us
 ```
+
+# Decompress the deb
+
+* See the installed content: `dpkg -x <your deb> <target folder>`
+* See the DEBIAN folder: `ar xv <your deb>` and then uncompress `control.tar.gz`
 
 # Reference
 * [[Debian套件打包] 設定好debian目錄後的打包](http://wen00072.github.io/blog/2014/06/12/package-debian-packages-set-after-list-of-debian-packages/): Several ways to generate deb files
