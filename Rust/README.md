@@ -56,6 +56,8 @@ rustc main.rs
 
 ```sh
 cargo new hello_world
+# If you want to create library
+# cargo new --lib hello_world
 cd hello_world
 ```
 
