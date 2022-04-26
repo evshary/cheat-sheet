@@ -1,0 +1,8 @@
+---
+  - name: install curl
+    become: true  # use sudo
+    apt:
+      name: curl
+  - name: install vim
+    become: true  # use sudo
+    apt: name=vim update_cache=yes state=latest
