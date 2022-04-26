@@ -4,10 +4,10 @@ ansible can manage your device easily.
 
 # Installation
 
-* Use apt. It seems like install from python-pip may cause some problems.
+* Note: you need to use `sudo` to install ansible executable to `/usr/local/bin/`
 
 ```bash
-sudo apt install ansible
+sudo python3 -m pip install ansible
 ```
 
 # Files

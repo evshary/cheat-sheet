@@ -34,9 +34,3 @@ TODO: I can't run the playbook currently, maybe due to [this issue](https://gith
 ```bash
 ansible-playbook -vvv your_playbook.yml
 ```
-
-# Reference
-
-* [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html)
-* [現代 IT 人一定要知道的 Ansible 自動化組態技巧](https://chusiang.gitbooks.io/automate-with-ansible/content/)
-* [幾個小建議改善你的 Ansible 技能](https://blog.pichuang.com.tw/20180622-suggestions_to_improve_your_ansible_playbook/)
