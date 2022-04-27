@@ -232,7 +232,9 @@ trap "echo test123" INT
 # Send INT signal to current shell
 kill -2 $$
 ```
-* Useful commands
+
+## Useful commands
+* How to send signal to different PGID
   - refer to [What is the difference between "kill 0" and "kill -‍- -$$"?](https://stackoverflow.com/questions/19252115/what-is-the-difference-between-kill-0-and-kill)
 ```bash
 # Send TERM signal to the process group, which is the absolute number of current process ID.
@@ -241,6 +243,10 @@ trap "kill -TERM -$$ ; exit 1" INT QUIT
 # Send TERM signal to the process group of the current process ID.
 # If pid is 10 and pgid is 20, send signal to pgid 20
 trap "kill -TERM 0 ; exit 1" INT QUIT
+```
+* How to run commands while the shell script exit (normal / abnormal exit)
+```bash
+trap "echo EXIT" EXIT
 ```
 
 # Tips:
