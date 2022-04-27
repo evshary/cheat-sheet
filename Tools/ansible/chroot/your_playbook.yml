@@ -1,0 +1,10 @@
+---
+- name: Use chroot
+  hosts: /
+  connection: chroot
+  become: true  # use sudo
+  tasks:
+    - name: Get date
+      shell: date
+    - name: Get environment
+      shell: echo $HOST
