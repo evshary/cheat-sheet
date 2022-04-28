@@ -10,6 +10,7 @@ Refer to [Faster to swap or assign a vector of strings?](https://stackoverflow.c
 vector<string> temp;
 v = temp;           // complexity is linear in the size of the temp
 v.swap(temp);     // complexity is constant
+//swap(v, temp);  // another way
 ```
 
 # Elegant way to run DFS

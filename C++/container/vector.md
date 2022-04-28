@@ -1,7 +1,5 @@
 # vector
 
-## Usage
-
 We need to add `#include <vector>` first. Assume v is a vector for examples below.
 
 * Access the element
@@ -80,62 +78,4 @@ array2D.assign(n,row);  // init an vector with n vectors
 ```c++
 vector<int> v(8);
 fill(v.begin(), v.end(), 8); // fill with 8
-```
-
-## Using algorithm
-
-* erase-remove idiom: remove the element from vector
-  - `remove` will move the vector after matched element forward (but extra space is still reserved), and `erase` will remove these elements.
-```cpp
-#include <algorithm>
-// What remove can do
-vector<int> v{8,3,8,9,1,1};
-std::remove(v.begin(), v.end(), 8);  // v_after_remove will be {3,9,1,1,1,1} (The last 2 elements are reserved)
-// Remove 8 from vector v
-vector<int> v{8,3,8,9,1,1};
-v.erase(std::remove(v.begin(), v.end(), 8), v.end());
-```
-
-* reverse the vector
-```cpp
-#include <algorithm>
-std::reverse(v.begin(), v.end());
-```
-
-* Find max / min number
-```c++
-#include <algorithm>
-vector<int> v{3,2,1,7,8,9};
-int max_index = max_element(v.begin(), v.end()) - v.begin();
-int max_element = *max_element(v.begin(), v.end());
-int min_index = min_element(v.begin(), v.end()) - v.begin();
-int min_element = *min_element(v.begin(), v.end());
-```
-
-* Find the specific number
-```c++
-#include <algorithm>
-vector<int> v{3,2,1,7,8,9};
-auto it = find(v.begin(), v.end(), 7);
-if (it != v.end()) {
-  cout << *it << " is at index " << it-v.begin() << endl;
-}
-```
-
-* Count the element number in the vector
-```c++
-#include <algorithm>
-cout << count(v.begin(), v.end(), 8) << endl;  // print how many 8 in the vector v
-```
-
-* Sort
-```c++
-#include <algorithm>
-// sort from small to big
-sort(v.begin, v.end());
-// sort from big to small
-bool comp(int &num1, int &num2) {
-    return num1 > num2;
-}
-sort(v.begin, v.end(), comp);
 ```

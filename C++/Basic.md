@@ -26,7 +26,7 @@ obj->~OBJ();
 int func(int, int = 1);
 
 int main() {
-    func(1);    // 1
+    func(1);     // 1
     func(1, 2);  // 2
     return 0;
 }
@@ -87,56 +87,6 @@ public: // default is public
   VALUE(int v) {i= v;}
   VALUE(double v) {d = v;}
 };
-```
-
-# algorithm
-To use algorithm, we need `#include <algorithm>` first.
-
-* sort
-```c++
-bool compare_func(int a, int b) {
-  // We can only use <, not <=, and we can't change the argument
-  return a < b;
-}
-//...
-vector<int> v{3,5,1,6,2,9};
-// from small to big
-sort(v.begin(), v.end());
-sort(v.begin(), v.end(), compare_func);
-// from big to small
-sort(v.rbegin(), v.rend());
-```
-* find
-```c++
-int search = 4;
-vector<int>::iterator it = find(v.begin(), v.end(), search);
-if (it != ivector.end())
-  cout << "Found!" << endl;
-else
-  cout << "Not found!" << endl;
-```
-* reverse
-```c++
-reverse(v.begin(), v.end());
-```
-* upper_bound/lower_bound
-  - Only used in sorted array
-```c++
-vector<int> v{3,5,1,6,2,9,2,2};
-sort(v.begin(), v.end());  // 1,2,2,2,3,5,6,9
-vector<int>::iterator low, up;
-// find the first element >= 2
-low = lower_bound (v.begin(), v.end(), 2); // the iterator points to 1st element
-// find the first element > 2
-up = upper_bound (v.begin(), v.end(), 2);  // the iterator points to 4th element
-```
-* max_element, min_element
-```c++
-vector<int> v{3,5,1,6,2,9};
-// find max element
-cout<< *max_element(v.begin(), v.end()) << endl;
-// find min element
-cout<< *min_element(v.begin(), v.end()) << endl;
 ```
 
 # cast
