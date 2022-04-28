@@ -4,11 +4,13 @@ Here we list some useful techniques in C++:
 
 # Use swap instead of assign
 
+swap is in `#include <utility>` but we don't need to include it.
+
 Refer to [Faster to swap or assign a vector of strings?](https://stackoverflow.com/questions/22001854/faster-to-swap-or-assign-a-vector-of-strings)
 
 ```c++
 vector<string> temp;
-v = temp;           // complexity is linear in the size of the temp
+v = temp;         // complexity is linear in the size of the temp
 v.swap(temp);     // complexity is constant
 //swap(v, temp);  // another way
 ```

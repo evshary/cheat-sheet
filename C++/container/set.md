@@ -21,11 +21,11 @@ for (auto e : s) {
 }
 // Check exist or not
 if (s.count(2)) {
-  // Since s.count(2) == 1, enter here.
+    // Since s.count(2) == 1, enter here.
 }
 s.erase(2); // {1,3}
 if (s.count(2)) {
-  // Since s.count(2) == 0, ignore here.
+    // Since s.count(2) == 0, ignore here.
 }
 ```
 
@@ -46,12 +46,12 @@ for (auto e : u) {
 }
 // Check exist or not
 if (u.count(2)) { 
-  // Since u.count(2) == 1, enter here.
+    // Since u.count(2) == 1, enter here.
 }
 // To erase, worst case is O(N). Refer to https://stackoverflow.com/questions/34556937/stdunordered-seterase-complexity
 u.erase(2);
 if (u.count(2)) {
-  // Since u.count(2) == 0, ignore here.
+    // Since u.count(2) == 0, ignore here.
 }
 ```
 
@@ -63,16 +63,16 @@ if (u.count(2)) {
 // find value in the set
 set<int>::const_iterator it = s.find(2);  // or auto it = u.find(2)
 if (it == s.end())
-  cout << "Not found" << endl;
+    cout << "Not found" << endl;
 else
-  cout << *it << "is here" << endl;
+    cout << *it << "is here" << endl;
 
 // find value in the unordered_set
 unordered_set<int>::const_iterator it = u.find(2);  // or auto it = u.find(2)
 if (it == u.end())
-  cout << "Not found" << endl;
+    cout << "Not found" << endl;
 else
-  cout << *it << "is here" << endl;
+    cout << *it << "is here" << endl;
 ```
 
 # vector <=> set

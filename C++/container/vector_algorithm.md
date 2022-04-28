@@ -56,7 +56,7 @@ int min_element = *min_element(v.begin(), v.end());
 vector<int> v{3,2,1,7,8,9};
 auto it = find(v.begin(), v.end(), 7); // it type is vector<int>::iterator
 if (it != v.end()) {
-  cout << *it << " is at index " << it-v.begin() << endl;
+    cout << *it << " is at index " << it-v.begin() << endl;
 }
 ```
 
