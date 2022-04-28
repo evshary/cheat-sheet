@@ -31,8 +31,6 @@ int main() {
 
 # priority_queue
 
-## Usage
-
 We need to add `#include <queue>` first. Assume q is a queue for examples below.
 
 priority_queue is a queue that the highest priority element is extracted first.
@@ -40,9 +38,9 @@ priority_queue is a queue that the highest priority element is extracted first.
 Default is that the largest value has the highest priority.
 
 * Declaration:
-  - `priority_queue<int> pqueue;`: Default is largest value first.
+  - `priority_queue<int> pqueue;`: Default is largest value first. (The priority of small value is higher)
   - `priority_queue<int,vector<int>,less<int>>`: Largest value first.
-  - `priority_queue<int,vector<int>,greater<int>>`: Smallest value first.
+  - `priority_queue<int,vector<int>,greater<int>>`: Smallest value first. (The priority of big value is higher)
   - `priority_queue<pair<int,int>>`: Default is to sort the 1st element of the pair from big to small.
 * Operations:
   - `q.push(element)`: Put element into q. Time complexity is O(NlogN).
@@ -50,7 +48,63 @@ Default is that the largest value has the highest priority.
   - `q.top()`: Read the value of element which has highest priority.
   - `q.empty()`: Check whether the q is empty or not.
   - `q.size()`: Return the current number of elements.
-* Implement compare functions
+
+## Example
+
+* `int` as element
+
+```c++
+#include <queue>
+using namespace std;
+
+priority_queue<int> small;
+priority_queue<int, vector<int>, greater<int>> big;
+for (auto n : {5, 1, 3, 7, 0, 4}) {
+    small.push(n);
+    big.push(n);
+}
+cout << "small: ";
+while (!small.empty()) {
+    cout << small.top() << " "; // 7,5,4,3,1,0
+    small.pop();
+}
+cout << endl;
+cout << "big: ";
+while (!big.empty()) {
+    cout << big.top() << " "; // 0,1,3,4,5,7
+    big.pop();
+}
+cout << endl;
+```
+
+* `pair<int,int>` as element
+
+```cpp
+#include <queue>
+using namespace std;
+#define pii pair<int,int>
+
+priority_queue<pii> small;
+priority_queue<pii, vector<pii>, greater<pii>> big;
+for (auto [x,y] : vector<pii>{{4,5},{2,2},{3,0}})
+    small.push({x,y}), big.push({x,y});
+cout << "small: ";
+while (!small.empty()) {
+    pair<int,int> p = small.top();
+    cout << "(" << p.first << "," << p.second << ") ";  // {4,5},{3,0},{2,2}
+    small.pop();
+}
+cout << endl;
+cout << "big: ";
+while (!big.empty()) {
+    pair<int,int> p = big.top();
+    cout << "(" << p.first << "," << p.second << ") ";  // {2,2},{3,0},{4,5}
+    big.pop();
+}
+cout << endl;
+```
+
+## Implement compare functions
 
 ```c++
 #include <queue>
