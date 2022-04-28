@@ -19,6 +19,10 @@ The difference between them:
   - The internal data structure is a hash table, so lookup only needs O(1)
   - Building hash table takes time.
 
+NOTE: There is the limitation for the key type of map: You can only use the types, which support hash function.
+Refer to https://en.cppreference.com/w/cpp/utility/hash
+You need to implement your hash function if using other types as key.
+
 ## Example
 
 * init and size
@@ -98,4 +102,13 @@ for (auto i : htable) sort_result.push_back(i);
 vector<pair<int,int>> sort_result2(htable.begin(), htable.end());
 // sort the vector
 sort(sort_result.begin(), sort_result.end(), comp);
+```
+
+* Workaround to use `pair<int,int>` as key: convert to string
+```c++
+unordered_map<string,int> hash;
+pair<int,int> p{1,2};
+string key = to_string(p.first)+","+to_string(p.second);
+hash[key] = 5;
+cout << hash[key] << endl;
 ```
