@@ -31,6 +31,7 @@ unordered_map<char, char>
            { 'E', 'S' } };
 cout << n.size() << endl;  // will be 5
 ```
+
 * insert
 ```c++
 map<string, int> m;
@@ -41,12 +42,8 @@ m["test2"] = 222;
 // In fact, if the key does not exist, it'll initialize as 0
 // Refer to https://stackoverflow.com/questions/62495482/what-does-unordered-map-returns-when-looking-for-a-key-that-doesnt-exist
 m["not_exist_key"]++;  // m["not_exist_key"]=1
-// Count occurrence
-if (m.find(1) == m.end())
-    m[1] = 1;
-else
-    m[1]++;
 ```
+
 * Iterate
 ```c++
 unordered_map<string, string> maps;
@@ -59,6 +56,7 @@ for (auto m : maps)
 for (auto [_, second] : maps)
     cout << second << endl;
 ```
+
 * find & count
 ```c++
 // find
@@ -73,6 +71,7 @@ if (m.count("test1"))
 else
     cout << "Not found." << endl;
 ```
+
 * delete
 ```c++
 // Find first then erase
@@ -84,8 +83,10 @@ int ret = erase("test2");  // Return 1 while deleted, or return 0.
 m.erase(m.begin(), m.end());
 m.clear();
 ```
+
 * sort: Transform into vector and then sort it
 ```c++
+// Use second value to sort from small to big
 bool comp(pair<int,int> l, pair<int,int> r) {
     return r.second < l.second;
 }
@@ -95,5 +96,6 @@ vector<pair<int,int>> sort_result;
 for (auto i : htable) sort_result.push_back(i);
 // 2nd way to transform into vector
 vector<pair<int,int>> sort_result2(htable.begin(), htable.end());
+// sort the vector
 sort(sort_result.begin(), sort_result.end(), comp);
 ```

@@ -95,11 +95,13 @@ std::remove(v.begin(), v.end(), 8);  // v_after_remove will be {3,9,1,1,1,1} (Th
 vector<int> v{8,3,8,9,1,1};
 v.erase(std::remove(v.begin(), v.end(), 8), v.end());
 ```
+
 * reverse the vector
 ```cpp
 #include <algorithm>
 std::reverse(v.begin(), v.end());
 ```
+
 * Find max / min number
 ```c++
 #include <algorithm>
@@ -109,6 +111,7 @@ int max_element = *max_element(v.begin(), v.end());
 int min_index = min_element(v.begin(), v.end()) - v.begin();
 int min_element = *min_element(v.begin(), v.end());
 ```
+
 * Find the specific number
 ```c++
 #include <algorithm>
@@ -118,8 +121,21 @@ if (it != v.end()) {
   cout << *it << " is at index " << it-v.begin() << endl;
 }
 ```
+
 * Count the element number in the vector
 ```c++
 #include <algorithm>
- cout << count(v.begin(), v.end(), 8) << endl;  // print how many 8 in the vector v
+cout << count(v.begin(), v.end(), 8) << endl;  // print how many 8 in the vector v
+```
+
+* Sort
+```c++
+#include <algorithm>
+// sort from small to big
+sort(v.begin, v.end());
+// sort from big to small
+bool comp(int &num1, int &num2) {
+    return num1 > num2;
+}
+sort(v.begin, v.end(), comp);
 ```

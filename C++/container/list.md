@@ -9,6 +9,7 @@ l.push_back(2);  // [2]
 l.push_back(3);  // [2,3]
 l.push_front(1); // [1,2,3]
 ```
+
 * iterate
 ```c++
 list<int>::iterator it;
@@ -19,6 +20,7 @@ list<int>::reverse_iterator rit;
 for (rit = l.rbegin(); rit != l.rend(); rit++)
   cout << *rit << " ";
 ```
+
 * remove & erase
   - remove is to delete the same value of the element.
   - erase is to delete the same pointer of the element.

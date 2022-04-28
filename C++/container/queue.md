@@ -16,7 +16,7 @@ We need to add `#include <queue>` first. Assume q is a queue for examples below.
 #include <queue>
 using namespace std;
 
-int main(){
+int main() {
     queue<int> q;
     q.push(5);  // [5]
     q.push(10); // [5,10]
