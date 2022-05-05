@@ -62,7 +62,7 @@ debuild -b -uc -us
 # Decompress the deb
 
 * See the installed content: `dpkg -x <your deb> <target folder>`
-* See the DEBIAN folder: `ar xv <your deb>` and then uncompress `control.tar.gz`
+* See the DEBIAN folder: `dpkg -e <your deb> <target folder>`
 
 # Reference
 * [[Debian套件打包] 設定好debian目錄後的打包](http://wen00072.github.io/blog/2014/06/12/package-debian-packages-set-after-list-of-debian-packages/): Several ways to generate deb files
