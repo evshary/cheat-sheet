@@ -61,10 +61,16 @@ debuild -b -uc -us
 
 # Decompress the deb
 
+* See the content of deb: `dpkg -c <your deb>`
 * See the installed content: `dpkg -x <your deb> <target folder>`
 * See the DEBIAN folder: `dpkg -e <your deb> <target folder>`
+* Repackage
+  - Unpack: `dpkg-deb -R <your deb> <folder>`
+  - Pack: `dpkg-deb <folder> <your deb>`
 
 # Reference
 * [[Debian套件打包] 設定好debian目錄後的打包](http://wen00072.github.io/blog/2014/06/12/package-debian-packages-set-after-list-of-debian-packages/): Several ways to generate deb files
 * [Building debian packages with debuild](https://blog.packagecloud.io/debian/debuild/packaging/2015/06/08/buildling-deb-packages-with-debuild/): How to generate simple packages
 * [How To Build Debian Packages From Source](https://ostechnix.com/how-to-build-debian-packages-from-source/)
+* [如何製作「deb檔(Debian Package)」](https://samwhelp.github.io/book-ubuntu-basic-skill/book/content/package/how-to-build-package.html)
+* [Easily unpack DEB, edit postinst, and repack DEB](https://unix.stackexchange.com/questions/138188/easily-unpack-deb-edit-postinst-and-repack-deb)
