@@ -84,3 +84,7 @@ cargo run
 
 * [hello_world](hello_world): Simple example
 * [struct_example](struct_example): How to use struct and debug
+
+# Reference
+
+* [通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/index.html)
