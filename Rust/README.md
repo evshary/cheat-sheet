@@ -88,3 +88,5 @@ cargo run
 # Reference
 
 * [通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/index.html)
+* [Rust学习笔记](https://skyao.io/learning-rust/)
+* [RUST playground](https://play.rust-lang.org/)
