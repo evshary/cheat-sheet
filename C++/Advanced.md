@@ -411,7 +411,7 @@ Need to `#include <algorithm>` before using permutation.
 
 There are `is_permutation` and `next_permutation`.
 
-```bash
+```c++
 vector<int> v = {1,2,3};
 vector<int> a = {3,2,1};
 if (is_permutation(v.begin(), v.end(), a.begin())) {

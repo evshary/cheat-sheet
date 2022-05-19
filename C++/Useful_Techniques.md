@@ -61,3 +61,45 @@ int a = 1;
 int b = 2;
 b = std::exchange(a, b);
 ```
+
+# optional
+
+optional can combine the result and error in the same return value.
+
+To use optional, you need to:
+
+1. Add `#inlcude <optional>`
+2. Build with C++17: `g++ -std=c++17 test.cpp -o test.out`
+3. Add std: `std::optional<T>` & `std::nullopt`
+
+```c++
+#include <iostream>
+#include <vector>
+#include <optional>
+#include <climits>
+
+using namespace std;
+
+optional<int> findLargestNum(vector<int>& num) {
+    if (num.size() == 0) return nullopt; // you can also use `return {}`
+    int max_num = INT_MIN;
+    for (auto n : num) {
+        max_num = max(max_num, n);
+    }
+    return max_num;
+}
+
+int main()
+{
+    //vector<int> v{4,1,6,9,2};
+    vector<int> v{};
+    optional<int> result = findLargestNum(v);
+    if (result) {
+        cout << "Max num is " << *result << endl;
+    } else {
+        cout << "Wrong input" << endl;
+    }
+
+    return 0;
+}
+```
