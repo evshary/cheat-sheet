@@ -79,6 +79,16 @@ make kernelversion
 
 * Check the config of the current kernel: `cat /boot/config-$(uname -r)`
 
+* Only build one kernel module module
+  - Refer to https://askubuntu.com/a/168293
+
+```bash
+make drivers/net/usb/lan78xx.ko
+# Remount the module (Or you can copy to `/usr/lib/modules/`uname -r`/kernel/drivers/net/usb/`)
+sudo modprobe -r lan78xx
+sudo insmod ./lan78xx.ko
+```
+
 # Common Error
 ## Creating deb packages
 * If there is link file in the kernel folder, it'll fail while creating deb packages. (For example, vmlinux-gdb.py)
