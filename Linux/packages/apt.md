@@ -3,7 +3,7 @@
 * Update source list
   - `apt update`
 * List packages
-  - List all packages: `apt list`
+  - List all packages: `apt list` or `dpkg -l`
   - List installed packages: `apt list --installed`
   - List upgradable packages: `apt list --upgradable`
   - List packages including version: `apt list -a <PACKAGES>`
@@ -23,6 +23,8 @@
 * Install certain version
   - Check packages version: `apt policy <PACKAGES>`
   - Install certain version: `apt install <PACKAGES>=<VERSION>`
+* Show dependency of the package
+  - `sudo apt-cache depends <PACKAGES>`
 * Search pkg which contains certain files
   ```bash
   sudo apt install apt-file
