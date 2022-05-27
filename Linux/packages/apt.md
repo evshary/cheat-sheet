@@ -39,6 +39,11 @@
   # Only clean outdated deb files
   apt autoclean
   ```
+  * Check the content of certain package
+  ```bash
+  apt download <PACKAGES>
+  dpkg --contents <PACKAGES filename>
+  ```
 
 # Key operation
 
