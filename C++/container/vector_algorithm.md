@@ -13,7 +13,11 @@ cout << count(v.begin(), v.end(), 8) << endl;  // print how many 8 in the vector
 #include <algorithm>
 // sort from small to big
 sort(v.begin, v.end());
-// sort from big to small
+// sort from big to small - way1
+std::sort(v.rbegin(), v.rend());
+// sort from big to small - way2 (After C++14)
+std::sort(v.begin(), v.end(), std::greater<>());
+// sort from big to small - way3
 bool comp(int &num1, int &num2) {
     return num1 > num2;
 }
