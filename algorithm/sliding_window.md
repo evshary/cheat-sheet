@@ -11,13 +11,13 @@ There are 4 important things here:
 int left = 0, right = 0;
 while (right < arr.size()) {
     char c = arr[right];
-	right++;
-	// Update window structure (right)
-	while (shrink window condition) {  // Shrink window condition
-	    char old_c = arr[left];
-		left++;
-		// Update window structure (left)
-	}
-	// Update result (might not b here)
+    right++;
+    // Update window structure (right)
+    while (shrink window condition) {  // Shrink window condition
+        char old_c = arr[left];
+        left++;
+        // Update window structure (left)
+    }
+    // Update result (might not b here)
 }
 ```
