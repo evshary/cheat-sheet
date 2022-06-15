@@ -5,7 +5,7 @@ There are 4 important things here:
 1. Update window structure (right)
 2. Shrink window condition
 3. Update window structure (left)
-4. Update result (might not b here)
+4. Update result (might not be here)
 
 ```cpp
 int left = 0, right = 0;
@@ -18,6 +18,6 @@ while (right < arr.size()) {
         left++;
         // Update window structure (left)
     }
-    // Update result (might not b here)
+    // Update result (might not be here)
 }
 ```
