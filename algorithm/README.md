@@ -22,6 +22,56 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
   - Template: https://github.com/evshary/cheat-sheet/blob/main/algorithm/search.md
   - Review: 704 https://leetcode.com/problems/binary-search/
 
+# Two Pointers
+
+* 4sum:
+  - 18: https://leetcode.com/problems/4sum/
+* Reverse Linked List:
+  - 206: https://leetcode.com/problems/reverse-linked-list/
+* Fast Slow Pointers:
+  - 19: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+  - 142: https://leetcode.com/problems/linked-list-cycle-ii/
+* Reverse String
+  - 151: https://leetcode.com/problems/reverse-words-in-a-string/
+
+# Stack & Queue
+
+* Stack Match Problem
+  - 20: https://leetcode.com/problems/valid-parentheses/
+  - 1047: https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+* Expression
+  - 150: https://leetcode.com/problems/evaluate-reverse-polish-notation/
+* Monotonic Queue
+  - 239: https://leetcode.com/problems/sliding-window-maximum/
+* Priority Queue
+  - 347: https://leetcode.com/problems/top-k-frequent-elements/
+
+# Tree
+
+* Traverse with recursion in 3 steps
+  - What is the return value and argument
+  - End condtion
+  - The logic of every layer
+* Traverse without recursion
+  - https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%81%8D%E5%8E%86.md
+* How to traverse:
+  - preorder, inorder, postorder
+  - by layer:
+    - 102: https://leetcode.com/problems/binary-tree-level-order-traversal/
+* Tree attribute:
+  - 101: https://leetcode.com/problems/symmetric-tree/
+  - 404: https://leetcode.com/problems/sum-of-left-leaves/
+  - 513: https://leetcode.com/problems/find-bottom-left-tree-value/
+* Modify Tree:
+  - 106: https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+  - 654: https://leetcode.com/problems/maximum-binary-tree/
+* Binary Search Tree attribute
+  - 700: https://leetcode.com/problems/search-in-a-binary-search-tree/
+  - 98: https://leetcode.com/problems/validate-binary-search-tree/
+* Modify Binary Search Tree
+  - 701: https://leetcode.com/problems/insert-into-a-binary-search-tree/
+  - 450: https://leetcode.com/problems/delete-node-in-a-bst/
+
 # Backtracking
 
 * Backtracking use recursive funtion to do brute-force
@@ -68,6 +118,13 @@ You can try to find counter example to see whether the logic is correct.
 * Review:
   * Easy:
     - 455 https://leetcode.com/problems/assign-cookies/
+  * Medium:
+    - 376: https://leetcode.com/problems/wiggle-subsequence/
+  * Not easy to think of
+    - 45: https://leetcode.com/problems/jump-game-ii/
+    - 452: https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
+  * 2 dimension
+    - 406: https://leetcode.com/problems/queue-reconstruction-by-height/
 
 # Dynamic Programming
 
@@ -138,3 +195,9 @@ for (int j = 0; j <= bagweight; j++) {  // Iterate weight
     }
 }
 ```
+
+# Reference
+
+* [[徵文] 北美SDE 刷題/系統設計準備經驗](https://www.ptt.cc/bbs/Oversea_Job/M.1648404462.A.A04.html)
+* [LeetCode 刷题攻略](https://github.com/youngyangyang04/leetcode-master)：Very good resource
+ 
