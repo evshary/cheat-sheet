@@ -133,11 +133,16 @@ return -1;
   - You can do "pruning" to optimize the algorithm.
 * Review:
   - All: https://leetcode.com/tag/backtracking/
-  - 組合問題：77
-  - 切割問題：131
-  - 子集問題：78 (重點取或不取)
-  - 排列問題：46
-  - 棋盤問題：51
+  - 組合問題：
+    - 77: https://leetcode.com/problems/combinations/
+  - 切割問題：
+    - 131: https://leetcode.com/problems/palindrome-partitioning
+  - 子集問題：
+    - 78 (重點取或不取): https://leetcode.com/problems/subsets/
+  - 排列問題：
+    - 46: https://leetcode.com/problems/permutations/
+  - 棋盤問題：
+    - 51: https://leetcode.com/problems/n-queens/
 * Template
 
 ```c++
@@ -185,12 +190,21 @@ You can try to find counter example to see whether the logic is correct.
   - Subsequence
 * Review:
   - All: https://leetcode.com/tag/dynamic-programming/
-  - Basic: 70(Climbing stairs)
-  - 0-1 Knapsack: 416
-  - Complete knapsack: 518, 377
-  - Robber: 29
-  - Stock: 122
-  - Subsequence: 44, 72, 516
+  - Basic: 
+    - 70(Climbing stairs): https://leetcode.com/problems/climbing-stairs/
+  - 0-1 Knapsack:
+    - 416: https://leetcode.com/problems/partition-equal-subset-sum
+  - Complete knapsack:
+    - 518: https://leetcode.com/problems/coin-change-2/
+    - 377: https://leetcode.com/problems/combination-sum-iv/
+  - Robber:
+    - 198: https://leetcode.com/problems/house-robber/
+  - Stock:
+    - 122: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+  - Subsequence:
+    - 1143: https://leetcode.com/problems/longest-common-subsequence/
+    - 72: https://leetcode.com/problems/edit-distance/
+    - 516: https://leetcode.com/problems/longest-palindromic-subsequence/
 
 ## 0-1 knapsack template
 
