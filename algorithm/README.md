@@ -32,7 +32,7 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
   - 19: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
   - 142: https://leetcode.com/problems/linked-list-cycle-ii/
 * Reverse String
-  - 151: https://leetcode.com/problems/reverse-words-in-a-string/
+  - 151(SC should be O(1)): https://leetcode.com/problems/reverse-words-in-a-string/
 
 # Stack & Queue
 
@@ -71,6 +71,50 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
 * Modify Binary Search Tree
   - 701: https://leetcode.com/problems/insert-into-a-binary-search-tree/
   - 450: https://leetcode.com/problems/delete-node-in-a-bst/
+
+# Graph
+
+## Adjacent List
+
+* 207: https://leetcode.com/problems/course-schedule/
+
+## DFS
+
+* 399: https://leetcode.com/problems/evaluate-division/
+
+## BFS
+
+* Review:
+  - Not to remember steps:
+    - 200: https://leetcode.com/problems/number-of-islands/
+  - Remember steps:
+    - 994: https://leetcode.com/problems/rotting-oranges/
+* Template
+
+```c++
+queue<Node> q;
+unordered_set<Node> s;
+int step = 0;
+q.push(root);
+s.insert(root);
+while (!q.empty()) {
+    step++;
+    int cur_step_size = q.size();
+    for (int i = 0; i < cur_step_size; i++) {
+        Node *n = q.front(); q.pop();
+        if (/*n is target*/) return step;
+        for (/*All the neighbors*/) {
+            if (!s.count(neighbor)) {
+                q.push(neighbors);
+                s.insert(neighbor);
+            }
+        }
+    }
+}
+return -1;
+```
+
+* Reference: https://blog.techbridge.cc/2019/12/21/leetcode-%E5%88%B7%E9%A1%8C-pattern-breadth-first-search/
 
 # Backtracking
 
