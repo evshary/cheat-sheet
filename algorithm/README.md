@@ -45,6 +45,57 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
   - 239: https://leetcode.com/problems/sliding-window-maximum/
 * Priority Queue
   - 347: https://leetcode.com/problems/top-k-frequent-elements/
+* Monotonic Stack
+  - 739: https://leetcode.com/problems/daily-temperatures/
+
+## Monotonic Queue
+
+* In the array N, find max/min value in the window size k with O(N);
+* Template
+
+```c++
+vector<int> nums;
+int k; // windows size
+
+deque<int> dq;  // we only save index
+for (int i = 0; i < nums.size(); i++) {
+    // if the index is out of window size k
+    if (!dq.empty() && dq.front() == i - k)
+        dq.pop_front();
+    // Remove the last saved index, if current value is larger
+    while (!dq.empty() && nums[dq.back()] <= nums[i])
+        dq.pop_back();
+    dq.push_back(i);
+    // Now the front of deque is the max value in window size k
+    if (i >= k-1) cout << nums[dq.front()] << endl;
+}
+```
+
+## Monotonic Stack
+
+* Find the next larger/smaller value compared to the current index in O(N)
+* Template
+
+```c++
+vector<int> nums;
+
+vector<int> result(nums.size());  // save the next larger index
+stack<int> st;  // we only save index
+for (int i = 0; i < nums.size(); i++) {
+    // Compare the top of stack and current value
+    while (!st.empty() && nums[st.top()] < nums[i]) {
+        result[st.top()] = i;  // Do anything you want here. Here we save the index which is larger.
+        st.pop();
+    }
+    st.push(i);
+}
+// Remember to clear the stack
+while (!st.empty()) {
+    // Do anything you want here. Here we keep the result 0;
+    result[st.top()] = 0;
+    st.pop();
+}
+```
 
 # Tree
 
