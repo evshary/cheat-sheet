@@ -1,5 +1,12 @@
 # stack
 
+Need to add `#include <stack>`
+
+* `s.push(element)`: Add element.
+* `s.pop()`: Remove the top element from the stack.
+* `s.top()`: View the top of the stack.
+* `s.empty()`: Check whether the stack is empty or not.
+
 ```c++
 #include <stack>
 using namespace std;

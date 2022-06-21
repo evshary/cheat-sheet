@@ -5,6 +5,12 @@ We need to include files first.
 * set: `#include <set>`
 * unordered_set: `#include <unordered_set>`
 
+Usage
+
+* `s.insert(element)`: Add element
+* `s.count(element)`: Check whether the element exists or not
+* `s.erase(element)`: Remove the element
+
 ## set
 
 ```c++
@@ -73,6 +79,19 @@ if (it == u.end())
     cout << "Not found" << endl;
 else
     cout << *it << "is here" << endl;
+```
+
+# iterate
+
+```c++
+set<int> s1 {4, 5, 6, 9, 1};
+unordered_set<int> s2 {1, 4, 5, 2, 7};
+for (auto s : s1) {
+    cout << s << endl;
+}
+for (auto s : s2) {
+    cout << s << endl;
+}
 ```
 
 # vector <=> set
