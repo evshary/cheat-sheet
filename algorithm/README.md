@@ -11,7 +11,10 @@
 
 Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
 
-**Important: vector, unordered_map, queue, deque, pair**
+**Important:**
+
+* data structure: vector, unordered_map, queue, deque, pair
+* algorithm: how to write sort function
 
 # Array
 
@@ -216,6 +219,7 @@ No fixed step-by-step tutorial.
 You can try to find counter example to see whether the logic is correct.
 
 * Review:
+  * All: https://leetcode.com/tag/greedy/
   * Easy:
     - 455 https://leetcode.com/problems/assign-cookies/
   * Medium:
