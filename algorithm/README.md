@@ -192,9 +192,11 @@ return -1;
   - 切割問題：
     - 131: https://leetcode.com/problems/palindrome-partitioning
   - 子集問題：
-    - 78 (重點取或不取): https://leetcode.com/problems/subsets/
+    - 78 (重點取或不取，不要用迴圈跑): https://leetcode.com/problems/subsets/
+    - 90 (Advanced): https://leetcode.com/problems/subsets-ii/
   - 排列問題：
     - 46: https://leetcode.com/problems/permutations/
+    - 47 (Advanced): https://leetcode.com/problems/permutations-ii/
   - 棋盤問題：
     - 51: https://leetcode.com/problems/n-queens/
 * Template
