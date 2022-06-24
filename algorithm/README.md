@@ -311,6 +311,49 @@ for (int j = 0; j <= bagweight; j++) {  // Iterate weight
 }
 ```
 
+# Union find
+
+* Review:
+  - Graph:
+    - 684: https://leetcode.com/problems/redundant-connection/
+    - 1319: https://leetcode.com/problems/number-of-operations-to-make-network-connected/
+  - 2D:
+    - 959: https://leetcode.com/problems/regions-cut-by-slashes/
+* Graph Template:
+
+```c++
+int find(vector<int>& fathers, int node) {
+    if (fathers[node] == node) {
+        return node;
+    } else {
+        fathers[node] = find(fathers, node);
+        return fathers[node];
+    }
+}
+
+void join(vector<int>& fathers, int node1, int node2) {
+    int father1 = find(fathers, node1);
+    int father2 = find(fathers, node2);
+    if (father1 == father2) return;
+    father[father2] = father1;
+}
+
+vector<int> fathers(n)
+// init fathers
+for (int i = 0; i < n; i++) {
+    fathers[i] = i;
+}
+// connect each node
+for (int e = 0; e < edges.size(); e++) {
+    join(fathers, edges[e][0], edges[e][1]);
+}
+// find how many separate groups
+int group = 0;
+for (int i = 0; i < fathers.size(); i++) {
+    if (fathers[i] == i) group++;
+}
+```
+
 # Reference
 
 * [[徵文] 北美SDE 刷題/系統設計準備經驗](https://www.ptt.cc/bbs/Oversea_Job/M.1648404462.A.A04.html)
