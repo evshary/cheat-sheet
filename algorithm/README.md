@@ -34,8 +34,51 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
 * Fast Slow Pointers:
   - 19: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
   - 142: https://leetcode.com/problems/linked-list-cycle-ii/
+
+# String
+
 * Reverse String
   - 151(SC should be O(1)): https://leetcode.com/problems/reverse-words-in-a-string/
+* KMP
+  - 28: https://leetcode.com/problems/implement-strstr/
+  - 459: https://leetcode.com/problems/repeated-substring-pattern/
+
+* KMP template
+
+```c++
+void getNext(int *next, string& s) {
+    int j = -1;
+    next[0] = j;
+    for (int i = 1; i < s.size(); i++) {
+        while (j >= 0 && s[i] != s[j+1]) {
+            j = next[j];
+        }
+        if (s[i] == s[j+1]) {
+            j++;
+        }
+        next[i] = j;
+    }
+}
+
+int strStr(string haystack, string needle) {
+    if (needle.size() == 0) return 0;
+    int next[needle.size()];
+    getNext(next, needle);
+    int j = -1;
+    for (int i = 0; i < haystack.size(); i++) {
+        while (j >= 0 && haystack[i] != needle[j+1]) {
+            j = next[j];
+        }
+        if (haystack[i] == needle[j+1]) {
+            j++;
+        }
+        if (j == needle.size()-1) {
+            return i - (needle.size() - 1);
+        }
+    }
+    return -1;
+}
+```
 
 # Stack & Queue
 
