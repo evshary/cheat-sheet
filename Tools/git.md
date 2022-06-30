@@ -95,6 +95,9 @@ git clone -b v1.0.0 --single-branch --depth 1 <URL>
 # Modify commit date
 
 ```bash
+# Commit with the specific date
+GIT_COMMITTER_DATE="Wed 01 Jun 2022 21:11:16 GMT" git commit --date "Wed 01 Jun 2022 21:11:16 GMT"
+# Update the date of last commit
 git commit --amend --no-edit --date "Sat 26 Mar 2022 21:45:19 GMT"
 GIT_COMMITTER_DATE="Wed 01 Jun 2022 21:11:16 GMT" git commit --amend --no-edit --date "Wed 01 Jun 2022 21:11:16 GMT"
 ```
