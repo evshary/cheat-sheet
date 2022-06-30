@@ -109,3 +109,11 @@ git commit --signoff
 # If you also want to modify the author email
 git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
 ```
+
+# Undo last commit and reserve the modification
+
+```bash
+git reset HEAD~
+# Same as
+git reset HEAD~1
+```
