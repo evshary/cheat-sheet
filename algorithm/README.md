@@ -19,6 +19,7 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
 # Array
 
 * Sliding Window
+  - When it comes to contiguous, it might be suitable to sliding window.
   - Template: https://github.com/evshary/cheat-sheet/blob/main/algorithm/sliding_window.md
   - Review: 209 https://leetcode.com/problems/minimum-size-subarray-sum/
 * Binary Search
