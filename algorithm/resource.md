@@ -7,6 +7,8 @@
 # Algorithm
 
 * LeetCode 刷题攻略: https://github.com/youngyangyang04/leetcode-master
+* BLIND75: https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
+* GRIND75: https://www.techinterviewhandbook.org/grind75
 * LABULADONG 的算法网站: https://labuladong.github.io/algo/
 * geeksforgeeks topics: https://www.geeksforgeeks.org/practice-for-cracking-any-coding-interview/
 * Patterns: https://docs.google.com/document/d/1fD4Tqy0pXfJF60v2eYXjmx28pvMyeXxw21QrHWx06ag/edit#
