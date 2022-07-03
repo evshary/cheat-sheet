@@ -94,6 +94,7 @@ int strStr(string haystack, string needle) {
   - 347: https://leetcode.com/problems/top-k-frequent-elements/
 * Monotonic Stack
   - 739: https://leetcode.com/problems/daily-temperatures/
+  - 42 (hard): https://leetcode.com/problems/trapping-rain-water/
 
 ## Monotonic Queue
 
