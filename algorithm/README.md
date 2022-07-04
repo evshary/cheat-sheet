@@ -24,7 +24,9 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
   - Review: 209 https://leetcode.com/problems/minimum-size-subarray-sum/
 * Binary Search
   - Template: https://github.com/evshary/cheat-sheet/blob/main/algorithm/search.md
-  - Review: 704 https://leetcode.com/problems/binary-search/
+  - Review:
+    - 704 https://leetcode.com/problems/binary-search/
+    - 981 https://leetcode.com/problems/time-based-key-value-store/
 
 # Two Pointers
 
