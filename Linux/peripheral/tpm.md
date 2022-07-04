@@ -35,6 +35,8 @@ For example, the software requires the correct PCR value to do something.
 When the value is wrong, then the software won't work.
 Another example is using "policy" in TPM, it needs a specific PCR value to unseal the encrypted data.
 
+While it comes to update the software, the PCR value will change. Therefore you should also update PCR list which is used by verifying software.
+
 > PCR value can't be modified arbitrarily. It can only be changed by `digest(old_value|data)`. The initial value of PCR value might be all 0 / 1.
 
 ![image](https://user-images.githubusercontent.com/456210/177108393-0673049a-a962-4f71-b842-0b7cd12f6705.png)
