@@ -26,6 +26,25 @@ The tools can has several functions:
 ![image](https://user-images.githubusercontent.com/456210/145745734-59d77c5e-baa8-4559-aee7-1c2486331ee2.png)
 [image source](https://blog.fpmurphy.com/2016/02/accessing-tpm-functionality-from-uefi-shell-part-1.html)
 
+# How to use TPM PCR for secure boot
+
+Every layer in boot process will calculate the next layer software and put hash value into TPM (Extend value in PCR).
+The first layer is CRTM, and it's the first software to run and can't be calculated / measured.
+Note that TPM is only record hash value, and checking the correctness of hash value is other's job.
+For example, the software requires the correct PCR value to do something.
+When the value is wrong, then the software won't work.
+Another example is using "policy" in TPM, it needs a specific PCR value to unseal the encrypted data.
+
+> PCR value can't be modified arbitrarily. It can only be changed by `digest(old_value|data)`. The initial value of PCR value might be all 0 / 1.
+
+![image](https://user-images.githubusercontent.com/456210/177108393-0673049a-a962-4f71-b842-0b7cd12f6705.png)
+[img src](https://www.researchgate.net/figure/Secure-boot-normal-operations-21_fig13_298213449)
+
+* ARM version
+
+![image](https://user-images.githubusercontent.com/456210/177108128-04c4cf96-4793-4e79-a4ef-193e2288037b.png)
+[img src](https://www.researchgate.net/figure/Trusted-Boot-Process-with-TPM-P-boot-chain-path-M-measurement-of-component_fig1_333233274)
+
 # Install packages
 
 * Check whether tpm exist in your host
