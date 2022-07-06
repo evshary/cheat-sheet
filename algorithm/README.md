@@ -368,18 +368,21 @@ for (int j = 0; j <= bagweight; j++) {  // Iterate weight
     - 1319: https://leetcode.com/problems/number-of-operations-to-make-network-connected/
   - 2D:
     - 959: https://leetcode.com/problems/regions-cut-by-slashes/
-* Graph Template:
+  - Hard (Need to be very clear to union find):
+    - 721: https://leetcode.com/problems/accounts-merge/
+* Unino Find Template:
+  - 4 steps:
+    - create find and join function
+    - init fathers
+    - connect every nodes
+    - Do what you want (Count group / Get members of each group)
 
 ```c++
+// Create find and join function
 int find(vector<int>& fathers, int node) {
-    if (fathers[node] == node) {
-        return node;
-    } else {
-        fathers[node] = find(fathers, node);
-        return fathers[node];
-    }
+    if (fathers[node] == node) return node;
+    return fathers[node] = find(fathers, node);
 }
-
 void join(vector<int>& fathers, int node1, int node2) {
     int father1 = find(fathers, node1);
     int father2 = find(fathers, node2);
@@ -396,10 +399,17 @@ for (int i = 0; i < n; i++) {
 for (int e = 0; e < edges.size(); e++) {
     join(fathers, edges[e][0], edges[e][1]);
 }
-// find how many separate groups
+// Do what you want
+// 1. count group number
 int group = 0;
 for (int i = 0; i < fathers.size(); i++) {
     if (fathers[i] == i) group++;
+}
+// 2. Get members of each group
+unordered_map<int,vector<int>> groups
+for (int i = 0; i < fathers.size(); i++) {
+    int fid = find(fathers, i);
+    groups[fid].push_back(i);
 }
 ```
 

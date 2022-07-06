@@ -42,6 +42,15 @@ vector<int> v{8,3,8,9,1,1};
 v.erase(std::remove(v.begin(), v.end(), 8), v.end());
 ```
 
+Combine two vectors
+
+```cpp
+vector<int> v1{1,2,3};
+vector<int> v2{4,5,6};
+// become {1,2,3,4,5,6}
+v1.insert(v1.end(), v2.begin(), v2.end());
+```
+
 ## Advanced
 
 * Find max / min number
