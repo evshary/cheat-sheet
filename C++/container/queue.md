@@ -49,6 +49,13 @@ Default is that the largest value has the highest priority.
   - `q.empty()`: Check whether the q is empty or not.
   - `q.size()`: Return the current number of elements.
 
+**NOTE**
+You should note 3 things:
+
+1. priority_queue use `top()` instead of `front()`
+2. The defintion is `prioritiy_queue<int,vector<int>,less<int>>` and `priority_queue<int,vector<int>,greater<int>>`
+3. Default pq is from big to small, and `less` and `greater` are the oposite meaning.
+
 ## Example
 
 * `int` as element
