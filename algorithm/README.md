@@ -34,6 +34,7 @@ Refer to https://github.com/evshary/cheat-sheet/tree/main/C%2B%2B/container
   - 18: https://leetcode.com/problems/4sum/
 * Reverse Linked List:
   - 206: https://leetcode.com/problems/reverse-linked-list/
+  - 25(hard): https://leetcode.com/problems/reverse-nodes-in-k-group/
 * Fast Slow Pointers:
   - 19: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
   - 142: https://leetcode.com/problems/linked-list-cycle-ii/

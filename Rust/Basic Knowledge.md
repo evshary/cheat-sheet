@@ -116,7 +116,7 @@ for element in arr {
     println!("element={}", element);
 }
 // Iterate range (reverse)
-for num in (1..5).rev() {  // means from 1 to 4
+for num in (1..5).rev() {  // means from 4 to 1
     println!("num={}", num);
 }
 ```
@@ -128,11 +128,13 @@ for num in (1..5).rev() {  // means from 1 to 4
 
 ```rust
 let x = 5;
-y = x;
+let y = x;
 println!("x={}, y={}", x, y);
+// x=5, y=5
 let x = (5, 'a');
-y = x;
+let y = x;
 println!("x=({},{}), y=({},{})", x.0, x.1, y.0, y.1);
+// x=(5,a), y=(5,a)
 ```
 
 * Others will be assigned with move

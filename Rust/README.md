@@ -80,10 +80,15 @@ cargo build --release
 cargo run
 ```
 
-# Example
+# Important Concept
 
-* [hello_world](hello_world): Simple example
-* [struct_example](struct_example): How to use struct and debug
+* Ownership:
+  - Scalar type and tuple with scalar type can assign with clone
+  - Others is assigned with move
+  - You can use "referece" without copy
+* Generic Type
+* Trait
+* Lifecycle
 
 # Reference
 
