@@ -39,6 +39,8 @@ if *v.last().unwrap() == 5 {
 if *v.last_mut().unwrap() == 5 {
     // do something
 }
+// Swap two elements
+v.swap(idx1, idx2);
 ```
 
 * Iterate
@@ -190,6 +192,18 @@ hash.insert(key, value);
 ```rust
 use std::cmp;
 min_val = cmp::min(val1, val2);
+min_val = cmp::max(val1, val2);
+```
+
+* Swap
+
+```rust
+use std::mem;
+
+let mut x = 5;
+let mut y = 42;
+
+mem::swap(&mut x, &mut y);
 ```
 
 # String
