@@ -12,8 +12,10 @@ let mut v = vec![4, 5, 6];
 * Update
 
 ```rust
-// Push value
+// Push value to the back
 v.push(value);
+// Pop the value from the back
+let value = *v.pop().unwrap();
 // Sort from small to big
 v.sort();
 // Sort from big to small
@@ -27,6 +29,16 @@ v.sort_by(|a, b| b.cmp(a));
 v.len();
 // Empty or not
 v.is_empty();
+// Get last item
+// Note v.last() return Option and v.last().unwrap() return reference
+if *v.last().unwrap() == 5 {
+    // do something
+}
+// Get last mutable item
+// The same as last()
+if *v.last_mut().unwrap() == 5 {
+    // do something
+}
 ```
 
 * Iterate
@@ -39,6 +51,107 @@ for i in 0..v.len() {
 // Iterate with value
 for n in v {
     println!("{}", n);
+}
+```
+
+# VecDeque
+
+* You should use `use std::collections::VecDeque;` first.
+
+* Init
+
+```rust
+// Init VecDeque
+let mut v = VecDeque::new();
+// Init with value
+let mut v = VecDeque::from([4, 5, 6]);
+```
+
+* Update
+
+```rust
+// Push to back 
+v.push_back(2);
+// Push to front
+v.push_front(1);
+// Pop from back
+*v.pop_back().unwrap();
+// Pop from front
+*v.pop_front().unwrap();
+```
+
+* Useful methods
+
+```rust
+// Get size
+v.len();
+// Empty or not
+v.is_empty();
+// Get the first item
+if *v.front().unwrap() == 5 {
+    // do something
+}
+// Get the first mutable item
+if *v.front_mut().unwrap() == 5 {
+    // do something
+}
+// Get the last item
+if *v.back().unwrap() == 5 {
+    // do something
+}
+// Get the last mutable item
+if *v.back_mut().unwrap() == 5 {
+    // do something
+}
+```
+
+# LinkedList
+
+* You should add `use std::collections::LinkedList;` first.
+
+* Init
+
+```rust
+let mut list1 = LinkedList::new();
+let mut list2 = LinkedList::from([1, 2, 3]);
+```
+
+* Update
+
+```rust
+// Push to the back
+list1.push_back(5);
+// Push to the front
+list1.push_front(4);
+// Pop the last item
+*list.pop_back().unwrap();
+// Pop the first item
+*list.pop_front().unwrap();
+```
+
+* Useful methods
+
+```rust
+// Length of LinkedList
+list.len();
+// Get the last item
+*list1.back().unwrap();
+// Get the first item
+*list1.front().unwrap();
+```
+
+* Iterate
+
+```rust
+// Not mutable
+let mut iter = list.iter();
+assert_eq!(iter.next(), Some(&0));
+assert_eq!(iter.next(), Some(&1));
+assert_eq!(iter.next(), Some(&2));
+assert_eq!(iter.next(), None);
+// Mutable
+for element in list1.iter_mut() {
+    *element += 10;
 }
 ```
 
