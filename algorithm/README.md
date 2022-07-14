@@ -286,6 +286,8 @@ You can try to find counter example to see whether the logic is correct.
 
 # Dynamic Programming
 
+The key point of DP problems is that you can get the next result by using the current result.
+
 * Dynamic Programming 5 steps
   - Setup DP table and its meaning
   - Find the DP formula
@@ -314,6 +316,11 @@ You can try to find counter example to see whether the logic is correct.
     - 1143: https://leetcode.com/problems/longest-common-subsequence/
     - 72: https://leetcode.com/problems/edit-distance/
     - 516: https://leetcode.com/problems/longest-palindromic-subsequence/
+  - Regular Expression (hard):
+    - 10: https://leetcode.com/problems/regular-expression-matching/
+    - 44: https://leetcode.com/problems/wildcard-matching/
+  - Direction Matters (hard):
+    - 174: https://leetcode.com/problems/dungeon-game/
 
 ## 0-1 knapsack template
 

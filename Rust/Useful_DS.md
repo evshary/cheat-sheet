@@ -1,112 +1,3 @@
-# Vec
-
-* Init
-
-```rust
-// Init vector
-let mut v = Vec::new();
-// Init with value
-let mut v = vec![4, 5, 6];
-```
-
-* Update
-
-```rust
-// Push value to the back
-v.push(value);
-// Pop the value from the back
-let value = *v.pop().unwrap();
-// Sort from small to big
-v.sort();
-// Sort from big to small
-v.sort_by(|a, b| b.cmp(a));
-```
-
-* Useful methods
-
-```rust
-// Get size
-v.len();
-// Empty or not
-v.is_empty();
-// Get last item
-// Note v.last() return Option and v.last().unwrap() return reference
-if *v.last().unwrap() == 5 {
-    // do something
-}
-// Get last mutable item
-// The same as last()
-if *v.last_mut().unwrap() == 5 {
-    // do something
-}
-// Swap two elements
-v.swap(idx1, idx2);
-```
-
-* Iterate
-
-```rust
-// Iterate with index
-for i in 0..v.len() {
-    println!("idx:{}, value:{}", i, v[i]);
-}
-// Iterate with value
-for n in v {
-    println!("{}", n);
-}
-```
-
-# VecDeque
-
-* You should use `use std::collections::VecDeque;` first.
-
-* Init
-
-```rust
-// Init VecDeque
-let mut v = VecDeque::new();
-// Init with value
-let mut v = VecDeque::from([4, 5, 6]);
-```
-
-* Update
-
-```rust
-// Push to back 
-v.push_back(2);
-// Push to front
-v.push_front(1);
-// Pop from back
-*v.pop_back().unwrap();
-// Pop from front
-*v.pop_front().unwrap();
-```
-
-* Useful methods
-
-```rust
-// Get size
-v.len();
-// Empty or not
-v.is_empty();
-// Get the first item
-if *v.front().unwrap() == 5 {
-    // do something
-}
-// Get the first mutable item
-if *v.front_mut().unwrap() == 5 {
-    // do something
-}
-// Get the last item
-if *v.back().unwrap() == 5 {
-    // do something
-}
-// Get the last mutable item
-if *v.back_mut().unwrap() == 5 {
-    // do something
-}
-```
-
 # LinkedList
 
 * You should add `use std::collections::LinkedList;` first.
@@ -206,70 +97,63 @@ let mut y = 42;
 mem::swap(&mut x, &mut y);
 ```
 
-# String
-
-* Init
+# Box
 
 ```rust
-// String
-let str1: String = String::new();
-let str2: String = String::from("New String");
-// str
-let str3: &str = "New str";
-// transform
-// String => str
-let str4: &str = String::from("New String").as_str();
-// str => String
-let str5: String = "New str".to_string();
-// String/str => bytes array
-let mybytes: &[u8] = str1.as_bytes();
-// String/str => Vec<u8>
-let myvec: Vec<u8> = str1.as_bytes().to_vec();
-```
-
-* Useful Method
-
-```rust
-// Append string
-str1.push_str("Append Data");
-// Get length
-str1.len();
-```
-
-* Get index
-
-```rust
-// Get index of string
-// print 4th bytes
-println!("{}", str1.as_bytes()[4]);
-// print 4th char
-println!("{}", str1.as_bytes()[4] as char);
-println!("{}", str1.chars().nth(4).unwrap());
-// iterate string
-for b in str1.as_bytes() {
-    println!("{}", b); // print bytes
+struct Mystruct {
+    a: i32,
+    b: u16,
 }
-for c in str1.chars() {
-    println!("{}", c); // print char
+
+// init
+let s1 = Box::from(Mystruct { a: 0, b: 1 });
+println!("{} {}", s1.a, s1.b);  // 0 1
+// modify
+let mut s2 = Box::from(Mystruct { a: 1, b: 2 });
+s2.a = 100;
+s2.b = 1000;
+println!("{} {}", s2.a, s2.b);  // 100 1000
+```
+
+# Option
+
+* `as_ref()`: To transform `&Option<T>` to `Option<&T>`
+* `as_mut()`: To transform `&mut Option<T>` to `Option<&mut T>`
+* `take()`: Takes the value out of the option, leaving None in its place
+* `is_none()`: Check whether `Option<T> == None`
+
+```rust
+#[derive(PartialEq, Eq, Clone, Debug)]
+pub struct ListNode {
+  pub val: i32,
+  pub next: Option<Box<ListNode>>
 }
-```
 
-* Slice
+impl ListNode {
+  #[inline]
+  fn new(val: i32) -> Self {
+    ListNode {
+      next: None,
+      val
+    }
+  }
+}
 
-```rust
-let mystr = "This is str";
-let myslice = &mystr[0..4];
-```
-
-* Concatenation
-
-```rust
-// String with str
-let hello = String::new("Hello ");
-let world = "World"
-let helloworld = hello + world;
-// String with String
-let hello = String::new("Hello ");
-let world = String::new("World");
-let helloworld = hello + &world;
+impl Solution {
+    pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        if head.is_none() {
+            return None;
+        }
+        let mut h = head;  // since head is not mutable
+        let mut node = h.as_mut().unwrap();  // node is the mutable reference of Box (h)
+        while let Some(next_node) = node.next.as_mut() {  // next_node is the mutable reference of Box (node.next)
+            if next_node.val == node.val {
+                node.next = next_node.next.take();  // Move next_node.next to node.next and leave None to next_node.next
+            } else {
+            	node = node.next.as_mut().unwrap(); // node is the mutable reference of Box (node.next)
+            }
+        }
+        h
+    }
+}
 ```
