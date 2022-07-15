@@ -209,7 +209,7 @@ while (!q.empty()) {
         if (/*n is target*/) return step;
         for (/*All the neighbors*/) {
             if (!s.count(neighbor)) {
-                q.push(neighbors);
+                q.push(neighbor);
                 s.insert(neighbor);
             }
         }
@@ -219,6 +219,37 @@ return -1;
 ```
 
 * Reference: https://blog.techbridge.cc/2019/12/21/leetcode-%E5%88%B7%E9%A1%8C-pattern-breadth-first-search/
+
+```c++
+// Bidirectional BFS
+bool update_layer(unordered_set<Node>& layer, unordered_set<Node>& opposite_layer, unordered_set<Node>& visited, int &step) {
+    unordered_set<Node> new_layer;
+    step += 1;
+    for (auto & s : layer) {
+        for (/*all the neigbors*/) {
+            if (opposite_layer.count(s)) return true;
+            if (visited.count(s)) continue;
+            visited.insert(neighbor);
+            new_layer.push_back(neigbor);
+        }
+    }
+    swap(layer, new_layer);
+    return false;
+}
+
+unordered_set<Node> begin_layer, end_layer;
+unordered_set<Node> visited;
+int begin_step = 0;
+int end_step = 0;
+begin_layer.insert(begin_node);
+end_layer.insert(end_node);
+while (!begin_layer.empty() && !end_layer.empty()) {
+    if (update_layer(begin_layer, end_layer, begin_step) || update_layer(end_layer, begin_layer, end_step)) {
+        return begin_step + end_step;
+    }
+}
+return -1;
+```
 
 # Backtracking
 

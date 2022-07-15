@@ -36,6 +36,7 @@ while (left <= right) {
 // note
 if (left >= nums.size() || nums[left] != target)
     return -1;
+// If nums[left] != target, left will be the suitable place to put target into.
 return left;
 ```
 

@@ -121,6 +121,7 @@ println!("{} {}", s2.a, s2.b);  // 100 1000
 * `as_mut()`: To transform `&mut Option<T>` to `Option<&mut T>`
 * `take()`: Takes the value out of the option, leaving None in its place
 * `is_none()`: Check whether `Option<T> == None`
+* `unwrap()`: Remove the Option. Note that `unwrap()` will move the value, i.e. node can't be used after `node.unwrap()`, you can use `node.as_mut().unwrap()` instead.
 
 ```rust
 #[derive(PartialEq, Eq, Clone, Debug)]
