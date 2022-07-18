@@ -50,8 +50,24 @@ v.swap(idx1, idx2);
 for i in 0..v.len() {
     println!("idx:{}, value:{}", i, v[i]);
 }
-// Iterate with value
+// Iterate with value (unable to reuse)
 for n in v {
+    println!("{}", n);
+}
+// Iterate for reuse later
+for n in v.iter() {
+    println!("{}", n);
+}
+// Iterate (unable to reuse)
+for n in v.into_iter() {
+    println!("{}", n);
+}
+// Iterate for mutable borrow
+for n in v.iter_mut() {
+    println!("{}", n);
+}
+// Reverse
+for n in v.iter().rev() {
     println!("{}", n);
 }
 ```

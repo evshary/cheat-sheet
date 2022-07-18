@@ -97,22 +97,18 @@ let mut y = 42;
 mem::swap(&mut x, &mut y);
 ```
 
-# Box
+* Range
 
 ```rust
-struct Mystruct {
-    a: i32,
-    b: u16,
-}
-
-// init
-let s1 = Box::from(Mystruct { a: 0, b: 1 });
-println!("{} {}", s1.a, s1.b);  // 0 1
-// modify
-let mut s2 = Box::from(Mystruct { a: 1, b: 2 });
-s2.a = 100;
-s2.b = 1000;
-println!("{} {}", s2.a, s2.b);  // 100 1000
+use num::range;
+// from 0 to 9
+for n in range(0, 10) {}
+for n in 0..10 {}
+// reverse: from 9 to 0
+for n in range(0, 10).rev() {}
+// from 0 to 9, which step is 2
+use num::range_step;
+for n in range_step(0, 10, 2) {}
 ```
 
 # Option
@@ -155,6 +151,15 @@ impl Solution {
             }
         }
         h
+    }
+    pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
+        let mut result = 0;
+        let mut node = head;
+        while let Some(content) = node.as_mut() {
+        	result = (result << 1) + content.val;
+        	node = content.next.take();
+        }
+        result
     }
 }
 ```
