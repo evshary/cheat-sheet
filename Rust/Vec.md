@@ -72,6 +72,20 @@ for n in v.iter().rev() {
 }
 ```
 
+* Pass vector to function
+
+```rust
+fn take_ownership(v1: &mut Vec<i32>){
+    v1.push(42);
+}
+
+fn main() {
+    let mut v1 = vec![1, 2, 3];
+    take_ownership(&mut v1);
+    println!("{:?}", v1);
+}
+```
+
 # VecDeque
 
 * You should use `use std::collections::VecDeque;` first.

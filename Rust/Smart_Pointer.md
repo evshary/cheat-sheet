@@ -65,7 +65,8 @@ let b = Box::new(s); // s has already been transferred to a
 use std::rc::Rc;
 let a = Rc::new(String::from("hello, world"));
 let b = Rc::clone(&a); // b and a point to the same data
-println!("{} {}", Rc::strong_count(&a), Rc::strong_count(&b)); // should be 2 2
+let c = a.clone(); // Another way to clone a 
+println!("{} {} {}", Rc::strong_count(&a), Rc::strong_count(&b), Rc::strong_count(&c)); // should be 3 3 3
 ```
 
 * Ac is same as Rc, but can be used in multithread.
@@ -114,3 +115,44 @@ println!("{}", ptr);
 ```
 
 But why we need RefCell, refer to https://www.sobyte.net/post/2022-03/rust-why-need-interior-mutability/
+
+# Option, Rc and RefCell
+
+```rust
+#[derive(Debug, PartialEq, Eq)]
+pub struct TreeNode {
+  pub val: i32,
+  pub left: Option<Rc<RefCell<TreeNode>>>,
+  pub right: Option<Rc<RefCell<TreeNode>>>,
+}
+
+impl TreeNode {
+  #[inline]
+  pub fn new(val: i32) -> Self {
+    TreeNode {
+      val,
+      left: None,
+      right: None
+    }
+  }
+}
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+	fn traverse(root: Option<Rc<RefCell<TreeNode>>>, v: &mut Vec<i32>) {
+	    if root == None {
+	        return
+	    }
+	    // as_ref() and unwrap() will strip Option with reference, borrow() is for RefCell, and clone() will is to match Rc()
+	    Self::traverse(root.as_ref().unwrap().borrow().left.clone(), v);
+	    v.push(root.as_ref().unwrap().borrow().val);
+	    Self::traverse(root.unwrap().borrow().right.clone(), v);
+	}
+    pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut v = Vec::new();
+	    // To call traverse, need to add Self::
+        Self::traverse(root, &mut v); // v need to define as mut ref
+        v
+    }
+}
+```
