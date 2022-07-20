@@ -10,5 +10,6 @@ Time complexity
 | Merge Sort | Ω(n log(n)) | θ(n log(n)) | O(n log(n)) | O(n) |
 | Quick Sort | Ω(n log(n)) | θ(n log(n)) | O(n^2) | O(log(n)) |
 | Radix Sort | Ω(nk) | θ(nk) | O(nk) | O(n + k) |
+| Bucket Sort | Ω(n+k) | θ(n) | O(n^2) | O(n + k) |
 
 Refer to https://www.geeksforgeeks.org/time-complexities-of-all-sorting-algorithms/
