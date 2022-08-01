@@ -9,6 +9,17 @@ let mut v = Vec::new();
 let mut v = vec![4, 5, 6];
 ```
 
+* Index
+
+```rust
+let v = vec![1,2,3,4,5];
+let third: &i32 = &v[2];  // Will error in no this index
+match v.get(2) {
+    Some(third) => println!("{}", third),
+    None => println!("Not exist"),
+}
+```
+
 * Update
 
 ```rust
@@ -55,6 +66,9 @@ for n in v {
     println!("{}", n);
 }
 // Iterate for reuse later
+for n in &v {
+    println!("{}", n);
+}
 for n in v.iter() {
     println!("{}", n);
 }
@@ -63,6 +77,9 @@ for n in v.into_iter() {
     println!("{}", n);
 }
 // Iterate for mutable borrow
+for n in &mut v {
+    println!("{}", n);
+}
 for n in v.iter_mut() {
     println!("{}", n);
 }
