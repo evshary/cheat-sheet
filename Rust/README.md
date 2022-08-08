@@ -85,7 +85,7 @@ cargo run
 * Ownership:
   - Scalar type and tuple with scalar type can assign with clone
   - Others is assigned with move
-  - You can use "referece" without copy
+  - You can use "reference" without copy
 * Generic Type
 * Trait
 * Lifecycle
