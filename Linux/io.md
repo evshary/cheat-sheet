@@ -22,3 +22,4 @@ For the I/O models, we can classify as the following
 
 # Reference
 * [Study Notes - I/O Models](https://rickhw.github.io/2019/02/27/ComputerScience/IO-Models/)
+* [深入理解 Linux 的 epoll 機制](https://www.readfog.com/a/1641834490361909248): The article tells us why epoll is better than select & poll.
