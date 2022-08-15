@@ -101,8 +101,3 @@ cargo run
 * [通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/index.html)
 * [Rust学习笔记](https://skyao.io/learning-rust/)
 * [RUST playground](https://play.rust-lang.org/)
-* Async:
-  - [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
-  - [Rust 中的异步编程](https://huangjj27.github.io/async-book/)
-  - [Rust 异步编程](https://course.rs/async-rust/intro.html)
-  - [Tokio - Async in depth](https://tokio.rs/tokio/tutorial/async)
