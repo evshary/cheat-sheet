@@ -25,6 +25,10 @@ assert_eq!(*v, 3);
 // Since it exists, will not update the value
 let v = myhash.entry("Key2").or_insert(4);
 assert_eq!(*v, 3);
+
+// Remove value
+// myhash.remove(&key);
+myhash.remove("Key1");
 ```
 
 * Transform from Vec to HashMap
