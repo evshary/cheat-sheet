@@ -62,17 +62,9 @@
 * irssi: Used to connect IRC.
 
 # Health
-* redshift
-  - install: `sudo apt install redshift-gtk`
-  - config: `vi ~/.config/redshift.conf`
-
-```
-; Global settings for redshift
-[redshift]
-; Set the day and night screen temperatures
-temp-day=4500
-temp-night=4500
-```
+* Text fonts (Ubuntu)
+  - Univeral Access => Large Text
+* Displays => Night Light
 
 # Others
 * qpdf: PDF transformer
