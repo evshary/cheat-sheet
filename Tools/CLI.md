@@ -61,6 +61,19 @@
 * [gnupg](https://evshary.github.io/2018/10/14/GnuPG教學/): Used to manage GPG key.
 * irssi: Used to connect IRC.
 
+# Health
+* redshift
+  - install: `sudo apt install redshift-gtk`
+  - config: `vi ~/.config/redshift.conf`
+
+```
+; Global settings for redshift
+[redshift]
+; Set the day and night screen temperatures
+temp-day=4500
+temp-night=4500
+```
+
 # Others
 * qpdf: PDF transformer
   - Decrypt the pdf: `qpdf --password=password --decrypt origin.pdf unsecured.pdf`
