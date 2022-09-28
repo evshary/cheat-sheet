@@ -84,3 +84,25 @@ sudo umount dev
 sudo umount proc
 sudo umount sys
 ```
+
+# swap
+
+* Check the current swap size
+
+```bash
+free -h
+```
+
+* Increase the swap size
+
+```bash
+# Remove the current swapfile
+sudo swapoff /swapfile
+sudo rm /swapfile
+
+# Create a new swapfile
+sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
