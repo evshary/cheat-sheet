@@ -108,6 +108,8 @@ GIT_COMMITTER_DATE="Wed 01 Jun 2022 21:11:16 GMT" git commit --amend --no-edit -
 git commit --signoff
 # If you also want to modify the author email
 git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
+# If you also want to modify commmiter email
+GIT_COMMITTER_EMAIL=xxx@yyy.com git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
 ```
 
 # Undo last commit and reserve the modification
