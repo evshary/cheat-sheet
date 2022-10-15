@@ -74,3 +74,27 @@
 
 # Settings
 * IPv4 settings: `/proc/sys/net/ipv4/`
+
+# Bridge
+
+Used to bridge different interffaces, and become hub
+
+* create/delete bridge
+    
+```bash
+brctl addbr br0
+brctl delbr br0
+```
+    
+* show bridge
+    
+```bash
+brctl show
+```
+    
+* add/delete interface
+    
+```bash
+brctl addif br0 eth0
+brctl delif br0 eth0
+```
