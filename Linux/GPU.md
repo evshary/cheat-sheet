@@ -1,14 +1,46 @@
+# List GPU
+
+```bash
+# list GPU
+lspci | grep VGA
+# get detail
+sudo lspci -vs [PCI bus number]
+```
+
+# Installation
+
+## NVIDIA GPU in Ubuntu
+
+* Install drivers
+
+```bash
+# Add NVIDIA repository
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+# Install driver automatically
+sudo ubuntu-drivers autoinstall
+```
+
+* Reboot and check how drivers work
+
+```bash
+nvidia-smi 
+```
+
 # stress GPU
 
 Use [gpu-burn](https://github.com/wilicc/gpu-burn)
 
 * Clone and build
+
 ```bash
 git clone https://github.com/wilicc/gpu-burn.git
 cd gpu-burn
 make
 ```
+
 * Run
+
 ```bash
 ./gpu-burn
 ```
