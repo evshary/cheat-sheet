@@ -27,6 +27,13 @@ sudo ubuntu-drivers autoinstall
 nvidia-smi 
 ```
 
+* Optional: If there are version conflicts, you can remove all nvidia packages and reinstall again.
+
+```bash
+# Remove all NVIDIA packages
+sudo dpkg -P $(dpkg -l | grep nvidia | awk '{print $2}')
+```
+
 # stress GPU
 
 Use [gpu-burn](https://github.com/wilicc/gpu-burn)
