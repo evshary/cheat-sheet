@@ -1,5 +1,13 @@
 # List GPU
 
+* List GPU devices
+
+```bash
+lshw -c display
+```
+
+* Another way
+
 ```bash
 # list GPU
 lspci | grep VGA
@@ -32,6 +40,20 @@ nvidia-smi
 ```bash
 # Remove all NVIDIA packages
 sudo dpkg -P $(dpkg -l | grep nvidia | awk '{print $2}')
+```
+
+# Select GPU
+
+* Chech which GPU you are using
+
+```bash
+prime-select query
+```
+
+* Decide to use NVIDIA GPU (Need to reboot)
+
+```bash
+prime-select nvidia
 ```
 
 # stress GPU
