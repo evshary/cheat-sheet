@@ -32,7 +32,10 @@ sudo ubuntu-drivers autoinstall
 * Reboot and check how drivers work
 
 ```bash
-nvidia-smi 
+# Show NVIDIA GPU status
+nvidia-smi
+# Show NVIDIA GPU settings
+sudo nvidia-settings
 ```
 
 * Optional: If there are version conflicts, you can remove all nvidia packages and reinstall again.
