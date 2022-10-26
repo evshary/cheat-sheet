@@ -54,6 +54,7 @@ prime-select query
 ```
 
 * Decide to use NVIDIA GPU (Need to reboot)
+  - If the command doesn't work, make sure gpu-manager is working: `sudo systemctl enable gpu-manager`
 
 ```bash
 prime-select nvidia
