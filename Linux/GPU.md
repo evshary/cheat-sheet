@@ -59,6 +59,20 @@ prime-select query
 prime-select nvidia
 ```
 
+* Test which GPU is running
+
+```bash
+sudo apt install mesa-utils
+glxinfo | grep vendor
+```
+
+* Optional: you can use environmental variables to make some application run on NVIDIA GPU
+  - Refer to [Prime-select - Nvidia selected but not used](https://forums.developer.nvidia.com/t/prime-select-nvidia-selected-but-not-used/121108/4)
+
+```bash
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor
+```
+
 # stress GPU
 
 Use [gpu-burn](https://github.com/wilicc/gpu-burn)
