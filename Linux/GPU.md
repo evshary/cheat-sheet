@@ -89,7 +89,7 @@ make
 * Run
 
 ```bash
-./gpu-burn
+./gpu_burn
 ```
 
 # Benchmark GPU
