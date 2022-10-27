@@ -46,6 +46,7 @@
 * httpie: Useful HTTP client.
   - Usage: `http [URL]`
 * ncdu: Enhanced du.
+* qdirstat: Same as ncdu, but with GUI.
 * tldr: Simplified man.
 * trash-cli: Trash in command line.
   - Usage: `trash-list`, `trash-rm`, `trash-put`, `trash-empty`, `restore-trash`
