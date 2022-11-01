@@ -9,6 +9,14 @@ Kubernetes is a system which can help us deploy / manage containerized applicati
 
 # Architecture
 
+![image](https://user-images.githubusercontent.com/456210/199143294-7f75cf8b-dc52-4a11-8ed0-a411461b9fa6.png)
+
+[image src](https://medium.com/devops-mojo/kubernetes-architecture-overview-introduction-to-k8s-architecture-and-understanding-k8s-cluster-components-90e11eb34ccd)
+
+![image](https://user-images.githubusercontent.com/456210/199143464-4c1551ed-b626-4077-9b08-3826827c496a.png)
+
+[image src](https://blog.octo.com/how-does-it-work-kubernetes-episode-1-kubernetes-general-architecture/)
+
 * Kubernetes Cluster = 1 Master + N Node
 * Mater (Control Plane): Control node
   * API Server
