@@ -1,5 +1,16 @@
 # docker buildx
 
+## Install
+
+Refer to [here](https://github.com/docker/buildx)
+
+1. Download binary from [GitHub releases page](https://github.com/docker/buildx/releases/latest)
+2. Rename to `docker-buildx`
+3. Put under `$HOME/.docker/cli-plugins`
+4. Give permission `chmod +x ~/.docker/cli-plugins/docker-buildx`
+
+## Usage
+
 * Create new builder
 
 ```bash
