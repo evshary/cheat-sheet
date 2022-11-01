@@ -48,10 +48,14 @@ In k8s, Pod equals to an application, including YAML file and several container.
 Able to create k8s cluster
 
 ```bash
-# Enable k8s cluster
+# Enable cluster
 minikube start
 # Check status
 minikube status
+# Verify
+kubectl version
+# Stop
+minikube stop
 ```
 
 # kubeadm
@@ -59,6 +63,18 @@ minikube status
 ![image](https://user-images.githubusercontent.com/456210/199153268-2ec1192d-3436-4c03-ac7e-56aef68c6f22.png)
 
 [image src](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)
+
+* Install: refer to [here](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
+
+```bash
+# https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/
+# first machine
+kubeadm init
+# second machine
+kubeadm join
+```
+
+There are many tricky parts while installation, so you can refer to [here](https://tree.rocks/kubernetes-with-multi-server-node-setup-on-ubuntu-server-280066e6b106)
 
 # kubectl
 
