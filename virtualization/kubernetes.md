@@ -37,9 +37,11 @@ Kubernetes is a system which can help us deploy / manage containerized applicati
 
 In k8s, Pod equals to an application, including YAML file and several container.
 
-# Tools
+# minikube
 
-## minikube
+![image](https://user-images.githubusercontent.com/456210/199153222-ce54e34d-7aac-475a-95f8-67a3e95f9f2e.png)
+
+[image src](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)
 
 [Official Website](https://minikube.sigs.k8s.io/docs/start/)
 
@@ -52,14 +54,20 @@ minikube start
 minikube status
 ```
 
-## kubectl
+# kubeadm
+
+![image](https://user-images.githubusercontent.com/456210/199153268-2ec1192d-3436-4c03-ac7e-56aef68c6f22.png)
+
+[image src](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)
+
+# kubectl
 
 * [installation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 * [cheat-sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 Used to control k8s cluster
 
-### Basic operation
+## Basic operation
 
 * View global config
 
@@ -93,7 +101,7 @@ kubectl delete pods <pod_name>
 ## EX: kubectl delete pods hello-minikube
 ```
 
-### create & apply YAML
+## create & apply YAML
 
 Create from YAML
 
@@ -117,7 +125,7 @@ The difference between create and apply:
   * YAML does not need to be complete and can only contain fields which need to be updated
   * Can create repeatedly
 
-### Interact with pod
+## Interact with pod
 
 1. kubectl port-forward
 
@@ -137,7 +145,7 @@ kubectl get services
 minikube service <service_name> --url
 ```
 
-### Debug
+## Debug
 
 * Enter into running pods
 
@@ -158,7 +166,7 @@ apk add --no-cache curl
 # Curl the IP:port
 ```
 
-### Resource
+## Resource
 
 ```bash
 # Show supported resource
