@@ -67,21 +67,15 @@ Used to control k8s cluster
 kubectl config view
 ```
 
-* Create from YAML
+* View & find resources
 
 ```bash
-kubectl create -f xxx.yaml
-```
-
-* View, find resources
-
-```bash
+# nodes
+kubectl get nodes -o wide # List node with detail
 # pod
 kubectl get pods -o wide # List all pods with detail in current namspace
 kubectl get pods -A      # List all pods in all namepsaces
 kubectl get pods <pod_name> -o yaml # Get pod's YAML
-# nodes
-kubectl get nodes -o wide # List node with detail
 # information
 kubectl describe nodes <node_name>
 kubectl describe pods <pod_name>
@@ -100,6 +94,8 @@ kubectl delete pods <pod_name>
 ```
 
 ### create & apply YAML
+
+Create from YAML
 
 ```bash
 # apply
@@ -162,7 +158,7 @@ apk add --no-cache curl
 # Curl the IP:port
 ```
 
-# Resource
+### Resource
 
 ```bash
 # Show supported resource
