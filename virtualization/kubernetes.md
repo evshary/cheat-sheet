@@ -58,7 +58,7 @@ kubectl version
 minikube stop
 ```
 
-# kubeadm
+# kubeadm & kubelet
 
 ![image](https://user-images.githubusercontent.com/456210/199153268-2ec1192d-3436-4c03-ac7e-56aef68c6f22.png)
 
@@ -75,6 +75,26 @@ kubeadm join
 ```
 
 There are many tricky parts while installation, so you can refer to [here](https://tree.rocks/kubernetes-with-multi-server-node-setup-on-ubuntu-server-280066e6b106)
+
+# k3s
+
+![image](https://user-images.githubusercontent.com/456210/199198288-64cdc1ae-bd0d-4b95-a35f-00fefaafb33e.png)
+
+[image src](https://k3s.io/)
+
+* Install k3s as a service
+  - Refer to [here](https://github.com/k3s-io/k3s#quick-start---install-script)
+
+```bash
+# Install
+curl -sfL https://get.k3s.io | sh -
+# Test
+sudo k3s kubectl version
+# Uninstall
+k3s-uninstall.sh
+```
+
+* Note: you need to add k3s for kubectl commands
 
 # kubectl
 
