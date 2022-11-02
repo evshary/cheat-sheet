@@ -1,5 +1,9 @@
 # docker buildx
 
+A docker CLI plugin for able to build with [BuildKit](https://github.com/moby/buildkit)
+
+Support multiple builder instance and build for cross-platform images
+
 ## Install
 
 Refer to [here](https://github.com/docker/buildx)
@@ -67,6 +71,12 @@ docker buildx rm mybuilder
 # Clear all cache
 docker buildx prune
 ```
+
+## bake
+
+Able to build images concurrently. The `bake` will read HCL files to build images.
+
+For more detail, refer to [here](https://docs.docker.com/engine/reference/commandline/buildx_bake/)
 
 # Run cross-platform docker
 
