@@ -6,8 +6,15 @@ Refer to [here](https://github.com/docker/buildx)
 
 1. Download binary from [GitHub releases page](https://github.com/docker/buildx/releases/latest)
 2. Rename to `docker-buildx`
-3. Put under `mkdir -p $HOME/.docker/cli-plugins && mv docker-buildx $HOME/.docker/cli-plugins`
-4. Give permission `chmod +x ~/.docker/cli-plugins/docker-buildx`
+3. Put the file under `$HOME/.docker/cli-plugins`
+```bash
+mkdir -p $HOME/.docker/cli-plugins
+mv docker-buildx $HOME/.docker/cli-plugins
+```
+4. Give permission
+```bash
+chmod +x ~/.docker/cli-plugins/docker-buildx
+```
 
 ## Usage
 
