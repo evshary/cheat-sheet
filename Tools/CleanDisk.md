@@ -12,6 +12,7 @@ This tutorial guides you how to clean your disk space.
 * Empty trash
 * Clear chrome cahce
 * Empty vscode cache: `rm -rf ~/.config/Code/User/workspaceStorage/*`
+* Adjust disk partition: `gparted`
 
 ## apt
 
