@@ -11,6 +11,9 @@
   - `sudo i7z`
 * [system-monitor extension](http://ubuntuhandbook.org/index.php/2019/03/display-cpu-memory-network-usage-in-ubuntu-18-04-panel/)
 
+# Show temperature
+* `sensors`: Show all the sensors status
+
 # File
 ## lsof
 * `lsof <file name>`: Who open the file
