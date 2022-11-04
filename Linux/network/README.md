@@ -98,3 +98,11 @@ brctl show
 brctl addif br0 eth0
 brctl delif br0 eth0
 ```
+
+# Change MAC address
+
+```bash
+sudo ifconfig eth0 down
+sudo ifconfig eth0 hw ether 00:11:22:33:44:55
+sudo ifconfig eth0 up
+```
