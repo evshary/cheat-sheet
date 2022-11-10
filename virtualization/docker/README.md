@@ -210,3 +210,14 @@ docker rmi -f $(docker images --filter=reference="*myimage*" -q)
 ```bash
 docker rm -f $(docker ps -a --filter=status="exited" -q)
 ```
+
+* Able to do completion for apt in containers
+
+```bash
+sudo rm /etc/apt/apt.conf.d/docker-clean
+sudo apt update
+sudo apt install -y bash-completion
+sudo vi /etc/bash.bashrc
+# enable bash completion in interactive shells
+source /etc/bash.bashrc
+```
