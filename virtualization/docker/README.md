@@ -209,32 +209,3 @@ sudo vi /etc/bash.bashrc
 # enable bash completion in interactive shells
 source /etc/bash.bashrc
 ```
-
-## GUI
-
-* Run GUI application in docker container
-
-```bash
-# Allow permission
-xhost +local:
-# Pass .X11-unix
-docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix --env="QT_X11_NO_MITSHM=1" --env "DISPLAY=$DISPLAY" ros:foxy
-# Test GUI in docker
-#apt update && apt install -y ros-foxy-rviz2
-#source /opt/ros/foxy/setup.bash
-#rviz2
-```
-
-* Using rocker
-
-```bash
-sudo apt install python3-rocker
-# If you use Intel GPU
-rocker --x11 --user --devices /dev/dri --home ros:foxy bash
-# If you use NVIDIA GPU
-rocker --nvidia --x11 --user --home ros:foxy bash
-# Test GUI in docker
-#apt update && apt install -y ros-foxy-rviz2
-#source /opt/ros/foxy/setup.bash
-#rviz2
-```
