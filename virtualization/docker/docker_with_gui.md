@@ -30,6 +30,25 @@ rocker --nvidia --x11 --user --home ros:foxy bash
 #rviz2
 ```
 
+# Run with GPU
+
+* docker
+
+```bash
+# Allow permission
+xhost +local:
+# Run with Autoware
+docker run --gpus all --network host --privileged -it --rm -e QT_X11_NO_MITSHM=1 -e DISPLAY=$DISPLAY -e NVIDIA_DRIVER_CAPABILITIES=all -e __NV_PRIME_RENDER_OFFLOAD=1 -e __GLX_VENDOR_LIBRARY_NAME=nvidia -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/autoware_map:/root/autoware_map ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt-cuda bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
+
+* rocker
+
+```bash
+rocker --nvidia --network host --privileged --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt-cuda bash
+ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
+```
+
 # Issues
 
 If you are using Intel Integrated GPU, `--devices /dev/dri` is necessary.
