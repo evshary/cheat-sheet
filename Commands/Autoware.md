@@ -24,7 +24,7 @@ ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autowa
 
 ```shell
 # Run rocker
-rocker -e LIBGL_ALWAYS_SOFTWARE=1 --network host --privileged --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt-cuda bash
+rocker -e LIBGL_ALWAYS_SOFTWARE=1 --network host --privileged --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt bash
 ```
 
 ## rocker with GPU
@@ -33,10 +33,10 @@ rocker -e LIBGL_ALWAYS_SOFTWARE=1 --network host --privileged --x11 --user --vol
 
 ```shell
 # Run rocker (with privileged)
-rocker --network host --privileged --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt-cuda bash
+rocker --network host --privileged --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt bash
 
 # Run rocker (without privileged, then you need to add --devices /dev/dri)
-rocker --devices /dev/dri --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt-cuda bash
+rocker --devices /dev/dri --x11 --user --volume $HOME/autoware_map -- ghcr.io/autowarefoundation/autoware-universe:latest-prebuilt bash
 ```
 
 * NVIDIA GPU
