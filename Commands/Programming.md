@@ -44,3 +44,8 @@ cat *.patch | patch
   - `sudo checkinstall`
 * Assign name and version
   - `sudo checkinstall --pkgname=your-pkg-name --pkgversion=your-pkg-version`
+
+# Read json format
+
+* Install: `sudo apt install jq`
+* Usage: `curl http://x.x.x.x | jq`
