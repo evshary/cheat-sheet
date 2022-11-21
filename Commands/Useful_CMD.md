@@ -1,19 +1,3 @@
-# CPU
-* cpufrequtils
-  - Should install `cpufrequtils` first.
-  - `cpufreq-info`: Show the status of CPU
-      - You can use `cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor`.
-  - `cpufreq-set -r -g performance -c <CPU core>`: Set CPU to performance mode
-  - Easier UI tool: `sudo apt install indicator-cpufreq`
-* pidstat: Show which CPU core process run on.
-* i7z: Show CPU freq, temp. and turbo mode
-  - `sudo apt install i7z`
-  - `sudo i7z`
-* [system-monitor extension](http://ubuntuhandbook.org/index.php/2019/03/display-cpu-memory-network-usage-in-ubuntu-18-04-panel/)
-
-# Show temperature
-* `sensors`: Show all the sensors status
-
 # File
 ## lsof
 * `lsof <file name>`: Who open the file
@@ -23,17 +7,6 @@
 * `sudo apt install zip unzip`: Installation
 * `zip -r file.zip folder/*`: Compress folder into file.zip
 * `unzip file.zip`: Uncompress the folder
-
-# Device
-
-## Peripheral Device
-* List device info
-  - Hardware: `lshw`
-  - CPU: `lscpu`
-  - USB: `lsusb` (The ID is in `/usr/share/misc/usb.ids`)
-  - PCI: `lspci` (The ID is in `/usr/share/misc/pci.ids`)
-  - Block devices: `lsblk`
-  - Memory: `lsmem`
 
 # Packages
 ## dpkg
@@ -83,38 +56,6 @@
   - Memory(2 workers alloc/free 1GB): `stress --vm 2 --vm-bytes 1G`
   - IO: `stress --io N`
 
-# System
-* Update system time with NTP
-  - `ntpdate <NTP Server>`
-  - `ntpdate time.stdtime.gov.tw`
-* System time
-  - `timedatectl`: Show system and RTC time
-  - `sudo systemctl restart systemd-timesyncd.service`: Restart the service and synchronize the time
-    * If you don't want to use NTP, restarting the SNTP service is a good way.
-  - `timedatectl list-timezones`: List the timezone
-  - `timedatectl set-timezone Asia/Taipei`: Set the timezone
-* Save local time into RTC (If you use Windows and Linux in the same machine, it's necessary for time sync)
-  - `sudo hwclock --localtime --systohc`
-* Change default program (editor...)
-  - `update-alternatives --display <COMMAND>`: List all candidates for certain command.
-  - `sudo update-alternatives --config <COMMAND>`: Select which program we use in default.
-  - `update-alternatives --install <LINK> <NAME> <PATH> <PRIORITY>`: Add option for certain command.
-    * LINK: command absolute directory
-    * NAME: command
-    * PATH: real program absolute directory
-    * PRIORITY
-    * e.g. `update-alternatives --install /usr/bin/vim vim /usr/bin/vim.basic 1000`
-  - `update-alternatives --remove <NAME> <PATH>`: Remove option for certain command.
-* Change directory history
-  - `pushd <directory>`: Push the current directory.
-  - `dirs -p -v`: Show directory stack.
-  - `dirs -c`: Clear directory stack.
-  - `popd`: Pop the latest directory.
-  - `pushd +N`: Choose the directory.
-* Hostname
-  - `hostnamectl`: Show hostname
-  - `hostnamectl set-hostname [new hostname]`: Modify new hostname
-
 # Picture & Video
 * Show picture from terminal
   - `eog picture.png`
@@ -145,7 +86,6 @@ v4l2-ctl --list-formats-ext
 * Run VNC server
   - `x11vnc -forever -usepw -display :0`
 * Download [VNC viewer (Client)](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog) or [REAL VNC](https://www.realvnc.com/en/connect/download/viewer/)
-
 
 # Desktop (tested in Ubuntu 20.04)
 * `gnome-www-browser <file>`: Open file in browser
