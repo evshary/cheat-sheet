@@ -44,6 +44,10 @@
   apt download <PACKAGES>
   dpkg --contents <PACKAGES filename>
   ```
+* Show deb info
+  - `dpkg --info xxxx.deb`
+* Extract deb file
+  - `dpkg -x xxxx.deb <output directory>`
 
 # Key operation
 

@@ -14,9 +14,22 @@
 # Temperature
 * `sensors`: Show all the sensors status
 
+# Stress
+
+* Emulate stress status
+  - CPU: `stress --cpu N`
+  - Memory(2 workers alloc/free 1GB): `stress --vm 2 --vm-bytes 1G`
+  - IO: `stress --io N`
+* Crash kernel manually
+  - `sudo sh -c "echo c > /proc/sysrq-trigger"`
+
 # Device
 
+* Show "Device is busy" while umount
+  -  `fuser -m <folder_name>` will show which processes use the folder.
+
 ## Peripheral Device
+
 * List device info
   - Hardware: `lshw`
   - CPU: `lscpu`
@@ -25,7 +38,19 @@
   - Block devices: `lsblk`
   - Memory: `lsmem`
 
+## graphic
+
+* mesa-utils:
+  - Show whether the system support "direct rendering"
+    - `glxinfo | grep "direct rendering"`
+  - Test FPS of the graphic
+    - `glxgears`
+* read-edid:
+  - Read edid of display equipment
+    - `sudo get-edid | parse-edid`
+
 # Time
+
 * Update system time with NTP
   - `ntpdate <NTP Server>`
   - `ntpdate time.stdtime.gov.tw`
@@ -39,6 +64,7 @@
   - `sudo hwclock --localtime --systohc`
 
 # Others
+
 * Change default program (editor...)
   - `update-alternatives --display <COMMAND>`: List all candidates for certain command.
   - `sudo update-alternatives --config <COMMAND>`: Select which program we use in default.
@@ -58,3 +84,7 @@
 * Hostname
   - `hostnamectl`: Show hostname
   - `hostnamectl set-hostname [new hostname]`: Modify new hostname
+* Show power status
+  - `upower -d`
+* View ACPI event(Volume up/down, power button)
+  - `acpi_listen`
