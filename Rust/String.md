@@ -1,4 +1,10 @@
 # String
+ 
+The difference between String and &str:
+* String: store data into heap
+* &str: the slice of String
+
+# Usage
 
 * Init
 
@@ -11,6 +17,7 @@ let str3: &str = "New str";
 // transform
 // String => str
 let str4: &str = String::from("New String").as_str();
+let str4: &str = &String::from("New String");
 // str => String
 let str5: String = "New str".to_string();
 // String/str => bytes array
@@ -29,6 +36,9 @@ str1.len();
 ```
 
 * Get index
+
+Note that we can't index String directly,
+since String is UTF-8 and we can't ensure every character is 1 byte.
 
 ```rust
 // Get index of string
@@ -57,11 +67,11 @@ let myslice = &mystr[0..4];
 
 ```rust
 // String with str
-let hello = String::new("Hello ");
-let world = "World"
+let hello = String::from("Hello ");
+let world = "World";
 let helloworld = hello + world;
 // String with String
-let hello = String::new("Hello ");
-let world = String::new("World");
+let hello = String::from("Hello ");
+let world = String::from("World");
 let helloworld = hello + &world;
 ```
