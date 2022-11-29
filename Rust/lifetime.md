@@ -1,20 +1,20 @@
-# Lifecycle
+# Lifetime
 
-Lifecyle is used while you are using reference.
+Lifetime is used while you are using reference.
 This can make sure the reference will be valid while operation.
 
-There are 3 conditions to eliminate the lifecycle
+There are 3 conditions to eliminate the lifetime
 
-1. Every input arguments(reference) have their own lifecyle.
-2. If there is only one input argument(reference), then the return value(reference) will be the same lifecycle.
+1. Every input arguments(reference) have their own lifetime.
+2. If there is only one input argument(reference), then the return value(reference) will be the same lifetime.
 3. While there are many input arguments(reference) and one of them is `&self` or `&mut self`, then the output value(reference) will be the same as `&self`.
 
 # Syntax
 
 ```rust
 &i32        // reference
-&'a i32     // reference with explicit lifecyle
-&'a mut i32 // mutable reference with explicit lifecycle
+&'a i32     // reference with explicit lifetime
+&'a mut i32 // mutable reference with explicit lifetime
 ```
 
 ```rust
