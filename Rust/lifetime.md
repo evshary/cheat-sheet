@@ -57,7 +57,9 @@ impl<'a> Parser<'a> {
 }
 ```
 
-# Self-referential type problem
+# Some cases
+
+## Self-referential type problem
 
 ```rust
 struct Foo<'a> {
@@ -86,6 +88,7 @@ impl<'a> Foo<'a> {
         self.y = Some(&self.x);
     }
 }
+
 fn main() {
     let mut f = Foo::new();
     f.init_x();
@@ -99,6 +102,79 @@ The reason why we need to define `'a` in `fn init_y_new(&'a mut self)`:
 2. We use `self.y` in the function and the lifetime of `self.y` should be larger than `'a`
 3. Should be `fn init_y_new<'b: 'a>(&'b mut self)`
 4. Lifetime can be the same: `fn init_y_new(&'a mut self)`
+
+## Self-referential type problem (no impl)
+
+* With only struct
+
+```rust
+struct ABC<'a> {
+    val: &'a i32,
+}
+
+// failed (c' should be larger than 'a): fn replace<'a, 'c>(abc: &mut ABC<'a>, y: &'c i32)
+// worked ('b can be eliminated): fn replace<'a, 'c: 'a>(abc: &mut ABC<'a>, y: &'c i32)
+fn replace<'a, 'b, 'c: 'a>(abc: &'b mut ABC<'a>, y: &'c i32) {
+    abc.val = y;
+}
+
+fn main() {
+    let x = &20;
+    let mut abc: ABC = ABC {val: x};
+    //{ // Uncommenting these bracket will fail, because y's lifetime is smaller than abc
+        let y = 30;
+        replace(&mut abc, &y);
+    //}
+    println!("{}", *abc.val);
+}
+```
+
+* With only Box
+
+```rust
+// failed (c' should be larger than 'b): fn replace<'a, 'c>(abc: &mut Box<&'b i32>, y: &'c i32)
+// worked ('a can be eliminated): fn replace<'a, 'c: 'a>(abc: &mut Box<&'b i32>, y: &'c i32)
+fn replace<'a, 'b, 'c: 'b>(mybox: &'a mut Box<&'b i32>, y: &'c i32) {
+    // The first * transfers back to Box, and the second * transfer into &i32
+    **mybox = y;   // We only use 'b here (**mybox), so needs to make sure 'c >= 'b
+}
+
+fn main() {
+    let x = &20;
+    let mut mybox = Box::new(x);
+    //{    // y needs to live longer than mybox
+        let y = 30;
+        replace(&mut mybox, &y);
+    //}
+    println!("{}", **mybox);
+}
+```
+
+## lifetime affects mutability
+
+```rust
+struct ABC<'a> {
+    val: &'a i32,
+}
+
+// Add lifetime to all reference
+fn this_passed_1<'a, 'b>(_abc: &'b mut ABC<'a>) {}
+// abbreviation
+fn this_passed_2(_abc: &mut ABC) {}
+// This case will cause the lifetime of z longer than lifetime of abc
+fn this_failed<'a>(_abc: &'a mut ABC<'a>) {}
+
+fn main() {
+    let mut abc: ABC = ABC {val: &20};
+    {
+        let z = &mut abc;     // mutable borrow
+        this_passed_1(z);
+        this_passed_2(z);
+        //this_failed(z);
+    }
+    println!("{}", *abc.val); // unmutable borrow
+}
+```
 
 # Reference
 
