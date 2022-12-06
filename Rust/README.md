@@ -80,6 +80,15 @@ cargo build --release
 cargo run
 ```
 
+## Platform
+
+We can add `--target=xxx` to compile with on different platform.
+
+* ARM64: `--target=aarch64-unknown-linux-gnu`
+* ARM32: `--target=arm-unknown-linux-gnueabi`
+
+More platform can refer to [here](https://doc.rust-lang.org/nightly/rustc/platform-support.html)
+
 # Important Concept
 
 * Ownership:
