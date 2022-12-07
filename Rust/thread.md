@@ -14,7 +14,7 @@ let res = thread_join_handle.join();
 
 # Share variables (Need Arc)
 
-* Use Mutex
+## Use Mutex
 
 ```rust
 use std::sync::{Arc, Mutex};
@@ -35,6 +35,8 @@ fn main() {
     thread::sleep(Duration::from_millis(50));
 }
 ```
+
+## Atomic
 
 * You can also use Atomic
   - Can only use in simple type: bool, u8, u16...
@@ -63,6 +65,11 @@ fn main() {
     println!("{}", data.load(Ordering::Relaxed));
 }
 ```
+
+* For more information about atomic memory order, refer to
+  * https://medium.com/fcamels-notes/%E7%B0%A1%E4%BB%8B-c-11-memory-model-b3f4ed81fea6
+  * http://senlinzhan.github.io/2017/12/04/cpp-memory-order/
+  * Type: https://doc.rust-lang.org/std/sync/atomic/enum.Ordering.html#variants
 
 # Communication
 
