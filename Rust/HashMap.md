@@ -31,6 +31,14 @@ assert_eq!(*v, 3);
 myhash.remove("Key1");
 ```
 
+* Check key exists or not
+
+```rust
+if hash.contains_key(&key) {
+    // do something
+}
+```
+
 * Transform from Vec to HashMap
 
 ```rust

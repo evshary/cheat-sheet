@@ -48,34 +48,6 @@ for element in list1.iter_mut() {
 }
 ```
 
-# HashMap
-
-* You should add `use std::collections::HashMap;` first.
-
-* Init
-
-```rust
-// Create HashMap
-let mut hash = HashMap::new();
-// Init with key/value
-let mut hash = HashMap::from([
-    ("key1", "value1"),
-    ("key2", "value2"),
-    ("key3", "value3"),
-]);
-```
-
-* Useful Method
-
-```rust
-// If key exists (Use reference)
-if hash.contains_key(&key) {
-    // do something
-}
-// Add key
-hash.insert(key, value);
-```
-
 # Algorithm
 
 * Compare

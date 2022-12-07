@@ -48,7 +48,7 @@ let list1 = LinkedList { val: 10, next: None};
 println!("{}", list1.val);
 ```
 
-# Rc & Ac
+# Rc & Arc
 
 * When you want to use multiple pointers which point to the same data
 * Need `use std::rc::Rc;`
@@ -69,8 +69,8 @@ let c = a.clone(); // Another way to clone a
 println!("{} {} {}", Rc::strong_count(&a), Rc::strong_count(&b), Rc::strong_count(&c)); // should be 3 3 3
 ```
 
-* Ac is same as Rc, but can be used in multithread.
-* Ac need `use std::sync::Arc;`
+* Arc is same as Rc, but can be used in multithread.
+* Arc need `use std::sync::Arc;`
 
 # RefCell
 
