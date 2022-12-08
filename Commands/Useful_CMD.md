@@ -25,6 +25,33 @@ sudo apt-get install v4l-utils
 v4l2-ctl --list-formats-ext
 ```
 
+# tee
+
+Copy the output to another place
+
+* Redirect all the output to output.txt
+
+```shell
+# Replace
+./executable 2>&1 | tee result.txt
+# Append
+./executable 2>&1 | tee -a result.txt
+```
+
+* Save the output of executable to output.txt and grep something 
+
+```shell
+./executable | tee output.txt | grep something
+```
+
+* Put string into file with root privilege
+
+```bash
+echo 'My conntent' | sudo tee /tmp/filename > /dev/null
+# append string into file
+echo 'My appended content' | sudo tee -a /tmp/filename > /dev/null
+```
+
 # Others
 
 * Search with filename
