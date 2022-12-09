@@ -45,3 +45,13 @@ sudo perf script -i perf.data &> perf.unfold
 sudo ./FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
 sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
 ```
+
+# Memory usage
+
+* Use pidstat: `sudo apt install sysstat`
+
+* Trace the memory of the executable
+
+```shell
+pidstat -C <executable_name> -r
+```
