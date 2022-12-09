@@ -25,6 +25,18 @@ sudo apt-get install v4l-utils
 v4l2-ctl --list-formats-ext
 ```
 
+# Bash redirect
+
+```shell
+# Redirect stderr to stdout
+ls UnExistedFile 2>&1
+# Redirect stderr and stdout to file
+ls UnExistedFile > output.txt 2>&1
+ls UnExistedFile &> output.txt # abbreviation
+# Redirect stdout to file but stderr to stdout
+ls UnExistedFile 2>&1 > output.txt
+```
+
 # tee
 
 Copy the output to another place
