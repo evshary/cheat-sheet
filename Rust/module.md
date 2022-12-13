@@ -59,3 +59,4 @@ The library under the `[dependencies]` in Cargo.toml can be used directly, no ne
 
 * [Clear explanation of Rust’s module system](https://www.sheshbabu.com/posts/rust-module-system/): Really clear about what the Rust's module system
   - Mandarin version: https://skyao.io/learning-rust/docs/build/module/rust-module-system-explanation.html
+* Stack overflow: https://stackoverflow.com/questions/48071513/how-to-use-one-module-from-another-module-in-a-rust-cargo-project
