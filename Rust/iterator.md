@@ -143,3 +143,37 @@ assert_eq!(iter.next(), Some(&1));
 
 assert_eq!(iter.next(), None);
 ```
+
+# flat
+
+* flatten: flatten nested structure
+
+```rust
+let data = vec![vec![1, 2, 3, 4], vec![5, 6]];
+let flattened = data.into_iter().flatten().collect::<Vec<u8>>();
+assert_eq!(flattened, &[1, 2, 3, 4, 5, 6]);
+// Advanced
+let d3 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+let d2 = d3.iter().flatten().collect::<Vec<_>>();
+assert_eq!(d2, [&[1, 2], &[3, 4], &[5, 6], &[7, 8]]);
+let d1 = d3.iter().flatten().flatten().collect::<Vec<_>>();
+assert_eq!(d1, [&1, &2, &3, &4, &5, &6, &7, &8]);
+```
+
+* flat_map: flatten + map
+
+```rust
+// Origin
+let words = ["alpha", "beta", "gamma"];
+
+// chars() returns an iterator
+let merged: String = words.iter()
+                          .map(|s| s.chars())
+                          .flatten()
+                          .collect();
+// flat_map
+let merged: String = words.iter()
+                          .flat_map(|s| s.chars())
+                          .collect();
+assert_eq!(merged, "alphabetagamma");
+```
