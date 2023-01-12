@@ -130,17 +130,19 @@ deactivate
 # poetry
 
 Python package manager, like npm in javascript.
+poetry also supports virtual env of Python, so you don't need pyenv and virtualenv.
+[再見了 pip！最佳 Python 套件管理器——Poetry 完全入門指南](https://blog.kyomind.tw/python-poetry/) is the best tutorial I've ever seen for poetry.
 
 * Installation & Usage
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
-# Before use poetry
-source $HOME/.poetry/env
+curl -sSL https://install.python-poetry.org | python3 -
+# Add to the environmental variables
+export PATH=$PATH:$HOME/.local/bin
 # Update poetry
 poetry self update
 # Uninstall
-POETRY_UNINSTALL=1 bash -c 'curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3'
+POETRY_UNINSTALL=1 bash -c 'curl -sSL https://install.python-poetry.org | python3'
 ```
 
 * init poetry (Generate pyproject.toml)
@@ -150,12 +152,17 @@ POETRY_UNINSTALL=1 bash -c 'curl -sSL https://raw.githubusercontent.com/sdispate
 poetry init --no-interaction
 ```
 
-* Use correct Python version
+* Create Python environment
 
 ```bash
-poetry env use $(which python3)
+# Put .venv file under the project
+poetry config virtualenvs.in-project true
+# Use the current python3
+poetry env use python3
 # If you use pyenv
 poetry env use $(pyenv which python)
+# Remove environment
+poetry env remove <env_name>
 ```
 
 * Add/Remove package for poetry
