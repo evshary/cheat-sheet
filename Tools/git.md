@@ -112,10 +112,19 @@ git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
 GIT_COMMITTER_EMAIL=xxx@yyy.com git commit --signoff --author="ChenYing Kuo <xxx@yyy.com>"
 ```
 
-# Undo last commit and reserve the modification
+# Undo
+
+* Go back to the last commit and reserve the modification
 
 ```bash
 git reset HEAD~
 # Same as
 git reset HEAD~1
+```
+
+* Only undo some files
+
+```bash
+git reset HEAD~ -- <not_commit_filename>
+git commit --amend
 ```
