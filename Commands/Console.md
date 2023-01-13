@@ -1,10 +1,45 @@
 # VNC
+## Server
+
+### tigervnc (Able to login without display)
+
+* Install ubuntu gnome desktop
+  - `sudo apt install ubuntu-gnome-desktop`
+* Install tigervnc
+  - `sudo apt install tigervnc-standalone-server`
+* Update passwd
+  - `vncpasswd`
+* Create `~/.vnc/xstartup`
+
+```shell
+#!/bin/sh
+# Start Gnome 3 Desktop
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+vncconfig -iconic &
+dbus-launch --exit-with-session gnome-session &
+```
+
+* Start the server (Open port in 5900 + <:no>, e.g. `:1` means 5901)
+  - `vncserver -localhost no <:no>`
+  - e.g. `vncserver -localhost no :1`
+* List the vnc server
+  - `vncserver -list`
+* Stop the vnc server
+  - `vncserver -kill <:no>`
+  - e.g. `vncserver -kill :1`
+
+### x11vnc
+
 * Install x11vnc
   - `sudo apt install x11vnc`
 * Set password
   - `x11vnc -storepasswd`
 * Run VNC server
   - `x11vnc -forever -usepw -display :0`
+
+## Client
+
 * Download [VNC viewer (Client)](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog) or [REAL VNC](https://www.realvnc.com/en/connect/download/viewer/)
 
 # Desktop (tested in Ubuntu 20.04)
