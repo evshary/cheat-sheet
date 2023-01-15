@@ -28,6 +28,8 @@ dbus-launch --exit-with-session gnome-session &
 * Stop the vnc server
   - `vncserver -kill <:no>`
   - e.g. `vncserver -kill :1`
+* Problems:
+  - If unable to login desktop, refer to [here](https://devanswers.co/how-to-fix-authentication-is-required-to-create-a-color-profile-managed-device-on-ubuntu-20-04-20-10/).
 
 ### x11vnc
 
