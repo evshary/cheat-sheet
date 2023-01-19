@@ -114,6 +114,8 @@
   - Screen Recorder for multi-platform.
 * [pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)
   - Automatic subtitles generator.
+* [Kdenlive](https://kdenlive.org/zh/)
+  - Video editor
 
 # Others
 * [Ninite](https://ninite.com/)
