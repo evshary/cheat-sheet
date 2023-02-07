@@ -76,3 +76,11 @@
 * mocp: CLI music player
   - `sudo apt install moc moc-ffmpeg-plugin`
   - `mocp`: Run the music player
+* [Live Captions](https://opensource.com/article/23/2/live-captions-linux)
+
+```shell
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub net.sapples.LiveCaptions
+# Run
+flatpak run net.sapples.LiveCaptions
+```
