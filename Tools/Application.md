@@ -122,3 +122,6 @@
   - Install and update everything at once.
 * [MuseScore](https://musescore.org/)
   - Free music notation software.
+* [GlobalProtect VPN](https://github.com/yuezk/GlobalProtect-openconnect)
+  - Linux VPN client.
+
