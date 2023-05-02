@@ -85,3 +85,6 @@ echo 'My appended content' | sudo tee -a /tmp/filename > /dev/null
 * Make you seem like busy
   - `sudo apt install hollywood`
   - `hollywood`
+* Parallel execution
+  - `parallel echo ::: 1 2 3`
+  - `parallel ::: 'echo "1"' 'echo "2"' 'echo "3"'`
