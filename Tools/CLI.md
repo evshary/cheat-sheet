@@ -72,6 +72,7 @@
   - Decrypt the pdf: `qpdf --password=password --decrypt origin.pdf unsecured.pdf`
 * [gnuplot](https://evshary.github.io/2018/12/02/gnuplot：報告必備的繪圖工具/): Able generate graph.
 * [youtube-dl](https://evshary.github.io/2018/11/25/youtube-dl網路影片下載器/): Youtube downloader.
+  - [yt-dlp](https://github.com/yt-dlp/yt-dlp): youtube-dl 的 fork，但速度更快
 * [ffmepg](https://evshary.github.io/2018/12/01/ffmpeg影音處理工具/): Multimedia convertor.
 * mocp: CLI music player
   - `sudo apt install moc moc-ffmpeg-plugin`
