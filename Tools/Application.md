@@ -112,6 +112,8 @@
   - Screen Recorder.
 * [OBS Studio](https://obsproject.com/)
   - Screen Recorder for multi-platform.
+* [Kazam](https://github.com/henrywoo/kazam)
+  - Lightweight screen recorder for Linux
 * [pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)
   - Automatic subtitles generator.
 * [Kdenlive](https://kdenlive.org/zh/)
