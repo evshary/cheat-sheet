@@ -126,6 +126,9 @@ You can also download driver from this official website.
   - Try to modify `/etc/pulse/default.pa` and uncomment `load-module module-alsa-sink`.
   - Reboot or restart the service `systemctl --user restart pulseaudio.socket`
   - For more information about [module-alsa-sink](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#module-alsa-sink).
+* Bluetooth headset microphone not work
+  - Replace pulseaudio with pipewire
+  - Tutorial: https://askubuntu.com/questions/1339765/replacing-pulseaudio-with-pipewire-in-ubuntu-20-04
 
 # Reference
 
