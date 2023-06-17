@@ -60,6 +60,8 @@
   - File Compressor.
 * [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo/)
   - Show the health of disk.
+* [WizTree](https://www.diskanalyzer.com/download)
+  - Disk usage analyzer
 * [HDDScan](http://hddscan.com/)
   - Show the detail health of disk.
 * [HDD LLF Low Level Format Tool](http://hddguru.com/software/HDD-LLF-Low-Level-Format-Tool/)
