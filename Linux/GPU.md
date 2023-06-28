@@ -74,6 +74,8 @@ glxinfo | grep vendor
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor
 ```
 
+* Note: I found that the system will use your display GPU as default, so use the display of the GPU you want to set as default is a better idea.
+
 # stress GPU
 
 Use [gpu-burn](https://github.com/wilicc/gpu-burn)
