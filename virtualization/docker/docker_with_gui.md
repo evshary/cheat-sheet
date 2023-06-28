@@ -32,6 +32,24 @@ rocker --nvidia --x11 --user --home ros:foxy bash
 
 # Run with GPU
 
+## Installation
+
+To run docker with NVIDIA GPU, you need to install `nvidia-container-toolkit` (for docker>=19.03)
+
+Refer to [使用nvidia-docker2](https://zhuanlan.zhihu.com/p/37519492)
+
+```shell
+# Add the package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
+## Usage
+
 * docker
 
 ```bash
@@ -49,7 +67,7 @@ rocker --nvidia --network host --privileged --x11 --user --volume $HOME/autoware
 ros2 launch autoware_launch planning_simulator.launch.xml map_path:=$HOME/autoware_map/sample-map-planning vehicle_model:=sample_vehicle sensor_model:=sample_sensor_kit
 ```
 
-# Issues
+## Issues
 
 If you are using Intel Integrated GPU, `--devices /dev/dri` is necessary.
 
