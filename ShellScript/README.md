@@ -89,6 +89,16 @@ for i in item1 item2 item3
 do
     echo $i
 done
+# another way
+listitems=(v1, v2, v3)
+echo ${#listitems[@]} # print items number
+echo ${listitems[@]} # print all value
+echo ${listitems[0]} # print 1st item
+echo ${listitems[-1]} # print the last item
+for i in ${listitems[@]}
+do
+    echo $i
+done
 ```
 * `seq`
 ```sh
