@@ -66,6 +66,9 @@
 * Text fonts (Ubuntu)
   - Univeral Access => Large Text
 * Displays => Night Light
+* DCMTK: Transform DICOM to png
+  - Installation: `sudo apt install dcmtk`
+  - Transform: `dcm2pnm --write-png image.dcm output.png`
 
 # Others
 * qpdf: PDF transformer
