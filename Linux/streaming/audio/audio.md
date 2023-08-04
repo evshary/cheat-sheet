@@ -129,6 +129,8 @@ You can also download driver from this official website.
 * Bluetooth headset microphone not work
   - Replace pulseaudio with pipewire
   - Tutorial: https://askubuntu.com/questions/1339765/replacing-pulseaudio-with-pipewire-in-ubuntu-20-04
+  - If you find that the input/output device doesn't switch automatically, try to uncomment `{ path = "pactl" args = "load-module module-switch-on-connect" }` in `/usr/share/pipewire/pipewire-pulse.conf`
+  - https://groups.google.com/g/linux.debian.bugs.dist/c/cdzzwQZ3Zq8?pli=1
 
 # Reference
 
