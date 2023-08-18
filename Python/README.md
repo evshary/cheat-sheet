@@ -17,3 +17,7 @@ Suggest to use Python3.
 * [object](object.md): About object.
 * [collections](collections.md): About collections.
 
+# Useful link
+* Upload to PyPI:
+  * tutorial: https://www.maxlist.xyz/2022/12/20/python-pypi-package/
+  * Example: https://github.com/evshary/zenoh-ros-type-python
