@@ -40,7 +40,21 @@
   - `vncserver -kill <:no>`
   - e.g. `vncserver -kill :1`
 * Problems:
-  - If unable to login desktop, refer to [here](https://devanswers.co/how-to-fix-authentication-is-required-to-create-a-color-profile-managed-device-on-ubuntu-20-04-20-10/).
+  - If unable to login desktop, refer to [here](https://rpsene.wordpress.com/2022/05/31/ubuntu-authentication-is-required-to-create-a-color-profile-managed-device/).
+  - Edit `/etc/polkit-1/localauthority.conf.d/02-allow-colord.conf`
+  ```
+  polkit.addRule(function(action, subject) {
+   if ((action.id == "org.freedesktop.color-manager.create-device" ||
+   action.id == "org.freedesktop.color-manager.create-profile" ||
+   action.id == "org.freedesktop.color-manager.delete-device" ||
+   action.id == "org.freedesktop.color-manager.delete-profile" ||
+   action.id == "org.freedesktop.color-manager.modify-device" ||
+   action.id == "org.freedesktop.color-manager.modify-profile") &&
+   subject.isInGroup("{users}")) {
+   return polkit.Result.YES;
+   }
+  });
+  ```
 
 ### x11vnc
 
