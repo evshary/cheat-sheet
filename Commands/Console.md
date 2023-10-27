@@ -7,18 +7,29 @@
   - `sudo apt install ubuntu-gnome-desktop`
 * Install tigervnc
   - `sudo apt install tigervnc-standalone-server`
+* Make sure dbus-launch works
+  - `sudo apt install dbus-x11`
 * Update passwd
   - `vncpasswd`
 * Create `~/.vnc/xstartup`
-
-```shell
-#!/bin/sh
-# Start Gnome 3 Desktop
-[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-vncconfig -iconic &
-dbus-launch --exit-with-session gnome-session &
-```
+  - Ubuntu 20.04
+  ```shell
+  #!/bin/sh
+  # Start Gnome 3 Desktop
+  [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+  [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+  vncconfig -iconic &
+  dbus-launch --exit-with-session gnome-session &
+  ```
+  - Ubuntu 22.04
+  ```shell
+  #!/bin/sh
+  # Start Gnome 3 Desktop
+  [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+  [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+  vncconfig -iconic &
+  dbus-launch --exit-with-session gnome-session
+  ```
 
 * Start the server (Open port in 5900 + <:no>, e.g. `:1` means 5901)
   - `vncserver -localhost no <:no>`
