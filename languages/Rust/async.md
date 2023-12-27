@@ -16,3 +16,7 @@
   - [Tokio 內部機制：從頭理解 Rust 非同步 I/O 框架](https://gist.github.com/weihanglo/4661db374f82fe91e931bab0f50d7a10)
 * FSM logic:
   - [async/await 如何工作 | Rust学习笔记](https://segmentfault.com/a/1190000024540040)
+* Pin/Unpin:
+  - [Pin and suffering](https://fasterthanli.me/articles/pin-and-suffering)
+  - [Rust 中的 Pin UnPin Async Await 实现机制](https://blog.csdn.net/xuejianxinokok/article/details/133739148)
+  - [Rust原理与工程实践｜Rust Pin 进阶](https://juejin.cn/post/7064473476173660190)
