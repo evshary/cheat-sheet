@@ -62,6 +62,10 @@ You can sign the commit with GPG keys
 * Signing commits: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
   - `git commit -S -s`: `-S` means GPG sing, while `-s` means sign-off
 
+# GUI tool
+
+* Kleopatra: For Linux platform
+
 # Reference
 
 * [[GnuPG] gpg 金鑰管理](http://pre.tir.tw/008/blog/output/gnupg-gpg-jin-yao-guan-li.html)
