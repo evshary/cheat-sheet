@@ -1,6 +1,16 @@
 # docker management
 
-This page will show how to 
+This page provides some ways to manage docker.
+
+# Portainer
+
+This can manage all your containers and images from website
+Usage: https://docs.portainer.io/start/install-ce/server/docker/linux
+
+```bash
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
 
 # docker-mahcine
 * Install docker machine
