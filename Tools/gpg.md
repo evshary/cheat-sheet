@@ -1,6 +1,7 @@
 # Basic: gpg key
 
 * generate gpg key (Save in `~/.gnupg`)
+  - `gpg --full-generate-key`: Recommended
   - `gpg --gen-key`
 * Create revoke certificate
   - `gpg -o revoke.asc --gen-revoke <ID substring>`
@@ -12,17 +13,17 @@
   - priv key: `gpg --import <mypriv.asc>`
 * List all current key
   - pub key: `gpg --list-keys`
-  - secret key: `gpg --list-secret-keys`
+  - secret key: `gpg --list-secret-keys` or `gpg -K`
 * Delete key (pub key can only be deleted while there's no priv key)
   - pub key: `gpg --delete-keys <ID substring>`
   - priv key: `gpg --delete-secret-keys <ID substring>`
-* Backup
+* Backup (2 ways)
   - copy ~/.gnupg
   - export and then import key
 
 # Cowork with others
 
-* Search other key
+* Search for other keys from the server
   - `gpg --search-keys <keyword>`
 * Add other's pub key (Save in `~/.gnupg/pubring.gpg`)
   - `gpg --recv-keys <pub_key>`
@@ -48,6 +49,18 @@
   - `gpg --clearsign <originfile>`
 * Verify
   - `gpg --verify < originfile.asc`
+
+# Used with GitHub
+
+You can sign the commit with GPG keys
+
+* Adding a GPG key to your GitHub account: https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account
+* Generating a new GPG key: https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
+  - `gpg --full-generate-key`: Suggest using RSA 4096
+  - `gpg --list-secret-keys --keyid-format=long`: List the keys with ID
+  - `gpg --armor --export <ID>`: Copy the ID to GitHub
+* Signing commits: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
+  - `git commit -S -s`: `-S` means GPG sing, while `-s` means sign-off
 
 # Reference
 
