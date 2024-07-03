@@ -1,4 +1,6 @@
-# LinkedList
+# Useful_DS
+
+## LinkedList
 
 * You should add `use std::collections::LinkedList;` first.
 
@@ -48,7 +50,7 @@ for element in list1.iter_mut() {
 }
 ```
 
-# Algorithm
+## Algorithm
 
 * Compare
 
@@ -83,7 +85,7 @@ use num::range_step;
 for n in range_step(0, 10, 2) {}
 ```
 
-# Option
+## Option
 
 * `as_ref()`: To transform `&Option<T>` to `Option<&T>`
 * `as_mut()`: To transform `&mut Option<T>` to `Option<&mut T>`
@@ -94,18 +96,18 @@ for n in range_step(0, 10, 2) {}
 ```rust
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode {
+          next: None,
+          val
+        }
     }
-  }
 }
 
 impl Solution {
@@ -119,7 +121,7 @@ impl Solution {
             if next_node.val == node.val {
                 node.next = next_node.next.take();  // Move next_node.next to node.next and leave None to next_node.next
             } else {
-            	node = node.next.as_mut().unwrap(); // node is the mutable reference of Box (node.next)
+                node = node.next.as_mut().unwrap(); // node is the mutable reference of Box (node.next)
             }
         }
         h
@@ -128,8 +130,8 @@ impl Solution {
         let mut result = 0;
         let mut node = head;
         while let Some(content) = node.as_mut() {
-        	result = (result << 1) + content.val;
-        	node = content.next.take();
+            result = (result << 1) + content.val;
+            node = content.next.take();
         }
         result
     }

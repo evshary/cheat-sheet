@@ -43,7 +43,7 @@ pub fn test() {
 }
 ```
 
-# pub
+## pub
 
 * `pub`: No limitation to visibility
 * `pub(crate)`: Only seen in the current crate
@@ -51,12 +51,12 @@ pub fn test() {
 * `pub(super)`: Only seen parents' mod
 * `pub(in <path>)`: Only seen in certain path mod, i.e. `pub(in crate::a)`
 
-# Dependencies
+## Dependencies
 
 The library under the `[dependencies]` in Cargo.toml can be used directly, no need mod.
 
-# Reference
+## Reference
 
 * [Clear explanation of Rust’s module system](https://www.sheshbabu.com/posts/rust-module-system/): Really clear about what the Rust's module system
-  - Mandarin version: https://skyao.io/learning-rust/docs/build/module/rust-module-system-explanation.html
+  * Mandarin version: https://skyao.io/learning-rust/docs/build/module/rust-module-system-explanation.html
 * Stack overflow: https://stackoverflow.com/questions/48071513/how-to-use-one-module-from-another-module-in-a-rust-cargo-project

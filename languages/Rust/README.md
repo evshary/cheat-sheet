@@ -8,11 +8,11 @@ There are 3 binaries for rust.
 * rustc: Rust compiler
 * cargo: Package Manager
 
-# Install
+## Install
 
 * Install rustup
-  - the binary of rust will be in `~/.cargo/bin`, and rustup will setup the environemt variable for you.
-  - The environment settings `. "$HOME/.cargo/env"` will be under `~/.profile`, `~/.bashrc` and `~/.zshenv`.
+  * the binary of rust will be in `~/.cargo/bin`, and rustup will setup the environemt variable for you.
+  * The environment settings `. "$HOME/.cargo/env"` will be under `~/.profile`, `~/.bashrc` and `~/.zshenv`.
 
 ```sh
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
@@ -30,9 +30,9 @@ rustup update
 rustup self uninstall
 ```
 
-# Usage
+## Usage
 
-## rustc
+### rustc
 
 * Create `main.rs`
 
@@ -48,11 +48,11 @@ fn main() {
 rustc main.rs
 ```
 
-## cargo
+### cargo
 
 * Create new project
-  - It'll create Cargo.toml and src folder
-  - `Cargo.toml` will record the package you need and `Cargo.toml` will record the specific version of dependencies related to the package.
+  * It'll create Cargo.toml and src folder
+  * `Cargo.toml` will record the package you need and `Cargo.toml` will record the specific version of dependencies related to the package.
 
 ```sh
 cargo new hello_world
@@ -80,7 +80,7 @@ cargo build --release
 cargo run
 ```
 
-## Platform
+### Platform
 
 We can add `--target=xxx` to compile with on different platform.
 
@@ -89,22 +89,22 @@ We can add `--target=xxx` to compile with on different platform.
 
 More platform can refer to [here](https://doc.rust-lang.org/nightly/rustc/platform-support.html)
 
-# Important Concept
+## Important Concept
 
 * Ownership:
-  - Scalar type and tuple with scalar type can assign with clone
-  - Others is assigned with move
-  - You can use "reference" without copy
+  * Scalar type and tuple with scalar type can assign with clone
+  * Others is assigned with move
+  * You can use "reference" without copy
 * Generic Type
 * Trait
 * Lifecycle
 * Smart Pointers
 * Async
 
-# Reference
+## Reference
 
 * [The Rust Programming Language](https://doc.rust-lang.org/book/)
-  - [中文版](https://rust-lang.tw/book-tw/)
+  * [中文版](https://rust-lang.tw/book-tw/)
 * [Rust语言圣经(Rust Course)](https://course.rs/about-book.html)
 * [RUST 練習題](https://zh.practice.rs/why-exercise.html)
 * [通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/index.html)

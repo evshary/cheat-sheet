@@ -1,10 +1,11 @@
 # String
- 
+
 The difference between String and &str:
+
 * String: store data into heap
 * &str: the slice of String
 
-# Usage
+## Usage
 
 * Init
 

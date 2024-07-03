@@ -1,4 +1,6 @@
-# Box
+# Smart Pointer
+
+## Box
 
 * Basic usage
 
@@ -19,8 +21,8 @@ println!("{} {}", s2.a, s2.b);  // 100 1000
 ```
 
 * Why Box?
-  - Data in heap can be transferred without copy
-  - Able to used recursive type (Don't know the exact size)
+  * Data in heap can be transferred without copy
+  * Able to used recursive type (Don't know the exact size)
 
 ```rust
 let arr = [0;1000]; // 0 for 1000 times
@@ -48,7 +50,7 @@ let list1 = LinkedList { val: 10, next: None};
 println!("{}", list1.val);
 ```
 
-# Rc & Arc
+## Rc & Arc
 
 * When you want to use multiple pointers which point to the same data
 * Need `use std::rc::Rc;`
@@ -72,7 +74,7 @@ println!("{} {} {}", Rc::strong_count(&a), Rc::strong_count(&b), Rc::strong_coun
 * Arc is same as Rc, but can be used in multithread.
 * Arc need `use std::sync::Arc;`
 
-# RefCell
+## RefCell
 
 You can't borrow an unmutable value with mutable way, but RefCell provides us the flexibility.
 The checking mechanism will be postponed to runtime
@@ -116,7 +118,7 @@ println!("{}", ptr);
 
 But why we need RefCell, refer to https://www.sobyte.net/post/2022-03/rust-why-need-interior-mutability/
 
-# Option, Rc and RefCell
+## Option, Rc and RefCell
 
 ```rust
 #[derive(Debug, PartialEq, Eq)]
@@ -139,18 +141,18 @@ impl TreeNode {
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-	fn traverse(root: Option<Rc<RefCell<TreeNode>>>, v: &mut Vec<i32>) {
-	    if root == None {
-	        return
-	    }
-	    // as_ref() and unwrap() will strip Option with reference, borrow() is for RefCell, and clone() will is to match Rc()
-	    Self::traverse(root.as_ref().unwrap().borrow().left.clone(), v);
-	    v.push(root.as_ref().unwrap().borrow().val);
-	    Self::traverse(root.unwrap().borrow().right.clone(), v);
-	}
+    fn traverse(root: Option<Rc<RefCell<TreeNode>>>, v: &mut Vec<i32>) {
+        if root == None {
+            return
+        }
+        // as_ref() and unwrap() will strip Option with reference, borrow() is for RefCell, and clone() will is to match Rc()
+        Self::traverse(root.as_ref().unwrap().borrow().left.clone(), v);
+        v.push(root.as_ref().unwrap().borrow().val);
+        Self::traverse(root.unwrap().borrow().right.clone(), v);
+    }
     pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut v = Vec::new();
-	    // To call traverse, need to add Self::
+        // To call traverse, need to add Self::
         Self::traverse(root, &mut v); // v need to define as mut ref
         v
     }

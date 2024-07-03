@@ -2,7 +2,7 @@
 
 Rust does not too many object-oriented features, but there are some tips to make it more similar to the object-oriented language.
 
-# Private member
+## Private member
 
 ```rust
 mod lib {
@@ -25,7 +25,7 @@ fn main() {
 }
 ```
 
-# Getters and Setters
+## Getters and Setters
 
 ```rust
 pub struct Robot {
@@ -53,7 +53,7 @@ fn main() {
 }
 ```
 
-# Polymorphism
+## Polymorphism
 
 ```rust
 pub trait Drive {
@@ -84,5 +84,6 @@ fn main() {
 }
 ```
 
-# Reference
+## Reference
+
 * [[Rust] 程式設計教學：物件導向 (Object-Oriented Programming)](https://opensourcedoc.com/rust-programming/oop/)

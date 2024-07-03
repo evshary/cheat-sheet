@@ -1,4 +1,6 @@
-# Vec
+# Vector
+
+## Vec
 
 * Init
 
@@ -105,7 +107,7 @@ fn main() {
 }
 ```
 
-# VecDeque
+## VecDeque
 
 * You should use `use std::collections::VecDeque;` first.
 
