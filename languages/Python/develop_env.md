@@ -49,25 +49,30 @@ Used to install packages for Python.
   * `python3 -m pip list -v`: more detail with path
 * Upgrade pip: `python3 -m pip install --upgrade pip`
 
+## Suggested configuration
+
+We recommend using:
+
+* pyenv: Manage the Python version
+* poetry: Manage the project packages
+
 ## pyenv
 
 Used to run different version of Python.
+Don't use `pyenv-virtualenv` to avoid the conflict with poetry.
 
 * Installation
 
 ```bash
-curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+curl https://pyenv.run | bash
 ```
 
-* Add the environmental variable into `~/.bashrc`
+* Add the environmental variable into `~/.profile`
 
 ```bash
-export PYENV_ROOT="${HOME}/.pyenv"
-
-if [ -d "${PYENV_ROOT}" ]; then
-  export PATH="${PYENV_ROOT}/bin:${PATH}"
-  eval "$(pyenv init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 ```
 
 * Install Python list
@@ -99,37 +104,6 @@ pyenv shell --unset
 pyenv which python
 # Execute python with current version
 pyenv exec python
-```
-
-## virtualenv
-
-Used to run virtual and clean Python environment.
-
-* Installation
-
-```bash
-pip3 install virtualenv
-```
-
-* Create environment
-
-```bash
-virtualenv venv
-# Assign python version
-virtualenv -p /usr/bin/python3 venv
-# If you use pyenv, you the following commands
-virtualenv -p $(pyenv which python) venv
-```
-
-* Activate / Deactivate venv
-
-```bash
-# Activate environment
-source venv/bin/activate
-# Show packages list
-pip3 list
-# Deactivate environment
-deactivate
 ```
 
 ## poetry
@@ -204,6 +178,38 @@ poetry config virtualenvs.create false
 
 ```bash
 poetry build
+```
+
+## virtualenv (Not recommended)
+
+Used to run virtual and clean Python environment.
+However, it overlaps with poetry, so not recommend to use this.
+
+* Installation
+
+```bash
+pip3 install virtualenv
+```
+
+* Create environment
+
+```bash
+virtualenv venv
+# Assign python version
+virtualenv -p /usr/bin/python3 venv
+# If you use pyenv, you the following commands
+virtualenv -p $(pyenv which python) venv
+```
+
+* Activate / Deactivate venv
+
+```bash
+# Activate environment
+source venv/bin/activate
+# Show packages list
+pip3 list
+# Deactivate environment
+deactivate
 ```
 
 ## Reference
