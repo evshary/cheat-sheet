@@ -2,49 +2,54 @@
 
 This is Python develop environment note.
 
-# Environment
+## Environment
 
 * Find sys.path: `python3 -m site`
 * More beautiful environment: `sudo apt install ipython ipython3`
 
-# Include other module
+## Include other module
 
 * Add sys.path
+
 ```py
 # In your python file
 import sys
 sys.path.append("/your_module_path/lib/python3.6/dist-packages")
 ```
+
 * Use environment variables: `PYTHONPATH`
+
 ```bash
 env PYTHONPATH="/your_module_path/lib/python3.6/dist-packages" python3
 ```
+
 * Use pth: Put `.pth` file under `/usr/local/lib/python3.6/dist-packages/`
-  - File content:
-```
+  * File content:
+
+```raw
 /your_module_path/lib/python3.6/dist-packages
 ```
 
-# pip
+## pip
 
 Used to install packages for Python.
 
 * pip should be installed after installing python.
 * Correct to use pip
-  - `python3 -m pip install <your_package>`
-  - installed in `~/.local/lib/<python_version>/site-packages`
-  - Note: if you use `apt install python-<packag>`, the path will be `/usr/lib/<python_version>/dist-packages`. (Not suggested)
-  - The difference between site-packages and dist-packages:
+  * `python3 -m pip install <your_package>`
+  * installed in `~/.local/lib/<python_version>/site-packages`
+  * Note: if you use `apt install python-<packag>`, the path will be `/usr/lib/<python_version>/dist-packages`. (Not suggested)
+  * The difference between site-packages and dist-packages:
     * site-packages: install from pip
     * dist-packages: install from apt
 * Show packages detail
-  - `python3 -m pip show <your_package>`
+  * `python3 -m pip show <your_package>`
 * Show all installed packages
-  - `python3 -m pip list`
-  - `python3 -m pip list -v`: more detail with path
+  * `python3 -m pip list`
+  * `python3 -m pip list -v`: more detail with path
 * Upgrade pip: `python3 -m pip install --upgrade pip`
 
-# pyenv
+## pyenv
 
 Used to run different version of Python.
 
@@ -77,7 +82,7 @@ pyenv versions
 ```
 
 * Change the Python version
-  - priority: shell(current shell) -> local(current directory) -> global(OS level)
+  * priority: shell(current shell) -> local(current directory) -> global(OS level)
 
 ```bash
 pyenv global <version>
@@ -89,14 +94,14 @@ pyenv shell --unset
 
 * Show current python path and execute
 
-```
+```shell
 # Show current python path
 pyenv which python
 # Execute python with current version
 pyenv exec python
 ```
 
-# virtualenv
+## virtualenv
 
 Used to run virtual and clean Python environment.
 
@@ -127,7 +132,7 @@ pip3 list
 deactivate
 ```
 
-# poetry
+## poetry
 
 Python package manager, like npm in javascript.
 poetry also supports virtual env of Python, so you don't need pyenv and virtualenv.
@@ -201,6 +206,7 @@ poetry config virtualenvs.create false
 poetry build
 ```
 
-# Reference
+## Reference
+
 * [pyenv & virtualenv usage](https://www.maxlist.xyz/2020/04/01/python-pyenv-virtualenv/)
 * [poetry with Django](https://ithelp.ithome.com.tw/articles/10233355)
