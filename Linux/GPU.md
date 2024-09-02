@@ -53,6 +53,13 @@ sudo dpkg -P $(dpkg -l | grep nvidia | awk '{print $2}')
 sudo apt install cuda
 ```
 
+* Remember to add the environmental variables in the `~/.profile`
+
+```bash
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+```
+
 * Uninstall
 
 ```bash
