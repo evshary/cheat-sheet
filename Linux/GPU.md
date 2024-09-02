@@ -45,6 +45,22 @@ sudo nvidia-settings
 sudo dpkg -P $(dpkg -l | grep nvidia | awk '{print $2}')
 ```
 
+## CUDA
+
+* Install
+
+```bash
+sudo apt install cuda
+```
+
+* Uninstall
+
+```bash
+sudo apt remove "cuda-*"
+# If there is dependency issue, run the following command first
+sudo apt remove "libnv*"
+```
+
 # Select GPU
 
 * Chech which GPU you are using
