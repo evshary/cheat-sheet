@@ -67,6 +67,7 @@
 
 ## Client
 
+* [Remmina](https://remmina.org/) is suggested as a super client
 * Download [VNC viewer (Client)](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?utm_source=chrome-app-launcher-info-dialog) or [REAL VNC](https://www.realvnc.com/en/connect/download/viewer/)
 
 # Desktop (tested in Ubuntu 20.04)
