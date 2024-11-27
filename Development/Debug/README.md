@@ -15,6 +15,19 @@ make asan
 ASAN_OPTIONS=halt_on_error=0:log_path=asan.log ./memory_leak.out
 ```
 
+## Undefined Behavior Sanitizer
+
+UBSan can help us detect the undefined behavior.
+
+```shell
+# Enable undefined sanitizer
+make ubsan
+# Run test
+./int_overflow.out
+# Stop if UB is detected, export log to ubsan.log, and print stack trace
+UBSAN_OPTIONS=halt_on_error=1:log_path=ubsan.log:print_stacktrace=1 ./int_overflow.out
+```
+
 ### Reference
 
 * [AddressSanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer)

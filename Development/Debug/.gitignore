@@ -1,2 +1,5 @@
+# binary
 *.out
+# log
 asan.log*
+ubsan.log*
