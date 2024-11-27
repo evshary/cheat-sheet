@@ -2,7 +2,7 @@ UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
 # Put the path after install
 SSL_PATH=/usr/local/Cellar/openssl@1.1/1.1.1c/
-CFLAGS=-I$(SSL_PATH)include -L$(SSL_PATH)lib/ 
+CFLAGS=-I$(SSL_PATH)include -L$(SSL_PATH)lib/
 endif
 
 CFLAGS+=-lcrypto -lssl

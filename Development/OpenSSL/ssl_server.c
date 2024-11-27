@@ -6,7 +6,7 @@
 #include <openssl/ssl.h> // openssl
 
 #define SSL_CERT "server.crt"
-#define SSL_KEY  "server.key"   
+#define SSL_KEY  "server.key"
 
 #define BUF_LEN  256
 #define SSL_PORT 8080

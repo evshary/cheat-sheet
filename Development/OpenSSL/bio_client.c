@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     // int fd = BIO_get_fd(bio, NULL);
     // SSL *ssl;
     // BIO_get_ssl(bio, & ssl);
-    
+
     // Build TCP connection
     printf("Build TCP connection to server\n");
     char server[50];
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         printf("BIO_do_connect error\n");
         goto exit;
     }
-    
+
     // Establish SSL connection
     printf("Establish SSL connection\n");
     if (BIO_do_handshake(bio) <= 0) {

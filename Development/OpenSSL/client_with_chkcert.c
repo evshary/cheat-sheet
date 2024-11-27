@@ -10,7 +10,7 @@
 
 #if SUPPORT_CLIENT_CERT
 #define SSL_CERT "client.crt"
-#define SSL_KEY  "client.key"   
+#define SSL_KEY  "client.key"
 #endif
 
 #if SUPPORT_CHK_SVR_CERT

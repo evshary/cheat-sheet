@@ -14,13 +14,13 @@
 #endif
 
 #define SSL_CERT "server.crt"
-#define SSL_KEY  "server.key"   
+#define SSL_KEY  "server.key"
 
 #define BUF_LEN  256
 #define SSL_PORT 8080
 
 #if SUPPORT_NO_CHK_VALID_CERT
-/* The validity of certificate will be in preverify_ok. However we can do our check in the callback. 
+/* The validity of certificate will be in preverify_ok. However we can do our check in the callback.
  * Return value 1 means pass, and 0 means fail.
  */
 static int verify_callback(int preverify_ok, X509_STORE_CTX *ctx) {
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
         printf("SSL_CTX_load_verify_locations error\n");
         goto exit;
     }
-    
+
     printf("SSL_CTX_set_verify: Verify client certificate\n");
 #if SUPPORT_NO_CHK_VALID_CERT
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER|SSL_VERIFY_FAIL_IF_NO_PEER_CERT, verify_callback);
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     SSL_CTX_set_verify_depth(ctx, MAX_VERIFY_LEN + 1);
     { /* We need to call SSL_CTX_set_session_id_context since client certificate is reused. */
       /* According to https://www.openssl.org/docs/man1.1.0/man3/SSL_CTX_set_session_id_context.html
-         If the session id context is not set on an SSL/TLS server and client certificates are used, 
+         If the session id context is not set on an SSL/TLS server and client certificates are used,
          stored sessions will not be reused but a fatal error will be flagged and the handshake will
          fail.
        */

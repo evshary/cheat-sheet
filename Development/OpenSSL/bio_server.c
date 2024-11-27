@@ -6,7 +6,7 @@
 #include <openssl/ssl.h> // openssl
 
 #define SSL_CERT "server.crt"
-#define SSL_KEY  "server.key"   
+#define SSL_KEY  "server.key"
 
 #define BUF_LEN  256
 #define SSL_PORT "8080"
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 		printf("Error private key\n");
 		goto exit;
 	}
-    
+
     // Create BIO SSL for server
     printf("Create BIO SSL for server\n");
     if ((bio = BIO_new_ssl(ctx,0)) == NULL) {
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     // int fd = BIO_get_fd(bio, NULL);
     // SSL *ssl;
     // BIO_get_ssl(bio, & ssl);
-    
+
     // Accept connection
     printf("Accept connection\n");
     abio = BIO_new_accept(SSL_PORT);
@@ -81,14 +81,14 @@ int main(int argc, char *argv[])
         goto exit;
     }
     cbio = BIO_pop(abio);
-    
+
     // Do SSL handshake
     printf("Do SSL handshake\n");
     if(BIO_do_handshake(cbio) <= 0) {
         printf("BIO_do_handshake error\n");
         goto exit;
     }
-    
+
     // BIO write/read
     printf("BIO read/write\n");
     char buf[BUF_LEN] = {0};
