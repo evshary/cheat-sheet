@@ -1,5 +1,6 @@
 {
   "MD013": false, # Line length limitation
+  "MD024": false, # Multiple headings with the same content
   "MD033": false, # Enable Inline HTML
   "MD041": false, # Allow first line heading
 }
