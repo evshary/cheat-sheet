@@ -3,3 +3,4 @@
 # log
 asan.log*
 ubsan.log*
+valgrind.log

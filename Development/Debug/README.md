@@ -42,7 +42,7 @@ sudo apt install valgrind
 # Build
 make valgrind
 # Test memory leak
-valgrind --leak-check=full ./memory_leak.out
+valgrind --leak-check=full --log-file=valgrind.log ./memory_leak.out
 ```
 
 ### Reference
