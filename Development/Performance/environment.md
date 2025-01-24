@@ -72,3 +72,9 @@ echo "1" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 # Enable it back afterward
 echo "0" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 ```
+
+* Fix the CPU affinity
+
+```shell
+taskset -c 1 ./test_program
+```
