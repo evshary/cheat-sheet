@@ -1,4 +1,4 @@
-# Performance test
+# Performance Tool
 
 ## perf
 
@@ -68,4 +68,21 @@ sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
 
 ```shell
 pidstat -C <executable_name> -r
+```
+
+## Network
+
+* Throughput
+
+```shell
+# Run the server
+iperf3 -s
+# Run the client
+iperf3 -c 127.0.0.1 -t 10 -i 1
+```
+
+* Latency
+
+```shell
+ping -c 100 127.0.0.1
 ```
