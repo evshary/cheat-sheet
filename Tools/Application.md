@@ -8,13 +8,8 @@
   * Show HEX display of files.
 * [Meld](https://meldmerge.org)
   * Show the difference between files and folders
-* [Git](https://git-scm.com)
-  * Windows installation
 * [TortoiseGit](https://tortoisegit.org)
   * GUI tools for git.
-* [Python](https://www.python.org/downloads/)
-* [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/zh-hant/downloads/?rr=https%3A%2F%2Findex.ros.org%2Fdoc%2Fros2%2FInstallation%2FDashing%2FWindows-Install-Binary%2F)
 * [Insomnia](https://insomnia.rest/)
   * RESTful API client
 
@@ -58,11 +53,6 @@
   * Show wifi channels detail. Only works in Linux.
   * `sudo apt install linssid`
 
-### Remote
-
-* [TeamViewer](https://www.teamviewer.com/tw/download/windows/)
-  * Remote access device.
-
 ## System
 
 * [7-Zip](https://www.developershome.com/7-zip/)
@@ -81,8 +71,6 @@
   * torrent Downloader
 * [KeePass](https://keepass.info)
   * Maintain the password.
-* [Chocolatey](https://chocolatey.org/install)
-  * Install packages to Windows
 
 ## Virtual Machine
 
@@ -94,8 +82,6 @@
 * [LibreOffice](https://zh-tw.libreoffice.org)
 * [Texmaker](https://www.xm1math.net/texmaker/)
   * LaTex editor
-* [Poedit](https://poedit.net/download)
-  * PO file editor
 * [Kernel Outlook PST Viewer](https://www.nucleustechnologies.com/pst-viewer.html)
   * Able to view outlook mail but unable to export attachment.
 * [CoolUtils Outlook Viewer](https://www.coolutils.com/OutlookViewer)
@@ -105,26 +91,14 @@
 * [Foxit Reader](http://www.foxitsoftware.tw/downloads/)
   * Cross-platform PDF reader.
 
-## Community
-
-* [Telegram](https://telegram.org)
-
 ## Vedio and Music
 
 * [VLC media player](https://www.videolan.org/vlc/index.zh-TW.html)
   * MultiMedia palyer.
 * [AIMP](http://www.aimp.ru)
   * Music Player.
-* [Format Factory](http://www.pcfreetime.com)
-  * MultiMedia files converter.
 * [youtube-dlG](https://github.com/MrS0m30n3/youtube-dl-gui)
   * Youtube Downloader.
-* [Freemake Video Converter](https://www.freemake.com/tw/free_video_converter/)
-  * Burn DVD file.
-* [BurnAware](http://www.burnaware.com)
-  * Create iso file or burn CD file.
-* [ActivePresenter](https://atomisystems.com/download/)
-  * Screen Recorder.
 * [OBS Studio](https://obsproject.com/)
   * Screen Recorder for multi-platform.
 * [Kazam](https://github.com/henrywoo/kazam)
@@ -134,8 +108,19 @@
 * [Kdenlive](https://kdenlive.org/zh/)
   * Video editor
 
+### Convertor
+
+* [Format Factory](http://www.pcfreetime.com)
+  * MultiMedia files converter (Only Windows).
+* [Freemake Video Converter](https://www.freemake.com/tw/free_video_converter/)
+  * Burn DVD file (Only Windows).
+* [BurnAware](http://www.burnaware.com)
+  * Create iso file or burn CD file (Only Windows).
+
 ## Others
 
+* [Chocolatey](https://chocolatey.org/install)
+  * Install packages to Windows
 * [Ninite](https://ninite.com/)
   * Install and update everything at once.
 * [MuseScore](https://musescore.org/)
