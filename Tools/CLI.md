@@ -32,7 +32,6 @@
 ### Others
 
 * ipython: Better shell for python.
-* silversearcher-ag: Used to find the string efficiently.
 * cloc: Calculating the line of program.
 * ctags: Used to find symbol of C/C++.
 * astyle: Adjust the coding style.
@@ -95,15 +94,6 @@
 * mocp: CLI music player
   * `sudo apt install moc moc-ffmpeg-plugin`
   * `mocp`: Run the music player
-* [Live Captions](https://opensource.com/article/23/2/live-captions-linux)
-
-   ```shell
-   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-   flatpak install flathub net.sapples.LiveCaptions
-   # Run
-   flatpak run net.sapples.LiveCaptions
-   ```
-
 * Fix alt-F4 between vscode and chrome on Ubuntu
   * [workaround](https://github.com/lucasresck/gnome-shell-extension-alt-tab-scroll-workaround)
   * Note the gnome version (checked by `gnome-shell --version`) and switch the specific tag
