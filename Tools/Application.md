@@ -116,6 +116,12 @@
   * Burn DVD file (Only Windows).
 * [BurnAware](http://www.burnaware.com)
   * Create iso file or burn CD file (Only Windows).
+* [Sound Juicer](https://gitlab.gnome.org/GNOME/sound-juicer)
+  * Linux: `sudo apt install sound-juicer`
+* [MakeMKV](https://www.makemkv.com/)
+  * Extract videos from DVD. (Multi-Platform)
+  * Use [flathub](https://flathub.org/apps/com.makemkv.MakeMKV) for Linux.
+  * [Test key for beta version](https://forum.makemkv.com/forum/viewtopic.php?f=5&t=1053&ref=blog.strits.dk)
 
 ## Others
 
