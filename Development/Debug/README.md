@@ -2,6 +2,33 @@
 
 List some debug methods
 
+## GDB
+
+![image](https://github.com/user-attachments/assets/be43828c-0309-4b53-a27e-ffc65d8cf1ef)
+
+The image is from [here](https://aosabook.org/en/v2/gdb.html)
+
+Disable the resource control first: `ulimit -c unlimited`
+
+Get the core dump:
+
+* Native host
+  * The coredump can be found here `/var/lib/apport/coredump`
+* Docker
+  1. Run docker in privileged mode:
+  2. Assign the path to sore coredump: `echo "/tmp/core.%e.%p.%h.%t" > /proc/sys/kernel/core_pattern`
+
+After getting the coredump:
+
+1. Use gdb to analyze: `gdb ./executable /tmp/core.xxx`
+2. Run `bt` to get backtrace
+
+If debugging multithreaded
+
+* `info threads`: List all threads
+* `thread <id>`: Switch thread
+* `bt` or `thread apply all bt`: Check backtrace
+
 ## Address Sanitizer
 
 ASan will insert stub into functions like malloc / free.
