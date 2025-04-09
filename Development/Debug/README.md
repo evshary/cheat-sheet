@@ -29,6 +29,13 @@ If debugging multithreaded
 * `thread <id>`: Switch thread
 * `bt` or `thread apply all bt`: Check backtrace
 
+GUI version: cgdb
+
+```shell
+sudo apt install cgdb
+sudo cgdb -- -p <PID>
+```
+
 ## Address Sanitizer
 
 ASan will insert stub into functions like malloc / free.
