@@ -18,7 +18,11 @@
   echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
   ```
 * Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
-* Upload the file to [the firefox profiler](https://profiler.firefox.com/)
+* Once the program stopped, we can access the result with `127.0.0.1:3000`
+* If running the test on remote side, use port forward:
+  * SSH command: `ssh -L 3000:localhost:3000 user@server.ip`
+  * vscode remote ssh port forwarding
+* Run the existing result: `samply load profile.json.gz -P 3000`
 
 ## perf
 
