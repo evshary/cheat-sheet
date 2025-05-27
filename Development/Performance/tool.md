@@ -1,5 +1,25 @@
 # Performance Tool
 
+## samply
+
+[Samply](https://github.com/mstange/samply) is an better version of flamegraph.
+
+* Install simply: `cargo install --locked samply`
+* If you're using in Rust project
+  * Create a global cargo profile: `~/.cargo/config.toml`
+    ```toml
+    [profile.profiling]
+    inherits = "release"
+    debug = true
+    ```
+  * Build with the profile: `cargo build --profile profiling`
+* Grant access to performance events system
+  ```
+  echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
+  ```
+* Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
+* Upload the file to [the firefox profiler](https://profiler.firefox.com/)
+
 ## perf
 
 ### Installation
