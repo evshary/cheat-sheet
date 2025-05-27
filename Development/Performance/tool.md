@@ -1,30 +1,21 @@
 # Performance Tool
 
-## samply
-
-[Samply](https://github.com/mstange/samply) is an better version of flamegraph.
-
-* Install simply: `cargo install --locked samply`
-* If you're using in Rust project
-  * Create a global cargo profile: `~/.cargo/config.toml`
-    ```toml
-    [profile.profiling]
-    inherits = "release"
-    debug = true
-    ```
-  * Build with the profile: `cargo build --profile profiling`
-* Grant access to performance events system
-  ```
-  echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
-  ```
-* Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
-* Once the program stopped, we can access the result with `127.0.0.1:3000`
-* If running the test on remote side, use port forward:
-  * SSH command: `ssh -L 3000:localhost:3000 user@server.ip`
-  * vscode remote ssh port forwarding
-* Run the existing result: `samply load profile.json.gz -P 3000`
-
 ## perf
+
+* `perf_events` is a subsystem inside the Linux kernel to collect different kinds of events.
+* `perf` is a user-space tool to coordinate with `perf_events`.
+
+![image](https://github.com/user-attachments/assets/9e8f14d7-b7a4-4107-af70-f40b0a91de02)
+
+From [深入探索 perf CPU Profiling 实现原理](https://mazhen.tech/p/%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2-perf-cpu-profiling-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/)
+
+`cpu-clock` event is to trace the cycle of CPU.
+We can use this to trigger sampling the current running function.
+Then we will know which function takes more time.
+
+![image](https://github.com/user-attachments/assets/5524ec46-b39d-4f16-8e1a-99d189a55150)
+
+From [一文看懂 Linux 性能分析｜perf原理（超详细~）](https://zhuanlan.zhihu.com/p/573633261)
 
 ### Installation
 
@@ -83,6 +74,30 @@ sudo perf script -i perf.data &> perf.unfold
 sudo ./FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
 sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
 ```
+
+## samply
+
+[Samply](https://github.com/mstange/samply) is an better version of flamegraph.
+
+* Install simply: `cargo install --locked samply`
+* If you're using in Rust project
+  * Create a global cargo profile: `~/.cargo/config.toml`
+    ```toml
+    [profile.profiling]
+    inherits = "release"
+    debug = true
+    ```
+  * Build with the profile: `cargo build --profile profiling`
+* Grant access to performance events system
+  ```
+  echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
+  ```
+* Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
+* Once the program stopped, we can access the result with `127.0.0.1:3000`
+* If running the test on remote side, use port forward:
+  * SSH command: `ssh -L 3000:localhost:3000 user@server.ip`
+  * vscode remote ssh port forwarding
+* Run the existing result: `samply load profile.json.gz -P 3000`
 
 ## Memory usage
 
