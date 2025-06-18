@@ -4,3 +4,5 @@
 asan.log*
 ubsan.log*
 valgrind.log
+# heaptrack log
+*.zst

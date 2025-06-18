@@ -6,7 +6,7 @@ List some debug methods
 
 ![image](https://github.com/user-attachments/assets/be43828c-0309-4b53-a27e-ffc65d8cf1ef)
 
-The image is from [here](https://aosabook.org/en/v2/gdb.html)
+[image source](https://aosabook.org/en/v2/gdb.html)
 
 Disable the resource control first: `ulimit -c unlimited`
 
@@ -38,7 +38,7 @@ sudo cgdb -- -p <PID>
 
 ## Address Sanitizer
 
-ASan will insert stub into functions like malloc / free.
+ASan will insert stub into functions like malloc / free in the compile time.
 
 ```shell
 # Enable address sanitizer
@@ -68,7 +68,7 @@ UBSAN_OPTIONS=halt_on_error=1:log_path=ubsan.log:print_stacktrace=1 ./int_overfl
 
 ## Valgrind
 
-Valgrind transforms the binary into IR and runs it in VM, so it's slow.
+Valgrind transforms the binary into IR and runs it in VM, so it's slow but precise.
 
 ```shell
 # Installation
@@ -77,6 +77,21 @@ sudo apt install valgrind
 make valgrind
 # Test memory leak
 valgrind --leak-check=full --log-file=valgrind.log ./memory_leak.out
+```
+
+## heaptrack
+
+Use `LD_PRELOAD` to replace malloc and free function, so don't need to recompile.
+
+```shell
+# Installation
+sudo apt install heaptrack heaptrack-gui
+# Build
+make heaptrack
+# Test memory leak
+heaptrack ./memory_leak.out
+# Show GUI
+heaptrack_gui heaptrack.memory_leak.out.*.zst
 ```
 
 ### Reference
