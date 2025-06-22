@@ -86,7 +86,7 @@ fn show_b(b: &B) {
 fn main() {
     let a = A { inner: B { value: 42 } };
 
-    let ra = &(*a);   // without auto coercion
+    let rb = &(*a);   // without auto coercion
     let rb: &B = &a;  // with auto coercion
 
     show_b(&(*a));    // without auto coercion
