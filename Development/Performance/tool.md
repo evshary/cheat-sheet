@@ -94,7 +94,9 @@ sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
 * Grant access to performance events system
 
   ```shell
-  echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
+  echo '1'| sudo tee /proc/sys/kernel/perf_event_paranoid
+  # You might need more permission if running inside the docker
+  echo '-1' | sudo tee /proc/sys/kernel/perf_event_paranoid
   ```
 
 * Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
