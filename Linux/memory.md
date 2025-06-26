@@ -8,4 +8,6 @@
 * Slab: There are different-size cache inside kernel having multiple slabs, that can be reused.
   * We can check with `/proc/slabinfo`.
 
+![image](https://github.com/user-attachments/assets/f7e4f87b-26e5-4c95-8047-415b698e4bbf)
+
 [The image source](https://hammertux.github.io/slab-allocator)
