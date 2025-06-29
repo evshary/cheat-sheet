@@ -1,4 +1,6 @@
-# List GPU
+# GPU
+
+## List GPU
 
 * List GPU devices
 
@@ -15,9 +17,9 @@ lspci | grep VGA
 sudo lspci -vs [PCI bus number]
 ```
 
-# Installation
+## Installation
 
-## NVIDIA GPU in Ubuntu
+### NVIDIA GPU in Ubuntu
 
 * Install drivers
 
@@ -45,7 +47,7 @@ sudo nvidia-settings
 sudo dpkg -P $(dpkg -l | grep nvidia | awk '{print $2}')
 ```
 
-## CUDA
+### CUDA
 
 * Install
 
@@ -68,7 +70,7 @@ sudo apt remove "cuda-*"
 sudo apt remove "libnv*"
 ```
 
-# Select GPU
+## Select GPU
 
 * Chech which GPU you are using
 
@@ -77,7 +79,7 @@ prime-select query
 ```
 
 * Decide to use NVIDIA GPU (Need to reboot)
-  - If the command doesn't work, make sure gpu-manager is working: `sudo systemctl enable gpu-manager`
+  * If the command doesn't work, make sure gpu-manager is working: `sudo systemctl enable gpu-manager`
 
 ```bash
 prime-select nvidia
@@ -91,7 +93,7 @@ glxinfo | grep vendor
 ```
 
 * Optional: you can use environmental variables to make some application run on NVIDIA GPU
-  - Refer to [Prime-select - Nvidia selected but not used](https://forums.developer.nvidia.com/t/prime-select-nvidia-selected-but-not-used/121108/4)
+  * Refer to [Prime-select - Nvidia selected but not used](https://forums.developer.nvidia.com/t/prime-select-nvidia-selected-but-not-used/121108/4)
 
 ```bash
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor
@@ -99,7 +101,7 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vend
 
 * Note: I found that the system will use your display GPU as default, so use the display of the GPU you want to set as default is a better idea.
 
-# stress GPU
+## stress GPU
 
 Use [gpu-burn](https://github.com/wilicc/gpu-burn)
 
@@ -117,10 +119,9 @@ make
 ./gpu_burn
 ```
 
-# Benchmark GPU
+## Benchmark GPU
 
-Refer to [How can I tell, how well my graphics card performs on Ubuntu?](https://askubuntu.com/questions/1046812/how-can-i-tell-how-well-my-graphics-card-performs-on-ubuntu) and [
-How to Benchmark your GPU on Linux](https://www.howtoforge.com/tutorial/linux-gpu-benchmark/)
+Refer to [How can I tell, how well my graphics card performs on Ubuntu?](https://askubuntu.com/questions/1046812/how-can-i-tell-how-well-my-graphics-card-performs-on-ubuntu) and [How to Benchmark your GPU on Linux](https://www.howtoforge.com/tutorial/linux-gpu-benchmark/)
 
 Although there are 3 tools, we still suggest to use glmark2.
 mesa-utils can't stress the GPU, and Valley can only run on x86 platform.
