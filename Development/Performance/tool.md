@@ -133,6 +133,8 @@ sudo perf script | inferno-collapse-perf | inferno-flamegraph > flamegraph.svg
   * vscode remote ssh port forwarding
 * Run the existing result: `samply load profile.json.gz -P 3000`
 * If you want to share the result with others, you can choose "Upload Local Profile".
+  * Download the result, and show it in [Firefox Profiler](https://profiler.firefox.com)
+  * Generate a permanant link
 
 ## Memory usage
 
