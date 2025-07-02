@@ -44,7 +44,8 @@ sudo sh -c " echo 0 > /proc/sys/kernel/kptr_restrict"
 * Record and show result
   * `sudo perf record -F 50000 -g -e cpu-clock <executable>`: Test and record result into perf.data
     * `-F <freq>`: Increase the sampling frequency
-    * `-g`: Add calling graph
+    * `-g`: Add calling graph, equals to `--call-graph fp`
+    * `--call-graph dwarf`: dwarf (debug information format) is more accurate than fp
     * `-e <event>`: Record events
   * `sudo perf report`: read perf.data and show the result.
 
@@ -59,20 +60,44 @@ git clone https://github.com/brendangregg/FlameGraph.git
 * Record
 
 ```shell
-sudo perf record -e cpu-clock -g <executable>
-```
-
-* Parse with script
-
-```shell
-sudo perf script -i perf.data &> perf.unfold
+sudo perf record --call-graph dwarf <executable>
 ```
 
 * Generate svg
+  * You can ignore messages like `addr2line /root/.debug/.build-id/xx/xxxxxx/elf: could not read first record`
 
 ```shell
+# Step by step
+sudo perf script -i perf.data &> perf.unfold
 sudo ./FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
 sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
+# One line solution
+sudo perf script | ./FlameGraph/stackcollapse-perf.pl | ./FlameGraph/flamegraph.pl > perf.svg
+```
+
+### FlameGraph (Rewrite in Rust)
+
+* Installation
+
+```shell
+cargo install inferno
+```
+
+* Record
+
+```shell
+sudo perf record --call-graph dwarf <executable>
+```
+
+* Generate svg
+  * You can ignore messages like `addr2line /root/.debug/.build-id/xx/xxxxxx/elf: could not read first record`
+
+```shell
+# Step by step
+sudo perf script | inferno-collapse-perf > stacks.folded
+cat stacks.folded | inferno-flamegraph > flamegraph.svg
+# One line solution
+sudo perf script | inferno-collapse-perf | inferno-flamegraph > flamegraph.svg
 ```
 
 ## samply
@@ -99,12 +124,15 @@ sudo ./FlameGraph/flamegraph.pl perf.folded > perf.svg
   echo '-1' | sudo tee /proc/sys/kernel/perf_event_paranoid
   ```
 
-* Record: `samply record ./my-application my-arguments` or `samply record ./target/profiling/yourrustprogram`
+* Record
+  * `samply record ./my-application my-arguments`
+  * `samply record ./target/profiling/yourrustprogram`
 * Once the program stopped, we can access the result with `127.0.0.1:3000`
 * If running the test on remote side, use port forward:
   * SSH command: `ssh -L 3000:localhost:3000 user@server.ip`
   * vscode remote ssh port forwarding
 * Run the existing result: `samply load profile.json.gz -P 3000`
+* If you want to share the result with others, you can choose "Upload Local Profile".
 
 ## Memory usage
 
