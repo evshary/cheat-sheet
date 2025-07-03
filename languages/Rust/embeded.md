@@ -57,3 +57,9 @@ Drivers can call the trait function, and device vendors just needs to implement 
 |            硬體晶片             |
 +--------------------------------+
 ```
+
+## embassy
+
+Provide a framework for aync in embedded systems.
+
+It also provides `embassy-hal` for the abstraction.
