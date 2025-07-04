@@ -34,10 +34,8 @@ sudo apt install libopencv-dev -y
 
 ## PyTorch
 
+* Download the library from [the official website](https://pytorch.org/get-started/locally/)
+
 ## ONNX
 
-```shell
-sudo apt install onnx-dev -
-```
-
-* The cmake location is under `/usr/lib/x86_64-linux-gnu/cmake/ONNX/`
+* Download the library from [GitHub](https://github.com/microsoft/onnxruntime/releases)
