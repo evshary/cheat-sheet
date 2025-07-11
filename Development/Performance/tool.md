@@ -3,6 +3,7 @@
 ## CPU Usage
 
 * [perf](perf.md)
+* [LTTng](LTTng.md)
 
 ## Memory usage
 
