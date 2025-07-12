@@ -34,8 +34,13 @@ otherlib = { local = "../otherlib" }
 * sui client
 
 ```shell
+# Create a new address (Remember to record the recovery phrase)
+sui client new-address ed25519
 # Get all the address
 sui client addresses
+# Switch address
+sui client switch --address <address>
+# Get the token from https://faucet.sui.io/?network=testnet
 # Get remaining gas
 sui client gas
 # Get the current coin (Merge all the objects)
@@ -49,3 +54,7 @@ sui client objects --json
 sui client call --package your_pkg_id --gas-budget 300000000 --module your_module --function your_function
 sui client call --package your_pkg_id --gas-budget 300000000 --module your_module --function your_function --args <arg1> <arg2> ...
 ```
+
+## Note
+
+* If you want to pass an object type that generated from other contract as an argument, you need to put the package ID on the `published-at` and `[address]` field.
