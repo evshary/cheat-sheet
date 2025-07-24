@@ -22,24 +22,24 @@
   * Upgrade certain: `apt install <PACKAGES>`
   * Only upgrade packages: `apt --only-upgrade install <PACKAGES>`
   * Only upgrade ROS foxy packages: `apt --only-upgrade install "^ros-foxy-*"`
-* Install certain version
-  * Check packages version: `apt policy <PACKAGES>`
+* Install a certain version
+  * Check package version and the repository it's from: `apt policy <PACKAGES>`
   * Install certain version: `apt install <PACKAGES>=<VERSION>`
 * Show dependency of the package
   * `sudo apt-cache depends <PACKAGES>`
-* Search pkg with the contents
+* Search the pkg with the contents
 
   ```bash
   sudo apt install apt-file
   sudo apt update
   # Which packages contain a certain file
   apt-file search <FILE_NAME>
-  # List the all contents of one package
+  # List all the contents of one package
   apt-file list <PACKAGE NAME>
   ```
 
 * Clean apt cache
-  * While dpkg install deb, deb files will put under `/var/cache/apt/archives/`
+  * While dpkg installs deb, deb files will be put under `/var/cache/apt/archives/`
 
   ```bash
   # Clean all deb files
@@ -48,7 +48,7 @@
   apt autoclean
   ```
 
-* Check the content of certain package
+* Check the content of a certain package
 
   ```bash
   apt download <PACKAGES>
