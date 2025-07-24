@@ -39,3 +39,7 @@ sudo apt install libopencv-dev -y
 ## ONNX
 
 * Download the library from [GitHub](https://github.com/microsoft/onnxruntime/releases)
+
+## TensorRT
+
+* Download the library from [the official website](https://developer.nvidia.com/tensorrt)
