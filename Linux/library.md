@@ -2,15 +2,24 @@
 
 There are two kinds of library in Linux: static and dynamic library
 
-# static library
+## static library
 
 It contains all of the object files in *.a
 
-# dynamic library
+## dynamic library
 
 It ends with .so, and you can use `ldd` to check where it links to.
 
-# library in library
+The priority:
+
+* `RPATH` (deprecated in favor of `RUNPATH`)
+* `LD_LIBRARY_PATH`
+* `RUNPATH`
+* Directories from `/etc/ld.so.conf`
+* `/lib`
+* `/usr/lib`
+
+## library in library
 
 * link static library A to static library B: This should be OK.
 * link static library A to dynamic library B: Not suggest, it'll lose the benefits of dynamic library (position independent)
