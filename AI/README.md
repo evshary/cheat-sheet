@@ -51,3 +51,7 @@ sudo cp /var/nv-tensorrt-local-repo-xxxx-yyyy/*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt install tensorrt-dev
 ```
+
+## [TensorBoard](https://www.tensorflow.org/tensorboard?hl=zh-tw)
+
+A visualization tool for TensorFlow.
