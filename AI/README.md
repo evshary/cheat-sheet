@@ -43,3 +43,11 @@ sudo apt install libopencv-dev -y
 ## TensorRT
 
 * Download the library from [the official website](https://developer.nvidia.com/tensorrt)
+* Install the library based on [the tutorial](https://docs.nvidia.com/deeplearning/tensorrt/latest/installing-tensorrt/installing.html)
+
+```shell
+sudo apt install ./<tensorrt.deb>
+sudo cp /var/nv-tensorrt-local-repo-xxxx-yyyy/*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt install tensorrt-dev
+```
