@@ -20,9 +20,11 @@ pidstat -C <executable_name> -r
 * Throughput
 
 ```shell
+# Installation
+sudo apt install iperf3
 # Run the server
 iperf3 -s
-# Run the client
+# Run the client (Run 10 sec and show report every 1 sec)
 iperf3 -c 127.0.0.1 -t 10 -i 1
 ```
 
