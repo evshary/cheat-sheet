@@ -80,14 +80,60 @@ cargo build --release
 cargo run
 ```
 
+### Version
+
+rustup can manage the Rust toolchain version you want to use.
+
+There are 3 release channels
+
+* stable: released in every 6 weeks
+* beta: The next release stable (update every 6 weeks)
+* nightly: Update every night
+
+```bash
+# Show the current version we are using
+rustup show
+# List all the downloaded toolchains
+rustup toolchain list
+# Set the default toolchain version
+rustup default stable
+rustup default 1.85.0
+# Install a specific toolchain version
+rustup toolchain install nightly
+rustup toolchain install 1.85.0
+```
+
+The priority of the version:
+
+* Specify the version in the CLI
+  * `cargo +nightly clippy`
+  * `cargo +1.85.0 clippy`
+* Use the version in `rust-toolchain.toml`
+* Use the default version in rustup
+
+The full version is `<channle/version>-<target tripple>`
+
+For example: `stable-x86_64-unknown-linux-gnu` or `1.75.0-x86_64-pc-windows-msvc`
+
 ### Platform
 
-We can add `--target=xxx` to compile with on different platform.
+rustup support cross platform compilation.
 
-* ARM64: `--target=aarch64-unknown-linux-gnu`
-* ARM32: `--target=arm-unknown-linux-gnueabi`
+Here is the [platform support list](https://doc.rust-lang.org/nightly/rustc/platform-support.html)
 
-More platform can refer to [here](https://doc.rust-lang.org/nightly/rustc/platform-support.html)
+* Add the target
+
+```bash
+rustup target add x86_64-pc-windows-msvc
+rustup target add aarch64-unknown-linux-gnu
+```
+
+* Run commands with the taget
+
+```bash
+cargo build --target=x86_64-pc-windows-msvc
+cargo build --target=aarch64-unknown-linux-gnu
+```
 
 ## Important Concept
 
