@@ -2,13 +2,13 @@
 
 tmux session manager: Able to load tmux config directly.
 
-# installation
+## installation
 
 ```py
 python3 -m pip install tmuxp
 ```
 
-# Run
+## Run
 
 * Create config file
 
@@ -18,7 +18,7 @@ python3 -m pip install tmuxp
 tmuxp load ./mysession.yaml
 ```
 
-# YAML example
+## YAML example
 
 * 3 panes in one window
 
@@ -51,8 +51,7 @@ windows:
       - echo 'This is pane 4' # pane no. 4
 ```
 
-
-# Reference
+## Reference
 
 * [tmuxp Official Website](https://tmuxp.git-pull.com/)
 * [如何使用 Tmuxp 来优雅的管理多个 Tmux 会话](https://blog.csdn.net/easylife206/article/details/116473899)
