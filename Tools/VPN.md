@@ -3,21 +3,21 @@
 There are two solutions:
 
 * OpenVPN
-  * Complete solution supporting many algorithm.
-  * Run in the user level
+  * Complete solution supporting many algorithms.
+  * Run at the user level
   * Stateful
 * WireGuard
   * Lightweight with the modern algorithm
-  * Run in the kernel level
+  * Run at the kernel level
   * Stateless
 
-We suggest to use WireGuard here.
+We suggest using WireGuard here.
 
 ## WireGuard
 
 ### Installation
 
-* Install WireGuard no matter on client and server side
+* Install WireGuard on both the client and server sides
 
 ```bash
 sudo apt update
@@ -30,7 +30,7 @@ sudo apt install wireguard
 # Server
 wg genkey | tee privatekey_server | wg pubkey > publickey_server
 # Client
-wg genkey | tee privatekey_client | wg pubkey > publickey_clientwg gen
+wg genkey | tee privatekey_client | wg pubkey > publickey_client
 ```
 
 * (Server side) The configuration: `/etc/wireguard/wg0.conf`
