@@ -21,6 +21,8 @@ sudo lspci -vs [PCI bus number]
 
 ### NVIDIA GPU in Ubuntu
 
+When we install NVIDIA GPU driver, the CUDA driver will be also installed.
+
 * Install drivers
 
 ```shell

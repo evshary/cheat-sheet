@@ -2,10 +2,6 @@
 
 ## Common concepts
 
-* GPU: hardware
-* CUDA driver: Part of the GPU driver. Take care of CUDA function and provide API for tools like nvidia-smi
-* CUDA toolkit: Provide tool and library, like nvcc and runtime.
-* cuDNN: Provide deep learning functions based on CUDA.
 * Application:
   * OpenCV: Computer vision library
   * GStreamer: Multi-media pipeline
@@ -17,10 +13,31 @@
     * OpenVINO: Proposed by Intel
     * ONNX: General framework for CPU, CUDA, TensorRT, OpenVINO...
 
+* NVIDIA Stack
+
+```raw
++-----------------------------------------------------------------------+
+|         Training                 |            Inference               |
+|        PyTorch (META)            |        TensorRT (NVIDIA)           |
+|     TensorFlow (Google)          |                                    |
++-----------------------------------------------------------------------+
+|                   cuDNN (Optimized Primitives)                        |
+|                CUDA Deep Neural Network Library.                      |
+|           Provide deep learning functions based on CUDA.              |
++-----------------------------------------------------------------------+
+|                 CUDA (development environment)                        |
+|          Provide tool and library, like nvcc and runtime.             |
++-----------------------------------------------------------------------+
+|              NVIDIA GPU driver (including CUDA driver)                |
+|         CUDA driver: provide API for tools like nvidia-smi            |
++-----------------------------------------------------------------------+
+|                      NVIDIA GPU (Hardware)                            |
++-----------------------------------------------------------------------+
+```
+
 ## CUDA
 
-* Follow the instructions in [GPU.md](GPU.md)
-* The binaries should be under `/usr/local/cuda-12.x/`
+Follow the instructions in [GPU.md](GPU.md) to install GPU driver (including CUDA driver) and CUDA toolkit.
 
 ## OpenCV
 
