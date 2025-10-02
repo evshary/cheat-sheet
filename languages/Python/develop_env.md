@@ -49,12 +49,61 @@ Used to install packages for Python.
   * `python3 -m pip list -v`: more detail with path
 * Upgrade pip: `python3 -m pip install --upgrade pip`
 
-## Suggested configuration
+## Useful tools
 
-We recommend using:
-
+* uv (suggested): It's fast and able to do all the things
 * pyenv: Manage the Python version
 * poetry: Manage the project packages
+* virtualevn: Manage the virtual environment
+
+## uv
+
+* Install uv
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+* Install python
+
+```bash
+# List the available Python
+uv python list
+# Install the latest Python
+uv python install
+# Install a specific Python version
+uv python install 3.10
+# Unstall Python
+uv python uninstall 3.10
+# Pin the default Python (create .python-version on the current folder)
+uv python pin 3.12
+```
+
+* Run Python
+
+```bash
+# Use default Python to run
+uv run demo.py
+# Run with a specific Python version
+uv run --python 3.10 demo.py
+```
+
+* Create a new project
+
+```bash
+# Create a new project. Will create pyproject.toml and .python-version
+uv init [project name]
+# With a specific version
+uv init [project name] --python 3.10
+# Add a new package
+uv add [package name]
+# Remove a package
+uv remove [package name]
+# Upgrade a specific package
+uv lock --upgrade-package [package name]
+# Upgrade all packages
+uv lock --upgrade
+```
 
 ## pyenv
 
@@ -80,7 +129,7 @@ eval "$(pyenv init -)"
 ```bash
 # List all the Python
 pyenv install --list
-# Install the specific Python version 
+# Install the specific Python version
 pyenv install -v <version>
 # Check the installed Python version
 pyenv versions
