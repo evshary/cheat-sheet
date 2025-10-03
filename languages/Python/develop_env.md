@@ -86,6 +86,8 @@ uv python pin 3.12
 uv run demo.py
 # Run with a specific Python version
 uv run --python 3.10 demo.py
+# Run with a specific Python version and packages
+uv run --python 3.11 --with rich test.py
 ```
 
 * Create a new project
@@ -99,10 +101,14 @@ uv init [project name] --python 3.10
 uv add [package name]
 # Remove a package
 uv remove [package name]
+# Apply the change from pyproject.toml to uv.lock
+uv lock
 # Upgrade a specific package
 uv lock --upgrade-package [package name]
 # Upgrade all packages
 uv lock --upgrade
+# Update the whole environment and packages
+uv sync
 ```
 
 ## pyenv
