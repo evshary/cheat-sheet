@@ -1,24 +1,26 @@
-# Task Priority
+# Task
 
-## introduction
+## Priority
+
+### introduction
 
 The total number of priorities is 140
 
-- realtime range: 0-99
-- user space priority range: 100-139
+* realtime range: 0-99
+* user space priority range: 100-139
 
 For user space priority, there can be represented as two values: Nice(NI) and Priority(PR or PRI).
 
-- Actual priority: 100-139
-- NI: -20-19
-- PR: 0-39
+* Actual priority: 100-139
+* NI: -20-19
+* PR: 0-39
 
 So you can know that: PR = 20 + NI
 
-## Adjust priority
+### Adjust priority
 
 * Run command with specific priority.
-  - if you want negative value, need root privilege.
+  * if you want negative value, need root privilege.
 
 ```bash
 # nice -n [nice-value] [commands]
@@ -32,7 +34,7 @@ nice -n -20 ./your_application
 renice -n -20 -p 1055
 ```
 
-# CPU affinity
+## CPU affinity
 
 We can use taskset to view/set the relationship of tasks and CPU.
 
