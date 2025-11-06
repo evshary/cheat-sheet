@@ -83,7 +83,15 @@
   * Installation: `sudo apt install dcmtk`
   * Transform: `dcm2pnm --write-png image.dcm output.png`
 
-## Video & Audio
+## Images & Video & Audio
+
+* HEIC convertor:
+
+  ```bash
+  sudo add-apt-repository ppa:strukturag/libheif
+  sudo apt install libheif-examples
+  heif-convert a.HEIC a.jpg
+  ```
 
 * [youtube-dl](https://evshary.github.io/2018/11/25/youtube-dl網路影片下載器/): Youtube downloader.
   * [yt-dlp](https://github.com/yt-dlp/yt-dlp): youtube-dl 的 fork，但速度更快
