@@ -9,7 +9,7 @@
     * Regression/Classification: SVM, Naive Bayes
     * Tree-Based Models: Decision Trees, Random Forests
     * Clustering: K-Means
-    * Reimforcement Learning:
+    * Reinforcement Learning
     * Deep Learning:
    	  * Sequential/Language/Action
    	    * RNN
@@ -20,6 +20,10 @@
  	  * Generative/Unsupervised
  	    * GANs
  	    * Diffusion Models (Midjourney)
+* Robots:
+  * Imitation Learning: Learn basic skills
+  * Reinforcement Learning: Learn in complicated scenarios
+  * VLA (Vision-Language-Action Models): Receive humans' commands and react to the environment
 * Application:
   * OpenCV: Computer vision library
   * GStreamer: Multi-media pipeline
