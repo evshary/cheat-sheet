@@ -2,6 +2,24 @@
 
 ## Common concepts
 
+* Terminology:
+  * Expert Systems (Database)
+  * Logic Programming (Based on logic)
+  * Machine Learning
+    * Regression/Classification: SVM, Naive Bayes
+    * Tree-Based Models: Decision Trees, Random Forests
+    * Clustering: K-Means
+    * Reimforcement Learning:
+    * Deep Learning:
+   	  * Sequential/Language/Action
+   	    * RNN
+   	    * Transformer (GPT)
+ 	  * Image/Spatial
+ 	    * CNN
+ 	    * Vision Transformer (ViT)
+ 	  * Generative/Unsupervised
+ 	    * GANs
+ 	    * Diffusion Models (Midjourney)
 * Application:
   * OpenCV: Computer vision library
   * GStreamer: Multi-media pipeline
