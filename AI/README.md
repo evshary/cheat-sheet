@@ -6,12 +6,21 @@
   * OpenCV: Computer vision library
   * GStreamer: Multi-media pipeline
   * Training:
-    * PyTorch: Proposed by META
-    * TensorFlow: Proposed by Google
+    * PyTorch: Proposed by META, used in research (format: `.pt`, `.pth`)
+      * HuggingFace:
+        * Blueprint: config.json
+        * Weights: pytorch_model.bin
+    * TensorFlow: Proposed by Google, used in enterprises (format: SavedModel folder)
+      * HuggingFace:
+        * Blueprint: config.json
+        * Weights: tf_model.h5
   * Inference:
-    * TensorRT: Proposed by NVIDIA
-    * OpenVINO: Proposed by Intel
-    * ONNX: General framework for CPU, CUDA, TensorRT, OpenVINO...
+    * TensorRT: Proposed by NVIDIA (format: `.engine`, `.plan`)
+    * TFLite: Proposed by Google (format: `.tflite`)
+    * Core ML: Proposed by Apple (format: `.mlmodel`, `.mlpackage`)
+    * OpenVINO: Proposed by Intel (format: `.xml`, `.bin`)
+    * ONNX: General framework for CPU, CUDA, TensorRT, OpenVINO... (format: .onnx)
+    * ARM's NPU (Ethos) supports TFLite and ONNX
 
 * NVIDIA Stack
 
