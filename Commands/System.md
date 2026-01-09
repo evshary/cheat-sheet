@@ -60,8 +60,15 @@
     * If you don't want to use NTP, restarting the SNTP service is a good way.
   - `timedatectl list-timezones`: List the timezone
   - `timedatectl set-timezone Asia/Taipei`: Set the timezone
-* Save local time into RTC (If you use Windows and Linux in the same machine, it's necessary for time sync)
-  - `sudo hwclock --localtime --systohc`
+* Run in both Linux and Windows
+  - Linux uses UTC, and Windows uses local time, so it makes a difference when they get the RTC Time (Real-Time Clock)
+  - Suggestion: Adjust Windows and keep using UTC
+  - Linux:
+    - Use UTC for RTC: `sudo timedatectl set-local-rtc 0`
+    - Store the time to RTC: `sudo hwclock --systohc`
+    - Run `timedatectl` and you will see RTC and UTC are the same
+  - Windows:
+    - Run Shell: `reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /t REG_DWORD /d 1 /f`
 
 # Others
 
