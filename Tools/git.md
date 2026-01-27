@@ -57,6 +57,19 @@ git commit
 git submodule sync
 ```
 
+## worktree
+
+```bash
+# List the current worktree
+git worktree list
+# Add new worktree
+git worktree add <folder_path> <source_branch>
+# Add new worktree with new branch
+git worktree add -b <new_branch_name> <folder_path> <source_branch>
+# Remove the worktree (Delete the folder first)
+git worktree prune
+```
+
 ## Bisect
 
 ```bash
